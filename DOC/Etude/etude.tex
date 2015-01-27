@@ -53,6 +53,7 @@ Pour ce projet, nous allons devoir réaliser un site responsive qui puisse être
 - Finalité de l'application
 
 
+
 \section{Use Case}
 \begin{figure}[!h]
  \centering
@@ -65,12 +66,14 @@ Enfants et adultes référents
 \chapter{Questions à poser au client}
 
 \begin{itemize}
-\item C'est qui cet adulte référent? 
+\item C'est qui cet adulte référent? Plusieurs?
 \item Il choisi des images pour tout le monde?
 \item Admin, acteur? 
 \item Si c'est côté client ou côté administrateur? 
 \item Niveau des enfants 4, 5 ans? (les enfants ne savent pas lire)
 \item De quoi disposons comme information?
+\item Referent est il toujours present lorsque l'enfant joue?
+\item Referent a un jeux ou plusieurs atcifs simultanement?
 \end{itemize}
 
 \chapter{Idées}
@@ -83,7 +86,7 @@ Liste de jeux ;
 \item Mémo et puzzle (compulsory)
 \end{itemize}
 
-Technos :
+Technologies :
 \begin{itemize}
 \item Utilisation d'un "text to speech" : API -> translate.google.com/translate_tts?tl=fr&q=Bonjour
 \item Utilisation d'un "speech to text" : pas d'API correcte trouvée
@@ -92,6 +95,10 @@ Technos :
 \item Utilisation Framework CSS : Bootstrap
 \end{itemize}
 
+Fonctionnement global (prévison) :
+Page d'acceuil : on retrouve les images de profile des référants ayants une session actives de jeux. 
+L'enfant clique sur sur l'image de son référant et arrive dans le jeux selectionné par celui-ci.
+Le référant peut se connecter afin de créer des sessions de jeux et les activer, les supprimer.
 
 %\listoffigures
 %\addcontentsline{toc}{chapter}{Table des illustrations}
