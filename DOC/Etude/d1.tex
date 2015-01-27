@@ -1,26 +1,3 @@
- Skip to content
-This repository
-
-    Explore
-    Gist
-    Blog
-    Help
-
-    sidya82 sidya82
-
-    6
-    0
-    0
-
-matthieupenchenat81/ModuleWeb
-
-ModuleWeb/DOC/Etude/etude.tex
-sidya82 sidya82 an hour ago
-modifié : DOC/Etude/etude.tex
-
-2 contributors
-sidya82 matthieupenchenat81
-118 lines (87 sloc) 3.865 kb
 \documentclass[12pt,a4paper]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[francais]{babel}
@@ -32,7 +9,7 @@ sidya82 matthieupenchenat81
 \graphicspath{{pic/}}
 \usepackage{authblk}
 \author{Quentin Rouland, Jerome Morjon, Matthieu Penchenat, Alexandre Pereira, Sébastien Bouyt}
-\affil{Université Toulouse, Jean Jaurès - L3 MIASHS - Document D1 : Specification Fonctionnelle}
+\affil{Université Toulouse, Jean Jaurès - L3 MIASHS \\ Document D1 : Specification Fonctionnelle}
 \begin{document}
 \title{Projet Web - AJAX}
 \maketitle
@@ -40,20 +17,24 @@ sidya82 matthieupenchenat81
 \tableofcontents
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
-Scéance 1 26/01/2015 :
+Séance 1 26/01/2015 : \\
 Animateur : Renan Husson
 Secrétaire : Matthieu Penchenat
-Scéance 2 27/01/2015 :
-Animatueur : Matthieu Penchenat
+\newline
+
+Séance 2 27/01/2015 : \\
+Animateur : Matthieu Penchenat
 Secrétaire : Quentin Rouland
+\newline
+
 Objectif :
 Comprendre le sujet
-Preparer un document de spécification
-Preparer les qusetions clients
+Préparer un document de spécification
+Préparer les questions clients
 Proposer des idées innovantes pour le projet
 \chapter{Spécification}
 \section{Speech}
-Dans le cadre du programme culturel de la mairie de Toulouse, les enfants des écoles maternelles effectuent en 2015 une visite au musée des Augustins. Afin de préparer cette visite, il serait intéressant de proposer des outils numériques visant à introduire de manière ludique et intéractive le musée et ses œuvres auprès des enfants.\\
+Dans le cadre du programme culturel de la mairie de Toulouse, les enfants des écoles maternelles effectuent en 2015 une visite au musée des Augustins. Afin de préparer cette visite, il serait intéressant de proposer des outils numériques visant à introduire de manière ludique et interactive le musée et ses œuvres auprès des enfants.\\
 La Mairie de Toulouse nous a donc demandé de réutiliser des données ouvertes publiés sur son portail dans l'objectif de créer un application web visant un public de 4 à 5 ans accompagné de leur adulte référent. La finalité de l'ensemble de l'application devra être la découverte de la culture par les enfants de maternelle.
 Pour ce projet, nous allons devoir réaliser un site responsive qui puisse être adapté sur smartphone, tablette ainsi que sur ordinateur. Ensuite, il faut que ce site soit ergonomique et facile d'utilisation pour un enfant. Il faut qu'il soit intuitif et simple d'utilisation ainsi qu'éducatif et culturel.
 - Jeux
@@ -85,6 +66,8 @@ Liste de jeux ;
 \item Mélange pour facilité (de jeux)
 \item Mémo et puzzle (compulsory)
 \end{itemize}
+
+\medbreak
 Technologies :
 \begin{itemize}
 \item Utilisation d'un "text to speech" : API Goolgle
@@ -93,9 +76,11 @@ Technologies :
 \item Utilisation d'un Framework PHP MVC : .codeigniter
 \item Utilisation Framework CSS : Bootstrap
 \end{itemize}
+
+\medbreak
 Fonctionnement global (prévison) :
-Page d'acceuil : on retrouve les images de profile des référants ayants une session actives de jeux.
-L'enfant clique sur sur l'image de son référant et arrive dans le jeux selectionné par celui-ci.
+\\Page d'accueil : on retrouve les images de profile des référents ayant une session actives de jeux.
+L'enfant clique sur sur l'image de son référent et arrive dans le jeux sélectionné par celui-ci.
 Le référant peut se connecter afin de créer des sessions de jeux et les activer, les supprimer.
 %\listoffigures
 %\addcontentsline{toc}{chapter}{Table des illustrations}
