@@ -5,19 +5,19 @@
         <text>A%20Web%20Page%0Ahttp%3A//</text>
       </controlProperties>
     </control>
-    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="475" y="156" w="-1" h="-1" measuredW="275" measuredH="63" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="353" y="156" w="-1" h="-1" measuredW="539" measuredH="63" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <size>60</size>
-        <text>Bienvenue</text>
+        <text>Selectionnez%20un%20jeu</text>
       </controlProperties>
     </control>
     <control controlID="3" controlTypeID="com.balsamiq.mockups::CoverFlow" x="423" y="271" w="378" h="140" measuredW="493" measuredH="198" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties/>
     </control>
-    <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="565" y="453" w="-1" h="-1" measuredW="115" measuredH="26" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="565" y="453" w="-1" h="-1" measuredW="93" measuredH="26" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <size>18</size>
-        <text>Nom%20Ref%E9rant</text>
+        <text>Nom%20du%20jeu</text>
       </controlProperties>
     </control>
     <control controlID="6" controlTypeID="com.balsamiq.mockups::Canvas" x="486" y="440" w="252" h="86" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1"/>
@@ -26,15 +26,22 @@
         <text>Choisir</text>
       </controlProperties>
     </control>
-    <control controlID="9" controlTypeID="com.balsamiq.mockups::Button" x="938" y="99" w="111" h="42" measuredW="105" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::PointyButton" x="191" y="129" w="-1" h="-1" measuredW="71" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Administration</text>
+        <borderStyle>none</borderStyle>
+        <direction>left</direction>
+        <newLayout>true</newLayout>
+        <text>Retour</text>
       </controlProperties>
     </control>
-    <control controlID="10" controlTypeID="com.balsamiq.mockups::Webcam" x="565" y="300" w="98" h="83" measuredW="177" measuredH="146" zOrder="7" locked="false" isInGroup="-1"/>
-    <control controlID="11" controlTypeID="com.balsamiq.mockups::SearchBox" x="553" y="241" w="-1" h="-1" measuredW="120" measuredH="25" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::FieldSet" x="179" y="277" w="143" h="106" measuredW="200" measuredH="170" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Rechercher</text>
+        <text>Infos</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Label" x="208" y="320" w="-1" h="-1" measuredW="84" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Nom%20R%E9f%E9rant</text>
       </controlProperties>
     </control>
   </controls>
