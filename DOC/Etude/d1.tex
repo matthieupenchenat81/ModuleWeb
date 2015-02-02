@@ -49,47 +49,42 @@ Pour ce projet, nous allons devoir réaliser un site responsive qui puisse être
 Enfants et adultes référents
 \chapter{Questions à poser au client}
 \begin{itemize}
-\item C'est qui cet adulte référent? Plusieurs?
-\item Il choisi des images pour tout le monde?
-\item Admin, acteur?
-\item Si c'est côté client ou côté administrateur?
-\item Niveau des enfants 4, 5 ans? (les enfants ne savent pas lire)
-\item De quoi disposons comme information?
-\item Referent est il toujours present lorsque l'enfant joue?
-\item Referent a un jeux ou plusieurs atcifs simultanement?
+\item C'est qui cet adulte référent?\\
+Un adulte référent est un utilisateur (parent ou enseignant) qui permet de créer différentes sessions. Une session est un ensemble d'image préalablement choisis à partir de différents filtre.
+\item Faut-il un administrateur?\\
+L'administrateur permet de gérer les adultes référents.
+\item Niveau des enfants 4, 5 ans?\\
+Les enfants ne savent pas lire ni écrire. Il faut donc éviter de leur faire lire des textes ni écrire au clavier.
+\item Un référent est il toujours présent lorsque l'enfant joue?\\
+Non, l'enfant peut jouer de chez lui mais il sera quand même au moins guidé par ses parents.
+\item Référent a un jeux ou plusieurs actifs simultanément?\\
+Le référent peut créer plusieurs sessions mais seulement une session peut être activé à la fois (ce qui permet à l'enfant d'arriver directement sur la bonne session sans la sélectionner).
 \end{itemize}
 \chapter{Idées}
 Liste de jeux ;
 \begin{itemize}
-\item Jeux 94 (avec images?)
+\item Jeux 94
 \item Jeux du pendu
 \item Mélange pour facilité (de jeux)
-\item Mémo et puzzle (compulsory)
+\item Mémo et puzzle
 \end{itemize}
 
 \medbreak
 Technologies :
 \begin{itemize}
-\item Utilisation d'un "text to speech" : API Goolgle
+\item Utilisation d'un "text to speech" : API Google
 \item Utilisation d'un "speech to text" : pas d'API correcte trouvée
 \item Base SQL : MySql
-\item Utilisation d'un Framework PHP MVC : .codeigniter
+\item Utilisation d'un Framework PHP MVC : Laravel
 \item Utilisation Framework CSS : Bootstrap
 \end{itemize}
 
 \medbreak
-Fonctionnement global (prévison) :
-\\Page d'accueil : on retrouve les images de profile des référents ayant une session actives de jeux.
-L'enfant clique sur sur l'image de son référent et arrive dans le jeux sélectionné par celui-ci.
-Le référant peut se connecter afin de créer des sessions de jeux et les activer, les supprimer.
-%\listoffigures
-%\addcontentsline{toc}{chapter}{Table des illustrations}
-%\renewcommand{\bibname}{Références}
-%\begin{thebibliography}{9}
-%\bibitem{lamport94}
-% Arte Reportage (arte futur).
-%Disponible sur http://www.arte.tv/guide/fr/plus7/,
-%2014.
-%\end{thebibliography}
-%\addcontentsline{toc}{chapter}{Références}
+Fonctionnement global (prévision) :
+\\Page d'accueil : on retrouve les images de profil des référents ayant une session active de jeux.
+L'enfant clique sur l'image de son référent et arrive dans le jeux sélectionné par celui-ci.
+Le référent peut se connecter afin de créer des sessions de jeux et les activer, les supprimer.\\
+
+
+
 \end{document}
