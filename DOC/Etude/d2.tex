@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{{pic/}}
+\usepackage{authblk}
+\author{Renan Husson, Quentin Rouland, Jerome Morjon, Matthieu Penchenat, Alexandre Pereira, Sébastien Bouyt}
+\affil{Université Toulouse, Jean Jaurès - L3 MIASHS \\ Document D2 : Conceptio}
+\begin{document}
+\title{Projet Web - AJAX}
+\maketitle
+\renewcommand{\contentsname}{Sommaire}
+\tableofcontents
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+02/02/2015 : Animateur : Sebastien Bouyt Secrétaire : Renan Husson 
+03/02/2015 : Animateur : Alexandre Pereira Secrétaire : Rouland Quentin
+
+
+\chapter{Charte graphique}
+\includegraphics[width=350px]{../Maquette/Acceuil.png}\\
+Page d’accueil
+
+\includegraphics[width=350px]{../Maquette/Admin.png}\\
+Page d’administration d’une session par un référent
+
+\includegraphics[width=350px]{../Maquette/Connexion.png}\\
+Page connexion réfèrent
+
+ 
+
+
+
+\chapter{ Diagramme navigationnel}
+\includegraphics[width=350px]{../../UML/diagramme_navigationnel.jpg}\\
+
+\chapter{Modèle Conceptuel}
+\includegraphics[width=350px]{../../UML/diagrammeClasse.png}\\
+
+
+\chapter{Liste et description traitement de donnée}
+Traitement coté Client : 
+Lorsque l’on joue :
+§  Les images des œuvres, leur titre et leur description sont chargées via AJAX au moment nécessaire (pré-chargement de l’image actuelle et de la suivante) puis sont associées aux jeux, développés en HTML5.
+ 
+Lorsque l’on configure l’appli, partie Référent :
+§  Les images sont affichées sous forme de miniatures sélectionnables.
+§  On peut les associer à des groupes d’images, eux même pouvant être associés à des jeux. Les images seront sélectionnées via JavaScript.
+ 
+Traitement coté Serveur :
+·         Transformer les images en miniature.
+·         Ajout des sons en « text-to-speech » et enregistrés sur le serveur dès l’ajout d’un titre d’œuvre.
+·         Gestion des e-mails automatiques.
+
+\chapter{Démarche test}
+-> Création, modification et suppression de compte référent par l’administrateur.
+-> Vue et modification des ses informations par un référents.
+-> Création de groupe d’oeuvre en tant que référents. 
+->Test des différents jeux en tant qu’un enfant.
+->Modification et suppression de groupe d’oeuvres par l’administrateur
+->Vérification des failles de sécurité avec un outil adapté.
+
+\end{document}
