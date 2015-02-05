@@ -22,3 +22,8 @@ Route::get('jouer', function()
 {
     return 'Viens jouer avec moi !';
 });
+
+Route::get('home', function()
+{
+	return View::make('home');
+});
