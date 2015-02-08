@@ -27,3 +27,5 @@ Route::get('home', function()
 {
 	return View::make('home');
 });
+
+Route::get('testBd', 'testBd@getS');
