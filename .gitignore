@@ -5,7 +5,5 @@
 *.aux
 *.lof
 *.pdf
-
-SRC/app/config/local/database.php
-SRC/app/config/database.php
+database.php
 
