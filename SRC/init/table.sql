@@ -1,16 +1,18 @@
-DROP TABLE IF EXISTS referent;
+DROP TABLE IF EXISTS description;
+DROP TABLE IF EXISTS asscocielisteaoeuvre;
+DROP TABLE IF EXISTS asscocielisteajeu;
 DROP TABLE IF EXISTS listeoeuvre;
 DROP TABLE IF EXISTS oeuvre;
-DROP TABLE IF EXISTS asscocie;
-DROP TABLE IF EXISTS description;
 DROP TABLE IF EXISTS auteur;
 DROP TABLE IF EXISTS designation;
 DROP TABLE IF EXISTS technique;
 DROP TABLE IF EXISTS domaine;
 DROP TABLE IF EXISTS matiere;
 DROP TABLE IF EXISTS datation;
+DROP TABLE IF EXISTS referent;
 DROP TABLE IF EXISTS niveau;
 DROP TABLE IF EXISTS jeu;
+
 
 
 CREATE TABLE jeu (
@@ -106,7 +108,7 @@ CREATE TABLE listeoeuvre (
 	etat INT(1) DEFAULT 0,
 	dateCreation TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (idlisteoeuvre),
-	FOREIGN KEY (idreferent) REFERENCES referent(idreferent),
+	FOREIGN KEY (idreferent) REFERENCES referent(idreferent)
 
 );
 
@@ -121,7 +123,7 @@ CREATE TABLE asscocielisteaoeuvre (
 CREATE TABLE asscocielisteajeu (
 	idlisteoeuvre INT NOT NULL,
 	idjeu INT NOT NULL,
-	PRIMARY KEY (idlisteoeuvre,idoeuvre),
+	PRIMARY KEY (idlisteoeuvre,idjeu),
 	FOREIGN KEY (idlisteoeuvre) REFERENCES listeoeuvre(idlisteoeuvre),
 	FOREIGN KEY (idjeu) REFERENCES jeu(idjeu)
 );
