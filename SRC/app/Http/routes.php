@@ -15,7 +15,9 @@ Route::get('/', 'GameController@index');
 
 Route::get('login', 'LoginController@index');
 
-//Route::get('home', 'HomeController@index');
+Route::get('referent', 'ReferentController@index');
+
+Route::get('admin', 'AdminController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
