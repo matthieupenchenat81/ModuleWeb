@@ -2,6 +2,7 @@
 
 class ReferentController extends Controller {
 
+
 	/**
 	 * Create a new controller instance.
 	 *
@@ -19,7 +20,7 @@ class ReferentController extends Controller {
 	 */
 	public function index()
 	{
-		return view('referent');
+		return view('referent', ['nameRoute' => 'Référent']);
 	}
 
 }

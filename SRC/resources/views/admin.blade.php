@@ -1,12 +1,9 @@
 @extends('app')
 
 @section('content')
+@extends('navbar_signed')
 
-<br>
-<center><h1>Bienvenue dans l'espace d'administration!</h1></center>
-<br><br><br>
-
-
+  <br>
   <div class="col-md-2"></div>
 
   <div class="col-md-8">
