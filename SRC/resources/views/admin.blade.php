@@ -6,7 +6,7 @@
   <br>
   <div class="col-md-2"></div>
 
-  <div class="col-md-8">
+   <div class="col-md-8">
     <button style="float: right" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Ajouter un référent</button>
     <table class="table table-hover">
       <thead>
