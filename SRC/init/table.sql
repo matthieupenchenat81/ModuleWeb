@@ -1,7 +1,10 @@
 DROP TABLE IF EXISTS description;
-DROP TABLE IF EXISTS asscocielisteaoeuvre;
-DROP TABLE IF EXISTS asscocielisteajeu;
+DROP TABLE IF EXISTS assolisteaoeuvre;
+DROP TABLE IF EXISTS assolisteajeu;
 DROP TABLE IF EXISTS listeoeuvre;
+DROP TABLE IF EXISTS assodesignationaoeuvre;
+DROP TABLE IF EXISTS assoauteuraoeuvre;
+DROP TABLE IF EXISTS assodatationaoeuvre;
 DROP TABLE IF EXISTS oeuvre;
 DROP TABLE IF EXISTS auteur;
 DROP TABLE IF EXISTS designation;
@@ -43,63 +46,73 @@ CREATE TABLE referent (
 
 
 CREATE TABLE designation (
-	iddesignation INT NOT NULL AUTO_INCREMENT,
-	nom VARCHAR(50),
+	nom VARCHAR(255) NOT NULL,
 	urldesignation VARCHAR(255),
-	PRIMARY KEY (iddesignation)
+	PRIMARY KEY (nom)
 );
 
 CREATE TABLE auteur (
-	idauteur INT NOT NULL AUTO_INCREMENT,
-	nom VARCHAR(50),
+	nom VARCHAR(50) NOT NULL,
 	anecdote VARCHAR(255),
-	PRIMARY KEY (idauteur)
+	PRIMARY KEY (nom)
 );
 
 CREATE TABLE technique (
-	idtechnique INT NOT NULL AUTO_INCREMENT,
-	nom VARCHAR(50),
+	nom VARCHAR(50) NOT NULL,
 	urltechnique VARCHAR(255),
-	PRIMARY KEY (idtechnique)
+	PRIMARY KEY (nom)
 );
 
 CREATE TABLE domaine (
-	iddomaine INT NOT NULL AUTO_INCREMENT,
-	nom VARCHAR(50),
-	PRIMARY KEY (iddomaine)
+	nom VARCHAR(50) NOT NULL,
+	PRIMARY KEY (nom)
 );
 
 CREATE TABLE matiere (
-	idmatiere INT NOT NULL AUTO_INCREMENT,
-	nom VARCHAR(50),
-	PRIMARY KEY (idmatiere)
+	nom VARCHAR(50) NOT NULL,
+	PRIMARY KEY (nom)
 );	
 
 CREATE TABLE datation (
-	iddatation INT NOT NULL AUTO_INCREMENT,
-	date VARCHAR(50),
-	PRIMARY KEY (iddatation)
+	iddate INT NOT NULL AUTO_INCREMENT,
+	debut DATE,
+	fin DATE,
+	PRIMARY KEY (iddate)
 );	
 
 
 CREATE TABLE oeuvre (
 	idoeuvre INT NOT NULL AUTO_INCREMENT,
-	iddesignation INT NOT NULL,
-	idauteur INT NOT NULL,
-	idtechnique INT NOT NULL,
-	iddomaine INT NOT NULL,
-	idmatiere INT NOT NULL,
-	iddatation INT NOT NULL,
+	iddate INT NOT NULL,
+	idtechnique VARCHAR(50),
+	iddomaine VARCHAR(50),
+	idmatiere VARCHAR(50),
     titre VARCHAR(50),
     urlPhoto VARCHAR(255),
     PRIMARY KEY (idoeuvre),
-    FOREIGN KEY (iddesignation) REFERENCES designation(iddesignation),
-    FOREIGN KEY (idauteur) REFERENCES auteur(idauteur),
-    FOREIGN KEY (idtechnique) REFERENCES technique(idtechnique),
-    FOREIGN KEY (iddomaine) REFERENCES domaine(iddomaine),
-    FOREIGN KEY (idmatiere) REFERENCES matiere(idmatiere),	
-    FOREIGN KEY (iddatation) REFERENCES datation(iddatation)	
+    FOREIGN KEY (idtechnique) REFERENCES technique(nom),
+    FOREIGN KEY (iddomaine) REFERENCES domaine(nom),
+    FOREIGN KEY (idmatiere) REFERENCES matiere(nom),
+    FOREIGN KEY (iddate) REFERENCES datation(iddate)
 );
+
+CREATE TABLE assodesignationaoeuvre (
+	idoeuvre INT NOT NULL,
+	idesignation VARCHAR(255),
+	PRIMARY KEY (idesignation,idoeuvre),
+	FOREIGN KEY (idesignation) REFERENCES designation(nom),
+	FOREIGN KEY (idoeuvre) REFERENCES oeuvre(idoeuvre)
+);
+
+CREATE TABLE assoauteuraoeuvre (
+	idoeuvre INT NOT NULL,
+	idauteur VARCHAR(50),
+	PRIMARY KEY (idauteur,idoeuvre),
+	FOREIGN KEY (idauteur) REFERENCES auteur(nom),
+	FOREIGN KEY (idoeuvre) REFERENCES oeuvre(idoeuvre)
+);
+
+
 
 CREATE TABLE listeoeuvre (
 	idlisteoeuvre INT NOT NULL AUTO_INCREMENT,
@@ -112,7 +125,7 @@ CREATE TABLE listeoeuvre (
 
 );
 
-CREATE TABLE asscocielisteaoeuvre (
+CREATE TABLE assolisteaoeuvre (
 	idlisteoeuvre INT NOT NULL,
 	idoeuvre INT NOT NULL,
 	PRIMARY KEY (idlisteoeuvre,idoeuvre),
@@ -120,7 +133,7 @@ CREATE TABLE asscocielisteaoeuvre (
 	FOREIGN KEY (idoeuvre) REFERENCES oeuvre(idoeuvre)
 );
 
-CREATE TABLE asscocielisteajeu (
+CREATE TABLE assolisteajeu (
 	idlisteoeuvre INT NOT NULL,
 	idjeu INT NOT NULL,
 	PRIMARY KEY (idlisteoeuvre,idjeu),
