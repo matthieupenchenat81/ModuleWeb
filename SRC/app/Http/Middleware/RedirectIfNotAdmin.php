@@ -3,8 +3,10 @@
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\RedirectResponse;
+use Auth;
 
-class RedirectIfAuthenticated {
+
+class RedirectIfNotAdmin {
 
 	/**
 	 * The Guard implementation.
@@ -33,11 +35,10 @@ class RedirectIfAuthenticated {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if ($this->auth->check())
+		if (!$this->auth->check() OR Auth::user()->admin == 0)
 		{
-			return new RedirectResponse(url('/referent'));
+				return new RedirectResponse(url('/login'));
 		}
-
 		return $next($request);
 	}
 

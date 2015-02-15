@@ -14,7 +14,27 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		// $this->call('UserTableSeeder');
+		$this->call('UserTableSeeder');
 	}
 
 }
+
+class UserTableSeeder extends Seeder {
+ 
+	public function run()
+	{
+	// Uncomment the below to wipe the table clean before populating
+		//DB::table('users')->truncate();
+	 
+		$user = array(
+		'name' => 'lolman',
+		'email' => 'quentin.rouland@laposte.net',
+		'password' => Hash::make('admin'),
+		'image' => ''
+		);
+		 
+		// Uncomment the below to run the seeder
+		DB::table('users')->insert($user);
+	}
+}
+

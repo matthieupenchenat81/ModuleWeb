@@ -13,13 +13,23 @@
 
 Route::get('/', 'GameController@index');
 
-Route::get('login', 'LoginController@index');
+Route::group(['middleware' => 'guest'], function ()
+{
+	Route::get('login', 'LoginController@index');
+	Route::post('login', 'LoginController@authenticate');
+	Route::get('oublie', 'LoginController@forgottenPassword');
+	Route::post('oublie', 'LoginController@initPassword');
+});
 
-Route::get('referent', 'ReferentController@index');
 
-Route::get('admin', 'AdminController@index');
+Route::group(['middleware' => 'auth'], function ()
+{
+	Route::get('referent', 'ReferentController@index');
+	Route::get('logout', 'LoginController@logout');
+});
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+Route::group(['middleware' => 'admin'], function ()
+{
+	Route::get('admin', 'AdminController@index');
+});
+
