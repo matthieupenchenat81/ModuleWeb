@@ -42,7 +42,7 @@ CREATE TABLE users (
 	email VARCHAR(50),
 	image VARCHAR(255),
 	admin INT(1) DEFAULT 0,
-	PRIMARY KEY (idreferent)
+	PRIMARY KEY (idusers)
 );
 
 
@@ -117,12 +117,12 @@ CREATE TABLE assoauteuraoeuvre (
 
 CREATE TABLE listeoeuvre (
 	idlisteoeuvre INT NOT NULL AUTO_INCREMENT,
-	idreferent INT NOT NULL,
+	idusers INT NOT NULL,
 	nom VARCHAR(50),
 	etat INT(1) DEFAULT 0,
 	dateCreation TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (idlisteoeuvre),
-	FOREIGN KEY (idreferent) REFERENCES users(idreferent)
+	FOREIGN KEY (idusers) REFERENCES users(idusers)
 
 );
 
