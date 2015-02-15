@@ -7,7 +7,7 @@
   	<p class="navbar-text">Prenom</p>
   	<p class="navbar-text">Identifiant</p>
   	<ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Se déconnecter</a></li>
+        <li><a href="logout">Se déconnecter</a></li>
      </ul>
   </div>
 </nav>

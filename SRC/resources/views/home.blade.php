@@ -26,13 +26,13 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="./pictures/1.jpg" width="35%" alt="indians">
+      <a href="/referents/vive.linux/games"><img src="./pictures/1.jpg" width="35%" alt="indians"></a>
       <div class="carousel-caption">
         Ceci est une image
       </div>
     </div>
     <div class="item">
-      <img src="./pictures/2.jpg" width="35%" alt="others indians">
+      <a href="/referents/vive.linux/games"><img src="./pictures/2.jpg" width="35%" alt="others indians"></a>
       <div class="carousel-caption">
         Ceci est une image différente de l'autre
       </div>

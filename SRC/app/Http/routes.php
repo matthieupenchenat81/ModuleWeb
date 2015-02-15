@@ -12,24 +12,26 @@
 */
 
 Route::get('/', 'GameController@index');
+Route::get('referents/{id}/games', 'GameController@showReferentGames')->where('id', '^((?!login|referent|admin).)*$');
+Route::get('referents/{id}/games/{idGame}', 'GameController@showOneReferentGame');
 
 Route::group(['middleware' => 'guest'], function ()
 {
 	Route::get('login', 'LoginController@index');
 	Route::post('login', 'LoginController@authenticate');
-	Route::get('oublie', 'LoginController@forgottenPassword');
-	Route::post('oublie', 'LoginController@initPassword');
+	Route::get('forgotten', 'LoginController@forgottenPassword');
+	Route::post('forgotten', 'LoginController@initPassword');
 });
-
 
 Route::group(['middleware' => 'auth'], function ()
 {
 	Route::get('referent', 'ReferentController@index');
-	Route::get('logout', 'LoginController@logout');
+	Route::get('logout', 'LoginController@logout');	
 });
 
 Route::group(['middleware' => 'admin'], function ()
 {
 	Route::get('admin', 'AdminController@index');
+	Route::post('logout', 'LoginController@logout');
 });
 

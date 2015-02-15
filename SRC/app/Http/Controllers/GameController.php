@@ -22,4 +22,29 @@ class GameController extends Controller {
 		return view('home');
 	}
 
+	/**
+     * Show referent games
+     *
+     * @param  String  $id
+     * @return Response
+     */
+    public function showReferentGames($id)
+    {
+        return view('referent_games', ['referent' => $id]);
+    }
+
+
+	/**
+     * Show one referent game
+     *
+     * @param  String  $id
+	 * @param  String  $idGame
+     * @return Response
+     */
+    public function showOneReferentGame($id, $idGame)
+    {
+        return view('one_referent_game', ['referent' => $id, 'game' => $idGame]);
+    }
+
+
 }

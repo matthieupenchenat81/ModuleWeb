@@ -51,7 +51,7 @@
 									Login
 								</button>
 
-								<a href="/oublie">Mot de passe oublié?</a>
+								<a href="/forgotten">Mot de passe oublié?</a>
 							</div>
 						</div>
 					</form>

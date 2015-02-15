@@ -71,9 +71,9 @@ class LoginController extends Controller {
     	switch ($response = Password::remind(Input::only('email')))
     	{
     		case Password::INVALID_USER:
-    			return redirect('oublie')->withErrors($response)->withInput();
+    			return redirect('forgotten')->withErrors($response)->withInput();
     		case Password::REMINDER_SENT:
-    			return redirect('oublie')->withStatus($response)->withInput();
+    			return redirect('forgotten')->withStatus($response)->withInput();
     	}
     }
 
