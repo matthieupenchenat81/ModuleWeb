@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS password_resets;
 DROP TABLE IF EXISTS description;
 DROP TABLE IF EXISTS assolisteaoeuvre;
 DROP TABLE IF EXISTS assolisteajeu;
@@ -153,3 +154,9 @@ CREATE TABLE description (
 	FOREIGN KEY (idoeuvre) REFERENCES oeuvre(idoeuvre),
 	FOREIGN KEY (idlisteoeuvre) REFERENCES listeoeuvre(idlisteoeuvre)
 );
+
+CREATE TABLE password_resets (
+	email VARCHAR(255) INDEX,
+	token VARCHAR(255) INDEX,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
