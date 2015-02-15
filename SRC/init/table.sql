@@ -156,7 +156,8 @@ CREATE TABLE description (
 );
 
 CREATE TABLE password_resets (
-	email VARCHAR(255) INDEX,
-	token VARCHAR(255) INDEX,
-	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)
+	token VARCHAR(255),
+	email VARCHAR(255),
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (token)
+);
