@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS technique;
 DROP TABLE IF EXISTS domaine;
 DROP TABLE IF EXISTS matiere;
 DROP TABLE IF EXISTS datation;
-DROP TABLE IF EXISTS referent;
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS niveau;
 DROP TABLE IF EXISTS jeu;
 
@@ -35,12 +35,13 @@ CREATE TABLE niveau (
 	FOREIGN KEY (idjeu) REFERENCES jeu(idjeu)
 );
 
-CREATE TABLE referent (
-	idreferent INT NOT NULL AUTO_INCREMENT,
-	nom VARCHAR(50),
-	mdp VARCHAR(32),
+CREATE TABLE users (
+	idusers INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(50),
+	password VARCHAR(255),
 	email VARCHAR(50),
 	image VARCHAR(255),
+	admin INT(1) DEFAULT 0,
 	PRIMARY KEY (idreferent)
 );
 
@@ -121,7 +122,7 @@ CREATE TABLE listeoeuvre (
 	etat INT(1) DEFAULT 0,
 	dateCreation TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (idlisteoeuvre),
-	FOREIGN KEY (idreferent) REFERENCES referent(idreferent)
+	FOREIGN KEY (idreferent) REFERENCES users(idreferent)
 
 );
 
