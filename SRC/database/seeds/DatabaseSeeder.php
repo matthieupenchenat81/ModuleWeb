@@ -27,10 +27,22 @@ class UserTableSeeder extends Seeder {
 		//DB::table('users')->truncate();
 	 
 		$user = array(
-		'name' => 'lolman',
-		'email' => 'quentin.rouland@laposte.net',
+		'name' => 'admin',
+		'email' => 'admin@admin.com',
 		'password' => Hash::make('admin'),
-		'image' => ''
+		'image' => '',
+		'admin' => '1'
+		);
+		 
+		// Uncomment the below to run the seeder
+		DB::table('users')->insert($user);
+
+		$user = array(
+		'name' => 'ref',
+		'email' => 'ref@ref.com',
+		'password' => Hash::make('ref'),
+		'image' => '',
+		'admin' => '0'
 		);
 		 
 		// Uncomment the below to run the seeder
