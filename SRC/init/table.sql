@@ -37,13 +37,13 @@ CREATE TABLE niveau (
 );
 
 CREATE TABLE users (
-	idusers INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(50),
 	password VARCHAR(255),
 	email VARCHAR(50),
 	image VARCHAR(255),
 	admin INT(1) DEFAULT 0,
-	PRIMARY KEY (idusers)
+	PRIMARY KEY (id)
 );
 
 
@@ -123,7 +123,7 @@ CREATE TABLE listeoeuvre (
 	etat INT(1) DEFAULT 0,
 	dateCreation TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	PRIMARY KEY (idlisteoeuvre),
-	FOREIGN KEY (idusers) REFERENCES users(idusers)
+	FOREIGN KEY (idusers) REFERENCES users(id)
 
 );
 
