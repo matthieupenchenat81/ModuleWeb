@@ -42,6 +42,7 @@ CREATE TABLE users (
 	password VARCHAR(255),
 	email VARCHAR(50),
 	image VARCHAR(255),
+	remember_token VARCHAR(100),
 	admin INT(1) DEFAULT 0,
 	PRIMARY KEY (id)
 );
