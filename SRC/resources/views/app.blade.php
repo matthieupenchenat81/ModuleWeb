@@ -20,6 +20,11 @@
 </head>
 <body>
 
+	<!-- If Referent or admin route -->
+	@if (isset($nameRoute))
+	    @include('navbar_signed')
+	@endif
+
 	@yield('content')
 
 	<!-- Scripts -->

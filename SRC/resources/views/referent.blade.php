@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-@extends('navbar_signed')
+
 <br>
 <div class="col-md-3">
 
