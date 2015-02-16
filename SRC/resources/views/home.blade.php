@@ -57,6 +57,11 @@
 </div>
 
 <script type="text/javascript"src="http://www.themesltd.com/tumblr/cursors/mouse-cursors/cursors.js?cat=mouse-cursors&theme=mickey_mouse_finger&path=cartoon"></script>
+<script type="text/javascript">
+//<!-- bloque le clique droit
+document.oncontextmenu = new Function("return false");
+//-->
+</script>
 
 </center>
 @endsection
