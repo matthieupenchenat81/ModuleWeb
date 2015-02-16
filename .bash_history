@@ -41,3 +41,30 @@ git push
 git pull
 nano .gitignore 
 git commit -a
+git pull
+git pull
+rm .bash_history 
+git pull
+clear
+php artisan serve
+php artisan serve
+php artisan server
+cd SRC/
+php artisan serve
+git commit -a
+git push
+mysql -u root -p
+php artisan db:seed
+php artisan db:seed
+cd ..
+git commit -a
+git add SRC/config/database.php 
+git commit -a
+git push
+git pull
+git pull
+exit
+git pull
+exit
+git pull
+exit

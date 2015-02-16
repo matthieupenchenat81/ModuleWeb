@@ -2,6 +2,9 @@
 
 @section('content')
 
+
+
+
   <br>
   <div class="col-md-2"></div>
 
@@ -17,60 +20,22 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Quentin Rouland</td>
-          <td>quentin.rouland@free.fr</td>
+        <?php
+$user = DB::table('users')->where('name','<>',"admin")->get();
+foreach ($user as $ref) {
+
+?>        <tr>
+          <td><?php echo $ref->name; ?></td>
+          <td><?php echo $ref->email; ?></td>
           <td>Toulouse</td>
           <td>
             <button type="button" class="btn btn-default btn-sm">Se connecter</button>
             <button type="button" class="btn btn-warning btn-sm">Supprimer</button>
           </td>
         </tr>
-        <tr>
-          <td>Quentin Rouland</td>
-          <td>quentin.rouland@free.fr</td>
-          <td>Toulouse</td>
-          <td>
-            <button type="button" class="btn btn-default btn-sm">Se connecter</button>
-            <button type="button" class="btn btn-warning btn-sm">Supprimer</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Quentin Rouland</td>
-          <td>quentin.rouland@free.fr</td>
-          <td>Toulouse</td>
-          <td>
-            <button type="button" class="btn btn-default btn-sm">Se connecter</button>
-            <button type="button" class="btn btn-warning btn-sm">Supprimer</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Quentin Rouland</td>
-          <td>quentin.rouland@free.fr</td>
-          <td>Toulouse</td>
-          <td>
-            <button type="button" class="btn btn-default btn-sm">Se connecter</button>
-            <button type="button" class="btn btn-warning btn-sm">Supprimer</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Quentin Rouland</td>
-          <td>quentin.rouland@free.fr</td>
-          <td>Toulouse</td>
-          <td>
-            <button type="button" class="btn btn-default btn-sm">Se connecter</button>
-            <button type="button" class="btn btn-warning btn-sm">Supprimer</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Quentin Rouland</td>
-          <td>quentin.rouland@free.fr</td>
-          <td>Toulouse</td>
-          <td>
-            <button type="button" class="btn btn-default btn-sm">Se connecter</button>
-            <button type="button" class="btn btn-warning btn-sm">Supprimer</button>
-          </td>
-        </tr>
+<?php
+}
+?>
       </tbody>
     </table>
   </div>
