@@ -23,10 +23,10 @@
   <!-- indicateur, à incrementé en fonction du nombre d'images -->
   <ol class="carousel-indicators">
     @foreach ($referent as $ref)
-     @if ($ref -> idreferent == 1) 
-     	<li data-target="#carousel-example-generic" data-slide-to="{{ $ref -> idreferent }}" class='active' ></li>
+     @if ($ref -> id == $referent[0] -> id) 
+     	<li data-target="#carousel-example-generic" data-slide-to="{{ $ref -> id }}" class='active' ></li>
      @else
-    	<li data-target="#carousel-example-generic" data-slide-to="{{ $ref -> idreferent }} "></li>
+    	<li data-target="#carousel-example-generic" data-slide-to="{{ $ref -> id }} "></li>
     @endif
     @endforeach 
   </ol>
@@ -34,14 +34,14 @@
   <!-- Parametres des images  -->
   <div class="carousel-inner" role="listbox"> 
 	@foreach ($referent as $ref)
-		@if ($ref -> idreferent == 1)
+		@if ($ref -> id == $referent[0] -> id)
     	<div class="item active">
     	@else
     	<div class="item">
     	@endif
     		<br>
-     		<a href="/referents/vive.linux/games"><img style="border: 7px solid white; box-shadow: 0px 0px 3px black;" src="./pictures/referent/{{ $ref-> image }}" width="35%" alt="{{ $ref -> prenom }}-{{ $ref -> nom }}"></a> 	
-    		<div class="well well-lg">{{$ref -> prenom}}, {{$ref -> nom}}</div>
+     		<a href="/referents/vive.linux/games"><img style="border: 7px solid white; box-shadow: 0px 0px 3px black;" src="./pictures/referent/francois.jpg" width="35%" alt="{{ $ref -> name }}-Nom"></a> 	
+    		<div class="well well-lg">{{$ref -> name}}, Nom</div>
     	</div> 
 	@endforeach
 	</div>

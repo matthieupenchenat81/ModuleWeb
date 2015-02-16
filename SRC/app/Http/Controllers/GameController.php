@@ -20,7 +20,7 @@ class GameController extends Controller {
 	 */
 	public function index()
 	{
-		$res = DB::select('SELECT * FROM `referent`');
+		$res = DB::select('SELECT * FROM `users` where `admin` = 0');
 		return view('home',['referent' => $res]);
 	}
 
