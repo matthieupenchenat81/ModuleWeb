@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use DB;
+use Auth;
+
 class AdminController extends Controller {
 
 
@@ -20,7 +23,11 @@ class AdminController extends Controller {
 	 */
 	public function index()
 	{
-		return view('admin', ['nameRoute' => 'Admin']);
+		$email = Auth::user()->email;
+		$me = DB::table('users')->where('email', $email)->first();
+		$user = DB::table('users')->where('name','<>',"admin")->get();
+
+		return view('admin', ['nameRoute' => 'Admin', 'users' => $user, 'me' => $me]);
 	}
 
 }

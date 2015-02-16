@@ -2,9 +2,6 @@
 
 @section('content')
 
-
-
-
   <br>
   <div class="col-md-2"></div>
 
@@ -20,22 +17,17 @@
         </tr>
       </thead>
       <tbody>
-        <?php
-$user = DB::table('users')->where('name','<>',"admin")->get();
-foreach ($user as $ref) {
-
-?>        <tr>
-          <td><?php echo $ref->name; ?></td>
-          <td><?php echo $ref->email; ?></td>
+      @foreach ($users as $user)
+        <tr>
+          <td>{{$user->name}}></td>
+          <td>{{$user->email}}</td>
           <td>Toulouse</td>
           <td>
             <button type="button" class="btn btn-default btn-sm">Se connecter</button>
             <button type="button" class="btn btn-warning btn-sm">Supprimer</button>
           </td>
         </tr>
-<?php
-}
-?>
+      @endforeach
       </tbody>
     </table>
   </div>
