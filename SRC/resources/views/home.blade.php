@@ -56,5 +56,7 @@
   	</a>
 </div>
 
+<script type="text/javascript"src="http://www.themesltd.com/tumblr/cursors/mouse-cursors/cursors.js?cat=mouse-cursors&theme=mickey_mouse_finger&path=cartoon"></script>
+
 </center>
 @endsection
