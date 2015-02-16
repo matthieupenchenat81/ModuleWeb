@@ -39,7 +39,8 @@
     	@else
     	<div class="item">
     	@endif
-     		<a href="/referents/vive.linux/games"><img src="./pictures/referent/{{ $ref-> image }}" width="35%" alt="{{ $ref -> prenom }}-{{ $ref -> nom }}"></a> 	
+    		<br>
+     		<a href="/referents/vive.linux/games"><img style="border: 7px solid white; box-shadow: 0px 0px 3px black;" src="./pictures/referent/{{ $ref-> image }}" width="35%" alt="{{ $ref -> prenom }}-{{ $ref -> nom }}"></a> 	
     		<div class="well well-lg">{{$ref -> prenom}}, {{$ref -> nom}}</div>
     	</div> 
 	@endforeach
@@ -56,7 +57,7 @@
   	</a>
 </div>
 
-<script type="text/javascript"src="http://www.themesltd.com/tumblr/cursors/mouse-cursors/cursors.js?cat=mouse-cursors&theme=mickey_mouse_finger&path=cartoon"></script>
+<script type="text/javascript" src="http://www.themesltd.com/tumblr/cursors/mouse-cursors/cursors.js?cat=mouse-cursors&theme=mickey_mouse_finger&path=cartoon"></script>
 <script type="text/javascript">
 //<!-- bloque le clique droit
 document.oncontextmenu = new Function("return false");
