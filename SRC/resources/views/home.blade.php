@@ -3,54 +3,58 @@
 @section('content')
 
 <br>
-<center><h1>Bienvenue!</h1>
+<center>
+  <img style="height:auto; width:auto; max-width:400px; alt="" src="./pictures/homePic/bienvenue.png">
+  <br>
 <br>
 <form class="form-inline">
   <div class="form-group">
+  <img alt="" src="./pictures/homePic/search.png">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search">
+      	<input type="text" class="form-control" placeholder="Rechercher un Référant">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Search</button>
 </form>
 <br>
 <br>
 
 <div  style="margin-left: 200px, margin-right: 200px" id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
+  
+  <!-- indicateur, à incrementé en fonction du nombre d'images -->
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    @foreach ($referent as $ref)
+     @if ($ref -> idreferent == 1) 
+     	<li data-target="#carousel-example-generic" data-slide-to="{{ $ref -> idreferent }}" class='active' ></li>
+     @else
+    	<li data-target="#carousel-example-generic" data-slide-to="{{ $ref -> idreferent }} "></li>
+    @endif
+    @endforeach 
   </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <a href="/referents/vive.linux/games"><img src="./pictures/1.jpg" width="35%" alt="indians"></a>
-      <div class="carousel-caption">
-        Ceci est une image
-      </div>
-    </div>
-    <div class="item">
-      <a href="/referents/vive.linux/games"><img src="./pictures/2.jpg" width="35%" alt="others indians"></a>
-      <div class="carousel-caption">
-        Ceci est une image différente de l'autre
-      </div>
-    </div>
-  </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  <!-- Parametres des images  -->
+  <div class="carousel-inner" role="listbox"> 
+	@foreach ($referent as $ref)
+		@if ($ref -> idreferent == 1)
+    	<div class="item active">
+    	@else
+    	<div class="item">
+    	@endif
+     		<a href="/referents/vive.linux/games"><img src="./pictures/referent/{{ $ref-> image }}" width="35%" alt="{{ $ref -> prenom }}-{{ $ref -> nom }}"></a> 	
+    		<div class="well well-lg">{{$ref -> prenom}}, {{$ref -> nom}}</div>
+    	</div> 
+	@endforeach
+	</div>
+	
+  	<!-- Controles -->
+  	<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    	<span class="sr-only">Précédant</span>
+  	</a>
+  	<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    	<span class="sr-only">Suivant</span>
+  	</a>
 </div>
-
-<div class="well well-lg">Information du référent</div>
 
 </center>
 @endsection

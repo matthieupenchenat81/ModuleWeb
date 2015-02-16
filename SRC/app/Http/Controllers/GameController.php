@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use DB;
 class GameController extends Controller {
 
 	/**
@@ -19,7 +20,8 @@ class GameController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		$res = DB::select('SELECT * FROM `referent`');
+		return view('home',['referent' => $res]);
 	}
 
 	/**
