@@ -38,7 +38,9 @@ CREATE TABLE niveau (
 
 CREATE TABLE users (
 	id INT NOT NULL AUTO_INCREMENT,
-	name VARCHAR(50),
+	firstname VARCHAR(50),
+	lastnanme VARCHAR(50),
+	city VARCHAR(50),
 	password VARCHAR(255),
 	email VARCHAR(50),
 	image VARCHAR(255),
