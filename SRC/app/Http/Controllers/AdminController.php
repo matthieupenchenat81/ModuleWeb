@@ -58,7 +58,7 @@ class AdminController extends Controller {
 		$idUser = Input::get('idUser');
 		$user = User::find($idUser);
 		$user->delete();
-		return redirect('/admin');
+		return redirect('/admin')->with('message_delete', 'Referent supprimé avec succès');
 	}
 
 }
