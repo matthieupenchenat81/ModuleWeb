@@ -19,8 +19,7 @@
           <td>Mail</td>
           <td>Lieu</td>
           <td>Type</td>
-          <td>Se connecter</td>
-          <td>Supprimer</td>
+          <td>Action</td>
         </tr>
       </thead>
       <tbody>
@@ -39,8 +38,12 @@
           @else
             <td>Admin</td>
           @endif
-          <td><a href="#" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-log-in"></span></a></td>
-          <td><button type="submit" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>
+          <td>
+          @if ($user->droits == 0)
+            <a href="#" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-log-in"></span></a>
+          @endif
+          <button type="submit" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+          </td>
         </tr>
         </form>
         @endif

@@ -59,7 +59,7 @@
               <div class="col-sm-offset-2 col-sm-10">
                 <div class="checkbox">
                   <label>
-                    <input name="isadmin" type="checkbox"> Est administrateur
+                    <input name="isadmin" checked="checked" type="checkbox"> Est administrateur
                   </label>
                 </div>
               </div>
