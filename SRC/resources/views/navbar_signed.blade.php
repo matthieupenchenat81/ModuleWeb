@@ -54,17 +54,6 @@
                 <input type="text" class="form-control" id="city" name="city" required placeholder="Ville" value="{{$me->city}}">
               </div>
             </div>
-            @if ($me->droits != 0)
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <div class="checkbox">
-                  <label>
-                    <input name="isadmin" checked="checked" type="checkbox"> Est administrateur
-                  </label>
-                </div>
-              </div>
-            </div>
-            @endif
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>

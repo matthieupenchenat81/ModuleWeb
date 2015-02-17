@@ -88,6 +88,7 @@
                 <input type="text" class="form-control" id="city" name="city" required placeholder="Ville">
               </div>
             </div>
+            @if ($me->droits == 2)
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <div class="checkbox">
@@ -97,6 +98,7 @@
                 </div>
               </div>
             </div>
+            @endif
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
