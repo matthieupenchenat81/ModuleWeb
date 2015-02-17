@@ -68,3 +68,15 @@ git pull
 exit
 git pull
 exit
+git pull
+git status
+git add .
+git commit -m "admin view & navbar_signed"
+git push
+git pull
+exit
+git pull
+exit
+cd ..
+ls
+nano loadCSVAugustin2014.py 
