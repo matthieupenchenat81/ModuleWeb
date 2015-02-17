@@ -17,6 +17,6 @@ class User extends Model {
 
     public function scopeReferents($query)
     {
-        return $query->where('admin', '0');
+        return $query->where('droits', '0');
     }
 }

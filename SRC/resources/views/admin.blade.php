@@ -33,7 +33,7 @@
           <td>{{$user->lastname}}</td>
           <td>{{$user->email}}</td>
           <td>{{$user->city}}</td>
-          @if ($user->admin == 0)
+          @if ($user->droits == 0)
             <td>Référent</td>
           @else
             <td>Admin</td>
