@@ -14,6 +14,7 @@
       <thead>
         <tr style="background-color: #F7BE81">
           <td>Nom</td>
+          <td>Prénom</td>
           <td>Mail</td>
           <td>Lieu</td>
           <td>Se connecter</td>
@@ -23,9 +24,10 @@
       <tbody>
       @foreach ($users as $user)
         <tr style="background-color: #F6E3CE">
-          <td>{{$user->name}}</td>
+          <td>{{$user->lastname}}</td>
+          <td>{{$user->firstname}}</td>
           <td>{{$user->email}}</td>
-          <td>Toulouse</td>
+          <td>{{$user->city}}</td>
           <td><a href="#" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span></a></td>
           <td><a href="#" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
