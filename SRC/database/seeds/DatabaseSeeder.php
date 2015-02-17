@@ -25,6 +25,19 @@ class UserTableSeeder extends Seeder {
 	{
 	// Uncomment the below to wipe the table clean before populating
 		//DB::table('users')->truncate();
+
+		$user = array(
+		'firstname' => 'superadmin',
+		'lastname' => 'superadmin',
+		'city' => 'Montauban',
+		'email' => 'superAdmin@superAdmin.com',
+		'password' => Hash::make('superadmin'),
+		'image' => 'pictures/user_picture/default.png',
+		'droits' => '2'
+		);
+		 
+		// Uncomment the below to run the seeder
+		DB::table('users')->insert($user);
 	 
 		$user = array(
 		'firstname' => 'admin',
@@ -33,7 +46,7 @@ class UserTableSeeder extends Seeder {
 		'email' => 'admin@admin.com',
 		'password' => Hash::make('admin'),
 		'image' => 'pictures/user_picture/default.png',
-		'admin' => '1'
+		'droits' => '1'
 		);
 		 
 		// Uncomment the below to run the seeder
@@ -46,7 +59,7 @@ class UserTableSeeder extends Seeder {
 		'email' => 'ref@ref.com',
 		'password' => Hash::make('ref'),
 		'image' => 'pictures/user_picture/default.png',
-		'admin' => '0'
+		'droits' => '0'
 		);
 		 
 		// Uncomment the below to run the seeder

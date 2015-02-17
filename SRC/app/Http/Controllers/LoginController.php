@@ -42,7 +42,7 @@ class LoginController extends Controller {
 		{
 			if(Auth::attempt($credentials))
 			{
-				if (Auth::user()->admin == 1)
+				if (Auth::user()->droits != 0)
 					return redirect()->intended('admin');
 				else
 					return redirect()->intended('referent');
