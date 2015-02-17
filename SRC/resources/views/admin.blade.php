@@ -24,7 +24,7 @@
           <td>{{$user->name}}</td>
           <td>{{$user->email}}</td>
           <td>Toulouse</td>
-          <td><a href="#" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-log-out"></span></a></td>
+          <td><a href="#" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-log-in"></span></a></td>
           <td><a href="#" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
       @endforeach
