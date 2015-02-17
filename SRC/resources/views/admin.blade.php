@@ -2,9 +2,12 @@
 
 @section('content')
 
+<<<<<<< HEAD
 {{ Session::get('message_add') }}
 {{ Session::get('message_delete') }}
 
+=======
+>>>>>>> baac10fe2346f5271d81bf13195da790a3f484f3
   <br>
   <div class="col-md-2"></div>
 
@@ -15,10 +18,8 @@
       <thead>
         <tr style="background-color: #F7BE81">
           <td>Nom</td>
-          <td>Prénom</td>
           <td>Mail</td>
           <td>Lieu</td>
-          <td>Type utilisateur</td>
           <td>Se connecter</td>
           <td>Supprimer</td>
         </tr>
@@ -29,9 +30,9 @@
         <input type="hidden" name="idUser" value="{{ $user->id }}">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <tr style="background-color: #F6E3CE">
-          <td>{{$user->lastname}}</td>
-          <td>{{$user->firstname}}</td>
+          <td>{{$user->name}}</td>
           <td>{{$user->email}}</td>
+<<<<<<< HEAD
           <td>{{$user->city}}</td>
           @if ($user->admin == 0)
             <td>Référent</td>
@@ -40,6 +41,11 @@
           @endif
           <td><a href="#" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span></a></td>
           <td><button type="submit" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>
+=======
+          <td>Toulouse</td>
+          <td><a href="#" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-log-in"></span></a></td>
+          <td><a href="#" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>
+>>>>>>> baac10fe2346f5271d81bf13195da790a3f484f3
         </tr>
         </form>
       @endforeach
@@ -57,7 +63,6 @@
         <h4 class="modal-title" id="myModalLabel">Créer un nouvel adhérent</h4>
       </div>
       <form class="form-horizontal" method="POST" role="form" action="addUser">
-        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
       <div class="modal-body">
             <div class="form-group">
               <label for="firstname" class="col-sm-2 control-label">Prénom</label>
@@ -68,18 +73,27 @@
             <div class="form-group">
               <label for="lastname" class="col-sm-2 control-label">Nom</label>
               <div class="col-sm-10">
+<<<<<<< HEAD
                 <input type="text" class="form-control" id="lastname" name="lastname" required placeholder="Nom">
+=======
+                <input type="text" class="form-control" id="lastname" placeholder="Nom">
+>>>>>>> baac10fe2346f5271d81bf13195da790a3f484f3
               </div>
             </div>
             <div class="form-group">
               <label for="email" class="col-sm-2 control-label">Email</label>
               <div class="col-sm-10">
+<<<<<<< HEAD
                 <input type="email" class="form-control" id="email" name="email" required placeholder="Email">
+=======
+                <input type="email" class="form-control" id="email" placeholder="Email">
+>>>>>>> baac10fe2346f5271d81bf13195da790a3f484f3
               </div>
             </div>
             <div class="form-group">
               <label for="city" class="col-sm-2 control-label">Ville</label>
               <div class="col-sm-10">
+<<<<<<< HEAD
                 <input type="text" class="form-control" id="city" name="city" required placeholder="Ville">
               </div>
             </div>
@@ -90,12 +104,17 @@
                     <input name="isadmin" type="checkbox"> Est administrateur
                   </label>
                 </div>
+=======
+                <input type="text" class="form-control" id="city" placeholder="Ville">
+>>>>>>> baac10fe2346f5271d81bf13195da790a3f484f3
               </div>
             </div>
+          
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="button" class="btn btn-primary">Enregistrer</button>
       </div>
       </form>
     </div>
