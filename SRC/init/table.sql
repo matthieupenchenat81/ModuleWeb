@@ -39,43 +39,48 @@ CREATE TABLE niveau (
 CREATE TABLE users (
 	id INT NOT NULL AUTO_INCREMENT,
 	firstname VARCHAR(50),
-	lastnanme VARCHAR(50),
-	city VARCHAR(50),
+	lastname VARCHAR(50),
+	city VARCHAR(50),		
 	password VARCHAR(255),
 	email VARCHAR(50),
 	image VARCHAR(255),
 	remember_token VARCHAR(100),
-	admin INT(1) DEFAULT 0,
+	droit INT DEFAULT 0,
 	PRIMARY KEY (id)
 );
 
 
 CREATE TABLE designation (
+	iddesignation INT NOT NULL AUTO_INCREMENT,
 	nom VARCHAR(255) NOT NULL,
 	urldesignation VARCHAR(255),
-	PRIMARY KEY (nom)
+	PRIMARY KEY (iddesignation)
 );
 
 CREATE TABLE auteur (
+	idauteur INT NOT NULL AUTO_INCREMENT,
 	nom VARCHAR(50) NOT NULL,
 	anecdote VARCHAR(255),
-	PRIMARY KEY (nom)
+	PRIMARY KEY (idauteur)
 );
 
 CREATE TABLE technique (
+	idtechnique INT NOT NULL AUTO_INCREMENT,
 	nom VARCHAR(50) NOT NULL,
 	urltechnique VARCHAR(255),
-	PRIMARY KEY (nom)
+	PRIMARY KEY (idtechnique)
 );
 
 CREATE TABLE domaine (
+	iddomaine INT NOT NULL AUTO_INCREMENT,
 	nom VARCHAR(50) NOT NULL,
-	PRIMARY KEY (nom)
+	PRIMARY KEY (iddomaine)
 );
 
 CREATE TABLE matiere (
+	idmatiere INT NOT NULL AUTO_INCREMENT,
 	nom VARCHAR(50) NOT NULL,
-	PRIMARY KEY (nom)
+	PRIMARY KEY (idmatiere)
 );	
 
 CREATE TABLE datation (
@@ -88,32 +93,32 @@ CREATE TABLE datation (
 
 CREATE TABLE oeuvre (
 	idoeuvre INT NOT NULL AUTO_INCREMENT,
-	iddate INT NOT NULL,
-	idtechnique VARCHAR(50),
-	iddomaine VARCHAR(50),
-	idmatiere VARCHAR(50),
-    titre VARCHAR(50),
-    urlPhoto VARCHAR(255),
+	iddate INT,
+	idtechnique INT,
+	iddomaine INT,
+	idmatiere INT,
+    titre INT,
+    urlPhoto INT,
     PRIMARY KEY (idoeuvre),
-    FOREIGN KEY (idtechnique) REFERENCES technique(nom),
-    FOREIGN KEY (iddomaine) REFERENCES domaine(nom),
-    FOREIGN KEY (idmatiere) REFERENCES matiere(nom),
+    FOREIGN KEY (idtechnique) REFERENCES technique(idtechnique),
+    FOREIGN KEY (iddomaine) REFERENCES domaine(iddomaine),
+    FOREIGN KEY (idmatiere) REFERENCES matiere(idmatiere),
     FOREIGN KEY (iddate) REFERENCES datation(iddate)
 );
 
 CREATE TABLE assodesignationaoeuvre (
 	idoeuvre INT NOT NULL,
-	idesignation VARCHAR(255),
-	PRIMARY KEY (idesignation,idoeuvre),
-	FOREIGN KEY (idesignation) REFERENCES designation(nom),
+	iddesignation INT NOT NULL,
+	PRIMARY KEY (iddesignation,idoeuvre),
+	FOREIGN KEY (iddesignation) REFERENCES designation(iddesignation),
 	FOREIGN KEY (idoeuvre) REFERENCES oeuvre(idoeuvre)
 );
 
 CREATE TABLE assoauteuraoeuvre (
 	idoeuvre INT NOT NULL,
-	idauteur VARCHAR(50),
+	idauteur INT NOT NULL,
 	PRIMARY KEY (idauteur,idoeuvre),
-	FOREIGN KEY (idauteur) REFERENCES auteur(nom),
+	FOREIGN KEY (idauteur) REFERENCES auteur(idauteur),
 	FOREIGN KEY (idoeuvre) REFERENCES oeuvre(idoeuvre)
 );
 
