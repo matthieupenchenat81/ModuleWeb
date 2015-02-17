@@ -42,6 +42,7 @@ class AdminController extends Controller {
 		$user->admin = 0;
 		$user->city = Input::get('city');
 		$user->lastname = Input::get('lastname');
+		$user->image = "./public/pictures/user_picture/default.png";
 
 		$user->save();
 		return redirect('/admin')->with('message', 'Referent ajouté avec succès');
