@@ -32,7 +32,7 @@ class UserTableSeeder extends Seeder {
 		'city' => 'Montauban',
 		'email' => 'admin@admin.com',
 		'password' => Hash::make('admin'),
-		'image' => '',
+		'image' => 'pictures/user_picture/default.png',
 		'admin' => '1'
 		);
 		 
@@ -45,7 +45,7 @@ class UserTableSeeder extends Seeder {
 		'city' => 'Toulouse',
 		'email' => 'ref@ref.com',
 		'password' => Hash::make('ref'),
-		'image' => '',
+		'image' => 'pictures/user_picture/default.png',
 		'admin' => '0'
 		);
 		 

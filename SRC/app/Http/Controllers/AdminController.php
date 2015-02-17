@@ -42,10 +42,10 @@ class AdminController extends Controller {
 		$user->admin = 0;
 		$user->city = Input::get('city');
 		$user->lastname = Input::get('lastname');
-		$user->image = "./public/pictures/user_picture/default.png";
+		$user->image = "pictures/user_picture/default.png";
 
 		$user->save();
-		return redirect('/admin')->with('message', 'Referent ajouté avec succès');
+		return redirect('/admin')->with('message_add', 'Referent ajouté avec succès');
 	}
 
 
@@ -55,7 +55,10 @@ class AdminController extends Controller {
 	*/
 	public function deleteUser()
 	{
-		// TODO
+		$idUser = Input::get('idUser');
+		$user = User::find($idUser);
+		$user->delete();
+		return redirect('/admin');
 	}
 
 }
