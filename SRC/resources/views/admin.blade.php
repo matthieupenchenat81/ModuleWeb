@@ -2,6 +2,8 @@
 
 @section('content')
 
+{{ Session::get('message') }}
+
   <br>
   <div class="col-md-2"></div>
 
@@ -42,6 +44,7 @@
         <h4 class="modal-title" id="myModalLabel">Créer un nouvel adhérent</h4>
       </div>
       <form class="form-horizontal" method="POST" role="form" action="addUser">
+        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
       <div class="modal-body">
             <div class="form-group">
               <label for="firstname" class="col-sm-2 control-label">Prénom</label>
@@ -52,27 +55,34 @@
             <div class="form-group">
               <label for="lastname" class="col-sm-2 control-label">Nom</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="lastname" placeholder="Nom">
+                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom">
               </div>
             </div>
             <div class="form-group">
               <label for="email" class="col-sm-2 control-label">Email</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" placeholder="Email">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
               </div>
             </div>
             <div class="form-group">
               <label for="city" class="col-sm-2 control-label">Ville</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="city" placeholder="Ville">
+                <input type="text" class="form-control" id="city" name="city" placeholder="Ville">
               </div>
             </div>
-          
-
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                  <label>
+                    <input name="isadmin" type="checkbox"> Est administrateur
+                  </label>
+                </div>
+              </div>
+            </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-        <button type="button" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
       </div>
       </form>
     </div>
