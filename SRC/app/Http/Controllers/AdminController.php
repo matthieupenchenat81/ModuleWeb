@@ -49,6 +49,27 @@ class AdminController extends Controller {
 	}
 
 
+
+	/**
+	 * updateUser an user in database.
+	 *
+	 * 
+	 */
+	public function updateUser()
+	{
+		$user = User::find(Input::get('idUser'));
+
+		$user->firstname = Input::get('firstname');
+		$user->email = Input::get('email');
+		$user->city = Input::get('city');
+		$user->lastname = Input::get('lastname');
+		//$user->image = "pictures/user_picture/default.png";
+
+		$user->save();
+		return redirect('/admin')->with('message_update', 'Referent mis à jour avec succès');
+	}
+
+
 	/**
 	* Delete an user
 	*

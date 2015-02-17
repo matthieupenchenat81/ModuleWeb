@@ -24,7 +24,7 @@
       </thead>
       <tbody>
       @foreach ($users as $user)
-        @if ($user->droits != 2 && $user != $me || ($user->droits != 0 && $me->droits == 2))
+        @if ($user->droits != 2 && $user != $me || ($user->droits != 0 && $me->droits == 2 && $user != $me))
       <form method="POST" role="form" action="deleteUser">
         <input type="hidden" name="idUser" value="{{ $user->id }}">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />

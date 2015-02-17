@@ -29,6 +29,7 @@
       </div>
       <form class="form-horizontal" method="POST" role="form" action="updateUser">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+        <input type="hidden" name="idUser" value="{{ $me->id }}" />
       <div class="modal-body">
             <div class="form-group">
               <label for="firstname" class="col-sm-2 control-label">Prénom</label>
@@ -54,6 +55,12 @@
                 <input type="text" class="form-control" id="city" name="city" required placeholder="Ville" value="{{$me->city}}">
               </div>
             </div>
+            <div class="form-group">
+			    <label class="col-sm-2 control-label" for="exampleInputFile">Image</label>
+			    <div class="col-sm-10">
+			    	<input type="file" id="exampleInputFile">
+			    </div>
+			</div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
