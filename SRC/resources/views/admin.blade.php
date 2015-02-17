@@ -9,25 +9,25 @@
 
    <div class="col-md-8">
     <button style="float: right" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Ajouter un référent</button>
-    <table class="table table-hover">
+    <br><br>
+    <table class="table table-hover table-bordered">
       <thead>
-        <tr>
+        <tr style="background-color: #F7BE81">
           <td>Nom</td>
           <td>Mail</td>
           <td>Lieu</td>
-          <td>Action</td>
+          <td>Se connecter</td>
+          <td>Supprimer</td>
         </tr>
       </thead>
       <tbody>
       @foreach ($users as $user)
-        <tr>
+        <tr style="background-color: #F6E3CE">
           <td>{{$user->name}}</td>
           <td>{{$user->email}}</td>
           <td>Toulouse</td>
-          <td>
-            <button type="button" class="btn btn-default btn-sm">Se connecter</button>
-            <button type="button" class="btn btn-warning btn-sm">Supprimer</button>
-          </td>
+          <td><a href="#" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span></a></td>
+          <td><a href="#" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
       @endforeach
       </tbody>
