@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use DB;
+use App\User;
+
 class GameController extends Controller {
 
 	/**
@@ -20,7 +21,7 @@ class GameController extends Controller {
 	 */
 	public function index()
 	{
-		$res = DB::select('SELECT * FROM `users` where `admin` = 0');
+		$res = User::referents()->get();
 		return view('home',['referent' => $res]);
 	}
 

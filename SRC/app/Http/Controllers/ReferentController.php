@@ -1,7 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use DB;
-use Auth;
+use App\User;
 
 class ReferentController extends Controller {
 
@@ -23,8 +22,8 @@ class ReferentController extends Controller {
 	 */
 	public function index()
 	{
-		$email = Auth::user()->email;
-		$me = DB::table('users')->where('email', $email)->first();
+		$me = User::current();
+		$user = User::all();
 		return view('referent', ['nameRoute' => 'Référent', 'me' => $me]);
 	}
 

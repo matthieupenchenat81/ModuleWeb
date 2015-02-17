@@ -1,7 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use DB;
-use Auth;
+use App\User;
 
 class AdminController extends Controller {
 
@@ -23,11 +22,23 @@ class AdminController extends Controller {
 	 */
 	public function index()
 	{
-		$email = Auth::user()->email;
-		$me = DB::table('users')->where('email', $email)->first();
-		$user = DB::table('users')->where('name','<>',"admin")->get();
-
+		$me = User::current();
+		$user = User::all();
 		return view('admin', ['nameRoute' => 'Admin', 'users' => $user, 'me' => $me]);
+	}
+
+	/**
+	 * Add an user in database.
+	 *
+	 * 
+	 */
+	public function addUser()
+	{
+		$firstname = Request::input('firstname');
+		$lastname = Input::get('lastname');
+		$email = Input::get('email');
+		$city = Input::get('city');
+		//print('ok');
 	}
 
 }

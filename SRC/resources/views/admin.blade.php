@@ -19,7 +19,7 @@
       <tbody>
       @foreach ($users as $user)
         <tr>
-          <td>{{$user->name}}></td>
+          <td>{{$user->name}}</td>
           <td>{{$user->email}}</td>
           <td>Toulouse</td>
           <td>
@@ -41,19 +41,18 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Créer un nouvel adhérent</h4>
       </div>
+      <form class="form-horizontal" method="POST" role="form" action="addUser">
       <div class="modal-body">
-
-          <form class="form-horizontal">
             <div class="form-group">
-              <label for="prenom" class="col-sm-2 control-label">Prénom</label>
+              <label for="firstname" class="col-sm-2 control-label">Prénom</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="prenom" placeholder="Prénom">
+                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Prénom">
               </div>
             </div>
             <div class="form-group">
-              <label for="nom" class="col-sm-2 control-label">Nom</label>
+              <label for="lastname" class="col-sm-2 control-label">Nom</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="nom" placeholder="Nom">
+                <input type="text" class="form-control" id="lastname" placeholder="Nom">
               </div>
             </div>
             <div class="form-group">
@@ -63,18 +62,19 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="ville" class="col-sm-2 control-label">Ville</label>
+              <label for="city" class="col-sm-2 control-label">Ville</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="ville" placeholder="Ville">
+                <input type="text" class="form-control" id="city" placeholder="Ville">
               </div>
             </div>
-          </form>
+          
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
         <button type="button" class="btn btn-primary">Enregistrer</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
