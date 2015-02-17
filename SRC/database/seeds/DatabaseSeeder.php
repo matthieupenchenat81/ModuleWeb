@@ -27,10 +27,12 @@ class UserTableSeeder extends Seeder {
 		//DB::table('users')->truncate();
 	 
 		$user = array(
-		'name' => 'admin',
+		'firstname' => 'admin',
+		'lastname' => 'admin',
+		'city' => 'Montauban',
 		'email' => 'admin@admin.com',
 		'password' => Hash::make('admin'),
-		'image' => '',
+		'image' => 'pictures/user_picture/default.png',
 		'admin' => '1'
 		);
 		 
@@ -38,10 +40,12 @@ class UserTableSeeder extends Seeder {
 		DB::table('users')->insert($user);
 
 		$user = array(
-		'name' => 'ref',
+		'lastname' => 'ref',
+		'firstname' => 'ref',
+		'city' => 'Toulouse',
 		'email' => 'ref@ref.com',
 		'password' => Hash::make('ref'),
-		'image' => '',
+		'image' => 'pictures/user_picture/default.png',
 		'admin' => '0'
 		);
 		 

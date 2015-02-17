@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\User;
+use Input;
 
 class AdminController extends Controller {
 
@@ -34,11 +35,30 @@ class AdminController extends Controller {
 	 */
 	public function addUser()
 	{
-		$firstname = Request::input('firstname');
-		$lastname = Input::get('lastname');
-		$email = Input::get('email');
-		$city = Input::get('city');
-		//print('ok');
+		$user = new User;
+
+		$user->firstname = Input::get('firstname');
+		$user->email = Input::get('email');
+		$user->admin = 0;
+		$user->city = Input::get('city');
+		$user->lastname = Input::get('lastname');
+		$user->image = "pictures/user_picture/default.png";
+
+		$user->save();
+		return redirect('/admin')->with('message_add', 'Referent ajouté avec succès');
+	}
+
+
+	/**
+	* Delete an user
+	*
+	*/
+	public function deleteUser()
+	{
+		$idUser = Input::get('idUser');
+		$user = User::find($idUser);
+		$user->delete();
+		return redirect('/admin')->with('message_delete', 'Referent supprimé avec succès');
 	}
 
 }

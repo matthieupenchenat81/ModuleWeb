@@ -35,7 +35,7 @@ class RedirectIfNotAdmin {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if (!$this->auth->check() OR Auth::user()->admin == 0)
+		if (!$this->auth->check() OR Auth::user()->droit ==  0)
 		{
 				return new RedirectResponse(url('/login'));
 		}
