@@ -25,6 +25,7 @@
       </thead>
       <tbody>
       @foreach ($users as $user)
+        @if ($user->droits != 2 && $user != $me || ($user->droits != 0 && $me->droits == 2))
       <form method="POST" role="form" action="deleteUser">
         <input type="hidden" name="idUser" value="{{ $user->id }}">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
@@ -42,6 +43,7 @@
           <td><button type="submit" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
         </form>
+        @endif
       @endforeach
       </tbody>
     </table>
