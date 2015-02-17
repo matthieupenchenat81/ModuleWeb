@@ -45,7 +45,7 @@ class AdminController extends Controller {
 		$user->image = "pictures/user_picture/default.png";
 
 		$user->save();
-		return redirect('/admin')->with('message_add', 'Referent ajouté avec succès');
+		return redirect('/admin')->with('message_add', 'User ajouté avec succès');
 	}
 
 
@@ -66,7 +66,7 @@ class AdminController extends Controller {
 		//$user->image = "pictures/user_picture/default.png";
 
 		$user->save();
-		return redirect('/admin')->with('message_update', 'Referent mis à jour avec succès');
+		return redirect('/admin')->with('message_update', 'User mis à jour avec succès');
 	}
 
 
@@ -79,7 +79,7 @@ class AdminController extends Controller {
 		$idUser = Input::get('idUser');
 		$user = User::find($idUser);
 		$user->delete();
-		return redirect('/admin')->with('message_delete', 'Referent supprimé avec succès');
+		return redirect('/admin')->with('message_delete', 'User supprimé avec succès');
 	}
 
 }

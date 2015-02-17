@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth'], function ()
 {
 	Route::get('referent', 'ReferentController@index');
 	Route::get('logout', 'LoginController@logout');	
+	Route::post('update', 'ReferentController@update');
 });
 
 Route::group(['middleware' => 'admin'], function ()

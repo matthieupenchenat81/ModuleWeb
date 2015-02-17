@@ -14,7 +14,7 @@
         <li>
      		<a data-toggle="modal" data-target="#myModal1">Mes paramètres</a>
         </li>
-     </ul>
+    </ul>
   </div>
 </nav>
 
@@ -27,7 +27,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Informations personnelles</h4>
       </div>
-      <form class="form-horizontal" method="POST" role="form" action="updateUser">
+      <form class="form-horizontal" method="POST" role="form" @if ($me->droits == 0) action="update" @else action="updateUser" @endif>
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="idUser" value="{{ $me->id }}" />
       <div class="modal-body">

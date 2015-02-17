@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\User;
+use Input;
 
 class ReferentController extends Controller {
 
@@ -26,5 +27,23 @@ class ReferentController extends Controller {
 		$user = User::all();
 		return view('referent', ['nameRoute' => 'Référent', 'me' => $me]);
 	}
+
+	/**
+	 * updateUser an user in database.
+	 *
+	 * 
+	 */
+	public function update()
+	{
+		$user = User::find(Input::get('idUser'));
+
+		$user->firstname = Input::get('firstname');
+		$user->email = Input::get('email');
+		$user->city = Input::get('city');
+		$user->lastname = Input::get('lastname');
+
+		$user->save();
+		return redirect('/referent')->with('message_update', 'Referent mis à jour avec succès');
+	}	
 
 }
