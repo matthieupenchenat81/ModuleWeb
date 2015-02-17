@@ -17,6 +17,7 @@
           <td>Prénom</td>
           <td>Mail</td>
           <td>Lieu</td>
+          <td>Type utilisateur</td>
           <td>Se connecter</td>
           <td>Supprimer</td>
         </tr>
@@ -28,6 +29,11 @@
           <td>{{$user->firstname}}</td>
           <td>{{$user->email}}</td>
           <td>{{$user->city}}</td>
+          @if ($user->admin == 0)
+            <td>Référent</td>
+          @else
+            <td>Admin</td>
+          @endif
           <td><a href="#" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span></a></td>
           <td><a href="#" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>

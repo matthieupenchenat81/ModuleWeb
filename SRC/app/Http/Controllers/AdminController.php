@@ -37,12 +37,11 @@ class AdminController extends Controller {
 	{
 		$user = new User;
 
-		$user->name = Input::get('firstname');
+		$user->firstname = Input::get('firstname');
 		$user->email = Input::get('email');
 		$user->admin = 0;
-
-		$city = Input::get('city');
-		$lastname = Input::get('lastname');
+		$user->city = Input::get('city');
+		$user->lastname = Input::get('lastname');
 
 		$user->save();
 		return redirect('/admin')->with('message', 'Referent ajouté avec succès');
