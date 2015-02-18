@@ -4,6 +4,7 @@ use App\User;
 use Input;
 use Auth;
 use Session;
+use Request;
 
 class AdminController extends Controller {
 
@@ -59,13 +60,21 @@ class AdminController extends Controller {
 	 */
 	public function updateUser()
 	{
-		$user = User::find(Input::get('idUser'));
+		
+		$idUser = Input::get('idUser');
+		$user = User::find($idUser);		
+		
+		if (Request::hasFile('file'))
+		{
+			Request::file('file')->move("./pictures/user_picture/", $idUser);
+			$user->image = "pictures/user_picture/".$idUser;
+		}
 
 		$user->firstname = Input::get('firstname');
 		$user->email = Input::get('email');
 		$user->city = Input::get('city');
 		$user->lastname = Input::get('lastname');
-		//$user->image = "pictures/user_picture/default.png";
+		
 
 		$user->save();
 		return redirect('/admin')->with('message_update', 'User mis à jour avec succès');

@@ -31,7 +31,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Informations personnelles</h4>
       </div>
-      <form class="form-horizontal" method="POST" role="form" @if ($me->droits == 0) action="update" @else action="updateUser" @endif>
+      <form @if ($me->droits == 0) action="update" @else action="updateUser" @endif method="post" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="idUser" value="{{ $me->id }}" />
       <div class="modal-body">
@@ -60,11 +60,11 @@
               </div>
             </div>
             <div class="form-group">
-			    <label class="col-sm-2 control-label" for="exampleInputFile">Image</label>
-			    <div class="col-sm-10">
-			    	<input type="file" id="exampleInputFile">
-			    </div>
-			</div>
+    			    <label class="col-sm-2 control-label" for="exampleInputFile">Image</label>
+    			    <div class="col-sm-10">
+                <input type="file" name="file" id="file">
+    			    </div>
+    			   </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>

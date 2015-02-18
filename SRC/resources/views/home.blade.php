@@ -41,7 +41,7 @@
     	@endif
     		<br>
      		<a href="/referents/vive.linux/games"><img style="border: 7px solid white; box-shadow: 0px 0px 3px black;" src="./pictures/referent/francois.jpg" width="35%" alt="{{ $ref -> name }}-Nom"></a> 	
-    		<div class="well well-lg">{{$ref -> name}}, Nom</div>
+    		<div class="well well-lg">{{$ref -> firstname}}, {{$ref -> lastname}}</div>
     	</div> 
 	@endforeach
 	</div>
