@@ -6266,3 +6266,5 @@ label,
 .checkbox label {
   font-weight: 300;
 }
+
+html, body, a, a:hover { cursor:url('http://www.snazzyspace.com/cursorsfolder/mickey-big-pointer.png'), auto !important; }
