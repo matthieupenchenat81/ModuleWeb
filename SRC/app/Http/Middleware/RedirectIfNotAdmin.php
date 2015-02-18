@@ -35,6 +35,15 @@ class RedirectIfNotAdmin {
 	 */
 	public function handle($request, Closure $next)
 	{
+		//Retour d'un admin loguer comme un referent
+		if($this->auth->check() AND Session::has('admin'))
+		{
+			Auth::logout();
+			Auth::loginUsingId(Session::get('admin'));
+			Session::forget('admin');
+		}
+
+		//verification de l'identité de l'admin
 		if (!$this->auth->check() OR Auth::user()->droits ==  0)
 		{
 				return new RedirectResponse(url('/login'));

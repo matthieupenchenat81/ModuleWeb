@@ -80,3 +80,5 @@ exit
 cd ..
 ls
 nano loadCSVAugustin2014.py 
+git pull
+exit
