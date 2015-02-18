@@ -3,6 +3,8 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  height: 100%;
+  width: 100%
 }
 body {
   margin: 0;
@@ -5349,13 +5351,13 @@ a.list-group-item-danger.active:focus {
   padding-bottom: 75%;
 }
 .well {
-  min-height: 20px;
+  min-height: 10px;
   padding: 19px;
   margin-bottom: 20px;
   background-color: #015402;
   color : white;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 15px;
   border: 5px solid #7F2403;
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -5365,10 +5367,10 @@ a.list-group-item-danger.active:focus {
   border-color: rgba(0, 0, 0, 0.15);
 }
 .well-lg {
-  padding: 24px;
+  padding: 15px;
   margin: 5%;
-  margin-left : 25%;
-  margin-right: 25%;
+  margin-left : 40%;
+  margin-right: 40%;
   border-radius: 6px;
   
 }
@@ -6264,3 +6266,5 @@ label,
 .checkbox label {
   font-weight: 300;
 }
+
+html, body, a, a:hover { cursor:url('http://www.snazzyspace.com/cursorsfolder/mickey-big-pointer.png'), auto !important; }

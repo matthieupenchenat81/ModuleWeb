@@ -38,8 +38,8 @@
     	<div class="item">
     	@endif
     		<br>
-     		<a href="/referents/vive.linux/games"><img style="border: 7px solid white; box-shadow: 0px 0px 3px black; max-height: 500px;" src="{{$ref -> image}}" width="250px"  alt="{{ $ref -> name }}-Nom"></a> 	
-    		<div class="well well-lg">{{$ref -> firstname}}, {{$ref -> lastname}}</div>
+     		<a href="/referents/vive.linux/games"><img style="border: 7px solid white; box-shadow: 0px 0px 3px black; max-height: 350px;" src="{{$ref -> image}}" width="300px"  alt="{{ $ref -> name }}-Nom"></a> 	
+    		<a href="/referents/vive.linux/games"><div class="well well-lg col-xs-4 col-md-2">{{$ref -> firstname}}, {{$ref -> lastname}}</div></a>
     	</div> 
 	@endforeach
 	</div>
@@ -55,12 +55,8 @@
   	</a>
 </div>
 
-<script type="text/javascript" src="http://www.themesltd.com/tumblr/cursors/mouse-cursors/cursors.js?cat=mouse-cursors&theme=mickey_mouse_finger&path=cartoon"></script>
 <script type="text/javascript">
-//<!-- bloque le clique droit
 document.oncontextmenu = new Function("return false");
-//-->
 </script>
-
 </center>
 @endsection

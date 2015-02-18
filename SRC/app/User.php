@@ -31,8 +31,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	public function scopeCurrent($query)
     {
-    	$email = Auth::user()->email;
-        return $query->where('email', $email)->first();
+    	$idUser = Auth::user()->id;
+        return $query->where('id', $idUser)->first();
     }
 
     public function scopeReferents($query)
