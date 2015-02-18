@@ -7,7 +7,11 @@
   	<p class="navbar-text">{{$me->email}}</p>
   	<ul class="nav navbar-nav navbar-right">
         <li>
+        	@if (!Session::has('admin'))
         	<a href="logout">Se déconnecter</a>
+        	@else
+        	<a href="admin">Retour Admin</a>
+        	@endif
         </li>
      </ul>
   	<ul class="nav navbar-nav navbar-right">
