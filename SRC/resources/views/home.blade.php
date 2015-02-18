@@ -3,7 +3,7 @@
 @section('content')
 <center>
  <!-- <img style="height:auto; width:auto; max-width:400px; alt="" src="./pictures/homePic/bienvenue.png"> -->
-<nav class=""navbar transparent navbar-inverse"">
+<nav>
 <form class="form-inline navbar-right">
   <div class="form-group">
   <img alt="" src="./pictures/homePic/search.png">
