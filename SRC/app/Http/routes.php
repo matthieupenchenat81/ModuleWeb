@@ -14,6 +14,16 @@
 Route::get('/', 'GameController@index');
 Route::get('referents/{id}/games', 'GameController@showReferentGames')->where('id', '^((?!login|referent|admin).)*$');
 Route::get('referents/{id}/games/{idGame}', 'GameController@showOneReferentGame');
+Route::get('password/reset', array(
+  'uses' => 'LoginController@reset',
+  'as' => 'password.reset'
+));
+
+Route::post('password/reset', array(
+  'uses' => 'LoginController@update',
+  'as' => 'password.update'
+));
+
 
 Route::group(['middleware' => 'guest'], function ()
 {
@@ -28,8 +38,6 @@ Route::group(['middleware' => 'auth'], function ()
 	Route::get('referent', 'ReferentController@index');
 	Route::get('logout', 'LoginController@logout');	
 	Route::post('update', 'ReferentController@update');
-
-	Route::post('addSession', 'ReferentController@addSession');	
 });
 
 Route::group(['middleware' => 'admin'], function ()

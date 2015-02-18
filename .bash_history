@@ -165,3 +165,128 @@ git push
 python loadCSVAugustin2014.py
 cd ..
 python loadCSVAugustin2014.py
+git pull
+git pull
+git rm SRC/public/pictures/user_picture/2
+git rm -f SRC/public/pictures/user_picture/2
+git pull
+git pull
+git pull
+git rm SRC/public/pictures/user_picture/*
+git status
+LS
+ls
+cd SRC
+ls
+cd public/pictures/
+ls
+exit
+git pull
+git pull
+git status
+git commit -m "tt"
+git push
+git pull
+git push
+git pull
+exit
+cd ..
+ls
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+locale
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+git pull
+git pull
+exit
+git pull
+rm SRC/resources/views/navbar_signed.blade.php 
+git pull
+git pull
+git pull
+git rm SRC/public/pictures/user_picture/3
+git pull
+git rm SRC/public/pictures/user_picture/3
+git pull
+git add .
+git commit -m "lol"
+git pull
+git pull
+git pull
+git pull
+git pull
+ls
+cd SRC/
+cd public/
+ls /la
+ls -la
+cd pictures/
+ls -la
+cd referent/
+ls -la
+cd ../..
+ls -la
+git commit -a
+cd ../..
+git commit -a
+git pull
+nano SRC/.env
+nano SRC/.env
