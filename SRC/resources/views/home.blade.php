@@ -58,7 +58,5 @@
 <script type="text/javascript">
 document.oncontextmenu = new Function("return false");
 </script>
-
--->
 </center>
 @endsection
