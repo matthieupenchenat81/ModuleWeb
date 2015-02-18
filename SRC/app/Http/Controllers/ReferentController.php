@@ -32,7 +32,7 @@ class ReferentController extends Controller {
 
 
 		// $ListeOeuvre = new ListeOeuvre;
-		// $ListeOeuvre->idusers = 3;
+		// $ListeOeuvre->iduser = 3;
 		// $ListeOeuvre->nom = "Linux";
 		// $ListeOeuvre->etat = 1;
 		// $ListeOeuvre->save();
@@ -50,9 +50,9 @@ class ReferentController extends Controller {
 
 		// List Oeuvre of one user
 		$sessions = ListeOeuvre::currentUser()->get();
-		echo $sessions[0]->oeuvres()->get();
+		//echo $sessions[0]->oeuvres()->get();
 
-		//return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'sessions' => $sessions]);
+		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'sessions' => $sessions]);
 	}
 
 	/**
@@ -89,7 +89,7 @@ class ReferentController extends Controller {
 	{
 		// TODO
 		$ListeOeuvre = new ListeOeuvre;
-		$ListeOeuvre->idusers = 2;
+		$ListeOeuvre->iduser = 2;
 		$ListeOeuvre->nom = "Linux";
 		$ListeOeuvre->etat = 1;
 		$ListeOeuvre->save();

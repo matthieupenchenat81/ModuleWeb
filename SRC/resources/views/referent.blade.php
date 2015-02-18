@@ -38,67 +38,13 @@
 <div class="panel panel-default">
   <div class="panel-body">
     
-
+@foreach ($sessions[0]->oeuvres()->get() as $oeuvre)
   <div class="col-xs-4 col-md-3">
     <a href="#" class="thumbnail">
-      <img src="/pictures/holder.jpg">
+      <img src="http://www.augustins.org/documents/10180/156407/{{ $oeuvre->urlPhoto }}">
     </a>
   </div>
-    <div class="col-xs-4 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="/pictures/holder.jpg">
-    </a>
-  </div>
-    <div class="col-xs-4 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="/pictures/holder.jpg">
-    </a>
-  </div>
-    <div class="col-xs-4 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="/pictures/holder.jpg">
-    </a>
-  </div>
-  <div class="col-xs-4 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="/pictures/holder.jpg">
-    </a>
-  </div>
-    <div class="col-xs-4 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="/pictures/holder.jpg">
-    </a>
-  </div>
-    <div class="col-xs-4 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="/pictures/holder.jpg">
-    </a>
-  </div>
-    <div class="col-xs-4 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="/pictures/holder.jpg">
-    </a>
-  </div>
-  <div class="col-xs-4 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="/pictures/holder.jpg">
-    </a>
-  </div>
-    <div class="col-xs-4 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="/pictures/holder.jpg">
-    </a>
-  </div>
-    <div class="col-xs-4 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="/pictures/holder.jpg">
-    </a>
-  </div>
-    <div class="col-xs-4 col-md-3">
-    <a href="#" class="thumbnail">
-      <img src="/pictures/holder.jpg">
-    </a>
-  </div>
+@endforeach
 
   <button style="float: right" class="btn btn-primary">Enregistrer</button>
   </div>

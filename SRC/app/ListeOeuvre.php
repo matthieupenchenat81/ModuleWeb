@@ -22,6 +22,6 @@ class ListeOeuvre extends Model {
     public function scopeCurrentUser($query)
     {
         $idUser = Auth::user()->id;
-        return $query->where('idusers', $idUser);
+        return $query->where('iduser', $idUser);
     }
 }
