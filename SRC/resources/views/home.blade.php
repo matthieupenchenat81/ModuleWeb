@@ -4,7 +4,7 @@
 
 <br>
 <center>
-  <img style="height:auto; width:auto; max-width:400px; alt="" src="./pictures/homePic/bienvenue.png">
+ <!-- <img style="height:auto; width:auto; max-width:400px; alt="" src="./pictures/homePic/bienvenue.png"> -->
   <br>
 <br>
 <form class="form-inline">
@@ -40,7 +40,7 @@
     	<div class="item">
     	@endif
     		<br>
-     		<a href="/referents/vive.linux/games"><img style="border: 7px solid white; box-shadow: 0px 0px 3px black;" src="./pictures/referent/francois.jpg" width="35%" alt="{{ $ref -> name }}-Nom"></a> 	
+     		<a href="/referents/vive.linux/games"><img style="border: 7px solid white; box-shadow: 0px 0px 3px black;" src="{{$ref -> image}}" width="250px"  alt="{{ $ref -> name }}-Nom"></a> 	
     		<div class="well well-lg">{{$ref -> firstname}}, {{$ref -> lastname}}</div>
     	</div> 
 	@endforeach
