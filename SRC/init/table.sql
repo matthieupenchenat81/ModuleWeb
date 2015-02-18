@@ -20,20 +20,20 @@ DROP TABLE IF EXISTS jeu;
 
 
 CREATE TABLE jeu (
-	idjeu INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT,
 	nom VARCHAR(50),
 	description VARCHAR(255),
-	PRIMARY KEY (idjeu)
+	PRIMARY KEY (id)
 );
 
 
 CREATE TABLE niveau (
-	idniveau INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT,
 	idjeu INT NOT NULL,
 	difficulte INT,
 	caractéristique VARCHAR(255),
-	PRIMARY KEY (idniveau),
-	FOREIGN KEY (idjeu) REFERENCES jeu(idjeu)
+	PRIMARY KEY (id),
+	FOREIGN KEY (idjeu) REFERENCES jeu(id)
 );
 
 CREATE TABLE users (
@@ -51,85 +51,85 @@ CREATE TABLE users (
 
 
 CREATE TABLE designation (
-	iddesignation INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT,
 	nom VARCHAR(255) NOT NULL,
 	urldesignation VARCHAR(255),
-	PRIMARY KEY (iddesignation)
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE auteur (
-	idauteur INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT,
 	nom VARCHAR(50) NOT NULL,
 	anecdote VARCHAR(255),
-	PRIMARY KEY (idauteur)
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE technique (
-	idtechnique INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT,
 	nom VARCHAR(50) NOT NULL,
 	urltechnique VARCHAR(255),
-	PRIMARY KEY (idtechnique)
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE domaine (
-	iddomaine INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT,
 	nom VARCHAR(50) NOT NULL,
-	PRIMARY KEY (iddomaine)
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE matiere (
-	idmatiere INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT,
 	nom VARCHAR(50) NOT NULL,
-	PRIMARY KEY (idmatiere)
+	PRIMARY KEY (id)
 );	
 
 CREATE TABLE datation (
-	iddate INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT,
 	debut DATE,
 	fin DATE,
-	PRIMARY KEY (iddate)
+	PRIMARY KEY (id)
 );	
 
 
 CREATE TABLE oeuvre (
-	idoeuvre INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT,
 	iddate INT,
 	idtechnique INT,
 	iddomaine INT,
 	idmatiere INT,
     urlPhoto VARCHAR(50),
-    PRIMARY KEY (idoeuvre),
-    FOREIGN KEY (idtechnique) REFERENCES technique(idtechnique),
-    FOREIGN KEY (iddomaine) REFERENCES domaine(iddomaine),
-    FOREIGN KEY (idmatiere) REFERENCES matiere(idmatiere),
-    FOREIGN KEY (iddate) REFERENCES datation(iddate)
+    PRIMARY KEY (id),
+    FOREIGN KEY (idtechnique) REFERENCES technique(id),
+    FOREIGN KEY (iddomaine) REFERENCES domaine(id),
+    FOREIGN KEY (idmatiere) REFERENCES matiere(id),
+    FOREIGN KEY (iddate) REFERENCES datation(id)
 );
 
 CREATE TABLE assodesignationaoeuvre (
 	oeuvre_id INT NOT NULL,
 	designation_id INT NOT NULL,
 	PRIMARY KEY (designation_id,oeuvre_id),
-	FOREIGN KEY (designation_id) REFERENCES designation(iddesignation),
-	FOREIGN KEY (oeuvre_id) REFERENCES oeuvre(idoeuvre)
+	FOREIGN KEY (designation_id) REFERENCES designation(id),
+	FOREIGN KEY (oeuvre_id) REFERENCES oeuvre(id)
 );
 
 CREATE TABLE assoauteuraoeuvre (
 	oeuvre_id INT NOT NULL,
 	auteur_id INT NOT NULL,
 	PRIMARY KEY (auteur_id,oeuvre_id),
-	FOREIGN KEY (auteur_id) REFERENCES auteur(idauteur),
-	FOREIGN KEY (oeuvre_id) REFERENCES oeuvre(idoeuvre)
+	FOREIGN KEY (auteur_id) REFERENCES auteur(id),
+	FOREIGN KEY (oeuvre_id) REFERENCES oeuvre(id)
 );
 
 
 CREATE TABLE listeoeuvre (
-	idlisteoeuvre INT NOT NULL AUTO_INCREMENT,
-	idusers INT NOT NULL,
+	id INT NOT NULL AUTO_INCREMENT,
+	iduser INT NOT NULL,
 	nom VARCHAR(50),
 	etat INT(1) DEFAULT 0,
 	dateCreation TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	PRIMARY KEY (idlisteoeuvre),
-	FOREIGN KEY (idusers) REFERENCES users(id)
+	PRIMARY KEY (id),
+	FOREIGN KEY (iduser) REFERENCES users(id)
 
 );
 
@@ -137,26 +137,26 @@ CREATE TABLE assolisteaoeuvre (
 	liste_oeuvre_id INT NOT NULL,
 	oeuvre_id INT NOT NULL,
 	PRIMARY KEY (liste_oeuvre_id,oeuvre_id),
-	FOREIGN KEY (liste_oeuvre_id) REFERENCES listeoeuvre(idlisteoeuvre),
-	FOREIGN KEY (oeuvre_id) REFERENCES oeuvre(idoeuvre)
+	FOREIGN KEY (liste_oeuvre_id) REFERENCES listeoeuvre(id),
+	FOREIGN KEY (oeuvre_id) REFERENCES oeuvre(id)
 );
 
 CREATE TABLE assolisteajeu (
 	liste_oeuvre_id INT NOT NULL,
 	jeu_id INT NOT NULL,
 	PRIMARY KEY (liste_oeuvre_id,jeu_id),
-	FOREIGN KEY (liste_oeuvre_id) REFERENCES listeoeuvre(idlisteoeuvre),
-	FOREIGN KEY (jeu_id) REFERENCES jeu(idjeu)
+	FOREIGN KEY (liste_oeuvre_id) REFERENCES listeoeuvre(id),
+	FOREIGN KEY (jeu_id) REFERENCES jeu(id)
 );
 
 CREATE TABLE description (
-	iddescription INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT,
 	idoeuvre INT NOT NULL,
 	idlisteoeuvre INT NOT NULL,
 	libelle VARCHAR(255),
-	PRIMARY KEY (iddescription),
-	FOREIGN KEY (idoeuvre) REFERENCES oeuvre(idoeuvre),
-	FOREIGN KEY (idlisteoeuvre) REFERENCES listeoeuvre(idlisteoeuvre)
+	PRIMARY KEY (id),
+	FOREIGN KEY (idoeuvre) REFERENCES oeuvre(id),
+	FOREIGN KEY (idlisteoeuvre) REFERENCES listeoeuvre(id)
 );
 
 CREATE TABLE password_resets (

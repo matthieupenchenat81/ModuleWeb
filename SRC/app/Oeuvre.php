@@ -6,5 +6,7 @@ class Oeuvre extends Model {
 
 	protected $table = 'oeuvre';
 
+	protected $guarded = ['idoeuvre', 'id'];
+
 	public $timestamps = false;
 }
