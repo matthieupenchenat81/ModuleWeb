@@ -68,12 +68,12 @@ class LoginController extends Controller {
 
     public function initPassword()
     {
-    	switch ($response = Password::remind(Input::only('email')))
+    	switch ($response = Password::sendResetLink(Input::only('email')))
     	{
     		case Password::INVALID_USER:
-    			return redirect('forgotten')->withErrors($response)->withInput();
+    			return redirect('forgotten')->withErrors("Mail Invalide !")->withInput();
     		case Password::REMINDER_SENT:
-    			return redirect('forgotten')->withStatus($response)->withInput();
+    			return redirect('forgotten')->withStatus("Mail de réinitialisation envoyée !")->withInput();
     	}
     }
 
