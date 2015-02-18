@@ -3,6 +3,9 @@
 use App\User;
 use Input;
 use Request;
+use App\ListeOeuvre;
+use App\AssoListeAOeuvre;
+
 
 class ReferentController extends Controller {
 
@@ -26,11 +29,16 @@ class ReferentController extends Controller {
 	{
 		$me = User::current();
 		$user = User::all();
-		return view('referent', ['nameRoute' => 'Référent', 'me' => $me]);
+
+		// List Oeuvre of one user
+		$sessions = ListeOeuvre::currentUser()->get();
+		echo $sessions[0]->oeuvres()->get();
+
+		//return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'sessions' => $sessions]);
 	}
 
 	/**
-	 * updateUser an user in database.
+	 * updateUser an user informations in database.
 	 *
 	 * 
 	 */
@@ -53,6 +61,44 @@ class ReferentController extends Controller {
 
 		$user->save();
 		return redirect('/referent')->with('message_update', 'Referent mis à jour avec succès');
-	}	
+	}
+
+	/**
+	*	create a new session
+	*
+	*/
+	public function addSession() 
+	{
+		// TODO
+		$ListeOeuvre = new ListeOeuvre;
+		$ListeOeuvre->idusers = 2;
+		$ListeOeuvre->nom = "Linux";
+		$ListeOeuvre->etat = 1;
+		$ListeOeuvre->save();
+
+		$assolistaoeuvre = new AssoListeAOeuvre;
+		$assolistaoeuvre->liste_oeuvre_id = 1;
+		$assolistaoeuvre->oeuvre_id = 1;
+		$assolistaoeuvre->save();
+
+		$assolistaoeuvre2 = new AssoListeAOeuvre;
+		$assolistaoeuvre2->liste_oeuvre_id = 1;
+		$assolistaoeuvre2->oeuvre_id = 2;
+		$assolistaoeuvre2->save();
+	}
+
+
+	/**
+	*	get all user sessions
+	*
+	*/
+	private function getSessions() 
+	{
+		// TODO
+	}
+
+
+	
+
 
 }

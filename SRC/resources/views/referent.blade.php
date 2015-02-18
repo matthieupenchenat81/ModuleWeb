@@ -18,26 +18,12 @@
 <br><br>
 <legend>Mes sessions:</legend>
 <table class="table table-hover">
+  @foreach ($sessions as $session)
 	<tr class="active">
-		<td>Falbala</td>
+		<td>{{$session->nom}}</td>
 		<td>Supprimer</td>
 	</tr>
-	<tr>
-		<td>biblo</td>
-		<td>Supprimer</td>
-	</tr>
-	<tr>
-		<td>Tralala</td>
-		<td>Supprimer</td>
-	</tr>
-	<tr>
-		<td>Redmin</td>
-		<td>Supprimer</td>
-	</tr>
-	<tr>
-		<td>Vive arch linux</td>
-		<td>Supprimer</td>
-	</tr>
+  @endforeach
 </table>
 
 </div>
