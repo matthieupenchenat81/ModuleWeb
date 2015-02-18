@@ -106,21 +106,20 @@ CREATE TABLE oeuvre (
 );
 
 CREATE TABLE assodesignationaoeuvre (
-	idoeuvre INT NOT NULL,
-	iddesignation INT NOT NULL,
-	PRIMARY KEY (iddesignation,idoeuvre),
-	FOREIGN KEY (iddesignation) REFERENCES designation(iddesignation),
-	FOREIGN KEY (idoeuvre) REFERENCES oeuvre(idoeuvre)
+	oeuvre_id INT NOT NULL,
+	designation_id INT NOT NULL,
+	PRIMARY KEY (designation_id,oeuvre_id),
+	FOREIGN KEY (designation_id) REFERENCES designation(iddesignation),
+	FOREIGN KEY (oeuvre_id) REFERENCES oeuvre(idoeuvre)
 );
 
 CREATE TABLE assoauteuraoeuvre (
-	idoeuvre INT NOT NULL,
-	idauteur INT NOT NULL,
-	PRIMARY KEY (idauteur,idoeuvre),
-	FOREIGN KEY (idauteur) REFERENCES auteur(idauteur),
-	FOREIGN KEY (idoeuvre) REFERENCES oeuvre(idoeuvre)
+	oeuvre_id INT NOT NULL,
+	auteur_id INT NOT NULL,
+	PRIMARY KEY (auteur_id,oeuvre_id),
+	FOREIGN KEY (auteur_id) REFERENCES auteur(idauteur),
+	FOREIGN KEY (oeuvre_id) REFERENCES oeuvre(idoeuvre)
 );
-
 
 
 CREATE TABLE listeoeuvre (
@@ -135,22 +134,20 @@ CREATE TABLE listeoeuvre (
 );
 
 CREATE TABLE assolisteaoeuvre (
-	idlisteoeuvre INT NOT NULL,
-	idoeuvre INT NOT NULL,
-	PRIMARY KEY (idlisteoeuvre,idoeuvre),
-	FOREIGN KEY (idlisteoeuvre) REFERENCES listeoeuvre(idlisteoeuvre),
-	FOREIGN KEY (idoeuvre) REFERENCES oeuvre(idoeuvre)
+	liste_oeuvre_id INT NOT NULL,
+	oeuvre_id INT NOT NULL,
+	PRIMARY KEY (liste_oeuvre_id,oeuvre_id),
+	FOREIGN KEY (liste_oeuvre_id) REFERENCES listeoeuvre(idlisteoeuvre),
+	FOREIGN KEY (oeuvre_id) REFERENCES oeuvre(idoeuvre)
 );
 
 CREATE TABLE assolisteajeu (
-	idlisteoeuvre INT NOT NULL,
-	idjeu INT NOT NULL,
-	PRIMARY KEY (idlisteoeuvre,idjeu),
-	FOREIGN KEY (idlisteoeuvre) REFERENCES listeoeuvre(idlisteoeuvre),
-	FOREIGN KEY (idjeu) REFERENCES jeu(idjeu)
+	liste_oeuvre_id INT NOT NULL,
+	jeu_id INT NOT NULL,
+	PRIMARY KEY (liste_oeuvre_id,jeu_id),
+	FOREIGN KEY (liste_oeuvre_id) REFERENCES listeoeuvre(idlisteoeuvre),
+	FOREIGN KEY (jeu_id) REFERENCES jeu(idjeu)
 );
-
-
 
 CREATE TABLE description (
 	iddescription INT NOT NULL AUTO_INCREMENT,
