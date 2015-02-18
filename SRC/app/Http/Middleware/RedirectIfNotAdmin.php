@@ -4,6 +4,7 @@ use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\RedirectResponse;
 use Auth;
+use Session;
 
 
 class RedirectIfNotAdmin {
