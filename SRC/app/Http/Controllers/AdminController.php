@@ -2,6 +2,8 @@
 
 use App\User;
 use Input;
+use Auth;
+use Session;
 
 class AdminController extends Controller {
 
@@ -80,6 +82,27 @@ class AdminController extends Controller {
 		$user = User::find($idUser);
 		$user->delete();
 		return redirect('/admin')->with('message_delete', 'User supprimé avec succès');
+	}
+
+	/**
+	* Log as one user
+	*
+	*/
+	public function logAs()
+	{
+		// Saving idUser in Session
+		$me = Auth::user()->id;
+		Session::put('admin', $me);
+
+		// logout from Auth
+		Auth::logout();
+
+		// Log as referent
+		$idUser = Input::get('idUser');
+		Auth::loginUsingId($idUser);
+
+		// Redirect referent route
+		return redirect('/referent');
 	}
 
 }

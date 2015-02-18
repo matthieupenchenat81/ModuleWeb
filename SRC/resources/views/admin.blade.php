@@ -25,9 +25,6 @@
       <tbody>
       @foreach ($users as $user)
         @if ($user->droits != 2 && $user != $me || ($user->droits != 0 && $me->droits == 2 && $user != $me))
-      <form method="POST" role="form" action="deleteUser">
-        <input type="hidden" name="idUser" value="{{ $user->id }}">
-        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <tr style="background-color: #F6E3CE">
           <td>{{$user->firstname}}</td>
           <td>{{$user->lastname}}</td>
@@ -40,12 +37,20 @@
           @endif
           <td>
           @if ($user->droits == 0)
-            <a href="#" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-log-in"></span></a>
+          <form method="POST" role="form" action="logAs">
+            <input type="hidden" name="idUser" value="{{ $user->id }}">
+            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+            <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-log-in"></span></a>
+          </form>
           @endif
-          <button type="submit" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+          <form method="POST" role="form" action="deleteUser">
+            <input type="hidden" name="idUser" value="{{ $user->id }}">
+            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+            <button type="submit" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+          </form>
           </td>
         </tr>
-        </form>
+        
         @endif
       @endforeach
       </tbody>

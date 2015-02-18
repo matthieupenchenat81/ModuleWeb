@@ -36,4 +36,5 @@ Route::group(['middleware' => 'admin'], function ()
 	Route::post('addUser', 'AdminController@addUser');
 	Route::post('deleteUser', 'AdminController@deleteUser');
 	Route::post('updateUser', 'AdminController@updateUser');
+	Route::post('logAs', 'AdminController@logAs');
 });
