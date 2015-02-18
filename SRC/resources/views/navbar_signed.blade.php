@@ -31,7 +31,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Informations personnelles</h4>
       </div>
-      <form @if ($me->droits == 0) action="update" @else action="updateUser" @endif method="post" enctype="multipart/form-data">
+      <form class="form-horizontal" role="form" @if ($me->droits == 0) action="update" @else action="updateUser" @endif method="post" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="idUser" value="{{ $me->id }}" />
       <div class="modal-body">
