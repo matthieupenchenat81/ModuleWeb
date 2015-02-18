@@ -1,13 +1,10 @@
 @extends('app')
 
 @section('content')
-
-<br>
 <center>
  <!-- <img style="height:auto; width:auto; max-width:400px; alt="" src="./pictures/homePic/bienvenue.png"> -->
-  <br>
-<br>
-<form class="form-inline">
+<nav class=""navbar transparent navbar-inverse"">
+<form class="form-inline navbar-right">
   <div class="form-group">
   <img alt="" src="./pictures/homePic/search.png">
     <div class="input-group">
@@ -15,6 +12,7 @@
     </div>
   </div>
 </form>
+</nav>
 <br>
 <br>
 
