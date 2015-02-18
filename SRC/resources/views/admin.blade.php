@@ -2,8 +2,19 @@
 
 @section('content')
 
-{{ Session::get('message_add') }}
-{{ Session::get('message_delete') }}
+<div class="col-sm-12">
+  @if (session('message_add'))
+    <div class="alert alert-success col-sm-4">
+      {{ Session::get('message_add') }}
+    </div>
+  @endif
+
+  @if (session('message_delete'))
+    <div class="alert alert-success col-sm-4">
+      {{ Session::get('message_delete') }}
+    </div>
+  @endif
+</div>
 
   <br>
   <div class="col-md-2"></div>
