@@ -30,27 +30,8 @@ class ReferentController extends Controller {
 		$me = User::current();
 		$user = User::all();
 
-
-		// $ListeOeuvre = new ListeOeuvre;
-		// $ListeOeuvre->iduser = 3;
-		// $ListeOeuvre->nom = "Linux";
-		// $ListeOeuvre->etat = 1;
-		// $ListeOeuvre->save();
-
-		// $assolistaoeuvre = new AssoListeAOeuvre;
-		// $assolistaoeuvre->liste_oeuvre_id = 1;
-		// $assolistaoeuvre->oeuvre_id = 1;
-		// $assolistaoeuvre->save();
-
-		// $assolistaoeuvre2 = new AssoListeAOeuvre;
-		// $assolistaoeuvre2->liste_oeuvre_id = 1;
-		// $assolistaoeuvre2->oeuvre_id = 2;
-		// $assolistaoeuvre2->save();
-
-
 		// List Oeuvre of one user
 		$sessions = ListeOeuvre::currentUser()->get();
-		//echo $sessions[0]->oeuvres()->get();
 
 		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'sessions' => $sessions]);
 	}
