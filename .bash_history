@@ -82,3 +82,86 @@ ls
 nano loadCSVAugustin2014.py 
 git pull
 exit
+git pull
+exit
+cd ..
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+cd ModuleWeb/
+git pull
+rm SRC/resources/views/admin.blade.php 
+git pull
+nano SRC/app/Http/Middleware/RedirectIfNotAdmin.php 
+git commit -a
+git commit -a
+git commit -a
+git push
+git push
+
+git commit -a
+cd
+cd ..
+python loadCSVAugustin2014.py
+cd ModuleWeb/
+git pull
+cd Src
+cd SRC/
+php artisan bd:seed
+php artisan bd:seed
+php artisan bd:seed
+cd
+python loadCSVAugustin2014.py
+cd ..
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+cd ModuleWeb/
+git pull
+git commit -a 
+git push
+git commit -a
+git push
+python loadCSVAugustin2014.py
+cd ..
+python loadCSVAugustin2014.py
