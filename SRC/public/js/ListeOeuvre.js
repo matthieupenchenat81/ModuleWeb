@@ -1,6 +1,7 @@
 $(document).ready( function() {
     console.log( "document loaded" );
     $('.listeoeuvre').click(function() {
+        $('#oeuvrePic').empty();
         url = "/showListOeuvres/" + $(this).children('.idListeOeuvre').val();
         $.get(url, function( data ) {
             if (data.length == 0 )
@@ -14,7 +15,13 @@ $(document).ready( function() {
         }, "json" )
         
         .fail(function() {
-            console.log( "error" );
+            $("#oeuvrePic").append('<div class="alert alert-danger">'
+            +'<strong>Oouups!</strong> Il y a un problème.<br><br>'
+            +'<ul>'
+            +'<li>Erreur lors de la récupération</li>'
+            +'</ul>'
+            +'</div>'
+            );
         });
     });
 });

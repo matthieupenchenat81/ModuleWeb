@@ -84,7 +84,7 @@
 
 <!-- // TODO -->
 
-  <button style="float: right" class="btn btn-primary">Enregistrer</button>
+  <button style="float: right" class="btn btn-primary" id="enregistrer">Enregistrer</button>
   </div>
 </div>
 

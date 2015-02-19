@@ -95,4 +95,9 @@ class ReferentController extends Controller {
 		return redirect('/referent');		
 	}
 
+	public function setListOeuvres ()
+	{
+		return Response::json(array('sucess' => 'true', ))
+	}
+
 }
