@@ -22,7 +22,7 @@
 <table class="table table-hover">
   @foreach ($listeoeuvres as $listeoeuvre)
   <tr class="active listeoeuvre">
-    <form method="POST" role="form" action="deleteSession">
+    <form method="POST" role="form" action="deleteListeOeuvre">
     <input type="hidden" name="idUser" value="{{ $me->id }}">
     <input type="hidden" class="idListeOeuvre" name="idListeOeuvre" value="{{ $listeoeuvre->id }}">
     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />

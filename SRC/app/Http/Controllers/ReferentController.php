@@ -87,7 +87,11 @@ class ReferentController extends Controller {
 
 	public function deleteListeOeuvre() 
 	{
-		;
+		$idListeOeuvre = Input::get('idListeOeuvre');
+		$ListeOeuvre = ListeOeuvre::find($idListeOeuvre);
+		$ListeOeuvre->delete();
+
+		return redirect('/referent');		
 	}
 
 }
