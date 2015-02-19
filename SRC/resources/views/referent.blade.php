@@ -75,7 +75,7 @@
   <br><br><br>
 </div>
 
-<div class="col-md-9 ccmd9">
+<div class="col-md-8 ccmd9">
 
     <div class="col-md-9">
       <span style="float: right">Sélectionner tout -- Annuler sélection</span><br>
@@ -94,7 +94,7 @@
 
 
 
-<div class="col-md-9 ccmd9">
+<div class="col-md-8 ccmd9">
 
     <div class="col-md-9">
       <span style="float: right">Sélectionner tout -- Annuler sélection</span><br>
