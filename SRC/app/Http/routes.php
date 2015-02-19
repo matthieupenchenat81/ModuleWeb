@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function ()
 	Route::post('deleteListeOeuvre', 'ReferentController@deleteListeOeuvre');
 	Route::post('addListeOeuvre', 'ReferentController@addListeOeuvre');
 	Route::get('showListOeuvres/{id}', 'ReferentController@showListeOeuvres');
+	Route::get('setListOeuvres', 'ReferentController@setListOeuvres');
 });
 
 Route::group(['middleware' => 'admin'], function ()

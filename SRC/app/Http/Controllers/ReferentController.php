@@ -31,8 +31,8 @@ class ReferentController extends Controller {
 		$me = User::current();
 		$user = User::all();
 
-		// $ListeOeuvre = ListeOeuvre::find(1);
-		// $ListeOeuvre->oeuvres()->attach([22, 23, 24, 25, 26]);
+		//$ListeOeuvre = ListeOeuvre::find(2);
+		//$ListeOeuvre->oeuvres()->attach([22, 23, 24, 25, 26]);
 
 		$listeoeuvres = ListeOeuvre::currentUser()->get();
 		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'listeoeuvres' => $listeoeuvres]);
@@ -83,7 +83,7 @@ class ReferentController extends Controller {
 
 	public function showListeOeuvres($id) 
 	{
-		return Response::json(ListeOeuvre::currentUser()->get()[0]->oeuvres->toArray());
+		return Response::json(ListeOeuvre::currentUser()->get()[1]->oeuvres->toArray());
 	}
 
 	public function deleteListeOeuvre() 

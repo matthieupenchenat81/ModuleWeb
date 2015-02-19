@@ -3,11 +3,13 @@ $(document).ready( function() {
     $('.listeoeuvre').click(function() {
         url = "/showListOeuvres/" + $(this).children('.idListeOeuvre').val();
         $.get(url, function( data ) {
+            if (data.length == 0 )
+                $("#oeuvrePic").append("Aucune Oeuvre");
             data.forEach( function(el) {
-                $("#oeuvrePic").append('<div class="col-xs-4 col-md-3">')
-                .append('<a href="#" class="thumbnail">')
-                .append('<img width="50px" src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '"/>')
-                .append('</a></div>');
+                $("#oeuvrePic").append('<div class="col-xs-4 col-md-3">'
+                +'<a href="#" class="thumbnail">'
+                +'<img src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '"/>'
+                +'</a></div>');
             })
         }, "json" )
         
