@@ -24,5 +24,32 @@ $(document).ready( function() {
             );
         });
     });
+
+    $('.listeoeuvre').click(function() {
+        $('#oeuvrePic').empty();
+        url = "/showListOeuvres/" + $(this).children('.idListeOeuvre').val();
+        $.post(url, 
+            dataSend,
+            function( data ) {
+        }, "json" )
+        .done(function() {
+            $("#oeuvrePic").append('<div class="alert alert-sucess">'
+            +'<ul>'
+            +'<li>Sauvegarde valider</li>'
+            +'</ul>'
+            +'</div>'
+        })
+        .fail(function() {
+            $("#oeuvrePic").append('<div class="alert alert-danger">'
+            +'<strong>Oouups!</strong> Il y a un problème.<br><br>'
+            +'<ul>'
+            +'<li>Erreur lors de la récupération</li>'
+            +'</ul>'
+            +'</div>'
+            );
+        });
+    });
+
 });
+
 
