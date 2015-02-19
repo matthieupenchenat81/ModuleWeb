@@ -30,6 +30,7 @@ class ReferentController extends Controller {
 		$me = User::current();
 		$user = User::all();
 
+		$sessions = '';
 		// List Oeuvre of one user
 		//$sessions = ListeOeuvre::currentUser()->get();
 
