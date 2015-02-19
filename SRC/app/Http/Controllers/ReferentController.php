@@ -97,14 +97,15 @@ class ReferentController extends Controller {
 
 	public function setListOeuvres ()
 	{	
+		
 		$idListeOeuvre = Input::get('idListeOeuvre');
 		$idconcats = Input::get('oeuvres');
 		$list_oeuvres_id = explode("-", $idconcats);
-
+		
 		$ListeOeuvre = ListeOeuvre::find($idListeOeuvre);
 		$ListeOeuvre->oeuvres()->detach();
 		$ListeOeuvre->oeuvres()->attach($list_oeuvres_id);
-		return Response::json(array('sucess' => 'true', ));
+		return Response::json(array());
 	}
 
 }

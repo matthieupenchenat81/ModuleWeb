@@ -24,7 +24,7 @@
     <form method="POST" role="form" action="deleteListeOeuvre">
     <input type="hidden" name="idUser" value="{{ $me->id }}">
     <input type="hidden" class="idListeOeuvre" name="idListeOeuvre" value="{{ $listeoeuvre->id }}">
-    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+    <input type="hidden" name="_token" id="_token" value="{{{ csrf_token() }}}" />
 		<td>{{$listeoeuvre->nom}}</td>
 		<td><button type="submit" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>
 	</tr>

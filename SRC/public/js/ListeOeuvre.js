@@ -28,16 +28,18 @@ $('.listeoeuvre').click(function() {
 
 //Enregistrement d'une liste d'ouevre
 $('#enregistrer').click(function() {
-    url = "/setListOeuvres/" + $(this).children('.idListeOeuvre').val();
-    dataSend = { idListeOeuvre : 1,
+    url = "setListOeuvres";
+    dataSend = { 
+                _token : $('#_token').val(),
+                idListeOeuvre : "1",
                 oeuvres : "1-2-3-4"};
     $.post(url, 
         dataSend,
         function( data ) {
             ;
-    })
+    }, "json")
     .done(function() {
-        $("#oeuvrePic").append('<div class="alert alert-sucess">'
+        $("#oeuvrePic").append('<div class="alert alert-success">'
         +'<ul>'
         +'<li>Sauvegarde validée</li>'
         +'</ul>'
