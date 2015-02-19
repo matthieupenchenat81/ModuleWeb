@@ -38,7 +38,7 @@
 <div class="panel panel-default">
   <div class="panel-body">
     
-@if if($sessions != [])
+@if ($sessions != [])
   @foreach ($sessions[0]->oeuvres()->get() as $oeuvre)
     <div class="col-xs-4 col-md-3">
       <a href="#" class="thumbnail">
