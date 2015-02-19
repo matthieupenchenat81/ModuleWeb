@@ -1,10 +1,11 @@
 @extends('app')
-
 @section('content')
+<link href="css/home.css" rel="stylesheet" type="text/css"/>
+<br>
 <center>
- <!-- <img style="height:auto; width:auto; max-width:400px; alt="" src="./pictures/homePic/bienvenue.png"> -->
+  <img style="height:auto; width:auto; max-width:100px;" alt="" src="./pictures/homePic/home.png"> 
 <nav>
-<form class="form-inline navbar-right">
+<form class="form-inline navbar">
   <div class="form-group">
   <img alt="" src="./pictures/homePic/search.png">
     <div class="input-group">
@@ -13,8 +14,6 @@
   </div>
 </form>
 </nav>
-<br>
-<br>
 
 <div  style="margin-left: 200px, margin-right: 200px" id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   
