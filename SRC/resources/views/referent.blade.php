@@ -37,6 +37,16 @@
 
 
 <div class="col-md-9">
+
+
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">Ma sélection</a></li>
+  <li role="presentation"><a href="#">Ajouter des images</a></li>
+</ul>
+
+<br><br><br>
+
 <legend>Falbala: (Activer ou Désactiver la listeoeuvre)</legend>
 
 <div class="col-md-9">
