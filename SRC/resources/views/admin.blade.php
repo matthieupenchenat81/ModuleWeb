@@ -2,6 +2,7 @@
 
 @section('content')
 <link href="css/admin.css" rel="stylesheet" type="text/css"/>
+
 <div class="col-sm-12">
   @if (session('message_add'))
     <div class="alert alert-success col-sm-4">

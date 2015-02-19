@@ -1,8 +1,17 @@
 body
 {
-	background-image:url("../pictures/setting_picture/fond.jpg");
+background-image:url("../pictures/setting_picture/fond.jpg");
   background-attachment:fixed;
   background-repeat:no-repeat;
   background-position:100% 100%;
   background-size:cover;
+}
+
+.col-md-3
+{
+	padding: 1%;
+	background: white;
+	border-radius: 5px;
+	border: 1px solid grey;
+	box-shadow: 1px 1px 2px dimgrey;
 }
