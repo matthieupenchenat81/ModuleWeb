@@ -5,7 +5,7 @@
 <br>
 <div class="col-md-3">
 
-<legend>Créer une liste oeuvre:</legend>
+<legend>Créer une listeoeuvre:</legend>
 <form class="form-inline" method="POST" role="form" action="addListeOeuvre">
   <input type="hidden" name="idUser" value="{{ $me->id }}">
   <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
@@ -32,10 +32,11 @@
   </form>
   @endforeach
 </table>
+
 </div>
 
-<div class="col-md-9">
 
+<div class="col-md-9">
 
 
 <div class="panel panel-default col-md-9"><br>

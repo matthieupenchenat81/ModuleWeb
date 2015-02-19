@@ -83,7 +83,7 @@ class ReferentController extends Controller {
 
 	public function showListeOeuvres($id) 
 	{
-		return Response::json(ListeOeuvre::currentUser()->get()[1]->oeuvres->toArray());
+		return Response::json(ListeOeuvre::find($id)->oeuvres->toArray());
 	}
 
 	public function deleteListeOeuvre() 
