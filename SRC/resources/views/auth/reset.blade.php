@@ -21,6 +21,13 @@
 					<form class="form-horizontal" role="form" method="POST" action="/password/reset/{{ $token }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="hidden" name="token" value="{{ $token }}">
+						
+						<div class="form-group">
+							<label class="col-md-4 control-label">Email</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="email">
+							</div>
+						</div>
 
 
 						<div class="form-group">

@@ -85,7 +85,7 @@ class LoginController extends Controller {
 
     public function update($token)
     {
-    	$credentials = array('token' => Input::get('token'), 'password' => Input::get('password'), 'password_confirmation' => Input::get('password_confirmation'));
+    	$credentials = Input::only('email', 'password','password_confirmation','token');
     	$response = Password::reset($credentials, function($user, $password)
         {
             $user->password = Hash::make($password);
