@@ -1,20 +1,18 @@
 @extends('app')
-
 @section('content')
+<link href="css/home.css" rel="stylesheet" type="text/css"/>
+<br>
 <center>
- <!-- <img style="height:auto; width:auto; max-width:400px; alt="" src="./pictures/homePic/bienvenue.png"> -->
 <nav>
-<form class="form-inline navbar-right">
+<form class="form-inline navbar">
   <div class="form-group">
-  <img alt="" src="./pictures/homePic/search.png">
+  	<img alt="" src="./pictures/homePic/search.png">
     <div class="input-group">
       	<input type="text" class="form-control" placeholder="Rechercher un Référant">
     </div>
   </div>
 </form>
 </nav>
-<br>
-<br>
 
 <div  style="margin-left: 200px, margin-right: 200px" id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   
@@ -39,7 +37,7 @@
     	@endif
     		<br>
      		<a href="/referents/vive.linux/games"><img style="border: 7px solid white; box-shadow: 0px 0px 3px black; max-height: 350px;" src="{{$ref -> image}}" width="300px"  alt="{{ $ref -> name }}-Nom"></a> 	
-    		<a href="/referents/vive.linux/games"><div class="well well-lg col-xs-4 col-md-2">{{$ref -> firstname}}, {{$ref -> lastname}}</div></a>
+    		<a href="/referents/vive.linux/games"><div class="well well-lg ">{{$ref -> firstname}}, {{$ref -> lastname}}</div></a>
     	</div> 
 	@endforeach
 	</div>

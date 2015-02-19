@@ -1,0 +1,12 @@
+body {
+  background-image:url("../pictures/homePic/fond.jpg");
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+  background-position:100% 100%;
+  background-size:cover;
+}
+
+.form-group
+{
+	margin-top : 0.5%;
+}

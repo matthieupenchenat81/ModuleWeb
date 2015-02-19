@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-
+<link href="css/referent.css" rel="stylesheet" type="text/css"/>
 <br>
 <div class="col-md-3">
 
