@@ -2818,9 +2818,28 @@ fieldset[disabled] .btn-default.active {
   background-color: #333333;
 }
 .btn-primary {
-  color: #ffffff;
+  /*color: #ffffff;
   background-color: #337ab7;
-  border-color: #2e6da4;
+  border-color: #2e6da4;*/
+  
+   /*border-radius*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 1px;
+    border-radius: 3px;
+    color: white;
+    font-size: 12px;
+    font-weight : normal;
+    border-top: 1px solid #3B96D7;
+    padding: 3%;
+    background: rgb(98,186,236);
+    background: -moz-linear-gradient(top, rgba(98,186,236,1) 0%, rgba(18,128,211,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(98,186,236,1)), color-stop(100%,rgba(18,128,211,1)));
+    background: -webkit-linear-gradient(top, rgba(98,186,236,1) 0%,rgba(18,128,211,1) 100%);
+    background: -o-linear-gradient(top, rgba(98,186,236,1) 0%,rgba(18,128,211,1) 100%);
+    background: -ms-linear-gradient(top, rgba(98,186,236,1) 0%,rgba(18,128,211,1) 100%);
+    background: linear-gradient(top, rgba(98,186,236,1) 0%,rgba(18,128,211,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62baec', endColorstr='#1280d3',GradientType=0 );
+
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -2829,7 +2848,14 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #286090;
+ background: rgb(55,148,216);
+    background: -moz-linear-gradient(top, rgba(55,148,216,1) 0%, rgba(3,81,184,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(55,148,216,1)), color-stop(100%,rgba(3,81,184,1)));
+    background: -webkit-linear-gradient(top, rgba(55,148,216,1) 0%,rgba(3,81,184,1) 100%);
+    background: -o-linear-gradient(top, rgba(55,148,216,1) 0%,rgba(3,81,184,1) 100%);
+    background: -ms-linear-gradient(top, rgba(55,148,216,1) 0%,rgba(3,81,184,1) 100%);
+    background: linear-gradient(top, rgba(55,148,216,1) 0%,rgba(3,81,184,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3794d8', endColorstr='#0351b8',GradientType=0 );
   border-color: #204d74;
 }
 .btn-primary:active,

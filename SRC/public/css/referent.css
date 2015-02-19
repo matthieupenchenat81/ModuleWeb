@@ -1,7 +1,5 @@
 body
 {
-margin : auto;
-
 background-image:url("../pictures/setting_picture/fond.jpg");
   background-attachment:fixed;
   background-repeat:no-repeat;
@@ -9,23 +7,71 @@ background-image:url("../pictures/setting_picture/fond.jpg");
   background-size:cover;
 }
 
-.ccmd3
+.listg
 {
+	background: #a7cfdf; /* Old browsers */
+background: -moz-linear-gradient(top, #a7cfdf 0%, #23538a 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a7cfdf), color-stop(100%,#23538a)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #a7cfdf 0%,#23538a 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #a7cfdf 0%,#23538a 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #a7cfdf 0%,#23538a 100%); /* IE10+ */
+background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
+
 	margin: 1%;
 	padding: 1%;
-	background: white;
 	border-radius: 7px;
 	border: 1px solid grey;
-	box-shadow: 1px 1px 2px dimgrey;
+	box-shadow: 0px 0px 2px dimgrey;
 }
 
-.ccmd9
+.listg legend
+{
+	color: white;
+}
+
+.listRecherche
+{
+
+}
+
+.filtred
+{
+	background: #eeeeee; /* Old browsers */
+	background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #eeeeee 0%,#cccccc 100%); /* W3C */
+
+	padding: 1%;
+	border-radius: 3px;
+	border: 1px solid grey;
+	box-shadow: 0px 0px 2px dimgrey;
+}
+
+.princ
 {
 	margin: 1%;
 	padding: 1%;
 	background: white;
 	border-radius: 7px;
 	border: 1px solid grey;
+<<<<<<< HEAD
+	box-shadow: 0px 0px 2px dimgrey;
+	width : 40%;
+=======
 	box-shadow: 1px 1px 2px dimgrey;
+>>>>>>> origin/master
+}
+
+.jeux
+{
+	margin: 1%;
+	padding: 1%;
+	background: white;
+	border-radius: 7px;
+	border: 1px solid grey;
+	box-shadow: 0px 0px 2px dimgrey;
 }
 
