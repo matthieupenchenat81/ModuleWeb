@@ -7,11 +7,24 @@ background-image:url("../pictures/setting_picture/fond.jpg");
   background-size:cover;
 }
 
-.col-md-3
+.ccmd3
 {
+	margin: 1%;
 	padding: 1%;
 	background: white;
 	border-radius: 5px;
 	border: 1px solid grey;
 	box-shadow: 1px 1px 2px dimgrey;
 }
+
+.ccmd9
+{
+	margin: 1%;
+	padding: 1%;
+	background: white;
+	border-radius: 5px;
+	border: 1px solid grey;
+	box-shadow: 1px 1px 2px dimgrey;
+	width : 40%;
+}
+
