@@ -1,19 +1,20 @@
 $(document).ready( function() {
- 
-    $( '.listeoeuvre' ).click(function(this) {
-        id = $(this).$('.idListeOeuvre').val();
-        $.get("showListOeuvres/"+id, function( data ) {
+    console.log( "document loaded" );
+    $('.listeoeuvre').click(function() {
+        url = "/showListOeuvres/" + $(this).children('.idListeOeuvre').val();
+        $.get(url, function( data ) {
             data.forEach( function(el) {
                 $("#oeuvrePic").append('<div class="col-xs-4 col-md-3">')
                 .append('<div class="col-xs-4 col-md-3">')
                 .append('<a href="#" class="thumbnail">')
-                .append('<img src="http://www.augustins.org/documents/10180/156407/').append(el.urlPhoto).append('">')
+                .append('<img src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '">')
                 .append('</a></div>');
-            })   
+            })
+        }, "json" )
+        
+        .fail(function() {
+            console.log( "error" );
         });
- 
-        //prevent the form from actually submitting in browser
-        return false;
-    } );
- 
-} );
+    });
+});
+

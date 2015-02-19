@@ -5,6 +5,7 @@ use Input;
 use Request;
 use App\ListeOeuvre;
 use App\AssoListeAOeuvre;
+use Response;
 
 
 class ReferentController extends Controller {
@@ -82,7 +83,7 @@ class ReferentController extends Controller {
 
 	public function showListeOeuvres($id) 
 	{
-		return $listeoeuvres = ListeOeuvre::currentUser()->get()[0]->oeuvres()->toJson();
+		return Response::json(ListeOeuvre::currentUser()->get()[0]->oeuvres->toArray());
 	}
 
 	public function deleteListeOeuvre() 
