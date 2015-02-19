@@ -30,11 +30,11 @@ class ReferentController extends Controller {
 		$me = User::current();
 		$user = User::all();
 
-		$sessions = [];
-		// List Oeuvre of one user
-		//$sessions = ListeOeuvre::currentUser()->get();
+		// $ListeOeuvre = ListeOeuvre::find(1);
+		// $ListeOeuvre->oeuvres()->attach([22, 23, 24, 25, 26]);
 
-		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'sessions' => $sessions]);
+		$listeoeuvres = ListeOeuvre::currentUser()->get();
+		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'listeoeuvres' => $listeoeuvres]);
 	}
 
 	/**
@@ -67,38 +67,27 @@ class ReferentController extends Controller {
 	*	create a new session
 	*
 	*/
-	public function addSession() 
+	public function addListeOeuvre() 
 	{
-		// TODO
 		$ListeOeuvre = new ListeOeuvre;
-		$ListeOeuvre->iduser = 2;
-		$ListeOeuvre->nom = "Linux";
-		$ListeOeuvre->etat = 1;
+		$ListeOeuvre->iduser = Input::get('idUser');
+		$ListeOeuvre->nom = Input::get('name');
+		$ListeOeuvre->etat = 0;
 		$ListeOeuvre->save();
 
-		$assolistaoeuvre = new AssoListeAOeuvre;
-		$assolistaoeuvre->liste_oeuvre_id = 1;
-		$assolistaoeuvre->oeuvre_id = 1;
-		$assolistaoeuvre->save();
+		return redirect('/referent');
 
-		$assolistaoeuvre2 = new AssoListeAOeuvre;
-		$assolistaoeuvre2->liste_oeuvre_id = 1;
-		$assolistaoeuvre2->oeuvre_id = 2;
-		$assolistaoeuvre2->save();
 	}
 
 
-	/**
-	*	get all user sessions
-	*
-	*/
-	private function getSessions() 
+	public function showListeOeuvres($id) 
 	{
-		// TODO
+		return $listeoeuvres = ListeOeuvre::currentUser()->get()[0]->oeuvres()->toJson();
 	}
 
-
-	
-
+	public function deleteListeOeuvre() 
+	{
+		;
+	}
 
 }

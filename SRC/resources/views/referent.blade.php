@@ -5,24 +5,31 @@
 <br>
 <div class="col-md-3">
 
-<legend>Créer une session:</legend>
-<form class="form-inline">
+<legend>Créer une listeoeuvre:</legend>
+<form class="form-inline" method="POST" role="form" action="addListeOeuvre">
+  <input type="hidden" name="idUser" value="{{ $me->id }}">
+  <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
   <div class="form-group">
     <div class="input-group">
-      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Ajouter une session">
+      <input type="text" class="form-control" required="required" name="name" placeholder="Ajouter une liste d'oeuvre">
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Ajouter</button>
 </form>
 
 <br><br>
-<legend>Mes sessions:</legend>
+<legend>Mes listes d'oeuvres:</legend>
 <table class="table table-hover">
-  @foreach ($sessions as $session)
-	<tr class="active">
-		<td>{{$session->nom}}</td>
-		<td>Supprimer</td>
+  @foreach ($listeoeuvres as $listeoeuvre)
+  <tr class="active listeoeuvre">
+    <form method="POST" role="form" action="deleteSession">
+    <input type="hidden" name="idUser" value="{{ $me->id }}">
+    <input type="hidden" class="idListeOeuvre" name="idListeOeuvre" value="{{ $listeoeuvre->id }}">
+    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+		<td>{{$listeoeuvre->nom}}</td>
+		<td><button type="submit" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>
 	</tr>
+  </form>
   @endforeach
 </table>
 
@@ -30,23 +37,15 @@
 
 
 <div class="col-md-9">
-<legend>Falbala: (Activer ou Désactiver la session)</legend>
+<legend>Falbala: (Activer ou Désactiver la listeoeuvre)</legend>
 
 <div class="col-md-9">
 
 <span style="float: right">Sélectionner tout -- Annuler sélection</span><br>
 <div class="panel panel-default">
-  <div class="panel-body">
-    
-@if ($sessions != [])
-  @foreach ($sessions[0]->oeuvres()->get() as $oeuvre)
-    <div class="col-xs-4 col-md-3">
-      <a href="#" class="thumbnail">
-        <img src="http://www.augustins.org/documents/10180/156407/{{ $oeuvre->urlPhoto }}">
-      </a>
-    </div>
-  @endforeach
-@endif
+  <div class="panel-body" id="oeuvrePic">
+
+<!-- // TODO -->
 
   <button style="float: right" class="btn btn-primary">Enregistrer</button>
   </div>
@@ -105,3 +104,4 @@
 
 
 @endsection
+
