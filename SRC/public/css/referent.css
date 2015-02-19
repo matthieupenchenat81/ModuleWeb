@@ -57,8 +57,12 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 	background: white;
 	border-radius: 7px;
 	border: 1px solid grey;
+<<<<<<< HEAD
 	box-shadow: 0px 0px 2px dimgrey;
 	width : 40%;
+=======
+	box-shadow: 1px 1px 2px dimgrey;
+>>>>>>> origin/master
 }
 
 .jeux

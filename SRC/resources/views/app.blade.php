@@ -7,6 +7,7 @@
 	<title>ModuleWeb</title>
 
 	<link href="/css/app.css" rel="stylesheet">
+	<link href="/css/chosen.min.css" rel="stylesheet">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -31,7 +32,24 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
+	<!-- Choosen -->
+	  <script src="/js/chosen.jquery.js" type="text/javascript"></script>
+	  <script type="text/javascript">
+	    var config = {
+	      '.chosen-select'           : {},
+	      '.chosen-select-deselect'  : {allow_single_deselect:true},
+	      '.chosen-select-no-single' : {disable_search_threshold:10},
+	      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+	      '.chosen-select-width'     : {width:"95%"}
+	    }
+	    for (var selector in config) {
+	      $(selector).chosen(config[selector]);
+	    }
+	  </script>
+
+
 	<!-- Scripts Jquery -->
-	<script type="text/javascript" src="js/getListeOeuvre.js"></script>
+	<script type="text/javascript" src="/js/ListeOeuvre.js"></script>
+
 </body>
 </html>
