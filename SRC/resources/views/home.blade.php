@@ -3,6 +3,7 @@
 <link href="css/home.css" rel="stylesheet" type="text/css"/>
 <br>
 <center>
+  <img style="height:auto; width:auto; max-width:100px;" alt="" src="./pictures/homePic/home.png"> 
 <nav>
 <form class="form-inline navbar">
   <div class="form-group">
@@ -39,7 +40,7 @@
     	<div class="item">
     	@endif
     		<br>
-     		<a href="/referents/vive.linux/games"><img style="border: 7px solid white; box-shadow: 0px 0px 3px black; max-height: 350px;" src="{{$ref -> image}}" width="300px"  alt="{{ $ref -> name }}-Nom"></a> 	
+     		<a href="/referents/vive.linux/games"><img class="imgRef" src="{{$ref -> image}}" width="300px"  alt="{{ $ref -> name }}-Nom"></a> 	
     		<a href="/referents/vive.linux/games"><div class="well well-lg ">{{$ref -> firstname}}, {{$ref -> lastname}}</div></a>
     	</div> 
 	@endforeach
