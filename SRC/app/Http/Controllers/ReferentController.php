@@ -31,7 +31,7 @@ class ReferentController extends Controller {
 		$user = User::all();
 
 		// List Oeuvre of one user
-		$sessions = ListeOeuvre::currentUser()->get();
+		//$sessions = ListeOeuvre::currentUser()->get();
 
 		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'sessions' => $sessions]);
 	}
