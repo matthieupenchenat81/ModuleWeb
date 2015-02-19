@@ -7,6 +7,11 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Login</div>
 				<div class="panel-body">
+					@if (session('status'))
+						<div class="alert alert-success">
+							{{ session('status') }}
+						</div>
+					@endif
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
 							<strong>Oouups!</strong> Il y a un problème avec votre saisie.<br><br>

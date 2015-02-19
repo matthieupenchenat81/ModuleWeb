@@ -101,7 +101,7 @@ class LoginController extends Controller {
 		  case Password::INVALID_USER:
 		    return Redirect::back()->withErrors("Utilsateur invalide")->withInput();
 		  case Password::PASSWORD_RESET:
-		    return Redirect::to('/login');
+		    return Redirect::to('/login')->withStatus("Mail de réinitialisaté !");
 		}
     }
 
