@@ -39,11 +39,13 @@
 <div class="col-md-9">
 
 
-
-<ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="#">Ma sélection</a></li>
-  <li role="presentation"><a href="#">Ajouter des images</a></li>
-</ul>
+<div class="panel panel-default">
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#">Ma sélection</a></li>
+    <li role="presentation"><a href="#">Ajouter des images</a></li>
+  </ul>
+  <br><br><br><br>
+</div>
 
 <br><br><br>
 
@@ -56,6 +58,11 @@
   <div class="panel-body" id="oeuvrePic">
 
 <!-- // TODO -->
+<div class="col-xs-4 col-md-3">
+<a href="#" class="thumbnail">
+  <img width="50px" src="http://www.augustins.org/documents/10180/156407/1"/>
+</a>
+</div>
 
   <button style="float: right" class="btn btn-primary">Enregistrer</button>
   </div>

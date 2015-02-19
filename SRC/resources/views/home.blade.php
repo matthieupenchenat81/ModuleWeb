@@ -14,6 +14,8 @@
 </form>
 </nav>
 
+
+@if ($referent != [])
 <div  style="margin-left: 200px, margin-right: 200px" id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   
   <!-- indicateur, à incrementé en fonction du nombre d'images -->
@@ -26,6 +28,7 @@
     @endif
     @endforeach 
   </ol>
+
 
   <!-- Parametres des images  -->
   <div class="carousel-inner" role="listbox"> 
@@ -41,7 +44,7 @@
     	</div> 
 	@endforeach
 	</div>
-	
+
   	<!-- Controles -->
   	<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
     	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -52,6 +55,12 @@
     	<span class="sr-only">Suivant</span>
   	</a>
 </div>
+</div>
+@else
+
+blabla LOL
+
+@endif
 
 <script type="text/javascript">
 document.oncontextmenu = new Function("return false");

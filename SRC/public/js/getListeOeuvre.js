@@ -5,9 +5,8 @@ $(document).ready( function() {
         $.get(url, function( data ) {
             data.forEach( function(el) {
                 $("#oeuvrePic").append('<div class="col-xs-4 col-md-3">')
-                .append('<div class="col-xs-4 col-md-3">')
                 .append('<a href="#" class="thumbnail">')
-                .append('<img src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '">')
+                .append('<img width="50px" src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '"/>')
                 .append('</a></div>');
             })
         }, "json" )
