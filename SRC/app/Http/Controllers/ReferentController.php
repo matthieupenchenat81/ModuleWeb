@@ -97,7 +97,7 @@ class ReferentController extends Controller {
 
 	public function setListOeuvres ()
 	{
-		return Response::json(array('sucess' => 'true', ))
+		return Response::json(array('sucess' => 'true', ));
 	}
 
 }
