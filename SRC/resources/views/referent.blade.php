@@ -58,11 +58,6 @@
   <div class="panel-body" id="oeuvrePic">
 
 <!-- // TODO -->
-<div class="col-xs-4 col-md-3">
-<a href="#" class="thumbnail">
-  <img width="50px" src="http://www.augustins.org/documents/10180/156407/1"/>
-</a>
-</div>
 
   <button style="float: right" class="btn btn-primary">Enregistrer</button>
   </div>
