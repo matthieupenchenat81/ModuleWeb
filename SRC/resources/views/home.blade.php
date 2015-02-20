@@ -7,7 +7,7 @@
 <nav>
 <form class="form-inline navbar">
   <div class="form-group">
-  	<img alt="" height="35px" src="./pictures/homePic/search.png">
+  	<img alt="" class="imgSearch" src="./pictures/homePic/search.png">
     <div class="input-group">
       	</span><input type="text" class="form-control" placeholder="Rechercher un Référant">
     </div>
