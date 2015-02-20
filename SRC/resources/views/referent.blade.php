@@ -80,7 +80,8 @@
 <div class="col-md-8 listRecherche">
 
     <div class="col-md-9">
-      <span style="float: right">Sélectionner tout -- Annuler sélection</span><br>
+    	
+      <span style="float: right"><a href="">Sélectionner tout</a> -- <a href="">Annuler sélection</a></span><br>
       <div class="panel panel-default">
         <div class="panel-body" id="oeuvrePic">
       <!-- // TODO -->
