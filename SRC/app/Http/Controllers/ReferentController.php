@@ -5,6 +5,11 @@ use Input;
 use Request;
 use App\Models\ListeOeuvre;
 use App\Models\AssoListeAOeuvre;
+use App\Models\Auteur;
+use App\Models\Designation;
+use App\Models\Domaine;
+use App\Models\Matiere;
+use App\Models\Technique;
 use Response;
 
 
@@ -31,11 +36,18 @@ class ReferentController extends Controller {
 		$me = User::current();
 		$user = User::all();
 
+		$dataSearch = [];
+		$dataSearch['auteur'] = Auteur::all();
+		$dataSearch['designation'] = Designation::all();
+		$dataSearch['domaine'] = Domaine::all();
+		$dataSearch['matiere'] = Matiere::all();
+		$dataSearch['technique'] = Technique::all();
+
 		//$ListeOeuvre = ListeOeuvre::find(2);
 		//$ListeOeuvre->oeuvres()->attach([22, 23, 24, 25, 26]);
 
 		$listeoeuvres = ListeOeuvre::currentUser()->get();
-		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'listeoeuvres' => $listeoeuvres]);
+		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'listeoeuvres' => $listeoeuvres, 'data' => $dataSearch]);
 	}
 
 	/**
