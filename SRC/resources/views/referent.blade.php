@@ -19,27 +19,31 @@
 	<br><br>
 	<legend>Mes listes d'oeuvres:</legend>
 	<table class="table table-hover">
-  	<caption>Nom  | Activer | Supprimer</caption>
-   	@foreach ($listeoeuvres as $listeoeuvre)
-  		<tr class="active listeoeuvre">
-      	<form method="POST" role="form" action="deleteListeOeuvre">
-      		<input type="hidden" name="idUser" value="{{ $me->id }}">
-      		<input type="hidden" class="idListeOeuvre" name="idListeOeuvre" value="{{ $listeoeuvre->id }}">
-      		<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-  				<td>{{$listeoeuvre->nom}}</td>
-  				<td>
-  					<label class="ios7-switch">
-      				<input type="checkbox" checked>
-      				<span></span>
-      			</label>
-      		</td>
-  				<td>
-  					<button type="submit" class="btn btn-sm btn-danger">
-  					<span class="glyphicon glyphicon-trash"></span>
-  				</td>
-  			</form>
-  		</tr>
-  	@endforeach
+    <thead>
+      <tr>
+        <th>Nom</th><th>Action</th>
+      </tr> 
+    </thead>
+    <tbody>
+      @foreach ($listeoeuvres as $listeoeuvre)
+        <tr class="active listeoeuvre">
+          <form method="POST" role="form" action="deleteListeOeuvre">
+            <input type="hidden" name="idUser" value="{{ $me->id }}">
+            <input type="hidden" class="idListeOeuvre" name="idListeOeuvre" value="{{ $listeoeuvre->id }}">
+            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+            <td>{{$listeoeuvre->nom}}</td>
+            <td>
+              <label class="ios7-switch">
+                <input type="checkbox" checked>
+                <span></span>
+              </label>
+              <button type="submit" class="btn btn-sm btn-danger">
+              <span class="glyphicon glyphicon-trash"></span></button>
+            </td>
+          </form>
+        </tr>
+      @endforeach
+    </tbody>
 	</table>
 </div>
 
@@ -87,7 +91,6 @@
 
 <!-- TAKE ALL THAT'S INSIDE THIS DIV FOR "MY SELECTION" -->
 <div class="col-md-7 princ" id="selection">
-	
   <span style="float: right"><a href="">Sélectionner tout</a> -- <a href="">Annuler sélection</a></span><br>
     <div class="panel-body" id="oeuvrePic">
       <!-- // TODO -->
@@ -98,46 +101,127 @@
 
 <!-- TAKE ALL THAT'S INSIDE THIS DIV FOR "ADD PICTURES" -->
 <div class="col-md-7 princ" id="addpicture">
-	<div>
-    	<legend>Critères</legend>
-    	<select class="form-control comboSearch">
-      		<option selected="selected">Selectionner catégorie</option>
-      		<option>1</option>
-      		<option>2</option>
-    	</select>
-    		<select class="form-control comboSearch">
-      			<option selected="selected">Tous les éléments</option>
-      			<option>1</option>
-      			<option>2</option>
-    		</select>
-    		<button class="btn btn-primary">Ajouter</button>
-	</div>
-	
-	<div>
-		<input type="text" class="form-control comboSearch" required="required" name="name" placeholder="Rechercher">
-		<button class="btn btn-primary">Ajouter</button>
-	</div>
-	
-	<div>
-    <form class="form-inline mesFiltres">
-    	<legend>Mes filtres</legend>
-  		<table class="table">
-    		<tr>
-      			<td>Montagne: noire</td>
-      			<td><a href="" ><img class="icon_del" src="/pictures/setting_picture/delete_icon.png" alt="Supprimer" /></a></td>
-    		</tr>
-    		<tr>
-     			<td>couleur: bleu</td>
-      			<td><a href="" ><img class="icon_del" src="/pictures/setting_picture/delete_icon.png" alt="Supprimer" /></a></td>
-    		</tr>
-   			<tr>
-      			<td>âge: 10 ans</td>
-      			<td><a href="" ><img class="icon_del" src="/pictures/setting_picture/delete_icon.png" alt="Supprimer" /></a></td>
-    		</tr>
-  		</table>
-  	</form>
-  </div>
 
+
+  <!-- PART CHOOSE AND FILL FILTER -->
+  <legend>Recherche avancée</legend><br>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Auteur</label>
+      <div class="col-sm-10">
+        <select data-placeholder="Choisissez un auteur" class="chosen-select" multiple style="width:350px;" tabindex="4">
+          <option value=""></option>
+          <option value="United States">United States</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="Aland Islands">Aland Islands</option>
+          <option value="Albania">Albania</option>
+          <option value="Zambia">Zambia</option>
+          <option value="Zimbabwe">Zimbabwe</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Description</label>
+      <div class="col-sm-10">
+        <select data-placeholder="Choisissez une description" class="chosen-select" multiple style="width:350px;" tabindex="4">
+          <option value=""></option>
+          <option value="United States">United States</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="Aland Islands">Aland Islands</option>
+          <option value="Albania">Albania</option>
+          <option value="Zambia">Zambia</option>
+          <option value="Zimbabwe">Zimbabwe</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Désignation</label>
+      <div class="col-sm-10">
+        <select data-placeholder="Choisissez une désignation" class="chosen-select" multiple style="width:350px;" tabindex="4">
+          <option value=""></option>
+          <option value="United States">United States</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="Aland Islands">Aland Islands</option>
+          <option value="Albania">Albania</option>
+          <option value="Zambia">Zambia</option>
+          <option value="Zimbabwe">Zimbabwe</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Domaine</label>
+      <div class="col-sm-10">
+        <select data-placeholder="Choisissez un domaine" class="chosen-select" multiple style="width:350px;" tabindex="4">
+          <option value=""></option>
+          <option value="United States">United States</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="Aland Islands">Aland Islands</option>
+          <option value="Albania">Albania</option>
+          <option value="Zambia">Zambia</option>
+          <option value="Zimbabwe">Zimbabwe</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Matière</label>
+      <div class="col-sm-10">
+        <select data-placeholder="Choisissez une matière" class="chosen-select" multiple style="width:350px;" tabindex="4">
+          <option value=""></option>
+          <option value="United States">United States</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="Aland Islands">Aland Islands</option>
+          <option value="Albania">Albania</option>
+          <option value="Zambia">Zambia</option>
+          <option value="Zimbabwe">Zimbabwe</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Technique</label>
+      <div class="col-sm-10">
+        <select data-placeholder="Choisissez une technique" class="chosen-select" multiple style="width:350px;" tabindex="4">
+          <option value=""></option>
+          <option value="United States">United States</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="Aland Islands">Aland Islands</option>
+          <option value="Albania">Albania</option>
+          <option value="Zambia">Zambia</option>
+          <option value="Zimbabwe">Zimbabwe</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Mot clé</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="Mot clé">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Date Début</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="date début">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Date Fin</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="date fin">
+      </div>
+    </div>
+
+    <center><button type="submit" class="btn btn-primary">Rechercher</button></center>
+  </form>
+
+
+  <br>
+  <!-- PART RESULT OF MY SEARCH -->
+  <legend>Résultat de ma recherche</legend>
   <span style="float: right"><a href="">Sélectionner tout</a> -- <a href="">Annuler sélection</a></span><br>
   <div class="panel panel-default">
     <div class="panel-body" id="oeuvrePic">

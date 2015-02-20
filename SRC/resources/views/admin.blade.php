@@ -50,14 +50,14 @@
           <td>
             &nbsp;&nbsp;
           @if ($user->droits == 0)
-          <form method="POST" style = "float: left;" role="form" action="logAs">
+          <form method="POST" style = "float: left" role="form" action="logAs">
             <input type="hidden" name="idUser" value="{{ $user->id }}">
             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
             <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-log-in"></span></a>
           </form>
           @endif
 
-          <form method="POST" role="form" style = "float: left;" action="deleteUser">
+          <form method="POST" role="form" style = "float: left" action="deleteUser">
             <input type="hidden" name="idUser" value="{{ $user->id }}">
             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
             <button type="submit" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
