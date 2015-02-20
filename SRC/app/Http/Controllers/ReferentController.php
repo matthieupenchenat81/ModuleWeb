@@ -1,10 +1,10 @@
 <?php namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\User;
 use Input;
 use Request;
-use App\ListeOeuvre;
-use App\AssoListeAOeuvre;
+use App\Models\ListeOeuvre;
+use App\Models\AssoListeAOeuvre;
 use Response;
 
 

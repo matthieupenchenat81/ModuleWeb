@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Auth;
@@ -11,12 +11,12 @@ class ListeOeuvre extends Model {
 
     public function oeuvres()
     {
-        return $this->belongsToMany('App\Oeuvre', 'assolisteaoeuvre');
+        return $this->belongsToMany('App\Models\Oeuvre', 'assolisteaoeuvre');
     }
 
     public function jeux()
     {
-        return $this->belongsToMany('App\Jeu', 'assolisteajeu');
+        return $this->belongsToMany('App\Models\Jeu', 'assolisteajeu');
     }
 
     public function scopeCurrentUser($query)

@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\User;
 
 class GameController extends Controller {
 

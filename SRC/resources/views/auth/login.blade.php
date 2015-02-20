@@ -1,6 +1,7 @@
 @extends('app')
 
 @section('content')
+<link href="css/home.css" rel="stylesheet" type="text/css"/>
 <div style="margin-top: 70px" class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
