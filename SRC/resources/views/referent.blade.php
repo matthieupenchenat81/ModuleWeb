@@ -100,43 +100,41 @@
 
 
 <div class="col-md-8 filtred">
-    <legend>Ajout de filtres</legend>
-    <h4>Par critère:</h4>
-    <select class="form-control comboSearch">
-      <option selected="selected">Selectionner catégorie</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-    <select class="form-control comboSearch">
-      <option selected="selected">Tous les éléments</option>
-      <option>1</option>
-      <option>2</option>
-    </select>
-    <button style="margin-top: 5px" class="btn btn-primary">Ajouter</button>
-    <br><br>
-    <div class="input-group motCle form-inline">
-    	<input type="text" class="form-control" id="exampleInputAmount" placeholder="Par mot clé">
-    	<button type="submit" class="btn btn-primary">Ajouter</button>
-    </div>
+	<div> 
+    	<legend>Critères</legend>
+    	<select class="form-control comboSearch">
+      		<option selected="selected">Selectionner catégorie</option>
+      		<option>1</option>
+      			<option>2</option>
+    		</select>
+    		<select class="form-control comboSearch">
+      			<option selected="selected">Tous les éléments</option>
+      			<option>1</option>
+      			<option>2</option>
+    		</select>
+    		<button style="margin-top: 5px" class="btn btn-primary">Ajouter</button>
 
-    <form class="form-inline">
-      
-    <legend>Mes filtres</legend>
-  <table class="table">
-    <tr>
-      <td>Montagne: noire</td>
-      <td>Supprimer</td>
-    </tr>
-    <tr>
-      <td>couleur: bleu</td>
-      <td>Supprimer</td>
-    </tr>
-    <tr>
-      <td>âge: 10 ans</td>
-      <td>Supprimer</td>
-    </tr>
-  </table>
-</div>
+    		
+	</div>
 	
+    <form class="form-inline">
+    	<legend>Mes filtres</legend>
+  		<table class="table">
+    		<tr>
+      			<td>Montagne: noire</td>
+      			<td>Supprimer</td>
+    		</tr>
+    		<tr>
+     			<td>couleur: bleu</td>
+      			<td>Supprimer</td>
+    		</tr>
+   			<tr>
+      			<td>âge: 10 ans</td>
+      			<td>Supprimer</td>
+    		</tr>
+  		</table>
+  	</form>
+</div>
+
 @endsection
 

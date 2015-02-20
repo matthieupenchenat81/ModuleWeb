@@ -1,3 +1,4 @@
+<link href="css/navbar.css" rel="stylesheet" type="text/css"/>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
   	<a class="navbar-brand" href="#">Espace {{ $nameRoute }}</a>

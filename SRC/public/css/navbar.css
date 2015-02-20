@@ -1,0 +1,31 @@
+.navbar
+{
+	background: rgba(0,0,0, 0.45);
+}
+
+.navbar-default .navbar-brand 
+{
+	color: white;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: silver;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-text {
+  color: white;
+}
+
+.navbar-default .navbar-text:hover {
+  color: silver;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-default .navbar-nav:hover > li > a {
+  color: silver;
+}

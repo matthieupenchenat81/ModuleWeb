@@ -2730,7 +2730,7 @@ select[multiple].form-group-lg .form-control {
       touch-action: manipulation;
   cursor: pointer;
   background-image: none;
-  border: 1px solid transparent;
+  border: 1px solid #0066FF;
   white-space: nowrap;
   padding: 6px 12px;
   font-size: 14px;
