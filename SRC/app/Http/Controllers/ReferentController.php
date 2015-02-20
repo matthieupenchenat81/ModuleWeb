@@ -37,11 +37,11 @@ class ReferentController extends Controller {
 		$user = User::all();
 
 		$dataSearch = [];
-		$dataSearch['auteur'] = Auteur::all();
-		$dataSearch['designation'] = Designation::all();
-		$dataSearch['domaine'] = Domaine::all();
-		$dataSearch['matiere'] = Matiere::all();
-		$dataSearch['technique'] = Technique::all();
+		$dataSearch['auteur'] = Auteur::orderBy('nom')->get();
+		$dataSearch['designation'] = Designation::orderBy('nom')->get();
+		$dataSearch['domaine'] = Domaine::orderBy('nom')->get();
+		$dataSearch['matiere'] = Matiere::orderBy('nom')->get();
+		$dataSearch['technique'] = Technique::orderBy('nom')->get();
 
 		//$ListeOeuvre = ListeOeuvre::find(2);
 		//$ListeOeuvre->oeuvres()->attach([22, 23, 24, 25, 26]);
