@@ -21,9 +21,10 @@
   <div class="col-md-2"></div>
 
    <div class="col-md-8">
-    <button style="float: right" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Ajouter un référent</button>
+    <button type="button" class="btn btn-primary addRef" data-toggle="modal" data-target="#myModal">Ajouter un référent</button>
     <br><br>
-    <table class="table table-hover table-bordered">
+    <!--  class="table table-hover table-bordered" -->
+    <table>
       <thead>
         <tr style="background-color: #F7BE81">
           <td>Nom</td>
@@ -64,7 +65,6 @@
           </form>
         </div>
         </tr>
-        
         @endif
       @endforeach
       </tbody>
