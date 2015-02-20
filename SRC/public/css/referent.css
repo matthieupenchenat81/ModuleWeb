@@ -7,6 +7,12 @@ background-image:url("../pictures/setting_picture/fond.jpg");
   background-size:cover;
 }
 
+caption
+{
+	color: silver;
+text-align: center;
+}
+
 .listg
 {
 	background: #a7cfdf; /* Old browsers */

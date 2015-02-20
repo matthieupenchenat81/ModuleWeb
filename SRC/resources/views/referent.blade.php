@@ -19,6 +19,7 @@
 	<br><br>
 	<legend>Mes listes d'oeuvres:</legend>
 	<table class="table table-hover">
+	<caption>Nom  | Activer | Supprimer</caption>
  	@foreach ($listeoeuvres as $listeoeuvre)
 		<tr class="active listeoeuvre">
     		<form method="POST" role="form" action="deleteListeOeuvre">
