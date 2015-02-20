@@ -28,7 +28,6 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 	border-radius: 7px;
 	border: 1px solid grey;
 	box-shadow: 0px 0px 2px dimgrey;
-	width : 25%;
 }
 
 .listg legend
@@ -60,7 +59,6 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 	border-radius: 3px;
 	border: 1px solid grey;
 	box-shadow: 0px 0px 2px dimgrey;
-	width : 90%;
 }
 
 .princ
@@ -71,7 +69,6 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 	border-radius: 7px;
 	border: 1px solid grey;
 	box-shadow: 0px 0px 2px dimgrey;
-	width : 70%;
 }
 
 .jeux
