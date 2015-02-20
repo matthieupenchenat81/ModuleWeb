@@ -2830,7 +2830,8 @@ fieldset[disabled] .btn-default.active {
     font-size: 12px;
     font-weight : normal;
     border-top: 1px solid #3B96D7;
-    padding: 3%;
+    padding-left: 15px;
+	padding-right: 15px;
     background: rgb(98,186,236);
     background: -moz-linear-gradient(top, rgba(98,186,236,1) 0%, rgba(18,128,211,1) 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(98,186,236,1)), color-stop(100%,rgba(18,128,211,1)));
