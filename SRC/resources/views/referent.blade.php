@@ -100,40 +100,45 @@
 
 
 <div class="col-md-8 filtred">
-	<div> 
+	<div>
     	<legend>Critères</legend>
     	<select class="form-control comboSearch">
       		<option selected="selected">Selectionner catégorie</option>
       		<option>1</option>
-      			<option>2</option>
-    		</select>
+      		<option>2</option>
+    	</select>
     		<select class="form-control comboSearch">
       			<option selected="selected">Tous les éléments</option>
       			<option>1</option>
       			<option>2</option>
     		</select>
-    		<button style="margin-top: 5px" class="btn btn-primary">Ajouter</button>
-
-    		
+    		<button class="btn btn-primary">Ajouter</button>
 	</div>
 	
-    <form class="form-inline">
+	<div>
+		<input type="text" class="form-control comboSearch" required="required" name="name" placeholder="Rechercher">
+		<button class="btn btn-primary">Ajouter</button>
+	</div>
+	
+	<div>
+    <form class="form-inline mesFiltres">
     	<legend>Mes filtres</legend>
   		<table class="table">
     		<tr>
       			<td>Montagne: noire</td>
-      			<td>Supprimer</td>
+      			<td><a href="" ><img class="icon_del" src="/pictures/setting_picture/delete_icon.png" alt="Supprimer" /></a></td>
     		</tr>
     		<tr>
      			<td>couleur: bleu</td>
-      			<td>Supprimer</td>
+      			<td><a href="" ><img class="icon_del" src="/pictures/setting_picture/delete_icon.png" alt="Supprimer" /></a></td>
     		</tr>
    			<tr>
       			<td>âge: 10 ans</td>
-      			<td>Supprimer</td>
+      			<td><a href="" ><img class="icon_del" src="/pictures/setting_picture/delete_icon.png" alt="Supprimer" /></a></td>
     		</tr>
   		</table>
   	</form>
+  	</div>
 </div>
 
 @endsection
