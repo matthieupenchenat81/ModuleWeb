@@ -21,7 +21,7 @@
 	<table class="table table-hover">
     <thead>
       <tr>
-        <th>Nom</th><th>Action</th>
+        <th>Nom</th><th>Action</th><th>Supprimer</th>
       </tr> 
     </thead>
     <tbody>
@@ -33,10 +33,12 @@
             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
             <td>{{$listeoeuvre->nom}}</td>
             <td>
-              <label class="ios7-switch">
-                <input type="checkbox" checked>
-                <span></span>
-              </label>
+            	<label class="ios7-switch">
+                	<input type="checkbox" checked>
+                	<span></span>
+              	</label>
+            </td>
+            <td>
               <button type="submit" class="btn btn-sm btn-danger">
               <span class="glyphicon glyphicon-trash"></span></button>
             </td>
