@@ -27,6 +27,12 @@
     			<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 				<td>{{$listeoeuvre->nom}}</td>
 				<td>
+					<label class="ios7-switch">
+    				<input type="checkbox" checked>
+    				<span></span>
+    				</label>
+    			</td>
+				<td>
 					<button type="submit" class="btn btn-sm btn-danger">
 					<span class="glyphicon glyphicon-trash"></span></a>
 				</td>
@@ -95,26 +101,25 @@
 <div class="col-md-8 filtred">
     <legend>Ajout de filtres</legend>
     <h4>Par critère:</h4>
-    <select class="form-control">
+    <select class="form-control comboSearch">
       <option selected="selected">Selectionner catégorie</option>
       <option>1</option>
       <option>2</option>
     </select>
-    <select class="form-control">
+    <select class="form-control comboSearch">
       <option selected="selected">Tous les éléments</option>
       <option>1</option>
       <option>2</option>
     </select>
     <button style="margin-top: 5px" class="btn btn-primary">Ajouter</button>
     <br><br>
-    <h4>Par mot clé:</h4>
+    <div class="input-group motCle form-inline">
+    	<input type="text" class="form-control" id="exampleInputAmount" placeholder="Par mot clé">
+    	<button type="submit" class="btn btn-primary">Ajouter</button>
+    </div>
+
     <form class="form-inline">
-      <div class="col-sm-8 form-group">
-        <div class="input-group">
-          <input type="text" class="form-control" id="exampleInputAmount" placeholder="Par mot clé">
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Ajouter</button>
+      
     <legend>Mes filtres</legend>
   <table class="table">
     <tr>

@@ -22,6 +22,7 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 	border-radius: 7px;
 	border: 1px solid grey;
 	box-shadow: 0px 0px 2px dimgrey;
+	width : 20%;
 }
 
 .listg legend
@@ -41,7 +42,7 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 
 .filtred
 {
-	background: #eeeeee; /* Old browsers */
+	background: #eeeeee; /* Olbd browsers */
 	background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
@@ -77,6 +78,17 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 	box-shadow: 0px 0px 2px dimgrey;
 }
 
+.comboSearch
+{
+	float: left;
+	margin: 1%;
+	width : 15%;
+}
+
+.motCle
+{
+	float: left;
+}
 
 /* switch checkbox */
 
