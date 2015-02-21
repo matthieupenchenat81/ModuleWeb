@@ -2,7 +2,11 @@
 
 @section('content')
 <link href="css/home.css" rel="stylesheet" type="text/css"/>
+
 <div style="margin-top: 70px" class="container-fluid">
+<div class="back_home">
+	<a href="/" > < Retour <img src="./pictures/pic/home.png" alt="Retour" /></a>
+</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
@@ -23,7 +27,7 @@
 							</ul>
 						</div>
 					@endif
-
+					
 					<form class="form-horizontal" role="form" method="POST" action="login">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 

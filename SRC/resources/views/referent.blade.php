@@ -19,7 +19,7 @@
 	<br><br>
 	<legend>Mes listes d'oeuvres:</legend>
 	<table class="table table-hover">
-    <thead>
+    <thead class="tablethead">
       <tr>
         <th>Nom</th><th>Action</th><th>Supprimer</th>
       </tr> 
@@ -111,7 +111,7 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Auteur</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez un auteur" class="chosen-select" tabindex="4">
+        <select data-placeholder="Choisissez un auteur" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
           @foreach ($data['auteur'] as $val)
             <option value="{{$val -> id}}">{{$val -> nom}}</option>
@@ -122,7 +122,7 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Désignation</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez une désignation" class="chosen-select" tabindex="4">
+        <select data-placeholder="Choisissez une désignation" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
           @foreach ($data['designation'] as $val)
             <option value="{{$val->id}}">{{$val->nom}}</option>
@@ -133,7 +133,7 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Domaine</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez un domaine" class="chosen-select" tabindex="4">
+        <select data-placeholder="Choisissez un domaine" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
           @foreach ($data['domaine'] as $val)
             <option value="{{$val->id}}">{{$val->nom}}</option>
@@ -144,7 +144,7 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Matière</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez une matière" class="chosen-select" tabindex="4">
+        <select data-placeholder="Choisissez une matière" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
           @foreach ($data['matiere'] as $val)
             <option value="{{$val->id}}">{{$val->nom}}</option>
@@ -155,7 +155,7 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Technique</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez une technique" class="chosen-select" tabindex="4">
+        <select data-placeholder="Choisissez une technique" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
           @foreach ($data['designation'] as $val)
             <option value="{{$val->id}}">{{$val->nom}}</option>

@@ -1,6 +1,7 @@
 @extends('app')
 @section('content')
 <link href="css/home.css" rel="stylesheet" type="text/css"/>
+<link href="css/coverflow.css" rel="stylesheet" type="text/css"/>
 <br>
 <center>
   <img style="height:auto; width:auto; max-width:100px;" alt="" src="./pictures/homePic/home.png"> 
@@ -44,6 +45,22 @@
     		<a href="/referents/vive.linux/games"><div class="well well-lg ">{{$ref -> firstname}}, {{$ref -> lastname}}</div></a>
     	</div>
 	@endforeach
+	</div>
+	
+	<!-- COVERFLOW -->
+	<div class="coverflow">
+		<ul>
+			@foreach ($referent as $ref)
+			<li>
+     			<a href="/referents/vive.linux/games"><img class="imgRef" src="{{$ref -> image}}" width="150px"  alt="{{ $ref -> name }}-Nom"></a> 	
+    			<a href="/referents/vive.linux/games"><div>{{$ref -> firstname}}, {{$ref -> lastname}}</div></a>
+    		</li>
+    		<li>
+     			<a href="/referents/vive.linux/games"><img class="imgRef" src="{{$ref -> image}}" width="150px"  alt="{{ $ref -> name }}-Nom"></a> 	
+    			<a href="/referents/vive.linux/games"><div>{{$ref -> firstname}}, {{$ref -> lastname}}</div></a>
+    		</li>
+			@endforeach
+		</ul>
 	</div>
 
   	<!-- Controles -->

@@ -41,6 +41,16 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 	width : 25%;
 }
 
+.tablethead
+{
+	color: white;
+}
+
+.chosen-select /* les select */
+{
+	width : 20%;
+}
+
 .listg legend
 {
 	color: white;
@@ -112,11 +122,6 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 {
 	height: 20px;
 	width: 20px;
-}
-
-.control-label
-{
-
 }
 
 
