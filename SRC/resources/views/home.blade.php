@@ -46,22 +46,6 @@
     	</div>
 	@endforeach
 	</div>
-	
-	<!-- COVERFLOW -->
-	<div class="coverflow">
-		<ul>
-			@foreach ($referent as $ref)
-			<li>
-     			<a href="/referents/vive.linux/games"><img class="imgRef" src="{{$ref -> image}}" width="150px"  alt="{{ $ref -> name }}-Nom"></a> 	
-    			<a href="/referents/vive.linux/games"><div>{{$ref -> firstname}}, {{$ref -> lastname}}</div></a>
-    		</li>
-    		<li>
-     			<a href="/referents/vive.linux/games"><img class="imgRef" src="{{$ref -> image}}" width="150px"  alt="{{ $ref -> name }}-Nom"></a> 	
-    			<a href="/referents/vive.linux/games"><div>{{$ref -> firstname}}, {{$ref -> lastname}}</div></a>
-    		</li>
-			@endforeach
-		</ul>
-	</div>
 
   	<!-- Controles -->
   	<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
