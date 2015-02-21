@@ -1,7 +1,7 @@
 @extends('app')
 <link href="css/referent.css" rel="stylesheet" type="text/css"/>
 <br>
-<center><h1>Games</h1></center>
+<center><img src="/pictures/pic/game.png" alt="Game" class="iconGame"/></center>
 <br>
 <br>
 <div class="container">
