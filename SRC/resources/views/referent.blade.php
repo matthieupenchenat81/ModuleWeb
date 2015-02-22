@@ -107,11 +107,12 @@
 
   <!-- PART CHOOSE AND FILL FILTER -->
   <legend>Recherche avancée</legend><br>
-  <form class="form-horizontal">
+  <form class="form-horizontal" role="form" action="search" method="post">
+    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Auteur</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez un auteur" class="chosen-select" multiple tabindex="4">
+        <select data-placeholder="Choisissez un auteur" name="auteur[]" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
           @foreach ($data['auteur'] as $val)
             <option value="{{$val -> id}}">{{$val -> nom}}</option>
@@ -122,7 +123,7 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Désignation</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez une désignation" class="chosen-select" multiple tabindex="4">
+        <select data-placeholder="Choisissez une désignation" name="designation[]" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
           @foreach ($data['designation'] as $val)
             <option value="{{$val->id}}">{{$val->nom}}</option>
@@ -133,7 +134,7 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Domaine</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez un domaine" class="chosen-select" multiple tabindex="4">
+        <select data-placeholder="Choisissez un domaine" name="domaine[]" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
           @foreach ($data['domaine'] as $val)
             <option value="{{$val->id}}">{{$val->nom}}</option>
@@ -144,7 +145,7 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Matière</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez une matière" class="chosen-select" multiple tabindex="4">
+        <select data-placeholder="Choisissez une matière" name="matiere[]" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
           @foreach ($data['matiere'] as $val)
             <option value="{{$val->id}}">{{$val->nom}}</option>
@@ -155,9 +156,9 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Technique</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez une technique" class="chosen-select" multiple tabindex="4">
+        <select data-placeholder="Choisissez une technique" name="technique[]" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
-          @foreach ($data['designation'] as $val)
+          @foreach ($data['technique'] as $val)
             <option value="{{$val->id}}">{{$val->nom}}</option>
           @endforeach
         </select>
@@ -166,19 +167,19 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Mot clé</label>
       <div class="col-sm-2">
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="Mot clé">
+        <input type="text" class="form-control" name="motcle" disabled id="exampleInputName2" placeholder="Mot clé">
       </div>
     </div>
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Date Début</label>
-      <div class="col-sm-2">
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="date début">
+      <div class="col-sm-3">
+        <input type="date" class="form-control" name="debut" id="exampleInputName2" placeholder="date début">
       </div>
     </div>
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Date Fin</label>
-      <div class="col-sm-2">
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="date fin">
+      <div class="col-sm-3">
+        <input type="date" class="form-control" name="fin" id="exampleInputName2" placeholder="date fin">
       </div>
     </div>
 

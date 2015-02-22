@@ -10,6 +10,7 @@ use App\Models\Designation;
 use App\Models\Domaine;
 use App\Models\Matiere;
 use App\Models\Technique;
+use App\Models\Oeuvre;
 use Response;
 
 
@@ -118,6 +119,27 @@ class ReferentController extends Controller {
 		$ListeOeuvre->oeuvres()->detach();
 		$ListeOeuvre->oeuvres()->attach($list_oeuvres_id);
 		return Response::json(array());
+	}
+
+	public function search() 
+	{
+		$auteurs = Input::get('auteur', array());
+		$designations = Input::get('designation', array());
+		$domaines = Input::get('domaine', array());
+		$matieres = Input::get('matiere', array());
+		$techniques = Input::get('technique', array());
+		$debut = Input::get('debut');
+		$fin = Input::get('fin');
+
+		//echo Oeuvre::find(22)->domaine()->get();
+		echo count(Oeuvre::techniqueFilter($techniques)
+			->authorFilter($auteurs)
+			->designationFilter($designations)
+			->domaineFilter($domaines)
+			->matiereFilter($matieres)
+			->debutFilter($debut)
+			->finFilter($fin)
+			->get());
 	}
 
 }
