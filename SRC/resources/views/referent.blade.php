@@ -198,7 +198,14 @@
 
     </div>
   </div>
-  <button style="float: right" class="btn btn-primary" id="enregistrer">Enregistrer</button>
+
+    <nav>
+      <ul class="pager">
+        <li class="previous disabled"><a id="previous" href=""><span aria-hidden="true">&larr;</span> Précédent</a></li>
+        <li class="next disabled"><a id="next" href="">Suivant <span aria-hidden="true">&rarr;</span></a></li>
+      </ul>
+    </nav>
+  <button style="float: right" class="btn btn-primary" id="ajouter">Ajouter à ma liste d'oeuvre</button>
 </div>
 
 @endsection

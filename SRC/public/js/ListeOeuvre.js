@@ -57,9 +57,22 @@ $('#enregistrer').click(function() {
 
 
 // Afficher résultat de recherche d'oeuvre
-$('#search_button').click(function() {
+$('#search_button, #previous, #next').click(function(event) {
+
+    event.preventDefault();
+
+    if (this.id == $('#next').attr('id')) {
+        str = $("#next").attr('href');
+        console.log(/([0-9]+)/.exec(str));
+        url = "/search?page="+/([0-9]+)/.exec(str)[0];
+    }else if (this.id == $('#previous').attr('id')) {
+        str = $("#previous").attr('href');
+        url = "/search?page="+/([0-9]+)/.exec(str)[0];
+    }else {
+        url = "/search";
+    }
+
     $('#oeuvreRes').empty();
-    url = "/search";
     dataSend = { 
                 _token : $('#_tokenRes').val(),
                 auteur: $('#auteur').val(),
@@ -74,14 +87,29 @@ $('#search_button').click(function() {
         dataSend,
         function( data ) {
             console.log(data);
-        if (data.length == 0 )
-            $("#oeuvreRes").append("Aucune Oeuvre Trouvé..");
-        data.forEach( function(el) {
-            $("#oeuvreRes").append('<div class="col-xs-4 col-md-3">'
-            +'<a href="#" class="thumbnail">'
-            +'<img src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '"/>'
-            +'</a></div>');
-        })
+            if (data.length == 0 )
+                $("#oeuvreRes").append("Aucune Oeuvre Trouvé..");
+            data.data.forEach( function(el) {
+                $("#oeuvreRes").append('<div class="col-xs-4 col-md-3">'
+                +'<a href="#" class="thumbnail">'
+                +'<img src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '"/>'
+                +'</a></div>');
+            });
+
+            if(data.prev_page_url == null) {
+                $("#previous").parent().addClass('disabled');
+            }else {
+                $("#previous").attr('href', data.prev_page_url);
+                $("#previous").parent().removeClass('disabled');
+            }
+
+            if(data.next_page_url == null) {
+                $("#next").parent().addClass('disabled');                     
+            }else {
+                $("#next").attr('href', data.next_page_url);    
+                $("#next").parent().removeClass('disabled');
+            }
+            
     }, "json" )
     
     .fail(function() {

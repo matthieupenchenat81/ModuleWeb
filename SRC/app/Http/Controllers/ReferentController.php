@@ -12,6 +12,7 @@ use App\Models\Matiere;
 use App\Models\Technique;
 use App\Models\Oeuvre;
 use Response;
+use Illuminate\Pagination\Paginator as Paginator;
 
 
 class ReferentController extends Controller {
@@ -43,9 +44,6 @@ class ReferentController extends Controller {
 		$dataSearch['domaine'] = Domaine::orderBy('nom')->get();
 		$dataSearch['matiere'] = Matiere::orderBy('nom')->get();
 		$dataSearch['technique'] = Technique::orderBy('nom')->get();
-
-		//$ListeOeuvre = ListeOeuvre::find(2);
-		//$ListeOeuvre->oeuvres()->attach([22, 23, 24, 25, 26]);
 
 		$listeoeuvres = ListeOeuvre::currentUser()->get();
 		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'listeoeuvres' => $listeoeuvres, 'data' => $dataSearch]);
@@ -137,7 +135,7 @@ class ReferentController extends Controller {
 			->matiereFilter($matieres)
 			->debutFilter($debut)
 			->finFilter($fin)
-			->get();
+			->paginate(15);
 
 		return Response::json($res->toArray());
 	}
