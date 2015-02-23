@@ -40,100 +40,48 @@ class Oeuvre extends Model {
 
     public function scopeAuthorFilter($query, $array)
     {
-        foreach ($array as $author_id){
-
-            if ($author_id === reset($array)){
-                $query->whereHas('auteurs', function($q) use ($author_id)
-                {
-                    $q->where('id', '=', $author_id);
-                });
-            }else{
-                $query->orWhereHas('auteurs', function($q) use ($author_id)
-                {
-                    $q->where('id', '=', $author_id);
-                });
-            }
-        }
+        if ($array == []) return $query;
+        $query->whereHas('auteurs', function($q) use ($array)
+        {
+            $q->whereIn('id', $array);
+        });
     }
 
     public function scopeDesignationFilter($query, $array)
     {
-        $q = $query;
-
-        foreach ($array as $designation_id){
-
-            if ($designation_id === reset($array)){
-                $query->whereHas('designations', function($q) use ($designation_id)
-                {
-                    $q->where('id', '=', $designation_id);
-                });
-            }else{
-                $query->orWhereHas('designations', function($q) use ($designation_id)
-                {
-                    $q->where('id', '=', $designation_id);
-                });
-            }
-        }
+        if ($array == []) return $query;
+        $query->whereHas('designations', function($q) use ($array)
+        {
+            $q->whereIn('id', $array);
+        });
     }
 
     public function scopeDomaineFilter($query, $array)
     {
-        $q = $query;
-
-        foreach ($array as $domaine_id){
-
-            if ($domaine_id === reset($array)){
-                $query->whereHas('domaine', function($q) use ($domaine_id)
-                {
-                    $q->where('id', '=', $domaine_id);
-                });
-            }else{
-                $query->orWhereHas('domaine', function($q) use ($domaine_id)
-                {
-                    $q->where('id', '=', $domaine_id);
-                });    
-            } 
-        }
+        if ($array == []) return $query;
+        $query->whereHas('domaine', function($q) use ($array)
+        {
+            $q->whereIn('id', $array);
+        });
     }
 
     public function scopeMatiereFilter($query, $array)
     {
-        foreach ($array as $matiere_id){
-
-            if ($matiere_id === reset($array)){
-                $query->whereHas('matiere', function($q) use ($matiere_id)
-                {
-                    $q->where('id', '=', $matiere_id);
-                });
-            }else{
-                $query->orWhereHas('matiere', function($q) use ($matiere_id)
-                {
-                    $q->where('id', '=', $matiere_id);
-                });
-            }
-        }
+        if ($array == []) return $query;
+        $query->whereHas('matiere', function($q) use ($array)
+        {
+            $q->whereIn('id', $array);
+        });
     }
 
     public function scopeTechniqueFilter($query, $array)
     {
-
-        foreach ($array as $technique_id){
-
-            if ($technique_id === reset($array)){
-                $query->whereHas('technique', function($q) use ($technique_id)
-                {
-                    $q->where('id', '=', $technique_id);
-                });
-            }else{
-                $query->orWhereHas('technique', function($q) use ($technique_id)
-                {
-                    $q->where('id', '=', $technique_id);
-                });
-            }
-            
-        }
+        if ($array == []) return $query;
+        $query->whereHas('technique', function($q) use ($array)
+        {
+            $q->whereIn('id', $array);
+        });
     }
-
 
     public function scopeDebutFilter($query, $date)
     {

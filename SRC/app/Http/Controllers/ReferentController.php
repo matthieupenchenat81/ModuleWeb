@@ -131,15 +131,15 @@ class ReferentController extends Controller {
 		$debut = Input::get('debut');
 		$fin = Input::get('fin');
 
-		//echo Oeuvre::find(22)->domaine()->get();
-		echo count(Oeuvre::techniqueFilter($techniques)
-			->authorFilter($auteurs)
+		$res = Oeuvre::authorFilter($auteurs)
 			->designationFilter($designations)
 			->domaineFilter($domaines)
 			->matiereFilter($matieres)
 			->debutFilter($debut)
 			->finFilter($fin)
-			->get());
+			->get();
+
+		return Response::json($res->toArray());
 	}
 
 }
