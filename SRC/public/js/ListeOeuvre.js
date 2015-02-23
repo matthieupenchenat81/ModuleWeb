@@ -61,9 +61,11 @@ $('#search_button, #previous, #next').click(function(event) {
 
     event.preventDefault();
 
+    if(this.id == $('#next').attr('id') && $("#next").parent().hasClass('disabled') || this.id == $('#previous').attr('id') && $("#previous").parent().hasClass('disabled'))
+        return 0;
+
     if (this.id == $('#next').attr('id')) {
         str = $("#next").attr('href');
-        console.log(/([0-9]+)/.exec(str));
         url = "/search?page="+/([0-9]+)/.exec(str)[0];
     }else if (this.id == $('#previous').attr('id')) {
         str = $("#previous").attr('href');
@@ -86,7 +88,6 @@ $('#search_button, #previous, #next').click(function(event) {
     $.post(url,
         dataSend,
         function( data ) {
-            console.log(data);
             if (data.length == 0 )
                 $("#oeuvreRes").append("Aucune Oeuvre Trouvé..");
             data.data.forEach( function(el) {
