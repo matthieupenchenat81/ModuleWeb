@@ -123,13 +123,13 @@ class ReferentController extends Controller {
 
 	public function search() 
 	{
-		$auteurs = Input::get('auteur', array());
-		$designations = Input::get('designation', array());
-		$domaines = Input::get('domaine', array());
-		$matieres = Input::get('matiere', array());
-		$techniques = Input::get('technique', array());
-		$debut = Input::get('debut');
-		$fin = Input::get('fin');
+		$auteurs = (Input::get('auteur', array()))?Input::get('auteur', array()): [];
+		$designations = (Input::get('designation', array()))? Input::get('designation', array()): [];
+		$domaines = (Input::get('domaine', array()))? Input::get('domaine', array()): [];
+		$matieres = (Input::get('matiere', array()))? Input::get('matiere', array()): [];
+		$techniques = (Input::get('technique', array()))?Input::get('technique', array()): [];
+		$debut = (Input::get('debut'))? Input::get('debut'): '';
+		$fin = (Input::get('fin'))?Input::get('fin'): '';
 
 		$res = Oeuvre::authorFilter($auteurs)
 			->designationFilter($designations)

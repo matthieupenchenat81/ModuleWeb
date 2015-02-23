@@ -56,3 +56,43 @@ $('#enregistrer').click(function() {
 });
 
 
+// Afficher résultat de recherche d'oeuvre
+$('#search_button').click(function() {
+    $('#oeuvreRes').empty();
+    url = "/search";
+    dataSend = { 
+                _token : $('#_tokenRes').val(),
+                auteur: $('#auteur').val(),
+                designation: $('#designation').val(),
+                matiere: $('#matiere').val(),
+                domaine: $('#domaine').val(),
+                technique: $('#technique').val(),
+                debut: $('#debut').val(),
+                fin: $('#fin').val()
+            };
+    $.post(url,
+        dataSend,
+        function( data ) {
+            console.log(data);
+        if (data.length == 0 )
+            $("#oeuvreRes").append("Aucune Oeuvre Trouvé..");
+        data.forEach( function(el) {
+            $("#oeuvreRes").append('<div class="col-xs-4 col-md-3">'
+            +'<a href="#" class="thumbnail">'
+            +'<img src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '"/>'
+            +'</a></div>');
+        })
+    }, "json" )
+    
+    .fail(function() {
+        $("#oeuvreRes").append('<div class="alert alert-danger">'
+        +'<strong>Oouups!</strong> Il y a un problème.<br><br>'
+        +'<ul>'
+        +'<li>Erreur lors de la récupération</li>'
+        +'</ul>'
+        +'</div>'
+        );
+    });
+});
+
+
