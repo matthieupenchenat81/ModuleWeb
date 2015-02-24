@@ -140,4 +140,8 @@ class ReferentController extends Controller {
 		return Response::json($res->toArray());
 	}
 
+	public function addItemsToList() {
+
+	}
+
 }
