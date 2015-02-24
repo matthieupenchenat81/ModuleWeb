@@ -13,6 +13,16 @@ caption
 text-align: center;
 }
 
+table
+{
+	text-align: center;
+}
+
+table thead tr th
+{
+	text-align: center;
+}
+
 .listg
 {
 	background: #a7cfdf; /* Old browsers */
@@ -28,6 +38,17 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 	border-radius: 7px;
 	border: 1px solid grey;
 	box-shadow: 0px 0px 2px dimgrey;
+	width : 25%;
+}
+
+.tablethead
+{
+	color: white;
+}
+
+.chosen-select /* les select */
+{
+	width : 20%;
 }
 
 .listg legend
@@ -69,6 +90,7 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 	border-radius: 7px;
 	border: 1px solid grey;
 	box-shadow: 0px 0px 2px dimgrey;
+	width : 70%;
 }
 
 .jeux

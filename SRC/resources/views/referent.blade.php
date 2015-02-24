@@ -21,7 +21,7 @@
 	<table class="table table-hover">
     <thead>
       <tr>
-        <th>Nom</th><th>Action</th>
+        <th>Nom</th><th>Action</th><th>Supprimer</th>
       </tr> 
     </thead>
     <tbody>
@@ -33,10 +33,12 @@
             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
             <td>{{$listeoeuvre->nom}}</td>
             <td>
-              <label class="ios7-switch">
-                <input type="checkbox" checked>
-                <span></span>
-              </label>
+            	<label class="ios7-switch">
+                	<input type="checkbox" checked>
+                	<span></span>
+              	</label>
+            </td>
+            <td>
               <button type="submit" class="btn btn-sm btn-danger">
               <span class="glyphicon glyphicon-trash"></span></button>
             </td>
@@ -109,45 +111,22 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Auteur</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez un auteur" class="chosen-select" multiple style="width:350px;" tabindex="4">
+        <select data-placeholder="Choisissez un auteur" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
-          <option value="United States">United States</option>
-          <option value="United Kingdom">United Kingdom</option>
-          <option value="Afghanistan">Afghanistan</option>
-          <option value="Aland Islands">Aland Islands</option>
-          <option value="Albania">Albania</option>
-          <option value="Zambia">Zambia</option>
-          <option value="Zimbabwe">Zimbabwe</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="inputEmail3" class="col-sm-2 control-label">Description</label>
-      <div class="col-sm-10">
-        <select data-placeholder="Choisissez une description" class="chosen-select" multiple style="width:350px;" tabindex="4">
-          <option value=""></option>
-          <option value="United States">United States</option>
-          <option value="United Kingdom">United Kingdom</option>
-          <option value="Afghanistan">Afghanistan</option>
-          <option value="Aland Islands">Aland Islands</option>
-          <option value="Albania">Albania</option>
-          <option value="Zambia">Zambia</option>
-          <option value="Zimbabwe">Zimbabwe</option>
+          @foreach ($data['auteur'] as $val)
+            <option value="{{$val -> id}}">{{$val -> nom}}</option>
+          @endforeach
         </select>
       </div>
     </div>
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Désignation</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez une désignation" class="chosen-select" multiple style="width:350px;" tabindex="4">
+        <select data-placeholder="Choisissez une désignation" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
-          <option value="United States">United States</option>
-          <option value="United Kingdom">United Kingdom</option>
-          <option value="Afghanistan">Afghanistan</option>
-          <option value="Aland Islands">Aland Islands</option>
-          <option value="Albania">Albania</option>
-          <option value="Zambia">Zambia</option>
-          <option value="Zimbabwe">Zimbabwe</option>
+          @foreach ($data['designation'] as $val)
+            <option value="{{$val->id}}">{{$val->nom}}</option>
+          @endforeach
         </select>
       </div>
     </div>
@@ -156,13 +135,9 @@
       <div class="col-sm-10">
         <select data-placeholder="Choisissez un domaine" class="chosen-select" multiple style="width:350px;" tabindex="4">
           <option value=""></option>
-          <option value="United States">United States</option>
-          <option value="United Kingdom">United Kingdom</option>
-          <option value="Afghanistan">Afghanistan</option>
-          <option value="Aland Islands">Aland Islands</option>
-          <option value="Albania">Albania</option>
-          <option value="Zambia">Zambia</option>
-          <option value="Zimbabwe">Zimbabwe</option>
+          @foreach ($data['domaine'] as $val)
+            <option value="{{$val->id}}">{{$val->nom}}</option>
+          @endforeach
         </select>
       </div>
     </div>
@@ -171,13 +146,9 @@
       <div class="col-sm-10">
         <select data-placeholder="Choisissez une matière" class="chosen-select" multiple style="width:350px;" tabindex="4">
           <option value=""></option>
-          <option value="United States">United States</option>
-          <option value="United Kingdom">United Kingdom</option>
-          <option value="Afghanistan">Afghanistan</option>
-          <option value="Aland Islands">Aland Islands</option>
-          <option value="Albania">Albania</option>
-          <option value="Zambia">Zambia</option>
-          <option value="Zimbabwe">Zimbabwe</option>
+          @foreach ($data['matiere'] as $val)
+            <option value="{{$val->id}}">{{$val->nom}}</option>
+          @endforeach
         </select>
       </div>
     </div>
@@ -186,13 +157,9 @@
       <div class="col-sm-10">
         <select data-placeholder="Choisissez une technique" class="chosen-select" multiple style="width:350px;" tabindex="4">
           <option value=""></option>
-          <option value="United States">United States</option>
-          <option value="United Kingdom">United Kingdom</option>
-          <option value="Afghanistan">Afghanistan</option>
-          <option value="Aland Islands">Aland Islands</option>
-          <option value="Albania">Albania</option>
-          <option value="Zambia">Zambia</option>
-          <option value="Zimbabwe">Zimbabwe</option>
+          @foreach ($data['designation'] as $val)
+            <option value="{{$val->id}}">{{$val->nom}}</option>
+          @endforeach
         </select>
       </div>
     </div>

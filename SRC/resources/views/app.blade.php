@@ -8,7 +8,7 @@
 
 	<link href="/css/app.css" rel="stylesheet">
 	<link href="/css/chosen.min.css" rel="stylesheet">
-
+	<link href="/css/game.css" rel="stylesheet" type="text/css"/>
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 

@@ -290,3 +290,64 @@ git commit -a
 git pull
 nano SRC/.env
 nano SRC/.env
+cd ..
+python loadCSVAugustin2014.py
+cd
+git commit -a
+git push
+git push
+git pull
+rm SRC/app/Http/routes.php 
+git pull
+gi commit -a
+git commit -a
+git pull
+git push
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+exit
+php artisan db:seed
+cd SRC
+php artisan db:seed
+cd ..
+git pull
+exit
+git pull
+exit
+git pull
+exit
+git pull
+exit
+git pull
+exit
+git pull
+git pull
+git pull
+cd ..
+python loadCSVAugustin2014.py
+git pull
+git pull
+git pull
+git pull
+cd SRC/
+php artisan db:seed
+cd ..
+python loadCSVAugustin2014.py
+git pull
+exit
+git pull
+git pull
+git pull
+git pull
+exit
+git pull
+exit
+git pull
