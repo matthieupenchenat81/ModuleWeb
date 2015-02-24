@@ -15,7 +15,6 @@ use App\Models\Technique;
 use App\Models\Oeuvre;
 >>>>>>> 407a955444da6207f59c5f05d283275510b2169c
 use Response;
-use Illuminate\Pagination\Paginator as Paginator;
 
 
 class ReferentController extends Controller {
