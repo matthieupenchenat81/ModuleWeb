@@ -19,7 +19,7 @@
 	<br><br>
 	<legend>Mes listes d'oeuvres:</legend>
 	<table class="table table-hover">
-    <thead>
+    <thead class="tablethead">
       <tr>
         <th>Nom</th><th>Action</th><th>Supprimer</th>
       </tr> 
@@ -107,11 +107,16 @@
 
   <!-- PART CHOOSE AND FILL FILTER -->
   <legend>Recherche avancée</legend><br>
-  <form class="form-horizontal">
+  <form class="form-horizontal" role="form" action="search" method="post">
+    <input type="hidden" id="_tokenRes" name="_token" value="{{{ csrf_token() }}}" />
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Auteur</label>
       <div class="col-sm-10">
+<<<<<<< HEAD
         <select data-placeholder="Choisissez un auteur" class="chosen-select" multiple tabindex="4">
+=======
+        <select data-placeholder="Choisissez un auteur" id="auteur" name="auteur[]" class="chosen-select" multiple tabindex="4">
+>>>>>>> 407a955444da6207f59c5f05d283275510b2169c
           <option value=""></option>
           @foreach ($data['auteur'] as $val)
             <option value="{{$val -> id}}">{{$val -> nom}}</option>
@@ -122,7 +127,11 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Désignation</label>
       <div class="col-sm-10">
+<<<<<<< HEAD
         <select data-placeholder="Choisissez une désignation" class="chosen-select" multiple tabindex="4">
+=======
+        <select data-placeholder="Choisissez une désignation" id="designation" name="designation[]" class="chosen-select" multiple tabindex="4">
+>>>>>>> 407a955444da6207f59c5f05d283275510b2169c
           <option value=""></option>
           @foreach ($data['designation'] as $val)
             <option value="{{$val->id}}">{{$val->nom}}</option>
@@ -133,7 +142,7 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Domaine</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez un domaine" class="chosen-select" multiple style="width:350px;" tabindex="4">
+        <select data-placeholder="Choisissez un domaine" id="domaine" name="domaine[]" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
           @foreach ($data['domaine'] as $val)
             <option value="{{$val->id}}">{{$val->nom}}</option>
@@ -144,7 +153,7 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Matière</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez une matière" class="chosen-select" multiple style="width:350px;" tabindex="4">
+        <select data-placeholder="Choisissez une matière" id="matiere" name="matiere[]" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
           @foreach ($data['matiere'] as $val)
             <option value="{{$val->id}}">{{$val->nom}}</option>
@@ -155,9 +164,13 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Technique</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez une technique" class="chosen-select" multiple style="width:350px;" tabindex="4">
+        <select data-placeholder="Choisissez une technique" id="technique" name="technique[]" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
+<<<<<<< HEAD
           @foreach ($data['designation'] as $val)
+=======
+          @foreach ($data['technique'] as $val)
+>>>>>>> 407a955444da6207f59c5f05d283275510b2169c
             <option value="{{$val->id}}">{{$val->nom}}</option>
           @endforeach
         </select>
@@ -166,23 +179,23 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Mot clé</label>
       <div class="col-sm-2">
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="Mot clé">
+        <input type="text" class="form-control" name="motcle" disabled id="motcle" placeholder="Mot clé">
       </div>
     </div>
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Date Début</label>
-      <div class="col-sm-2">
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="date début">
+      <div class="col-sm-3">
+        <input type="date" class="form-control" name="debut" id="debut" placeholder="date début">
       </div>
     </div>
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Date Fin</label>
-      <div class="col-sm-2">
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="date fin">
+      <div class="col-sm-3">
+        <input type="date" class="form-control" name="fin" id="fin" placeholder="date fin">
       </div>
     </div>
 
-    <center><button type="submit" class="btn btn-primary">Rechercher</button></center>
+    <center><button type="button" class="btn btn-primary" id="search_button">Rechercher</button></center>
   </form>
 
 
@@ -191,28 +204,20 @@
   <legend>Résultat de ma recherche</legend>
   <span style="float: right"><a href="">Sélectionner tout</a> -- <a href="">Annuler sélection</a></span><br>
   <div class="panel panel-default">
-    <div class="panel-body" id="oeuvrePic">
+    <div class="panel-body" id="oeuvreRes">
 
-      <div class="col-xs-4 col-md-3">
-        <a href="#" class="thumbnail">
-        <img src="http://www.augustins.org/documents/10180/156407/1"/>
-        </a>
-      </div>
-      <div class="col-xs-4 col-md-3">
-        <a href="#" class="thumbnail">
-        <img src="http://www.augustins.org/documents/10180/156407/1"/>
-        </a>
-      </div>
-      <div class="col-xs-4 col-md-3">
-        <a href="#" class="thumbnail">
-        <img src="http://www.augustins.org/documents/10180/156407/1"/>
-        </a>
-      </div>
+      <!-- TODO -->
 
     </div>
   </div>
-  <button style="float: right" class="btn btn-primary" id="enregistrer">Enregistrer</button>
+
+    <nav>
+      <ul class="pager">
+        <li class="previous disabled"><a id="previous" href=""><span aria-hidden="true">&larr;</span> Précédent</a></li>
+        <li class="next disabled"><a id="next" href="">Suivant <span aria-hidden="true">&rarr;</span></a></li>
+      </ul>
+    </nav>
+  <button style="float: right" class="btn btn-primary" id="ajouter">Ajouter à ma liste d'oeuvre</button>
 </div>
 
 @endsection
-

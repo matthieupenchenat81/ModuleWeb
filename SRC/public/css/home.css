@@ -46,6 +46,10 @@ body {
 	width : 40%;
 	box-shadow: 0 0 6px black inset;
 	border: 1px solid dimgrey;
+<<<<<<< HEAD
+=======
+	font-size: 1.5em;
+>>>>>>> 407a955444da6207f59c5f05d283275510b2169c
 }
 
 .carousel-indicators

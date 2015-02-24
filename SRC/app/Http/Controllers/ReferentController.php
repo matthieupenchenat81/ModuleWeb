@@ -10,7 +10,12 @@ use App\Models\Designation;
 use App\Models\Domaine;
 use App\Models\Matiere;
 use App\Models\Technique;
+<<<<<<< HEAD
+=======
+use App\Models\Oeuvre;
+>>>>>>> 407a955444da6207f59c5f05d283275510b2169c
 use Response;
+use Illuminate\Pagination\Paginator as Paginator;
 
 
 class ReferentController extends Controller {
@@ -42,9 +47,12 @@ class ReferentController extends Controller {
 		$dataSearch['domaine'] = Domaine::orderBy('nom')->get();
 		$dataSearch['matiere'] = Matiere::orderBy('nom')->get();
 		$dataSearch['technique'] = Technique::orderBy('nom')->get();
+<<<<<<< HEAD
 
 		//$ListeOeuvre = ListeOeuvre::find(2);
 		//$ListeOeuvre->oeuvres()->attach([22, 23, 24, 25, 26]);
+=======
+>>>>>>> 407a955444da6207f59c5f05d283275510b2169c
 
 		$listeoeuvres = ListeOeuvre::currentUser()->get();
 		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'listeoeuvres' => $listeoeuvres, 'data' => $dataSearch]);
@@ -118,6 +126,27 @@ class ReferentController extends Controller {
 		$ListeOeuvre->oeuvres()->detach();
 		$ListeOeuvre->oeuvres()->attach($list_oeuvres_id);
 		return Response::json(array());
+	}
+
+	public function search() 
+	{
+		$auteurs = (Input::get('auteur', array()))?Input::get('auteur', array()): [];
+		$designations = (Input::get('designation', array()))? Input::get('designation', array()): [];
+		$domaines = (Input::get('domaine', array()))? Input::get('domaine', array()): [];
+		$matieres = (Input::get('matiere', array()))? Input::get('matiere', array()): [];
+		$techniques = (Input::get('technique', array()))?Input::get('technique', array()): [];
+		$debut = (Input::get('debut'))? Input::get('debut'): '';
+		$fin = (Input::get('fin'))?Input::get('fin'): '';
+
+		$res = Oeuvre::authorFilter($auteurs)
+			->designationFilter($designations)
+			->domaineFilter($domaines)
+			->matiereFilter($matieres)
+			->debutFilter($debut)
+			->finFilter($fin)
+			->paginate(15);
+
+		return Response::json($res->toArray());
 	}
 
 }

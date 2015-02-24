@@ -1,6 +1,7 @@
 @extends('app')
 @section('content')
 <link href="css/home.css" rel="stylesheet" type="text/css"/>
+<link href="css/coverflow.css" rel="stylesheet" type="text/css"/>
 <br>
 <center>
   <img style="height:auto; width:auto; max-width:100px;" alt="" src="./pictures/homePic/home.png"> 
