@@ -12,7 +12,6 @@ use App\Models\Matiere;
 use App\Models\Technique;
 use App\Models\Oeuvre;
 use Response;
-use Illuminate\Pagination\Paginator as Paginator;
 
 
 class ReferentController extends Controller {

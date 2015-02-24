@@ -112,11 +112,7 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Auteur</label>
       <div class="col-sm-10">
-<<<<<<< HEAD
-        <select data-placeholder="Choisissez un auteur" class="chosen-select" multiple tabindex="4">
-=======
         <select data-placeholder="Choisissez un auteur" id="auteur" name="auteur[]" class="chosen-select" multiple tabindex="4">
->>>>>>> 407a955444da6207f59c5f05d283275510b2169c
           <option value=""></option>
           @foreach ($data['auteur'] as $val)
             <option value="{{$val -> id}}">{{$val -> nom}}</option>
@@ -127,11 +123,7 @@
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Désignation</label>
       <div class="col-sm-10">
-<<<<<<< HEAD
-        <select data-placeholder="Choisissez une désignation" class="chosen-select" multiple tabindex="4">
-=======
         <select data-placeholder="Choisissez une désignation" id="designation" name="designation[]" class="chosen-select" multiple tabindex="4">
->>>>>>> 407a955444da6207f59c5f05d283275510b2169c
           <option value=""></option>
           @foreach ($data['designation'] as $val)
             <option value="{{$val->id}}">{{$val->nom}}</option>
@@ -166,11 +158,7 @@
       <div class="col-sm-10">
         <select data-placeholder="Choisissez une technique" id="technique" name="technique[]" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
-<<<<<<< HEAD
-          @foreach ($data['designation'] as $val)
-=======
           @foreach ($data['technique'] as $val)
->>>>>>> 407a955444da6207f59c5f05d283275510b2169c
             <option value="{{$val->id}}">{{$val->nom}}</option>
           @endforeach
         </select>
