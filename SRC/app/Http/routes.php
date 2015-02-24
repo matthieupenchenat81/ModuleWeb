@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth'], function ()
 	Route::get('showListOeuvres/{id}', 'ReferentController@showListeOeuvres');
 	Route::post('setListOeuvres', 'ReferentController@setListOeuvres');
 	Route::post('search', 'ReferentController@search');
+	Route::post('addItemsToList', 'ReferentController@addItemsToList');
 });
 
 Route::group(['middleware' => 'admin'], function ()
