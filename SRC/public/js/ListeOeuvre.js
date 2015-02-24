@@ -66,10 +66,10 @@ $('#search_button, #previous, #next').click(function(event) {
 
     if (this.id == $('#next').attr('id')) {
         str = $("#next").attr('href');
-        url = "/search?page="+/([0-9]+)/.exec(str)[0];
+        url = "/search?page="+/([0-9]+)/.exec(/page=([0-9]+)/.exec(str)[0])[0];
     }else if (this.id == $('#previous').attr('id')) {
         str = $("#previous").attr('href');
-        url = "/search?page="+/([0-9]+)/.exec(str)[0];
+        url = "/search?page="+/([0-9]+)/.exec(/page=([0-9]+)/.exec(str)[0])[0];
     }else {
         url = "/search";
     }
