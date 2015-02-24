@@ -141,7 +141,7 @@ class ReferentController extends Controller {
 	}
 
 	public function addItemsToList() {
-
+		;
 	}
 
 }
