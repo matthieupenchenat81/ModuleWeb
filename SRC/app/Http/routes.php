@@ -11,9 +11,11 @@
 |
 */
 
+
 Route::get('/', 'GameController@index');
 Route::get('referents/{id}/games', 'GameController@showReferentGames')->where('id', '^((?!login|referent|admin).)*$');
 Route::get('referents/{id}/games/{idGame}', 'GameController@showOneReferentGame');
+
 Route::get('password/reset/{token}', array(
   'uses' => 'LoginController@reset',
   'as' => 'password.reset'

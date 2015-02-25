@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Models\User;
+use Response;
+use App\Models\Oeuvre;
 
 class GameController extends Controller {
 
@@ -48,6 +50,5 @@ class GameController extends Controller {
     {
         return view('one_referent_game', ['referent' => $id, 'game' => $idGame]);
     }
-
 
 }
