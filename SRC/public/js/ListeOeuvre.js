@@ -131,6 +131,7 @@ $('#search_button, #previous, #next').click(function(event) {
 // Mettre à jour les jeux associés à la liste d'oeuvre
 $('.checkbox').click(function(event) {
 
+    // Recuperation des données necessaire au traitement
     var searchIDs = $("input#idGame").map(function(){
       return $(this).val();
     }).get();
@@ -144,7 +145,14 @@ $('.checkbox').click(function(event) {
         r[searchIDs[i]] = searchValues[i];
     }
 
-    console.log(r);
+    dataSend = { _token : $('#_tokenRes').val(), data: r };
+    $.post('updateAssoGames', dataSend, function() {
+            // Nada
+    }, "json" )
+    
+    .fail(function() {
+        // Nada
+    });
 
 });
 

@@ -13,6 +13,7 @@ use App\Models\Technique;
 use App\Models\Oeuvre;
 use App\Models\Jeu;
 use Response;
+use Session;
 
 
 class ReferentController extends Controller {
@@ -95,6 +96,10 @@ class ReferentController extends Controller {
 
 	public function showListeOeuvres($id) 
 	{
+		if (Session::has('listeoeuvre_current'))
+		    Session::forget('listeoeuvre_current');
+		
+		Session::put('listeoeuvre_current', $id);
 		return Response::json(ListeOeuvre::find($id)->oeuvres->toArray());
 	}
 
@@ -144,6 +149,20 @@ class ReferentController extends Controller {
 
 	public function addItemsToList() {
 		;
+	}
+
+	public function updateAssoGames() {
+
+		$idListeOeuvre = Session::get('listeoeuvre_current', 'default');
+		$res = Input::get('data', array());
+		$ListeOeuvre = ListeOeuvre::find($idListeOeuvre);
+
+		$table = [];
+		foreach ($res as $key => $value){
+		    if($value == 'true')
+		    	array_push($table, $key);
+		}
+		$ListeOeuvre->jeux()->sync($table);
 	}
 
 }

@@ -25,8 +25,12 @@
       </tr> 
     </thead>
     <tbody>
-      @foreach ($listeoeuvres as $listeoeuvre)
+      @foreach ($listeoeuvres as $index => $listeoeuvre)
+        @if ($index == 0)
         <tr class="active listeoeuvre">
+        @else
+        <tr class="listeoeuvre">
+        @endif
           <form method="POST" role="form" action="deleteListeOeuvre">
             <input type="hidden" name="idUser" value="{{ $me->id }}">
             <input type="hidden" class="idListeOeuvre" name="idListeOeuvre" value="{{ $listeoeuvre->id }}">
