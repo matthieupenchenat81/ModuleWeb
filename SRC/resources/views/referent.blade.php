@@ -64,7 +64,6 @@
       <li role="presentation"><a href="#">Ajouter des images</a></li>
     </ul>
     <br>
-
     <br><br><br><br><br><br><br><br><br><br><br>
   </div>
 

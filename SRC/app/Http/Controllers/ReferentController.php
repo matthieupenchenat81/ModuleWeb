@@ -48,6 +48,7 @@ class ReferentController extends Controller {
 		$dataSearch['technique'] = Technique::orderBy('nom')->get();
 
 		$listeoeuvres = ListeOeuvre::currentUser()->get();
+			
 		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'listeoeuvres' => $listeoeuvres, 'data' => $dataSearch, 'games' => $games]);
 	}
 
