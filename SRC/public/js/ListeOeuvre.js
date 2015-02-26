@@ -1,6 +1,7 @@
 
 //Selection d'une recherche d'oeuvre 
 $('.listeoeuvre').click(function() {
+
     $('#oeuvrePic').empty();
     url = "/showListOeuvres/" + $(this).children('.idListeOeuvre').val();
     $.get(url, function( data ) {
@@ -127,7 +128,25 @@ $('#search_button, #previous, #next').click(function(event) {
 
 
 
+// Mettre à jour les jeux associés à la liste d'oeuvre
+$('.checkbox').click(function(event) {
 
+    var searchIDs = $("input#idGame").map(function(){
+      return $(this).val();
+    }).get();
+
+    var searchValues = $("input#checkbox").map(function(){
+      return $(this).is(":checked");
+    }).get();
+
+    r = [];
+    for (i = 0; i < searchIDs.length; i++) {
+        r[searchIDs[i]] = searchValues[i];
+    }
+
+    console.log(r);
+
+});
 
 
 

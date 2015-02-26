@@ -11,6 +11,7 @@ use App\Models\Domaine;
 use App\Models\Matiere;
 use App\Models\Technique;
 use App\Models\Oeuvre;
+use App\Models\Jeu;
 use Response;
 
 
@@ -36,6 +37,7 @@ class ReferentController extends Controller {
 	{
 		$me = User::current();
 		$user = User::all();
+		$games = Jeu::all();
 
 		$dataSearch = [];
 		$dataSearch['auteur'] = Auteur::orderBy('nom')->get();
@@ -45,7 +47,7 @@ class ReferentController extends Controller {
 		$dataSearch['technique'] = Technique::orderBy('nom')->get();
 
 		$listeoeuvres = ListeOeuvre::currentUser()->get();
-		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'listeoeuvres' => $listeoeuvres, 'data' => $dataSearch]);
+		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'listeoeuvres' => $listeoeuvres, 'data' => $dataSearch, 'games' => $games]);
 	}
 
 	/**
@@ -129,6 +131,7 @@ class ReferentController extends Controller {
 		$fin = (Input::get('fin'))?Input::get('fin'): '';
 
 		$res = Oeuvre::authorFilter($auteurs)
+			->techniqueFilter($techniques)
 			->designationFilter($designations)
 			->domaineFilter($domaines)
 			->matiereFilter($matieres)

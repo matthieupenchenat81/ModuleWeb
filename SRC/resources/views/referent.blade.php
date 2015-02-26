@@ -66,26 +66,16 @@
 
   <div class="col-md-3">
     <legend>Mes jeux associés</legend>
-  
+    @foreach($games as $game)
     <div class="checkbox">
+      <input type="hidden" name="idGame" id="idGame" value="{{ $game->id }}">
     	<label class="ios7-switch">
-    		<input type="checkbox" checked>
+    		<input id="checkbox" type="checkbox">
     		<span></span>
-    		Puzzle Game
+    		 {{ $game->nom }}
 		  </label>
-
-    	<label class="ios7-switch">
-    		<input type="checkbox" >
-    		<span></span>
-    		Jeu du pendu
-		  </label>
-
-    	<label class="ios7-switch">
-    		<input type="checkbox" >
-    		<span></span>
-    		Assassin's creed
-		  </label>
-    </div>  
+    </div>
+    @endforeach  
   </div>
   <br><br><br>
 </div>
