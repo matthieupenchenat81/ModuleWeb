@@ -173,7 +173,6 @@ $('#liAddImages').click(function() {
     $('#addpicture').show("slow");
     $('#liSelection').removeClass("active");
     $('#liAddImages').addClass("active");
-    $(".chosen-select").chosen({width: "100px"}); 
 });
 
 
