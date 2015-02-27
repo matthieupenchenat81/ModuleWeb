@@ -228,3 +228,25 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 .ios7-switch:hover input:focus:checked + span {
     box-shadow: inset 0 0 0 0.73em #4cd964;
 }
+
+
+
+/*Chosen width fix*/
+/* Fix  width bug */
+.chosen-container, .chosen-drop, .chosen-drop .chosen-search, .chosen-drop {
+  width: 220px !important;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Input Box has to be slightly smaller, don't know why and I don't care. */
+.chosen-search input {
+    width: 210px !important;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Override width of the whole thing */
+.chosen-container { width:220px !important; }

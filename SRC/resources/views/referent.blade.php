@@ -64,18 +64,20 @@
       <li role="presentation" id="liAddImages"><a href="#">Ajouter des images</a></li>
     </ul>
     <br>
-    <!-- TAKE ALL THAT'S INSIDE THIS DIV FOR "MY SELECTION" -->
-<div class="col-md-7 princ" id="selection">
+
+<!-- TAKE ALL THAT'S INSIDE THIS DIV FOR "MY SELECTION" -->
+<div id="selection">
   <span style="float: right"><a href="">Sélectionner tout</a> -- <a href="">Annuler sélection</a></span><br>
     <div class="panel-body" id="oeuvrePic">
       <!-- // TODO -->
     </div>
   <button style="float: right" class="btn btn-primary" id="enregistrer">Enregistrer</button>
+  <br><br>
 </div>
 
 
 <!-- TAKE ALL THAT'S INSIDE THIS DIV FOR "ADD PICTURES" -->
-<div class="col-md-7 princ" id="addpicture" style="display:none">
+<div id="addpicture" style="display:none">
 
 
   <!-- PART CHOOSE AND FILL FILTER -->
@@ -178,6 +180,7 @@
       </ul>
     </nav>
   <button style="float: right" class="btn btn-primary" id="ajouter">Ajouter à ma liste d'oeuvre</button>
+  <br><br>
 </div>
   </div>
 
