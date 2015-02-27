@@ -38,7 +38,7 @@
             <td>{{$listeoeuvre->nom}}</td>
             <td>
             	<label class="ios7-switch">
-                	<input type="checkbox" checked>
+                	<input class="activeSession" type="checkbox" checked>
                 	<span></span>
               	</label>
             </td>
@@ -60,31 +60,11 @@
 
   <div class="panel panel-default col-md-9"><br>
     <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="#">Ma sélection</a></li>
-      <li role="presentation"><a href="#">Ajouter des images</a></li>
+      <li role="presentation" class="active" id="liSelection"><a href="#">Ma sélection</a></li>
+      <li role="presentation" id="liAddImages"><a href="#">Ajouter des images</a></li>
     </ul>
     <br>
-    <br><br><br><br><br><br><br><br><br><br><br>
-  </div>
-
-  <div class="col-md-3">
-    <legend>Mes jeux associés</legend>
-    @foreach($games as $game)
-    <div class="checkbox">
-      <input type="hidden" name="idGame" id="idGame" value="{{ $game->id }}">
-    	<label class="ios7-switch">
-    		<input id="checkbox" type="checkbox">
-    		<span></span>
-    		 {{ $game->nom }}
-		  </label>
-    </div>
-    @endforeach  
-  </div>
-  <br><br><br>
-</div>
-
-
-<!-- TAKE ALL THAT'S INSIDE THIS DIV FOR "MY SELECTION" -->
+    <!-- TAKE ALL THAT'S INSIDE THIS DIV FOR "MY SELECTION" -->
 <div class="col-md-7 princ" id="selection">
   <span style="float: right"><a href="">Sélectionner tout</a> -- <a href="">Annuler sélection</a></span><br>
     <div class="panel-body" id="oeuvrePic">
@@ -95,7 +75,7 @@
 
 
 <!-- TAKE ALL THAT'S INSIDE THIS DIV FOR "ADD PICTURES" -->
-<div class="col-md-7 princ" id="addpicture">
+<div class="col-md-7 princ" id="addpicture" style="display:none">
 
 
   <!-- PART CHOOSE AND FILL FILTER -->
@@ -191,8 +171,7 @@
 
     </div>
   </div>
-
-    <nav>
+  <nav>
       <ul class="pager">
         <li class="previous disabled"><a id="previous" href=""><span aria-hidden="true">&larr;</span> Précédent</a></li>
         <li class="next disabled"><a id="next" href="">Suivant <span aria-hidden="true">&rarr;</span></a></li>
@@ -200,5 +179,27 @@
     </nav>
   <button style="float: right" class="btn btn-primary" id="ajouter">Ajouter à ma liste d'oeuvre</button>
 </div>
+  </div>
+
+  <div class="col-md-3">
+    <legend>Mes jeux associés</legend>
+    @foreach($games as $game)
+    <div class="checkbox">
+      <input type="hidden" name="idGame" id="idGame" value="{{ $game->id }}">
+    	<label class="ios7-switch">
+    		<input id="checkbox" type="checkbox">
+    		<span></span>
+    		 {{ $game->nom }}
+		  </label>
+    </div>
+    @endforeach  
+  </div>
+  <br><br><br>
+</div>
+
+
+
+
+    
 
 @endsection

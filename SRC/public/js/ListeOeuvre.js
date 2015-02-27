@@ -1,7 +1,8 @@
 
 //Selection d'une recherche d'oeuvre 
-$('.listeoeuvre').click(function() {
-
+$('.listeoeuvre').click(function(event) {
+    $('.listeoeuvre').removeClass("active");
+    $(this).addClass("active");
     $('#oeuvrePic').empty();
     url = "/showListOeuvres/" + $(this).children('.idListeOeuvre').val();
     $.get(url, function( data ) {
@@ -23,8 +24,10 @@ $('.listeoeuvre').click(function() {
         +'</ul>'
         +'</div>'
         );
+
     });
 });
+
 
 
 //Enregistrement d'une liste d'ouevre
@@ -154,6 +157,22 @@ $('.checkbox').click(function(event) {
         // Nada
     });
 
+});
+
+
+//swicth onglets de bg  ma selection /ajouter 
+$('#liSelection').click(function() {
+    $('#addpicture').hide();
+    $('#selection').show("slow");
+    $('#liAddImages').removeClass("active");
+    $('#liSelection').addClass("active");
+});
+
+$('#liAddImages').click(function() {
+    $('#selection').hide();
+    $('#addpicture').show("slow");
+    $('#liSelection').removeClass("active");
+    $('#liAddImages').addClass("active");
 });
 
 
