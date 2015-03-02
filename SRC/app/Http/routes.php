@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth'], function ()
 	Route::post('search', 'ReferentController@search');
 	Route::post('addItemsToList', 'ReferentController@addItemsToList');
 	Route::post('updateAssoGames', 'ReferentController@updateAssoGames');
+	Route::get('showPic/{file}', 'ReferentController@getImage');
 });
 
 Route::group(['middleware' => 'admin'], function ()

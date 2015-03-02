@@ -96,9 +96,9 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="inputEmail3" class="col-sm-2 control-label">Désignation</label>
+      <label for="inputEmail3" class="col-sm-2 control-label">Nom Oeuvre</label>
       <div class="col-sm-10">
-        <select data-placeholder="Choisissez une désignation" id="designation" name="designation[]" class="chosen-select" multiple tabindex="4">
+        <select data-placeholder="Choisissez le nom d'une oeuvre" id="designation" name="designation[]" class="chosen-select" multiple tabindex="4">
           <option value=""></option>
           @foreach ($data['designation'] as $val)
             <option value="{{$val->id}}">{{$val->nom}}</option>
