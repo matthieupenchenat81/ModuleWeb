@@ -79,20 +79,32 @@ $('#search_button, #previous, #next').click(function(event) {
     }
 
     $('#oeuvreRes').empty();
-    dataSend = { 
-                _token : $('#_tokenRes').val(),
-                auteur: $('#auteur').val(),
-                designation: $('#designation').val(),
-                matiere: $('#matiere').val(),
-                domaine: $('#domaine').val(),
-                technique: $('#technique').val(),
-                debut: $('#debut').val(),
-                fin: $('#fin').val()
-            };
-    $.post(url,
-        dataSend,
-        function( data ) {
-            if (data.length == 0 )
+    dataSend = "_token = $('#_tokenRes').val(),"
+                +"auteur = ('#auteur').val(),"
+                +"designation = $('#designation').val(),"
+                +"matiere = $('#matiere').val(),"
+                +"domaine = $('#domaine').val(),"
+                +"technique = $('#technique').val(),"
+                +"debut = $('#debut').val(),"
+                +"fin = $('#fin').val()";
+
+    var r = new XMLHttpRequest(); 
+    r.open("POST", url, true); 
+    r.onreadystatechange = function () { 
+        if (r.readyState != 4 || r.status != 200) 
+        {
+            $("#oeuvreRes").append('<div class="alert alert-danger">'
+            +'<strong>Oouups!</strong> Il y a un problème.<br><br>'
+            +'<ul>'
+            +'<li>Erreur lors de la récupération</li>'
+            +'</ul>'
+            +'</div>'
+            );
+            
+            return; 
+        }
+        data = r.responseText; 
+        if (data.length == 0 )
                 $("#oeuvreRes").append("Aucune Oeuvre Trouvé..");
             data.data.forEach( function(el) {
                 $("#oeuvreRes").append('<div class="col-xs-4 col-md-3">'
@@ -114,18 +126,9 @@ $('#search_button, #previous, #next').click(function(event) {
                 $("#next").attr('href', data.next_page_url);    
                 $("#next").parent().removeClass('disabled');
             }
-            
-    }, "json" )
-    
-    .fail(function() {
-        $("#oeuvreRes").append('<div class="alert alert-danger">'
-        +'<strong>Oouups!</strong> Il y a un problème.<br><br>'
-        +'<ul>'
-        +'<li>Erreur lors de la récupération</li>'
-        +'</ul>'
-        +'</div>'
-        );
-    });
+
+    }; 
+    r.send(dataSend);
 });
 
 
