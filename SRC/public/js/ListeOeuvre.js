@@ -1,6 +1,22 @@
+function showSelection() {
+    $('#addpicture').hide();
+    $('#selection').show("slow");
+    $('#liAddImages').removeClass("active");
+    $('#liSelection').addClass("active");
+}
+
+function showAddPicture() {
+    $('#selection').hide();
+    $('#addpicture').show("slow");
+    $('#liSelection').removeClass("active");
+    $('#liAddImages').addClass("active");
+}
+
+
 
 //Selection d'une recherche d'oeuvre 
 $('.listeoeuvre').click(function(event) {
+	showSelection();
 	$("#sessionName").empty();
 	$("#sessionName").text($(this).children(".sessionName").text());
     $('.listeoeuvre').removeClass("active");
@@ -157,20 +173,11 @@ $('.checkbox').click(function(event) {
 });
 
 
-//swicth onglets de bg  ma selection /ajouter 
-$('#liSelection').click(function() {
-    $('#addpicture').hide();
-    $('#selection').show("slow");
-    $('#liAddImages').removeClass("active");
-    $('#liSelection').addClass("active");
-});
+//swicth onglets de bg  ma selection /ajouter
+	
+$('#liSelection').click(showSelection());
 
-$('#liAddImages').click(function() {
-    $('#selection').hide();
-    $('#addpicture').show("slow");
-    $('#liSelection').removeClass("active");
-    $('#liAddImages').addClass("active");
-});
+$('#liAddImages').click(showAddPicture());
 
 
 
