@@ -175,9 +175,13 @@ $('.checkbox').click(function(event) {
 
 //swicth onglets de bg  ma selection /ajouter
 	
-$('#liSelection').click(showSelection());
+$('#liSelection').click(function() {
+	showSelection();
+});
 
-$('#liAddImages').click(showAddPicture());
+$('#liAddImages').click(function() {
+	showAddPicture();
+});
 
 
 
