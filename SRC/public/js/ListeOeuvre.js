@@ -5,23 +5,25 @@ $('.listeoeuvre').click(function(event) {
     $(this).addClass("active");
     $('#oeuvrePic').empty();
     url = "/showListOeuvres/" + $(this).children('.idListeOeuvre').val();
+    
 
-
-    var req = new XMLHttpRequest();
-    req.onload = function(e) {
-              var data  = req.reponse;
+    var r = new XMLHttpRequest(); 
+    r.open("GET", url, true); 
+    r.onreadystatechange = function () { 
+        if (r.readyState != 4 || r.status != 200) 
+            return; 
+        var data  = JSON.parse(r.response);
         if (data.length == 0 )
-
             $("#oeuvrePic").append("Aucune Oeuvre");
-        data.forEach( function(el) {
+        for (el in data)
+        {
             $("#oeuvrePic").append('<div class="col-xs-4 col-md-3">'
             +'<a href="#" class="thumbnail">'
-            +'<img src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '"/>'
+            +'<img src="http://www.augustins.org/documents/10180/156407/' + data[el].urlPhoto + '"/>'
             +'</a></div>');
-    });
-    req.open('GET', url, true);
-    req.send();
-
+        }
+    };
+    r.send();
 
 });
 
