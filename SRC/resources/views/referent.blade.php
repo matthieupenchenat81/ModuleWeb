@@ -26,11 +26,7 @@
     </thead>
     <tbody>
       @foreach ($listeoeuvres as $index => $listeoeuvre)
-        @if ($index == 0)
-        <tr class="active listeoeuvre">
-        @else
         <tr class="listeoeuvre">
-        @endif
           <form method="POST" role="form" action="deleteListeOeuvre">
             <input type="hidden" name="idUser" value="{{ $me->id }}">
             <input type="hidden" class="idListeOeuvre" name="idListeOeuvre" value="{{ $listeoeuvre->id }}">
@@ -56,7 +52,7 @@
 
 <div class="col-md-9 princ">
 	<!-- switch a rajouté -->
-  <legend id="sessionName">Falbala: </legend>
+  <legend id="sessionName"></legend>
 
   <div class="panel panel-default col-md-9"><br>
     <ul class="nav nav-tabs">
