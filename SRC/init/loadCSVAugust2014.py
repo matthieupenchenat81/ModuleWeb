@@ -27,7 +27,7 @@ try :
 	listeAuteur = {}
 	listeDatation = {}
 
-	con = mdb.connect('localhost', 'root', '', 'moduleweb')
+	con = mdb.connect('localhost', 'root', ' ', 'moduleweb',charset='utf8')
 	cur = con.cursor()
 	
 	# Suppresion des données existantes dan la bd

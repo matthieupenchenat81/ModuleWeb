@@ -351,3 +351,37 @@ exit
 git pull
 exit
 git pull
+cd ..
+ls
+cp loadCSVAugustin2014.py ModuleWeb/SRC/init/loadCSVAugust2014.py
+cd ModuleWeb/SRC/init/
+nano loadCSVAugust2014.py cd
+cd ../..
+git  pull
+git commit -a
+ls -la
+git pull
+git commit -a
+git add SRC/init/loadCSVAugust2014.py 
+git commit -a
+git pull
+git push
+git pull
+cd
+cd ..
+ls
+ls -la
+rm -Rf ModuleWeb/
+git clone https://github.com/matthieupenchenat81/ModuleWeb
+cd ModuleWeb/
+cd SRC/
+composer install
+git pull
+git pull
+exit
+git pull
+exit
+git pull
+exit
+git pull
+exit
