@@ -6,7 +6,6 @@ $('.listeoeuvre').click(function(event) {
     $('#oeuvrePic').empty();
     url = "/showListOeuvres/" + $(this).children('.idListeOeuvre').val();
     
-
     var r = new XMLHttpRequest(); 
     r.open("GET", url, true); 
     r.onreadystatechange = function () { 
@@ -15,12 +14,13 @@ $('.listeoeuvre').click(function(event) {
         var data  = JSON.parse(r.response);
         if (data.length == 0 )
             $("#oeuvrePic").append("Aucune Oeuvre");
-        for (el in data)
-        {
-            $("#oeuvrePic").append('<div class="col-xs-4 col-md-3">'
-            +'<a href="#" class="thumbnail">'
-            +'<img src="http://www.augustins.org/documents/10180/156407/' + data[el].urlPhoto + '"/>'
-            +'</a></div>');
+        else {
+            $("#oeuvrePic").append('<select multiple="multiple" id="my_selection" class="image-picker show-html">');
+            for (el in data)
+            {   
+                $('#my_selection').append('<option data-img-src="http://www.augustins.org/documents/10180/156407/' + data[el].urlPhoto + '" value="'+ data[el].id + '"></option>');
+                $("select").imagepicker();
+            }   
         }
     };
     r.send();
@@ -61,63 +61,66 @@ $('#enregistrer').click(function() {
 
 // Afficher résultat de recherche d'oeuvre
 $('#search_button, #previous, #next').click(function(event) {
-event.preventDefault();
-if(this.id == $('#next').attr('id') && $("#next").parent().hasClass('disabled') || this.id == $('#previous').attr('id') && $("#previous").parent().hasClass('disabled'))
-    return 0;
-if (this.id == $('#next').attr('id')) {
-    str = $("#next").attr('href');
-    url = "/search?page="+/([0-9]+)/.exec(/page=([0-9]+)/.exec(str)[0])[0];
-}else 
-    if (this.id == $('#previous').attr('id')) {
+    event.preventDefault();
+    
+    if(this.id == $('#next').attr('id') && $("#next").parent().hasClass('disabled') || this.id == $('#previous').attr('id') && $("#previous").parent().hasClass('disabled'))
+        return 0;
+    if (this.id == $('#next').attr('id')) {
+        str = $("#next").attr('href');
+        url = "/search?page="+/([0-9]+)/.exec(/page=([0-9]+)/.exec(str)[0])[0];
+    }else if (this.id == $('#previous').attr('id')) {
         str = $("#previous").attr('href');
         url = "/search?page="+/([0-9]+)/.exec(/page=([0-9]+)/.exec(str)[0])[0];
     }else {
         url = "/search";
     }
-$('#oeuvreRes').empty();
-dataSend = {
-    _token : $('#_tokenRes').val(),
-    auteur: $('#auteur').val(),
-    designation: $('#designation').val(),
-    matiere: $('#matiere').val(),
-    domaine: $('#domaine').val(),
-    technique: $('#technique').val(),
-    debut: $('#debut').val(),
-    fin: $('#fin').val()
-};
-$.post(url,
-    dataSend,
-    function( data ) {
-if (data.length == 0 )
-    $("#oeuvreRes").append("Aucune Oeuvre Trouvé..");
-data.data.forEach( function(el) {
-    $("#oeuvreRes").append('<div class="col-xs-4 col-md-3">'
-    +'<a href="#" class="thumbnail">'
-    +'<img src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '"/>'
-    +'</a></div>');
+
+    $('#oeuvreRes').empty();
+    dataSend = {
+        _token : $('#_tokenRes').val(),
+        auteur: $('#auteur').val(),
+        designation: $('#designation').val(),
+        matiere: $('#matiere').val(),
+        domaine: $('#domaine').val(),
+        technique: $('#technique').val(),
+        debut: $('#debut').val(),
+        fin: $('#fin').val()
+    };
+
+    $.post(url,
+        dataSend,
+        function( data ) {
+    if (data.data.length == 0 )
+        $("#oeuvreRes").append("Aucune Oeuvre Trouvé..");
+    else {
+        $("#oeuvreRes").append('<select multiple="multiple" id="my_researches" class="image-picker show-html">');
+        data.data.forEach( function(el) {
+            $('#my_researches').append('<option data-img-src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '" value="'+ el.id + '"></option>');
+            $("select").imagepicker();
+        });
+    } 
+    if(data.prev_page_url == null) {
+        $("#previous").parent().addClass('disabled');
+    }else {
+        $("#previous").attr('href', data.prev_page_url);
+        $("#previous").parent().removeClass('disabled');
+    }
+    if(data.next_page_url == null) {
+        $("#next").parent().addClass('disabled');
+    }else {
+        $("#next").attr('href', data.next_page_url);
+        $("#next").parent().removeClass('disabled');
+    }
+    }, "json" )
+    .fail(function() {
+        $("#oeuvreRes").append('<div class="alert alert-danger">'
+        +'<strong>Oouups!</strong> Il y a un problème.<br><br>'
+        +'<ul>'
+        +'<li>Erreur lors de la récupération</li>'
+        +'</ul>'
+        +'</div>'
+        );
     });
-if(data.prev_page_url == null) {
-    $("#previous").parent().addClass('disabled');
-}else {
-    $("#previous").attr('href', data.prev_page_url);
-    $("#previous").parent().removeClass('disabled');
-}
-if(data.next_page_url == null) {
-    $("#next").parent().addClass('disabled');
-}else {
-    $("#next").attr('href', data.next_page_url);
-    $("#next").parent().removeClass('disabled');
-}
-}, "json" )
-.fail(function() {
-$("#oeuvreRes").append('<div class="alert alert-danger">'
-+'<strong>Oouups!</strong> Il y a un problème.<br><br>'
-+'<ul>'
-+'<li>Erreur lors de la récupération</li>'
-+'</ul>'
-+'</div>'
-);
-});
 });
 
 

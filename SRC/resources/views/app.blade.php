@@ -9,6 +9,8 @@
 	<link href="/css/app.css" rel="stylesheet">
 	<link href="/css/chosen.min.css" rel="stylesheet">
 	<link href="/css/game.css" rel="stylesheet" type="text/css"/>
+	<link href="/css/image-picker.css" rel="stylesheet" type="text/css"/>
+
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
@@ -34,6 +36,10 @@
 
 	<!-- Choosen -->
 	  <script src="/js/chosen.jquery.js" type="text/javascript"></script>
+
+	<!-- Scripts Image Picker -->
+	<script type="text/javascript" src="/js/image-picker.min.js"></script>
+	  
 	  <script type="text/javascript">
 	    var config = {
 	      '.chosen-select'           : {},
@@ -45,6 +51,7 @@
 	    for (var selector in config) {
 	      $(selector).chosen(config[selector]);
 	    }
+	    $("select").imagepicker()
 	  </script>
 
 

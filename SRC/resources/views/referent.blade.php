@@ -65,11 +65,14 @@
     </ul>
     <br>
 
+
 <!-- TAKE ALL THAT'S INSIDE THIS DIV FOR "MY SELECTION" -->
 <div id="selection">
   <span style="float: right"><a href="">Sélectionner tout</a> -- <a href="">Annuler sélection</a></span><br>
     <div class="panel-body" id="oeuvrePic">
-      <!-- // TODO -->
+
+        <!-- TODO -->
+
     </div>
   <button style="float: right" class="btn btn-primary" id="enregistrer">Enregistrer</button>
   <br><br>
