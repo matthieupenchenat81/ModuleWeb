@@ -72,7 +72,7 @@ class AdminController extends Controller {
 
 		$user->firstname = Input::get('firstname');
 		$user->email = Input::get('email');
-		$user->city = Input::get('city');
+		$user->school = Input::get('city');
 		$user->lastname = Input::get('lastname');
 		
 
