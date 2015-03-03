@@ -35,7 +35,7 @@
             <input type="hidden" name="idUser" value="{{ $me->id }}">
             <input type="hidden" class="idListeOeuvre" name="idListeOeuvre" value="{{ $listeoeuvre->id }}">
             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-            <td>{{$listeoeuvre->nom}}</td>
+            <td class="sessionName">{{$listeoeuvre->nom}}</td>
             <td>
             	<label class="ios7-switch">
                 	<input class="activeSession" type="checkbox" checked>
