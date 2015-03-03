@@ -39,8 +39,8 @@
       @foreach ($users as $user)
         @if ($user->droits != 2 && $user != $me || ($user->droits != 0 && $me->droits == 2 && $user != $me))
         <tr style="background-color: #F6E3CE">
-          <td>{{$user->firstname}}</td>
           <td>{{$user->lastname}}</td>
+          <td>{{$user->firstname}}</td>
           <td>{{$user->email}}</td>
           <td>{{$user->school}}</td>
           @if ($user->droits == 0)
