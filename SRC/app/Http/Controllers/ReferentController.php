@@ -73,7 +73,7 @@ class ReferentController extends Controller {
 
 		$user->firstname = Input::get('firstname');
 		$user->email = Input::get('email');
-		$user->city = Input::get('city');
+		$user->school = Input::get('school');
 		$user->lastname = Input::get('lastname');
 
 		$user->save();

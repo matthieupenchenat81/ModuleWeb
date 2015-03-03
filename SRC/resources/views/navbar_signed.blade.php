@@ -55,9 +55,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="city" class="col-sm-2 control-label">Ville</label>
+              <label for="city" class="col-sm-2 control-label">Ecole</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="city" name="city" required placeholder="Ville" value="{{$me->city}}">
+                <input type="text" class="form-control" id="city" name="school" required placeholder="Ecole" value="{{$me->school}}">
               </div>
             </div>
             <div class="form-group">
