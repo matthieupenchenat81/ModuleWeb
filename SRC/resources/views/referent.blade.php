@@ -56,7 +56,7 @@
 
 <div class="col-md-9 princ">
 	<!-- switch a rajouté -->
-  <legend>Falbala: </legend>
+  <legend id="sessionName">Falbala: </legend>
 
   <div class="panel panel-default col-md-9"><br>
     <ul class="nav nav-tabs">

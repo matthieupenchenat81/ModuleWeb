@@ -1,6 +1,8 @@
 
 //Selection d'une recherche d'oeuvre 
 $('.listeoeuvre').click(function(event) {
+	$("#sessionName").empty();
+	$("#sessionName").text($(this).children(".sessionName").text());
     $('.listeoeuvre').removeClass("active");
     $(this).addClass("active");
     $('#oeuvrePic').empty();
