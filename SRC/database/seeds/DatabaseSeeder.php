@@ -29,7 +29,7 @@ class UserTableSeeder extends Seeder {
 		$user = array(
 		'firstname' => 'superadmin',
 		'lastname' => 'superadmin',
-		'city' => 'Montauban',
+		'school' => 'Montauban',
 		'email' => 'superAdmin@superAdmin.com',
 		'password' => Hash::make('superadmin'),
 		'image' => 'pictures/user_picture/default.png',
@@ -42,7 +42,7 @@ class UserTableSeeder extends Seeder {
 		$user = array(
 		'firstname' => 'admin',
 		'lastname' => 'admin',
-		'city' => 'Montauban',
+		'school' => 'Montauban',
 		'email' => 'admin@admin.com',
 		'password' => Hash::make('admin'),
 		'image' => 'pictures/user_picture/default.png',
@@ -55,7 +55,7 @@ class UserTableSeeder extends Seeder {
 		$user = array(
 		'lastname' => 'ref',
 		'firstname' => 'ref',
-		'city' => 'Toulouse',
+		'school' => 'Toulouse',
 		'email' => 'ref@ref.com',
 		'password' => Hash::make('ref'),
 		'image' => 'pictures/user_picture/default.png',

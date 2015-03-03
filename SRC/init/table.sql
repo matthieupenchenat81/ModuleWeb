@@ -40,7 +40,7 @@ CREATE TABLE users (
 	id INT NOT NULL AUTO_INCREMENT,
 	firstname VARCHAR(50),
 	lastname VARCHAR(50),
-	city VARCHAR(50),		
+	school VARCHAR(50),		
 	password VARCHAR(255),
 	email VARCHAR(50),
 	image VARCHAR(255),

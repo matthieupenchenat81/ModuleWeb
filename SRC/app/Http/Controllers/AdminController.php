@@ -43,7 +43,7 @@ class AdminController extends Controller {
 		$user->firstname = Input::get('firstname');
 		$user->email = Input::get('email');
 		$user->droits = (Input::get('isadmin'))?1:0;
-		$user->city = Input::get('city');
+		$user->school = Input::get('city');
 		$user->lastname = Input::get('lastname');
 		$user->image = "pictures/user_picture/default.jpg";
 

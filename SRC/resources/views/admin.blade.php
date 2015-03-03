@@ -30,7 +30,7 @@
           <td>Nom</td>
           <td>Prénom</td>
           <td>Mail</td>
-          <td>Lieu</td>
+          <td>Ecole</td>
           <td>Type</td>
           <td>Action</td>
         </tr>
@@ -42,7 +42,7 @@
           <td>{{$user->firstname}}</td>
           <td>{{$user->lastname}}</td>
           <td>{{$user->email}}</td>
-          <td>{{$user->city}}</td>
+          <td>{{$user->school}}</td>
           @if ($user->droits == 0)
             <td>Référent</td>
           @else
