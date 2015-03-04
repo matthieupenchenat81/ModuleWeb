@@ -128,6 +128,16 @@ class ReferentController extends Controller {
 		return Response::json(array());
 	}
 
+	public function removeFromSelection() {
+
+		$idListeOeuvre = Session::get('listeoeuvre_current');
+		$ListeOeuvre = ListeOeuvre::find($idListeOeuvre);
+		
+		$oeuvresToDelete = Input::get('oeuvres');
+		$ListeOeuvre->oeuvres()->detach($oeuvresToDelete);
+		return Response::json(array());
+	}
+
 	public function search() 
 	{
 		$auteurs = (Input::get('auteur', array()))?Input::get('auteur', array()): [];

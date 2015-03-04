@@ -65,12 +65,14 @@
 <!-- TAKE ALL THAT'S INSIDE THIS DIV FOR "MY SELECTION" -->
 <div id="selection">
   <span style="float: right"><a href="">Sélectionner tout</a> -- <a href="">Annuler sélection</a></span><br>
+    <input type="hidden" id="_tokenRemoveFromSelection" name="_token" value="{{{ csrf_token() }}}" />
     <div class="panel-body" id="oeuvrePic">
 
         <!-- TODO -->
 
     </div>
-  <button style="float: right" class="btn btn-primary" id="enregistrer">Enregistrer</button>
+    <!-- <button style="float: right" class="btn btn-primary" id="enregistrer">Enregistrer</button> -->
+    <button type="button" style="float: right" class="btn btn-warning" id="removeFromSelection">Supprimer</button>
   <br><br>
 </div>
 

@@ -50,7 +50,7 @@ $('.listeoeuvre').click(function(event) {
         if (data.length == 0 )
             $("#oeuvrePic").append("Aucune Oeuvre");
         else {
-            $("#oeuvrePic").append('<select multiple="multiple" id="my_selection" class="image-picker show-html">');
+            $("#oeuvrePic").append('<select multiple="multiple" id="my_selection" name="my_selection" class="image-picker show-html">');
             for (el in data)
             {   
                 $('#my_selection').append('<option data-img-src="http://www.augustins.org/documents/10180/156407/' + data[el].urlPhoto + '" value="'+ data[el].id + '"></option>');
@@ -91,6 +91,33 @@ $('#enregistrer').click(function() {
         +'</div>');
     });
 });
+
+
+// Suppression des n oeuvres selectionnés
+$('#removeFromSelection').click(function() {
+
+    url = "removeFromSelection";
+    dataSend = { 
+                _token : $('#_tokenRemoveFromSelection').val(),
+                oeuvres : $('#my_selection').val()};
+    $.post(url, 
+        dataSend,
+        function( data ) {
+            ;
+        }, "json")
+    .done(function() {
+        ;
+    })
+    .fail(function() {
+        $("#oeuvrePic").append('<div class="alert alert-danger">'
+        +'<strong>Oouups!</strong> Il y a un problème.<br><br>'
+        +'<ul>'
+        +'<li>Erreur lors de la Suppression</li>'
+        +'</ul>'
+        +'</div>');
+    });
+});
+
 
 
 // Afficher résultat de recherche d'oeuvre
