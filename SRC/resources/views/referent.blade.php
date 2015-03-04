@@ -189,7 +189,7 @@
     <div class="checkbox">
       <input type="hidden" name="idGame" id="idGame" value="{{ $game->id }}">
     	<label class="ios7-switch">
-    		<input id="checkbox" type="checkbox">
+    		<input id="checkbox{{$game->id}}" class="checkboxGame" type="checkbox">
     		<span></span>
     		 {{ $game->nom }}
 		  </label>

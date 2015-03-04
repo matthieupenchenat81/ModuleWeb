@@ -22,8 +22,25 @@ $('.listeoeuvre').click(function(event) {
     $('.listeoeuvre').removeClass("active");
     $(this).addClass("active");
     $('#oeuvrePic').empty();
-    url = "/showListOeuvres/" + $(this).children('.idListeOeuvre').val();
     
+    // asso games
+    url = "/getAssoGames/" + $(this).children('.idListeOeuvre').val();
+    var p = new XMLHttpRequest(); 
+    p.open("GET", url, true); 
+    p.onreadystatechange = function () { 
+        if (p.readyState != 4 || p.status != 200) 
+            return; 
+        var data2  = JSON.parse(p.response);
+        $( ".checkboxGame" ).prop( "checked", false);
+
+        for (el in data2) {
+            id = data2[el].id;
+            $('#checkbox' + id).prop( "checked", true );
+        }
+    };
+    p.send();
+
+    url = "/showListOeuvres/" + $(this).children('.idListeOeuvre').val();
     var r = new XMLHttpRequest(); 
     r.open("GET", url, true); 
     r.onreadystatechange = function () { 
@@ -42,7 +59,6 @@ $('.listeoeuvre').click(function(event) {
         }
     };
     r.send();
-
 });
 
 
@@ -152,7 +168,7 @@ $('.checkbox').click(function(event) {
       return $(this).val();
     }).get();
 
-    var searchValues = $("input#checkbox").map(function(){
+    var searchValues = $(".checkboxGame").map(function(){
       return $(this).is(":checked");
     }).get();
 
