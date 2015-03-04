@@ -53,7 +53,7 @@ $('.listeoeuvre').click(function(event) {
             $("#oeuvrePic").append('<select multiple="multiple" id="my_selection" name="my_selection" class="image-picker show-html">');
             for (el in data)
             {   
-                $('#my_selection').append('<option data-img-src="http://www.augustins.org/documents/10180/156407/' + data[el].urlPhoto + '" value="'+ data[el].id + '"></option>');
+                $('#my_selection').append('<option data-img-src="http://www.augustins.org/documents/10180/156407/' + data[el].urlPhoto + '" id="selection'+ data[el].id +'" value="'+ data[el].id + '"></option>');
                 $("select").imagepicker();
             }   
         }
@@ -67,7 +67,7 @@ $('.listeoeuvre').click(function(event) {
 $('#enregistrer').click(function() {
     url = "setListOeuvres";
     dataSend = { 
-                _token : $('#_token').val(),
+                _token : $('#_tokenRes').val(),
                 idListeOeuvre : "1",
                 oeuvres : "1-2-3-4"};
     $.post(url, 
@@ -98,15 +98,18 @@ $('#removeFromSelection').click(function() {
 
     url = "removeFromSelection";
     dataSend = { 
-                _token : $('#_tokenRemoveFromSelection').val(),
-                oeuvres : $('#my_selection').val()};
+        _token : $('#_tokenRemoveFromSelection').val(),
+        oeuvres : $('#my_selection').val()};
     $.post(url, 
         dataSend,
         function( data ) {
             ;
         }, "json")
     .done(function() {
-        ;
+        $('#my_selection').val().forEach( function(el) {
+            $('#selection'+ el).remove();
+        });
+        $("select").imagepicker();
     })
     .fail(function() {
         $("#oeuvrePic").append('<div class="alert alert-danger">'
