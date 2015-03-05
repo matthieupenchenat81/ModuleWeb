@@ -168,10 +168,11 @@
   <legend>Résultat de ma recherche</legend>
   <span style="float: right"><a href="">Sélectionner tout</a> -- <a href="">Annuler sélection</a></span><br>
   <div class="panel panel-default">
-    <div class="panel-body" id="oeuvreRes">
-
-      <!-- TODO -->
-
+    <div class="panel-body">
+      <div id="oeuvreRes">
+        <!-- TODO -->
+      </div>
+      <button style="float: right" type="button" class="btn btn-primary" id="addIntoMyList">Ajouter à ma liste d'oeuvre</button>
     </div>
   </div>
   <nav>
@@ -180,7 +181,6 @@
         <li class="next disabled"><a id="next" href="">Suivant <span aria-hidden="true">&rarr;</span></a></li>
       </ul>
     </nav>
-  <button style="float: right" class="btn btn-primary" id="ajouter">Ajouter à ma liste d'oeuvre</button>
   <br><br>
 </div>
   </div>

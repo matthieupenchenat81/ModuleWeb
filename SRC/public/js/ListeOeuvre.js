@@ -123,6 +123,34 @@ $('#removeFromSelection').click(function() {
 
 
 
+// Add to my favorites list
+$('#addIntoMyList').click(function() {
+
+    url = "addItemsToList";
+    dataSend = { 
+        _token : $('#_tokenRes').val(),
+        oeuvres : $('#my_researches').val()};
+    $.post(url, 
+        dataSend,
+        function( data ) {
+            ;
+        }, "json")
+    .done(function() {
+        $('#oeuvreRes').empty();
+    })
+    .fail(function() {
+        $("#oeuvreRes").append('<div class="alert alert-danger">'
+        +'<strong>Oouups!</strong> Il y a un problème.<br><br>'
+        +'<ul>'
+        +'<li>Erreur lors de l\'ajout dans ma liste d\'oeuvre</li>'
+        +'</ul>'
+        +'</div>'
+        );
+    });
+});
+
+
+
 // Afficher résultat de recherche d'oeuvre
 $('#search_button, #previous, #next').click(function(event) {
     event.preventDefault();

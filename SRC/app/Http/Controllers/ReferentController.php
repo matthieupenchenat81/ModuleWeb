@@ -161,7 +161,13 @@ class ReferentController extends Controller {
 	}
 
 	public function addItemsToList() {
-		;
+		
+		$idListeOeuvre = Session::get('listeoeuvre_current');
+		$ListeOeuvre = ListeOeuvre::find($idListeOeuvre);
+		
+		$oeuvresToAdd = Input::get('oeuvres');
+		$ListeOeuvre->oeuvres()->attach($oeuvresToAdd);
+		return Response::json(array());
 	}
 
 	public function updateAssoGames() {
