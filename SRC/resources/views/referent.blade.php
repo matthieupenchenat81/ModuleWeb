@@ -4,7 +4,8 @@
 <link href="css/referent.css" rel="stylesheet" type="text/css"/>
 <br>
 <!-- Navbar left -->
-<div class="col-md-2 listg">
+<div class=" col-md-3">
+<div class="listg">
 	<legend>Créer une liste oeuvre:</legend>
 	<form class="form-inline" method="POST" role="form" action="addListeOeuvre">
   		<input type="hidden" name="idUser" value="{{ $me->id }}">
@@ -48,9 +49,10 @@
     </tbody>
 	</table>
 </div>
+</div>
 
-
-<div class="col-md-9 princ">
+<div class="col-md-9">
+<div class="princ">
 	<!-- switch a rajouté -->
   <legend id="sessionName"></legend>
 
@@ -75,7 +77,6 @@
     <button type="button" style="float: right" class="btn btn-warning" id="removeFromSelection">Supprimer</button>
   <br><br>
 </div>
-
 
 <!-- TAKE ALL THAT'S INSIDE THIS DIV FOR "ADD PICTURES" -->
 <div id="addpicture" style="display:none">
@@ -200,10 +201,5 @@
   </div>
   <br><br><br>
 </div>
-
-
-
-
-    
-
+</div>
 @endsection

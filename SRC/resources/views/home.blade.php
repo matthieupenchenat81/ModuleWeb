@@ -7,10 +7,9 @@
   <img style="height:auto; width:auto; max-width:100px;" alt="" src="./pictures/homePic/home.png"> 
 <nav>
 <form class="form-inline navbar">
-  <div class="form-group">
-  	<img alt="" class="imgSearch" src="./pictures/homePic/search.png">
-    <div class="input-group">
-      	</span><input type="text" class="form-control" placeholder="Rechercher un Référant">
+  <div class="row divRecherche">
+    <div class="col-xs-12">
+      	<input class="form-control inpSear" placeholder="Rechercher un Référant" name="search" onchange="hideIcon(this);" type="text">
     </div>
   </div>
 </form>
@@ -42,7 +41,7 @@
     	@endif
     		<br>
      		<a href="/referents/vive.linux/games"><img class="imgRef" src="{{$ref -> image}}" width="300px"  alt="{{ $ref -> name }}-Nom"></a> 	
-    		<a href="/referents/vive.linux/games"><div class="well well-lg ">{{$ref -> firstname}}, {{$ref -> lastname}}</div></a>
+    		<a href="/referents/vive.linux/games"><div class="well well-lg nomRef">{{$ref -> firstname}}, {{$ref -> lastname}}</div></a>
     	</div>
 	@endforeach
 	</div>
@@ -66,6 +65,11 @@ blabla LOL
 
 <script type="text/javascript">
 document.oncontextmenu = new Function("return false");
+
+function hideIcon(self) {
+    self.style.backgroundImage = 'none';
+}
+
 </script>
 </center>
 @endsection
