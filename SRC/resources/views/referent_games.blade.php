@@ -1,12 +1,9 @@
 @extends('app')
 
 <link href="css/referent.css" rel="stylesheet" type="text/css"/>
-<br>
-<center><h1>Games</h1></center>
-<br>
-<br>
-
-<!-- <center><img src="/pictures/pic/game.png" alt="Game" class="iconGame"/></center> -->
+<center>
+	<img src="/pictures/pic/Game.png" alt="Game" class="iconGame"/>
+</center>
 
 <div class="container">
   <div class="col-sm-6 col-md-4">

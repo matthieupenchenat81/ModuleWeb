@@ -385,3 +385,31 @@ git pull
 exit
 git pull
 exit
+ls
+cd ..
+ls
+nano loadCSVAugustin2014.py
+python loadCSVAugustin2014.py
+cd ModuleWeb/
+ls
+nano SRC/init/loadCSVAugust2014.py 
+git commit -a
+git pull
+git push
+nano SRC/public/js/ListeOeuvre.js 
+git pull
+git pull
+gir pull
+git pull
+git pull
+git pull
+exit
+git pull
+exit
+git pull
+git pull
+exit
+git pull
+exit
+git pull
+exit
