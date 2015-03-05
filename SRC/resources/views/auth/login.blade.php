@@ -5,7 +5,7 @@
 
 <div style="margin-top: 70px" class="container-fluid">
 <div class="back_home">
-	<a href="/" > < Retour <img src="./pictures/pic/home.png" alt="Retour" /></a>
+	<a href="/" ><img src="/pictures/pic/home.png" alt="Retour" /> < Retour </a>
 </div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
