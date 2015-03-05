@@ -46,8 +46,9 @@ class AdminController extends Controller {
 		$user->school = Input::get('city');
 		$user->lastname = Input::get('lastname');
 		$user->image = "pictures/user_picture/default.jpg";
-
 		$user->save();
+
+		Password:: sendResetLink(Input::get('email'));
 		return redirect('/admin')->with('message_add', 'User ajouté avec succès');
 	}
 
