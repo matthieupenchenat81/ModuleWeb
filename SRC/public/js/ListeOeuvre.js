@@ -53,7 +53,7 @@ $('.listeoeuvre').click(function(event) {
             $("#oeuvrePic").append('<select multiple="multiple" id="my_selection" name="my_selection" class="image-picker show-html">');
             for (el in data)
             {   
-                $('#my_selection').append('<option data-img-src="http://www.augustins.org/documents/10180/156407/' + data[el].urlPhoto + '" id="selection'+ data[el].id +'" value="'+ data[el].id + '"></option>');
+                $('#my_selection').append('<option data-img-src="http://www.augustins.org/documents/10180/156407/' + data[el].urlPhoto + '" class="option_selected" id="selection'+ data[el].id +'" value="'+ data[el].id + '"></option>');
                 $("select").imagepicker();
             }   
         }
@@ -126,7 +126,12 @@ $('#removeFromSelection').click(function() {
 // Afficher résultat de recherche d'oeuvre
 $('#search_button, #previous, #next').click(function(event) {
     event.preventDefault();
-    
+
+    // Disable oeuvres already taken
+    alreadySelected = $('.option_selected').map(function(){
+      return parseInt($(this).val());
+    }).get();
+
     if(this.id == $('#next').attr('id') && $("#next").parent().hasClass('disabled') || this.id == $('#previous').attr('id') && $("#previous").parent().hasClass('disabled'))
         return 0;
     if (this.id == $('#next').attr('id')) {
@@ -159,7 +164,12 @@ $('#search_button, #previous, #next').click(function(event) {
     else {
         $("#oeuvreRes").append('<select multiple="multiple" id="my_researches" class="image-picker show-html">');
         data.data.forEach( function(el) {
-            $('#my_researches').append('<option data-img-src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '" value="'+ el.id + '"></option>');
+
+            if($.inArray(el.id, alreadySelected) != -1){
+                $('#my_researches').append('<option disabled="disabled" data-img-src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '" value="'+ el.id + '"></option>');
+            } else {
+                $('#my_researches').append('<option data-img-src="http://www.augustins.org/documents/10180/156407/' + el.urlPhoto + '" value="'+ el.id + '"></option>');
+            }
             $("select").imagepicker();
         });
     } 
