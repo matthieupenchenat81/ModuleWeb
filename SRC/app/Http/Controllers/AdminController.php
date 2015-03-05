@@ -5,6 +5,7 @@ use Input;
 use Auth;
 use Session;
 use Request;
+use Password;
 
 class AdminController extends Controller {
 
