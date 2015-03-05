@@ -21,15 +21,18 @@ body {
 	height: 40%;
 }
 
-.imgSearch /* image de la loupe */
+.divRecherche
 {
-	height: 25px;
-	width : 25px;
+	margin-top: 2%;
 }
 
-.form-group
+.inpSear
 {
-	margin-top : 0.5%;
+	background-image: url(/pictures/homePic/search.png);
+	background-size: 30px;
+    background-repeat: no-repeat;
+    text-indent: 15%;
+    width: 50%;
 }
 
 .imgRef
@@ -38,24 +41,31 @@ body {
 	box-shadow: 0px 0px 3px black;
 	max-height : 250px;
 	max-width : 250px;
+	background: #ffffff; /* Old browsers */
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 );
 }
 
-.well, .well-lg /* le nom du referent */
+.nomRef /* le nom du referent */
 {
 	margin : 1%;
-	width : 40%;
+	padding : 2% 4% 2% 4%;
+	width: 40%;
 	box-shadow: 0 0 6px black inset;
 	border: 1px solid dimgrey;
-<<<<<<< HEAD
-=======
-	font-size: 1.5em;
->>>>>>> 407a955444da6207f59c5f05d283275510b2169c
 }
 
 .carousel-indicators
 {
-	position: fixed;
-	bottom : 8%;
+	width: 60%;
+	position:absolute;
+	top : 102%;
 }
 
 .carousel-indicators li { /*tous les cercles */
