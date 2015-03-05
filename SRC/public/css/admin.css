@@ -37,6 +37,6 @@ table tbody tr td /*corps du tableau */
 
 .addRef
 {
-	position: fixed;
-	left : 70%;
+	position: absolute;
+	left : 80%;
 }
