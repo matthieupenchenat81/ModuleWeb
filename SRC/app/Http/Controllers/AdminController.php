@@ -49,7 +49,7 @@ class AdminController extends Controller {
 		$user->image = "pictures/user_picture/default.jpg";
 		$user->save();
 
-		Password:: sendResetLink(Input::get('email'));
+		Password:: sendResetLink(Input::only('email'));
 		return redirect('/admin')->with('message_add', 'User ajouté avec succès');
 	}
 
