@@ -413,3 +413,41 @@ git pull
 exit
 git pull
 exit
+git pull
+git status
+gitcommit -a
+git commit -a
+git add .
+git commit -m "alaa"
+git push
+git pull
+git status
+exit
+ls
+cd SRC/app/Http/Controllers/
+nano LoginController.php 
+nano AdminController.php 
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+git pull
+rm SRC/public/css/home.css 
+rm SRC/resources/views/home.blade.php 
+git pull
+rm SRC/public/js/hideicon.js 
+git pull
+git status
+git status
+git status
+git status
+git status
+git status
+git status
+git status
+git status
+git pull
