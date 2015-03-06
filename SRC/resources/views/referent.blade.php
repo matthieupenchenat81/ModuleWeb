@@ -10,16 +10,16 @@
 	<form class="form-inline" method="POST" role="form" action="addListeOeuvre">
   		<input type="hidden" name="idUser" value="{{ $me->id }}">
   		<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-  		<div class="form-group">
-    		<div class="input-group">
-      			<input type="text" class="form-control" required="required" name="name" placeholder="Ajouter une liste d'oeuvre">
+  		<div >
+    		<div >
+      			<input type="text" class="" required="required" name="name" placeholder="Ajouter une liste d'oeuvre">
+      			<button type="submit" class="btn btn-primary">Ajouter</button>
     		</div>
  		  </div>
-  		<button type="submit" class="btn btn-primary">Ajouter</button>
 	</form>
 	<br><br>
 	<legend>Mes listes d'oeuvres:</legend>
-	<table class="table table-hover">
+	<table class="table">
     <thead class="tablethead">
       <tr>
         <th>Nom</th><th>Action</th><th>Supprimer</th>
@@ -52,7 +52,7 @@
 </div>
 
 <div class="col-md-9">
-<div class="princ">
+<div class="princ row">
 	<!-- switch a rajouté -->
   <legend id="sessionName"></legend>
 
@@ -87,7 +87,7 @@
   <form class="form-horizontal" role="form" action="search" method="post">
     <input type="hidden" id="_tokenRes" name="_token" value="{{{ csrf_token() }}}" />
     <div class="form-group">
-      <label for="inputEmail3" class="col-sm-2 control-label">Auteur</label>
+      <label for="auteur" class="col-sm-2 control-label">Auteur</label>
       <div class="col-sm-10">
         <select data-placeholder="Choisissez un auteur" id="auteur" name="auteur[]" class="chosen-select" multiple tabindex="4">
           <option value=""></option>

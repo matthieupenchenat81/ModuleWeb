@@ -13,20 +13,32 @@ caption
 text-align: center;
 }
 
-table
+table /* le tableau */
 {
 	text-align: center;
+}
+
+.tablethead
+{
+	color: white;
 }
 
 table thead tr th
 {
-	text-align: center;
+	text-align: center; /* cellules de l'entete */
+	text-shadow: 0px 1px 2px black;
 }
 
-tbody tr
+tbody tr /*chaque ligne du body */
 {
-	background: green;
-	color:red;
+	background: white;
+	color: #36BBD9;
+}
+
+.listeoeuvre:hover /* survole du hover */
+{
+	background: #36BBD9;
+	color : white;
 }
 
 .listg
@@ -48,11 +60,6 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 	padding: 3%;
 }
 
-.tablethead
-{
-	color: white;
-}
-
 .chosen-select /* les select */
 {
 	width : 20%;
@@ -63,6 +70,13 @@ background: linear-gradient(to bottom, #a7cfdf 0%,#23538a 100%); /* W3C */
 	color: white;
 }
 
+input
+{	
+	border-radius: 5px;
+	vertical-align: middle;
+	border: 1px solid silver;
+	height : 30px;
+}
 
 .listRecherche
 {
