@@ -1,3 +1,8 @@
+html
+{
+	width: 100%;
+}
+
 body {
   background-image:url("../pictures/homePic/fond.jpg");
   background-attachment:fixed;
@@ -9,16 +14,19 @@ body {
 .back_home
 {
 	background: white;
-	width  : 10%;
+	width: 100px;
 	padding : 1%;
+	margin-bottom: 20px;
 	border-radius: 8px;
 	border: 1px solid silver;
 }
 
 .back_home img
 {
-	width: 40%;
-	height: 40%;
+	float:left;
+	width: 20px;
+	height: 20px;
+	vertical-align:middle;
 }
 
 .divRecherche
