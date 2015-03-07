@@ -33,13 +33,8 @@
 	@endif
 
 	@yield('content')
-	<!-- script jeu memory -->
-	<!-- js -->
-	<script src="/js/classList.min.js"></script>
-	<script src="/js/memory.js"></script>
 
 
-	
 	<!-- start memory! -->
 	<script>
 		(function(){

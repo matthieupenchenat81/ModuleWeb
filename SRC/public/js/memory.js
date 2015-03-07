@@ -60,7 +60,7 @@
    * onGameStart: callback for when game starts
    * onGameEnd: callback for when game ends
    */
-
+/*
   Memory.prototype.options = {
     wrapperID : "container",
     cards : [
@@ -132,7 +132,7 @@
     onGameStart : function() { return false; },
     onGameEnd : function() { return false; }
   }
-
+*/
   /**
    * Memory _init - initialise Memory
    *
@@ -212,13 +212,17 @@
     this.gameMeta.innerHTML = this.gameMetaHTML;
     this.game.appendChild(this.gameMeta);
 
+
+
+//  <button type="button" class="btn btn-default"> <span class="glyphicon glyphicon-star-empty"></span> </button>
+
     this.gameStartScreenHTML = '<h2 class="mg__start-screen--heading">Welcome to the Memory Game!</h2>\
       <p class="mg__start-screen--text">blablabla</p>\
       <h3 class="mg__start-screen--sub-heading">Choisir niveau</h3>\
       <ul class="mg__start-screen--level-select">\
-      <li><span data-level="1"> facile (4 )</span></li>\
-      <li><span data-level="2"> moyen (6 )</span></li>\
-      <li><span data-level="3"> dur (8 )</span></li>\
+      <li><span data-level="1"><button type="button" class="btn btn-success"> <span class="glyphicon glyphicon-star-empty"></span> </button></span></li>\
+      <li><span data-level="2"><button type="button" class="btn btn-warning"> <span class="glyphicon glyphicon-star-empty"></span> <span class="glyphicon glyphicon-star-empty"></span> </button</span></li>\
+      <li><span data-level="3"><button type="button" class="btn btn-danger"> <span class="glyphicon glyphicon-star-empty"></span> <span class="glyphicon glyphicon-star-empty"></span> <span class="glyphicon glyphicon-star-empty"></span> </button</span></li>\
       </ul>';
     this.gameStartScreen.innerHTML = this.gameStartScreenHTML;
     this.game.appendChild(this.gameStartScreen);
