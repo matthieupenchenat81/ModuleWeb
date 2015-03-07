@@ -119,6 +119,8 @@ img {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: inline;
+  margin-top: 0; 
 }
 .mg__start-screen--level-select span {
   color: #ff3c50;

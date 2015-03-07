@@ -10,7 +10,7 @@
 	<link href="/css/chosen.min.css" rel="stylesheet">
 	<link href="/css/game.css" rel="stylesheet" type="text/css"/>
 	<link href="/css/image-picker.css" rel="stylesheet" type="text/css"/>
-
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<!-- css jeu memory -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
 	<link rel="stylesheet" href="/css/memory.css">

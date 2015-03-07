@@ -1,16 +1,3 @@
-/**
- * Memory Game
- *
- * This is the wrapper function for my memory game! It contains all of the core
- * functionality for the game to run.
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2014, Call Me Nick
- * http://callmenick.com
- */
-
 ;(function( window ) {
 
   'use strict';
@@ -197,6 +184,8 @@
     this.flippedTiles = 0;
     this.chosenLevel = "";
     this.numMoves = 0;
+  //  var niveauChoisi = 0;
+  //  if (this.chosenLevel) == "1" {niveauChoisi = '<i class="fa fa-star-o"></i>';} if(this.chosenLevel) == "2" {niveauChoisi = '<i class="fa fa-star-half-o"></i>';} else {niveauChoisi = '<i class="fa fa-star"></i>';}
 
     this.gameMetaHTML = '<div class="mg__meta--left">\
       <span class="mg__meta--level">Niveau: \
@@ -207,7 +196,7 @@
       </span>\
       </div>\
       <div class="mg__meta--right">\
-      <button id="mg__button--restart" class="mg__button">Start Over</button>\
+      <button id="mg__button--restart" class="mg__button"><span class="glyphicon glyphicon-repeat"></span></button>\
       </div>';
     this.gameMeta.innerHTML = this.gameMetaHTML;
     this.game.appendChild(this.gameMeta);
@@ -217,13 +206,15 @@
 //  <button type="button" class="btn btn-default"> <span class="glyphicon glyphicon-star-empty"></span> </button>
 
     this.gameStartScreenHTML = '<h2 class="mg__start-screen--heading">Welcome to the Memory Game!</h2>\
-      <p class="mg__start-screen--text">blablabla</p>\
       <h3 class="mg__start-screen--sub-heading">Choisir niveau</h3>\
       <ul class="mg__start-screen--level-select">\
-      <li><span data-level="1"><button class="btn btn-success">Facile</button></span></li>\
-      <li><span data-level="2"><button  class="btn btn-warning">Moyen</button</span></li>\
-      <li><span data-level="3"><button  class="btn btn-danger">Dur</button</span></li>\
+      <span data-level="1"><button class="btn btn-success fa fa-star-o"></button></span>\
+      <span data-level="2"><button  class="btn btn-warning fa fa-star-half-o"></button></span>\
+      <span data-level="3"><button  class="btn btn-danger fa fa-star"></button></span>\
       </ul>';
+    //Memory.prototype._setupGameWrapper(1);
+    //this._gamePlay();
+    //this._setupGame();
     this.gameStartScreen.innerHTML = this.gameStartScreenHTML;
     this.game.appendChild(this.gameStartScreen);
 
@@ -500,9 +491,9 @@
     var self = this;
     if (this.options.onGameEnd() === false) {
       this._clearGame();
-      this.gameMessages.innerHTML = '<h2 class="mg__onend--heading">Bravo !</h2>\
+      this.gameMessages.innerHTML = '<h2 class="mg__onend--heading"><i class="fa fa-trophy"></i></h2>\
         <p class="mg__onend--message">Vous avez gagné votre partie en ' + this.numMoves + ' coups.</p>\
-        <button id="mg__onend--restart" class="mg__button">rejouer ?</button>';
+        <button id="mg__onend--restart" class="mg__button"><i class="fa fa-refresh"></i></button>';
       this.game.appendChild(this.gameMessages);
       document.getElementById("mg__onend--restart").addEventListener( "click", function(e) {
         self.resetGame();
