@@ -120,7 +120,7 @@ img {
   margin: 0;
   padding: 0;
   display: inline;
-  margin-top: 0; 
+  margin-top: 0;
 }
 .mg__start-screen--level-select span {
   color: #ff3c50;
@@ -165,7 +165,7 @@ img {
 /* game__level-1 styles */
 .mg__level-1 .mg__tile {
   width: 25%;
-  height: 50%;
+  height: 150px;
 }
 
 .mg__level-1 .mg__tile-1 {
@@ -204,7 +204,9 @@ img {
 /* game__level-2 styles */
 .mg__level-2 .mg__tile {
   width: 16.66667%;
-  height: 33.33333%;
+  /*height: 33.33333%;*/
+  height: 150px;
+
 }
 
 .mg__level-2 .mg__tile-1 {
@@ -283,7 +285,7 @@ img {
 /* game__level-3 styles */
 .mg__level-3 .mg__tile {
   width: 12.5%;
-  height: 25%;
+  height: 150px;
 }
 
 .mg__level-3 .mg__tile-1 {

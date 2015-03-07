@@ -302,7 +302,7 @@
       this.newCards.push(this.cards[i], this.cards[i]);
     }
     this.newCards = shuffle(this.newCards);
-    this.tilesHTML = '<tr>';
+    this.tilesHTML = '<div class="col-xs-11 col-sm-10 col-lg-12">';
     for ( var i = 0; i < this.numTiles; i++  ) {
       var n = i + 1;
       this.tilesHTML += '<div class="mg__tile mg__tile-' + n + '">\
@@ -316,7 +316,7 @@
         }*/
 
     }
-    this.tilesHTML +="</tr>";
+    this.tilesHTML +="</div>";
     this.gameContents.innerHTML = this.tilesHTML;
     this.gameState = 2;
     this.options.onGameStart();
