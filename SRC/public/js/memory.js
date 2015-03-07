@@ -220,9 +220,9 @@
       <p class="mg__start-screen--text">blablabla</p>\
       <h3 class="mg__start-screen--sub-heading">Choisir niveau</h3>\
       <ul class="mg__start-screen--level-select">\
-      <li><span data-level="1"><button type="button" class="btn btn-success"> <span class="glyphicon glyphicon-star-empty"></span> </button></span></li>\
-      <li><span data-level="2"><button type="button" class="btn btn-warning"> <span class="glyphicon glyphicon-star-empty"></span> <span class="glyphicon glyphicon-star-empty"></span> </button</span></li>\
-      <li><span data-level="3"><button type="button" class="btn btn-danger"> <span class="glyphicon glyphicon-star-empty"></span> <span class="glyphicon glyphicon-star-empty"></span> <span class="glyphicon glyphicon-star-empty"></span> </button</span></li>\
+      <li><span data-level="1"><span class="btn btn-success"> </span></span></li>\
+      <li><span data-level="2"><button  class="btn btn-warning"></button</span></li>\
+      <li><span data-level="3"><button  class="btn btn-danger"> </button</span></li>\
       </ul>';
     this.gameStartScreen.innerHTML = this.gameStartScreenHTML;
     this.game.appendChild(this.gameStartScreen);
