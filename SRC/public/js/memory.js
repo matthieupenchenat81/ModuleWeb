@@ -143,8 +143,10 @@
     this.gameWrapper = document.createElement("div");
     this.gameWrapper.id = "mg__wrapper";
     this.gameWrapper.className = "mg__wrapper";
+
     this.gameContents = document.createElement("div");
     this.gameContents.id = "mg__contents";
+
     this.gameWrapper.appendChild(this.gameContents);
 
     this.gameMessages = document.createElement("div");
@@ -208,9 +210,9 @@
     this.gameStartScreenHTML = '<h2 class="mg__start-screen--heading">Welcome to the Memory Game!</h2>\
       <h3 class="mg__start-screen--sub-heading">Choisir niveau</h3>\
       <ul class="mg__start-screen--level-select">\
-      <span data-level="1"><button class="btn btn-success fa fa-star-o"></button></span>\
-      <span data-level="2"><button  class="btn btn-warning fa fa-star-half-o"></button></span>\
-      <span data-level="3"><button  class="btn btn-danger fa fa-star"></button></span>\
+      <span data-level="1"><button class="btn btn-success btn-lg fa fa-star-o">&nbsp;&nbsp;&nbsp;&nbsp;</button></span>\
+      <span data-level="2"><button  class="btn btn-warning btn-lg fa fa-star-half-o">&nbsp;&nbsp;&nbsp;&nbsp;</button></span>\
+      <span data-level="3"><button  class="btn btn-danger btn-lg fa fa-star">&nbsp;&nbsp;&nbsp;&nbsp;</button></span>\
       </ul>';
     //Memory.prototype._setupGameWrapper(1);
     //this._gamePlay();
@@ -292,7 +294,7 @@
   Memory.prototype._renderTiles = function() {
      if(this.level == 1) {this.gridX = 2; this.gridY= 2; }
      else if(this.level == 2) {this.gridX = 3; this.gridY= 2; }
-     else { this.gridX = 4; this.gridY=2 ;  }
+     else { this.gridX = 2; this.gridY=4 ;  }
   //  this.gridY = this.gridX ;
     this.numTiles = this.gridX * this.gridY;
     //this.halfNumTiles = this.gridX;
@@ -302,21 +304,25 @@
       this.newCards.push(this.cards[i], this.cards[i]);
     }
     this.newCards = shuffle(this.newCards);
-    this.tilesHTML = '<div class="col-xs-11 col-sm-10 col-lg-12">';
+  /*  this.newCards.push(0, 0);
+    this.newCards.push(0, 0);*/
+    this.tilesHTML = '';
     for ( var i = 0; i < this.numTiles; i++  ) {
       var n = i + 1;
+      //this.tilesHTML += '<div class="col-xs-6 col-sm-4">';
       this.tilesHTML += '<div class="mg__tile mg__tile-' + n + '">\
         <div class="mg__tile--inner" data-id="' + this.newCards[i]["id"] + '">\
         <span class="mg__tile--outside"></span>\
         <span class="mg__tile--inside"><img src="' + this.newCards[i]["img"] + '"></span>';
         this.tilesHTML +='</div>';
-        this.tilesHTML +='</div>';
-      /*  if(this.level == 1 && n == 2){
-          this.tilesHTML +="</tr></pre><tr>";
-        }*/
+      //  this.tilesHTML +='</div>';
 
+      /*  if(this.level == 1 && n == 2){
+          this.tilesHTML +="</tr><tr>";
+        }*/
+        this.tilesHTML +="</div>";
     }
-    this.tilesHTML +="</div>";
+
     this.gameContents.innerHTML = this.tilesHTML;
     this.gameState = 2;
     this.options.onGameStart();

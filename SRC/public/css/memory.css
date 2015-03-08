@@ -165,7 +165,7 @@ img {
 /* game__level-1 styles */
 .mg__level-1 .mg__tile {
   width: 25%;
-  height: 150px;
+  height: 50%;
 }
 
 .mg__level-1 .mg__tile-1 {
@@ -204,8 +204,8 @@ img {
 /* game__level-2 styles */
 .mg__level-2 .mg__tile {
   width: 16.66667%;
-  /*height: 33.33333%;*/
-  height: 150px;
+  height: 33.33333%;
+  /*height: 170px;*/
 
 }
 
@@ -285,7 +285,7 @@ img {
 /* game__level-3 styles */
 .mg__level-3 .mg__tile {
   width: 12.5%;
-  height: 150px;
+  height: 25%;
 }
 
 .mg__level-3 .mg__tile-1 {
