@@ -1,7 +1,15 @@
 /* =============================================================================
   RESET, BOX SIZING, & CLEARFIX
 ============================================================================= */
+#jeu{
 
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+
+}
 *,
 *::before,
 *::after {
@@ -32,14 +40,14 @@ img {
 .wrapper {
   margin: 0 auto;
   width: 100%;
-  min-width: 480px;
+  min-width: 432px;
 }
 
 /* container */
 .container {
   margin: 0 auto;
-  width: 100%;
-  max-width: 1024px;
+  width: 96%;
+  max-width: 1128px;
 }
 
 /* =============================================================================

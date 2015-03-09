@@ -210,9 +210,9 @@
     this.gameStartScreenHTML = '<h2 class="mg__start-screen--heading">Welcome to the Memory Game!</h2>\
       <h3 class="mg__start-screen--sub-heading">Choisir niveau</h3>\
       <ul class="mg__start-screen--level-select">\
-      <span data-level="1"><button class="btn btn-success btn-lg fa fa-star-o">&nbsp;&nbsp;&nbsp;&nbsp;</button></span>\
-      <span data-level="2"><button  class="btn btn-warning btn-lg fa fa-star-half-o">&nbsp;&nbsp;&nbsp;&nbsp;</button></span>\
-      <span data-level="3"><button  class="btn btn-danger btn-lg fa fa-star">&nbsp;&nbsp;&nbsp;&nbsp;</button></span>\
+      <span data-level="1"><button class="btn btn-success btn-lg"><i class="fa fa-star-o"></i></button></span>\
+      <span data-level="2"><button  class="btn btn-warning btn-lg "><i class="fa fa-star-half-o"></i><i class="fa fa-star-half-o"></i></button></span>\
+      <span data-level="3"><button  class="btn btn-danger btn-lg"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></button></span>\
       </ul>';
     //Memory.prototype._setupGameWrapper(1);
     //this._gamePlay();
@@ -497,9 +497,9 @@
     var self = this;
     if (this.options.onGameEnd() === false) {
       this._clearGame();
-      this.gameMessages.innerHTML = '<h2 class="mg__onend--heading"><i class="fa fa-trophy"></i></h2>\
+      this.gameMessages.innerHTML = '<h2 class="mg__onend--heading"><i class="fa fa-trophy fa-5x"></i></h2>\
         <p class="mg__onend--message">Vous avez gagné votre partie en ' + this.numMoves + ' coups.</p>\
-        <button id="mg__onend--restart" class="mg__button"><i class="fa fa-refresh"></i></button>';
+        <button id="mg__onend--restart" class="mg__button"><i class="fa fa-refresh fa-spin fa-3x"></i></button>';
       this.game.appendChild(this.gameMessages);
       document.getElementById("mg__onend--restart").addEventListener( "click", function(e) {
         self.resetGame();

@@ -1,5 +1,5 @@
 @extends('app')
-
+<div id="jeux">
 <br>
 <center><h1>{{ $game }}</h1></center>
 
@@ -24,4 +24,5 @@
 
 		</div>
 	</div><!-- /.content -->
+</div>
 </div>
