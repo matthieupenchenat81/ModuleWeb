@@ -35,7 +35,7 @@
             <td class="sessionName">{{$listeoeuvre->nom}}</td>
             <td>
             	<label class="ios7-switch">
-                	<input class="activeSession" type="checkbox" checked>
+                	<input class="activeSession" type="checkbox" @if ($listeoeuvre->etat == 1) checked="checked" @endif>
                 	<span></span>
               	</label>
             </td>
