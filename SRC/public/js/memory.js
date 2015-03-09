@@ -198,7 +198,7 @@
       </span>\
       </div>\
       <div class="mg__meta--right">\
-      <button id="mg__button--restart" class="mg__button"><span class="glyphicon glyphicon-repeat"></span></button>\
+      <button id="mg__button--restart" class="mg__button btn-lg"><i class="fa fa-repeat fa-3x fa-spin"></i></button>\
       </div>';
     this.gameMeta.innerHTML = this.gameMetaHTML;
     this.game.appendChild(this.gameMeta);
@@ -210,9 +210,9 @@
     this.gameStartScreenHTML = '<h2 class="mg__start-screen--heading">Welcome to the Memory Game!</h2>\
       <h3 class="mg__start-screen--sub-heading">Choisir niveau</h3>\
       <ul class="mg__start-screen--level-select">\
-      <span data-level="1"><button class="btn btn-success btn-lg"><i class="fa fa-star-o"></i></button></span>\
-      <span data-level="2"><button  class="btn btn-warning btn-lg "><i class="fa fa-star-half-o"></i><i class="fa fa-star-half-o"></i></button></span>\
-      <span data-level="3"><button  class="btn btn-danger btn-lg"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></button></span>\
+      <span data-level="1"><button class="btn btn-success btn-lg"><i class="fa fa-2x fa-star-o"></i></button></span>\
+      <span data-level="2"><button  class="btn btn-warning btn-lg "><i class="fa fa-2x fa-star-half-o"></i><i class="fa fa-2x fa-star-half-o"></i></button></span>\
+      <span data-level="3"><button  class="btn btn-danger btn-lg"><i class="fa fa-2x fa-star"></i> <i class="fa fa-2x fa-star"></i> <i class="fa fa-2x fa-star"></i></button></span>\
       </ul>';
     //Memory.prototype._setupGameWrapper(1);
     //this._gamePlay();
