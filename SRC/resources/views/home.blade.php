@@ -6,10 +6,10 @@
 <center>
   <img style="height:auto; width:auto; max-width:100px;" alt="" src="./pictures/homePic/home.png"> 
 <nav>
-<form class="form-inline navbar">
+<form class="form-inline navbar" onsubmit="rechercherReferent()">
   <div class="row divRecherche">
     <div class="col-xs-12">
-      	<input class="form-control inpSear" placeholder="Rechercher un Référant" name="search" onchange="hideIcon(this);" type="text">
+      	<input id="searchfield" class="form-control inpSear" placeholder="Rechercher un Référant" name="search"  type="text"/> 
     </div>
   </div>
 </form>
@@ -32,7 +32,7 @@
 
 
   <!-- Parametres des images  -->
-  <div class="carousel-inner" role="listbox"> 
+  <div id="caroussel" class="carousel-inner" role="listbox"> 
 	@foreach ($referent as $ref)
 		@if ($ref -> id == $referent[0] -> id)
     	<div class="item active">
@@ -58,18 +58,15 @@
 </div>
 </div>
 @else
-
-blabla LOL
-
 @endif
 
 <script type="text/javascript">
-document.oncontextmenu = new Function("return false");
+document.oncontextmenu = new Function("return true");
 
 function hideIcon(self) {
     self.style.backgroundImage = 'none';
 }
-
 </script>
+<script type="text/javascript" src="/js/rechercheRef.js"> </script>
 </center>
 @endsection
