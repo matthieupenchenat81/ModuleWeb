@@ -2858,7 +2858,7 @@ background: -webkit-linear-gradient(top, #4f85bb 0%,#4f85bb 100%); /* Chrome10+,
 background: -o-linear-gradient(top, #4f85bb 0%,#4f85bb 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top, #4f85bb 0%,#4f85bb 100%); /* IE10+ */
 background: linear-gradient(to bottom, #4f85bb 0%,#4f85bb 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f85bb', endColorstr='#4f85bb',GradientType=0 ); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f85bb', endColorstr='#4f85bb',GradientType=0 );
 }
 .btn-primary.disabled,
 .btn-primary[disabled],

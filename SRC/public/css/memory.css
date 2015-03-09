@@ -1,15 +1,32 @@
 /* =============================================================================
   RESET, BOX SIZING, & CLEARFIX
 ============================================================================= */
-#jeu{
+/*#jeu{
 
 	height: 100%;
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	text-align: center;
 
+
+	background-image:url("../pictures/setting_picture/fond.jpg");
+	  background-attachment:fixed;
+	  background-repeat:no-repeat;
+	  background-position:100% 100%;
+	  background-size:cover;
+
+}*/
+
+body
+{
+background-image:url("../pictures/setting_picture/fond.jpg");
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+  background-position:100% 100%;
+  background-size:cover;
 }
+
+
 *,
 *::before,
 *::after {
@@ -40,14 +57,17 @@ img {
 .wrapper {
   margin: 0 auto;
   width: 100%;
-  min-width: 432px;
+  /*min-width: 432px;*/
 }
 
 /* container */
+/*
 .container {
-  margin: 0 auto;
+	padding-top: 50px;*/
+/*  margin: 0 auto;
   width: 96%;
-  max-width: 1128px;
+  max-width: 1128px;*/
+
 }
 
 /* =============================================================================
@@ -152,7 +172,7 @@ img {
 
 .mg__contents {
   position: relative;
-  padding-bottom: 50%;
+  padding-bottom: 47%;
   margin-left: -5px;
   margin-right: -5px;
 }
@@ -456,7 +476,7 @@ img {
 }
 
 .mg__tile--outside {
-  background: url("../img/default/logo-bw.png") 50% 50% no-repeat;
+  background: url("/pictures/default/logo-bw.png") 50% 50% no-repeat;
   background-color: #dcdee1;
   box-shadow: 0 0 0 1px #787a80;
 }
