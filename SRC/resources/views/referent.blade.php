@@ -8,7 +8,7 @@
 <div class="listg">
 	<legend>Créer une liste oeuvre:</legend>
 	<form class="form-inline" method="POST" role="form" action="addListeOeuvre">
-  		<input type="hidden" name="idUser" value="{{ $me->id }}">
+  		<input type="hidden" name="idUser" id="idUser" value="{{ $me->id }}">
   		<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
   		<div >
     		<div >
@@ -35,7 +35,7 @@
             <td class="sessionName">{{$listeoeuvre->nom}}</td>
             <td>
             	<label class="ios7-switch">
-                	<input class="activeSession" type="checkbox" @if ($listeoeuvre->etat == 1) checked="checked" @endif>
+                	<input class="activeSession checkboxSession" id="{{$listeoeuvre->id}}" type="checkbox" @if ($listeoeuvre->etat == 1) checked="checked" @endif>
                 	<span></span>
               	</label>
             </td>

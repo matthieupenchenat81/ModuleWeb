@@ -257,6 +257,37 @@ $('.checkbox').click(function(event) {
 });
 
 
+
+
+// Mettre à jour l'état des liste d'oeuvres
+$('.checkboxSession').click(function(event) {
+
+    el = $(this).attr('id');
+    valueCheckbox = $(this).is(":checked");
+
+    $(".checkboxSession").map(function(){
+        if (el != $(this).attr('id'))
+            $(this).attr("checked", false);
+    });
+
+    dataSend = { _token : $('#_tokenRes').val(), idListeOeuvre: el, value: valueCheckbox};
+    $.post('updateSessionState', dataSend, function() {
+            // Nada
+    }, "json" )
+    
+    .fail(function() {
+        // Nada
+    });
+
+});
+
+
+
+
+
+
+
+
 //swicth onglets de bg  ma selection /ajouter
 	
 $('#liSelection').click(function() {

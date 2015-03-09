@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth'], function ()
 	Route::post('updateAssoGames', 'ReferentController@updateAssoGames');
 	Route::post('removeFromSelection', 'ReferentController@removeFromSelection');
 	Route::get('getAssoGames/{id}', 'ReferentController@getAssoGames');
-	Route::get('showPic/{file}', 'ReferentController@getImage');
+	Route::post('updateSessionState', 'ReferentController@updateSessionState');
 });
 
 Route::group(['middleware' => 'admin'], function ()

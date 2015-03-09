@@ -190,9 +190,20 @@ class ReferentController extends Controller {
 		return Response::json($ListeOeuvre->jeux()->get()->toArray());
 	}
 
-	public function getImage($filename) {
+	public function updateSessionState() {
+	
+		$idListeOeuvre = Input::get('idListeOeuvre');
+		$value = (Input::get('value') == 'true')? 1: 0;
 
-		// TODO
+		$listeoeuvres = ListeOeuvre::currentUser()->get();
+		foreach ($listeoeuvres as $el)
+		{
+			if($el->id != $idListeOeuvre)
+				$el->etat = 0;
+		    else
+		    	$el->etat = $value;
+		    $el->save();
+		}
+		return Response::json(array());
 	}
-
 }
