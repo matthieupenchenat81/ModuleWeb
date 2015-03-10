@@ -1,6 +1,5 @@
 @extends('app')
 @section('content')
-{{ HTML::style('css/frontend.css'); }}
 
 <nav>
     <form onsubmit="rechercherReferent()">
