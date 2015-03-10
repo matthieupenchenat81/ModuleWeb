@@ -39,4 +39,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return $query->where('droits', '0');
     }
+
+    public function scopeName($query, $reg) {
+        return $query->where('firstname', 'like',  '%'.$reg.'%')->orWhere('lastname', 'like',  '%'.$reg.'%');   
+    }
 }

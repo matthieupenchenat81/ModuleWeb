@@ -28,6 +28,12 @@ class GameController extends Controller {
 		return view('home',['referent' => $res]);
 	}
 
+	public function findReferents($reg) {
+
+		$res = User::referents()->name($reg)->get();
+		return Response::json($res->toArray());
+	}
+
 	/**
      * Show referent games
      *
