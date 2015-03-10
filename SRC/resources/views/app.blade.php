@@ -8,6 +8,7 @@
 
 	<link href="/css/app.css" rel="stylesheet">
 	<link href="/css/chosen.min.css" rel="stylesheet">
+	<link href="/css/frontend.css" rel="stylesheet">
 	<link href="/css/game.css" rel="stylesheet" type="text/css"/>
 	<link href="/css/image-picker.css" rel="stylesheet" type="text/css"/>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">

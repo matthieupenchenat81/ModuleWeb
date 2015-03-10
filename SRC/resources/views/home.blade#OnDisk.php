@@ -57,9 +57,6 @@
   	</a>
 </div>
 </div>
-@else
-
-blabla LOL
 
 @endif
 

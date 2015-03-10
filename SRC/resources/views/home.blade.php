@@ -1,14 +1,6 @@
 @extends('app')
 @section('content')
 
-<nav>
-    <form onsubmit="rechercherReferent()">
-        <div class="row divRecherche">
-            <input name="ref" id="ref" placeholder="Rechercher un référent" type="text"> 
-        </div>
-    </form>
-</nav>
-
 @if ($referents != [])
 
  <nav>
@@ -21,9 +13,11 @@
     @foreach ($referents as $referent)
        
 
-            <div class="referent" style="background-image:url('{{ $ref -> image }}')"> 
-                <div class="infos">{{ $referent -> firstname }} {{ $referent -> lastname }}</div>
-            </div>
+            <a href="/referents/{{$referent->id}}/games">
+                <div class="referent" style="background-image:url('{{ $referent -> image }}')"> 
+                    <div class="infos">{{ $referent -> firstname }} {{ $referent -> lastname }}</div>
+                </div>
+            </a>
 
    
     @endforeach
@@ -35,7 +29,7 @@
             $.getJSON("searchRef/" + q, function(data) {
               $("#referents").empty();
               $.each(data.query.search, function(i,item){
-                $("#referents").append('<div class="referent" style="background-image:url('4.jpg')"><div class="infos">'+ item.firstname +'</div></div>');
+                $("#referents").append('<div class="referent" style="background-image:url(\'4.jpg\')"><div class="infos">'+ item.firstname +'</div></div>');
               });
             });
           });
