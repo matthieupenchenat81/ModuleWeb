@@ -167,14 +167,17 @@ img {
  */
 .mg__wrapper {
   margin: 0 auto;
+  margin: 0;
+  padding: 0;
   width: 100%;
+  text-align: center;
 }
 
 .mg__contents {
   position: relative;
-  padding-bottom: 47%;
-  margin-left: -5px;
-  margin-right: -5px;
+  padding-bottom: 50%;
+  margin-left: 35%;
+  margin-right: 0;
 }
 
 /**

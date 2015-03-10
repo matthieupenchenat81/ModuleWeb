@@ -304,18 +304,19 @@
       this.newCards.push(this.cards[i], this.cards[i]);
     }
     this.newCards = shuffle(this.newCards);
-  /*  this.newCards.push(0, 0);
-    this.newCards.push(0, 0);*/
+
     this.tilesHTML = '';
+    var n = 0;
     for ( var i = 0; i < this.numTiles; i++  ) {
-      var n = i + 1;
-      //this.tilesHTML += '<div class="col-xs-6 col-sm-4">';
+      n = n + 1;
+      if(this.level == 3 && n == 5 ){n = 9}
+      if(this.level == 2 && n == 4 ){n = 7}
       this.tilesHTML += '<div class="mg__tile mg__tile-' + n + '">\
         <div class="mg__tile--inner" data-id="' + this.newCards[i]["id"] + '">\
         <span class="mg__tile--outside"></span>\
         <span class="mg__tile--inside"><img src="' + this.newCards[i]["img"] + '"></span>';
         this.tilesHTML +='</div>';
-      //  this.tilesHTML +='</div>';
+
 
       /*  if(this.level == 1 && n == 2){
           this.tilesHTML +="</tr><tr>";
