@@ -2,17 +2,6 @@
 
 class HomeController extends Controller {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| This controller renders your application's "dashboard" for users that
-	| are authenticated. Of course, you are free to change or remove the
-	| controller as you wish. It is just here to get your app started!
-	|
-	*/
-
 	/**
 	 * Create a new controller instance.
 	 *
@@ -20,7 +9,7 @@ class HomeController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth');
+		//
 	}
 
 	/**
@@ -30,8 +19,33 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		$res = User::referents()->get();
+		return view('home',['referents' => $res]);
 	}
+
+	/**
+     * Show referent games
+     *
+     * @param  String  $id
+     * @return Response
+     */
+    public function showReferentGames($id)
+    {
+        return view('referent_games', ['referent' => $id]);
+    }
+
+
+	/**
+     * Show one referent game
+     *
+     * @param  String  $id
+	 * @param  String  $idGame
+     * @return Response
+     */
+    public function showOneReferentGame($id, $idGame)
+    {
+        return view('one_referent_game', ['referent' => $id, 'game' => $idGame]);
+    }
 
 }
 
