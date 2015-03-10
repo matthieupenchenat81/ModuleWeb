@@ -1,5 +1,6 @@
 @extends('app')
 @section('content')
+{{ HTML::style('css/frontend.css'); }}
 
 <nav>
     <form onsubmit="rechercherReferent()">
@@ -43,4 +44,5 @@
     </script>
 @else
     <h1>Aucun référent trouvé</h1>
+@endif
 @endsection
