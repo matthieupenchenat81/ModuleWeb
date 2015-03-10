@@ -24,4 +24,14 @@ class ListeOeuvre extends Model {
         $idUser = Auth::user()->id;
         return $query->where('iduser', $idUser);
     }
+
+    public function scopeOfUser($query, $idUser)
+    {
+        return $query->where('iduser', $idUser);
+    }
+
+    public function scopeActiveListOeuvre($query)
+    {
+        return $query->where('etat', 1);
+    }
 }

@@ -102,9 +102,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="city" class="col-sm-2 control-label">Ville</label>
+              <label for="city" class="col-sm-2 control-label">Etablissement</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="city" name="city" required placeholder="Ville">
+                <input type="text" class="form-control" id="city" name="city" required placeholder="Etablissement">
               </div>
             </div>
             @if ($me->droits == 2)
