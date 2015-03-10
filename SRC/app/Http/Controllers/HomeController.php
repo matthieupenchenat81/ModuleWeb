@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
-use User;
+
+use App\Models\User;
 
 class HomeController extends Controller {
 
