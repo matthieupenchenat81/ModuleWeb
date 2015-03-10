@@ -40,8 +40,8 @@
     	<div class="item">
     	@endif
     		<br>
-     		<a href="/referents/vive.linux/games"><img class="imgRef" src="{{$ref -> image}}"  alt="{{ $ref -> firstname }}-{{ $ref -> lastname }}"></a> 	
-    		<a href="/referents/vive.linux/games"><div class="well well-lg nomRef">{{$ref -> firstname}}, {{$ref -> lastname}}</div></a>
+     		<a href="/referents/{{$ref->id}}/games"><img class="imgRef" src="{{$ref -> image}}"  alt="{{ $ref -> firstname }}-{{ $ref -> lastname }}"></a> 	
+    		<a href="/referents/{{$ref->id}}/games"><div class="well well-lg nomRef">{{$ref -> firstname}}, {{$ref -> lastname}}</div></a>
     	</div>
 	@endforeach
 	</div>

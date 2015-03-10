@@ -3,6 +3,7 @@
 use App\Models\User;
 use Response;
 use App\Models\Oeuvre;
+use App\Models\ListeOeuvre;
 
 class GameController extends Controller {
 
@@ -35,7 +36,13 @@ class GameController extends Controller {
      */
     public function showReferentGames($id)
     {
-        return view('referent_games', ['referent' => $id]);
+    	$listeOeuvre = $ListeOeuvre = ListeOeuvre::ofUser($id)->activeListOeuvre()->first();
+    	if($listeOeuvre == '')
+    		$games = [];
+    	else 
+    		$games = $listeOeuvre->jeux()->get();
+
+        return view('referent_games', ['games' => $games]);
     }
 
 
