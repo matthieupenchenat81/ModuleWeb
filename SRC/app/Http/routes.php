@@ -10,19 +10,16 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// FRONT END PART
+Route::get('choisirref', 'HomeController@choisirRef');
+Route::get('changerref/{id}', 'HomeController@changerRef');
+
+// API FOR AJAX REQUESTS
+Route::get('api/searchRef/{reg?}', 'APIController@refByName');
+Route::get('api/searchOeuvres', 'APIController@searchOeuvres');
 
 
-Route::get('/', 'HomeController@index');
-
-
-
-
-
-
-Route::get('referents/{id}/games', 'GameController@showReferentGames')->where('id', '^((?!login|referent|admin).)*$');
-Route::get('referents/{id}/games/{idGame}', 'GameController@showOneReferentGame');
-Route::get('searchRef/{reg}', 'GameController@findReferents');
-
+// LOGIN RESET
 Route::get('password/reset/{token}', array(
   'uses' => 'LoginController@reset',
   'as' => 'password.reset'
@@ -32,7 +29,16 @@ Route::post('password/reset/{token}', array(
   'as' => 'password.update'
 ));
 
-Route::group(['middleware' => 'guest'], function ()
+// OTHER
+Route::group(['middleware' => 'ifGuestWithRef'], function () {
+    Route::get('/', 'HomeController@index');
+    Route::get('memo', 'GameController@chooseDifMemo');
+    Route::get('memo/jouer/{niv}', 'GameController@playMemo');
+    Route::get('puzzle', 'GameController@chooseDifPuzzle');
+    Route::get('puzzle/jouer/{niv}', 'GameController@playPuzzle');
+});
+
+Route::group(['middleware' => 'ifGuest'], function ()
 {
 	Route::get('login', 'LoginController@index');
 	Route::post('login', 'LoginController@authenticate');
@@ -40,28 +46,27 @@ Route::group(['middleware' => 'guest'], function ()
 	Route::post('forgotten', 'LoginController@initPassword');
 });
 
-Route::group(['middleware' => 'auth'], function ()
+Route::group(['middleware' => 'ifReferent'], function ()
 {
 	Route::get('referent', 'ReferentController@index');
-	Route::get('logout', 'LoginController@logout');	
-	Route::post('update', 'ReferentController@update');
-	Route::post('deleteListeOeuvre', 'ReferentController@deleteListeOeuvre');
-	Route::post('addListeOeuvre', 'ReferentController@addListeOeuvre');
-	Route::get('showListOeuvres/{id}', 'ReferentController@showListeOeuvres');
-	Route::post('setListOeuvres', 'ReferentController@setListOeuvres');
-	Route::post('search', 'ReferentController@search');
-	Route::post('addItemsToList', 'ReferentController@addItemsToList');
-	Route::post('updateAssoGames', 'ReferentController@updateAssoGames');
-	Route::post('removeFromSelection', 'ReferentController@removeFromSelection');
-	Route::get('getAssoGames/{id}', 'ReferentController@getAssoGames');
-	Route::post('updateSessionState', 'ReferentController@updateSessionState');
+	Route::post('referent/ajouterliste', 'ReferentController@ajouterListeOeuvre');
+	Route::get('referent/supprimerliste/{id}', 'ReferentController@supprimerListeOeuvre');
+	Route::get('referent/modifierliste/{id}', 'ReferentController@modifierListeOeuvre');
+	Route::post('referent/modifierliste/supprimer/{id}', 'ReferentController@supprimerOeuvresDansListe');
+	Route::post('referent/modifierliste/ajouter/{id}', 'ReferentController@ajouterOeuvresDansListe');
+    Route::post('referent/changerparamliste', 'ReferentController@changerParamListe');
+    Route::post('referent/changeParamListe/{id}', 'ReferentController@changeParamListe');
+    Route::post('referent/update', 'ReferentController@update');
+    Route::get('logout', 'LoginController@logout');
 });
 
-Route::group(['middleware' => 'admin'], function ()
+// ADMIN PART
+Route::group(['middleware' => 'ifAdmin'], function ()
 {
 	Route::get('admin', 'AdminController@index');
-	Route::post('addUser', 'AdminController@addUser');
-	Route::post('deleteUser', 'AdminController@deleteUser');
-	Route::post('updateUser', 'AdminController@updateUser');
-	Route::post('logAs', 'AdminController@logAs');
+	Route::post('admin/addUser', 'AdminController@addUser');
+	Route::get('admin/deleteUser/{id}', 'AdminController@deleteUser');
+	Route::get('admin/updateUser/{id}', 'AdminController@updateUser');
+	Route::get('admin/logAs/{id}', 'AdminController@logAs');
+    Route::get('logout', 'LoginController@logout');
 });

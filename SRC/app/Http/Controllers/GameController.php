@@ -1,10 +1,10 @@
 <?php namespace App\Http\Controllers;
 
-use App\Models\User;
 use Response;
-use App\Models\Oeuvre;
-use App\Models\ListeOeuvre;
-
+use App\Referent;
+use App\ConfigJeu;
+use App\Oeuvre;
+use Cookie;
 class GameController extends Controller {
 
 	/**
@@ -22,6 +22,40 @@ class GameController extends Controller {
 	 *
 	 * @return Response
 	 */
+    public function chooseDifMemo() {
+        return view('frontend/memo_level');
+    }
+    
+    public function playMemo() {
+        
+        return view('frontend/memo');
+    }
+    
+    public function chooseDifPuzzle() {
+        return view('frontend/puzzle_level');
+    }
+    
+    public function playPuzzle($niveau) {
+        
+        $idRef = Cookie::get('referent');
+        $ref = Referent::find($idRef);
+        $configjeu = $ref->configjeu()->where('actifPuzzle', '=', '1')->first();
+        
+        if($configjeu && count($configjeu->oeuvres) >= 1) {
+            $oes = $configjeu->oeuvres;
+            $params = json_decode($configjeu->parametres);
+            $nbTab = $params->pt;
+            $dimension = $params->{ "p".$niveau};
+        
+        } else {
+            $oes = Oeuvre::orderByRaw("RAND()")->take(5)->get();
+            $dimension = 2;
+            $nbTab = 3;
+        }
+
+		return view('frontend/puzzle', ['oeuvres' => $oes, 'dimension' => $dimension, 'nbTab' => $nbTab]);
+    
+    }    
 	public function index()
 	{
 		$res = User::referents()->get();

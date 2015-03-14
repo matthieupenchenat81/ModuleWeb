@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Referent;
 use Input;
 use Auth;
 use Session;
@@ -27,9 +27,8 @@ class AdminController extends Controller {
 	 */
 	public function index()
 	{
-		$me = User::current();
-		$user = User::all();
-		return view('admin', ['nameRoute' => 'Admin', 'users' => $user, 'me' => $me]);
+		$user = Referent::all();
+		return view('backend/admin_home', ['nameRoute' => 'Admin', 'users' => $user]);
 	}
 
 	/**
@@ -39,47 +38,16 @@ class AdminController extends Controller {
 	 */
 	public function addUser()
 	{
-		$user = new User;
+		$user = new Referent;
 
-		$user->firstname = Input::get('firstname');
+		$user->nom = Input::get('nom');
 		$user->email = Input::get('email');
-		$user->droits = (Input::get('isadmin'))?1:0;
-		$user->school = Input::get('city');
-		$user->lastname = Input::get('lastname');
-		$user->image = "pictures/user_picture/default.jpg";
+		$user->etablissement = Input::get('etablissement');
+		$user->prenom = Input::get('prenom');
+		$user->image = "imgs/avatar/default.jpg";
 		$user->save();
-
-		Password:: sendResetLink(Input::only('email'));
-		return redirect('/admin')->with('message_add', 'User ajouté avec succès');
-	}
-
-
-
-	/**
-	 * updateUser an user in database.
-	 *
-	 * 
-	 */
-	public function updateUser()
-	{
-		
-		$idUser = Input::get('idUser');
-		$user = User::find($idUser);		
-		
-		if (Request::hasFile('file'))
-		{
-			Request::file('file')->move("./pictures/user_picture/", $idUser);
-			$user->image = "pictures/user_picture/".$idUser;
-		}
-
-		$user->firstname = Input::get('firstname');
-		$user->email = Input::get('email');
-		$user->school = Input::get('city');
-		$user->lastname = Input::get('lastname');
-		
-
-		$user->save();
-		return redirect('/admin')->with('message_update', 'User mis à jour avec succès');
+		Password::sendResetLink(Input::only('email'));
+		return redirect('/admin')->with('message_add', 'Le référent a été ajouté.');
 	}
 
 
@@ -87,29 +55,23 @@ class AdminController extends Controller {
 	* Delete an user
 	*
 	*/
-	public function deleteUser()
+	public function deleteUser($idUser)
 	{
-		$idUser = Input::get('idUser');
-		$user = User::find($idUser);
+		$user = Referent::find($idUser);
 		$user->delete();
-		return redirect('/admin')->with('message_delete', 'User supprimé avec succès');
+		return redirect('/admin')->with('message_delete', 'Le référent a été supprimé.');
 	}
 
 	/**
 	* Log as one user
 	*
 	*/
-	public function logAs()
+	public function logAs($idUser)
 	{
-		// Saving idUser in Session
-		$me = Auth::user()->id;
-		Session::put('admin', $me);
-
 		// logout from Auth
 		Auth::logout();
 
 		// Log as referent
-		$idUser = Input::get('idUser');
 		Auth::loginUsingId($idUser);
 
 		// Redirect referent route

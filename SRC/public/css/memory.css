@@ -19,7 +19,7 @@
 
 body
 {
-background-image:url("../pictures/setting_picture/fond.jpg");
+    background-image:url("../pictures/setting_picture/fond.jpg");
   background-attachment:fixed;
   background-repeat:no-repeat;
   background-position:100% 100%;

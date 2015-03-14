@@ -1,13 +1,10 @@
-@extends('app')
+@extends('backend/template')
 
 @section('content')
 <link href="css/home.css" rel="stylesheet" type="text/css"/>
 
-<div style="margin-top: 70px" class="container-fluid">
-<div class="back_home">
-	<a href="/" ><img src="/pictures/pic/home.png" alt="Retour" /> < Retour </a>
-</div>
-	<div class="row">
+<div class="container-fluid">
+	<div class="row" style="margin-top:10%">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
 				<div class="panel-heading">Login</div>
@@ -58,7 +55,7 @@
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary" style="margin-right: 15px;">
-									Login
+									Se connecter
 								</button>
 
 								<a href="/forgotten">Mot de passe oublié?</a>

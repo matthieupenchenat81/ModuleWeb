@@ -1,22 +1,15 @@
 <?php namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Referent;
+use App\ConfigJeu;
+use App\Oeuvre;
 use Input;
 use Request;
-use App\Models\ListeOeuvre;
-use App\Models\AssoListeAOeuvre;
-use App\Models\Auteur;
-use App\Models\Designation;
-use App\Models\Domaine;
-use App\Models\Matiere;
-use App\Models\Technique;
-use App\Models\Oeuvre;
-use App\Models\Jeu;
 use Response;
 use Session;
 use Config;
 use File;
-
+use Auth;
 
 class ReferentController extends Controller {
 
@@ -38,20 +31,10 @@ class ReferentController extends Controller {
 	 */
 	public function index()
 	{
-		$me = User::current();
-		$user = User::all();
-		$games = Jeu::all();
 
-		$dataSearch = [];
-		$dataSearch['auteur'] = Auteur::orderBy('nom')->get();
-		$dataSearch['designation'] = Designation::orderBy('nom')->get();
-		$dataSearch['domaine'] = Domaine::orderBy('nom')->get();
-		$dataSearch['matiere'] = Matiere::orderBy('nom')->get();
-		$dataSearch['technique'] = Technique::orderBy('nom')->get();
-
-		$listeoeuvres = ListeOeuvre::currentUser()->get();
-			
-		return view('referent', ['nameRoute' => 'Référent', 'me' => $me, 'listeoeuvres' => $listeoeuvres, 'data' => $dataSearch, 'games' => $games]);
+        $me = Auth::user();
+        $listeoeuvres = $me ->configjeu;
+		return view('backend/ref_home', ['me' => $me, 'meslistes' => $listeoeuvres]);
 	}
 
 	/**
@@ -62,148 +45,101 @@ class ReferentController extends Controller {
 	public function update()
 	{
 		$idUser = Input::get('idUser');
-		$user = User::find($idUser);
+		$user = Referent::find($idUser);
+        $user->prenom = Input::get('prenom');
+        $user->email = Input::get('email');
+        $user->etablissement = Input::get('etablissement');
+        $user->nom = Input::get('nom');
+        
 
 		if (Request::hasFile('file'))
 		{
-			Request::file('file')->move("./pictures/user_picture/", $idUser);
-			$user->image = "pictures/user_picture/".$idUser;
-		}
+            $extension = Input::file('file')->getClientOriginalExtension();
+            $allowed = ['jpg', 'png', 'jpeg'];
+            if(in_array(strtolower($extension), $allowed)) {
+                
+                Request::file('file')->move("imgs/avatar/",  $idUser . "." . $extension);
+                $user->image = "imgs/avatar/" . $idUser . "." . $extension;
+                $user->save();
 
+                return redirect('/referent')->with('message_update', 'Referent mis à jour avec succès');
+            } else
+                $user->save();
+                return redirect('/referent')->with('message_update', 'Votre image n\'est pas valide.');
+        } else {
+                $user->save();
+                return redirect('/referent')->with('message_update', 'Referent mis à jour avec succès');   
+            
+        }
+        
+        
 
-		$user->firstname = Input::get('firstname');
-		$user->email = Input::get('email');
-		$user->school = Input::get('school');
-		$user->lastname = Input::get('lastname');
-
-		$user->save();
-		return redirect('/referent')->with('message_update', 'Referent mis à jour avec succès');
 	}
 
-	/**
-	*	create a new session
-	*
-	*/
-	public function addListeOeuvre() 
+
+	public function ajouterListeOeuvre() 
 	{
-		$ListeOeuvre = new ListeOeuvre;
-		$ListeOeuvre->iduser = Input::get('idUser');
-		$ListeOeuvre->nom = Input::get('name');
-		$ListeOeuvre->etat = 0;
-		$ListeOeuvre->save();
+		$newConfig = new ConfigJeu();
+		$newConfig->referent_id = Auth::user()->id;
+		$newConfig->nom = Input::get('nomListe');
+		$newConfig->save();
 
 		return redirect('/referent');
 
 	}
 
-
-	public function showListeOeuvres($id) 
+	public function supprimerListeOeuvre($idListe) 
 	{
-		if (Session::has('listeoeuvre_current'))
-		    Session::forget('listeoeuvre_current');
-		
-		Session::put('listeoeuvre_current', $id);
-		return Response::json(ListeOeuvre::find($id)->oeuvres->toArray());
-	}
-
-	public function deleteListeOeuvre() 
-	{
-		$idListeOeuvre = Input::get('idListeOeuvre');
-		$ListeOeuvre = ListeOeuvre::find($idListeOeuvre);
-		$ListeOeuvre->delete();
-
+		$ListeOeuvre = Auth::user()->configjeu->find($idListe)->delete();
 		return redirect('/referent');		
 	}
-
-	public function setListOeuvres ()
-	{	
-		
-		$idListeOeuvre = Input::get('idListeOeuvre');
-		$idconcats = Input::get('oeuvres');
-		$list_oeuvres_id = explode("-", $idconcats);
-		
-		$ListeOeuvre = ListeOeuvre::find($idListeOeuvre);
-		$ListeOeuvre->oeuvres()->detach();
-		$ListeOeuvre->oeuvres()->attach($list_oeuvres_id);
-		return Response::json(array());
-	}
-
-	public function removeFromSelection() {
-
-		$idListeOeuvre = Session::get('listeoeuvre_current');
-		$ListeOeuvre = ListeOeuvre::find($idListeOeuvre);
-		
-		$oeuvresToDelete = Input::get('oeuvres');
-		$ListeOeuvre->oeuvres()->detach($oeuvresToDelete);
-		return Response::json(array());
-	}
-
-	public function search() 
+    
+	public function modifierListeOeuvre($idListe) 
 	{
-		$auteurs = (Input::get('auteur', array()))?Input::get('auteur', array()): [];
-		$designations = (Input::get('designation', array()))? Input::get('designation', array()): [];
-		$domaines = (Input::get('domaine', array()))? Input::get('domaine', array()): [];
-		$matieres = (Input::get('matiere', array()))? Input::get('matiere', array()): [];
-		$techniques = (Input::get('technique', array()))?Input::get('technique', array()): [];
-		$debut = (Input::get('debut'))? Input::get('debut'): '';
-		$fin = (Input::get('fin'))?Input::get('fin'): '';
-
-		$res = Oeuvre::authorFilter($auteurs)
-			->techniqueFilter($techniques)
-			->designationFilter($designations)
-			->domaineFilter($domaines)
-			->matiereFilter($matieres)
-			->debutFilter($debut)
-			->finFilter($fin)
-			->paginate(15);
-
-		return Response::json($res->toArray());
+        $me = Auth::user();
+        $listeoeuvres = Oeuvre::simplePaginate(1);
+        $meslistes = $me->configjeu;
+        $mesoeuvres = $me->configjeu->find($idListe);
+        
+        return view('backend/ref_home',['meslistes' => $meslistes, 'mesoeuvres' => $mesoeuvres, 'me' => $me, 'listeoeuvres' => $listeoeuvres]);
 	}
 
-	public function addItemsToList() {
-		
-		$idListeOeuvre = Session::get('listeoeuvre_current');
-		$ListeOeuvre = ListeOeuvre::find($idListeOeuvre);
-		
-		$oeuvresToAdd = Input::get('oeuvres');
-		$ListeOeuvre->oeuvres()->attach($oeuvresToAdd);
-		return Response::json(array());
-	}
+    public function changerParamListe() {
+        
+        Auth::user()->configjeu()->update(array('actifMemo' => 0));
+        Auth::user()->configjeu()->update(array('actifPuzzle' => 0));
+        
+        ConfigJeu::where('referent_id', '=', Auth::user()->id)->find(Input::get('memo'))->update(array('actifMemo' => 1));
+        ConfigJeu::where('referent_id', '=', Auth::user()->id)->find(Input::get('puzzle'))->update(array('actifPuzzle' => 1));
+        return redirect()->back();
+    }
+    
+    public function ajouterOeuvresDansListe($id) {
+        //todo verifier user
+        $cj = ConfigJeu::find($id);
+        $cj->oeuvres()->attach(Input::get('toadd'));
+        
+        return redirect()->back();
+    }
+    
+    public function supprimerOeuvresDansListe($id) {
+        //todo verifier user
 
-	public function updateAssoGames() {
-
-		$idListeOeuvre = Session::get('listeoeuvre_current', 'default');
-		$res = Input::get('data', array());
-		$ListeOeuvre = ListeOeuvre::find($idListeOeuvre);
-
-		$table = [];
-		foreach ($res as $key => $value){
-		    if($value == 'true')
-		    	array_push($table, $key);
-		}
-		$ListeOeuvre->jeux()->sync($table);
-	}
-
-	public function getAssoGames($id) {
-
-		$ListeOeuvre = ListeOeuvre::find($id);
-		return Response::json($ListeOeuvre->jeux()->get()->toArray());
-	}
-
-	public function updateSessionState() {
-	
-		$idListeOeuvre = Input::get('idListeOeuvre');
-		$value = (Input::get('value') == 'true')? 1: 0;
-
-		$listeoeuvres = ListeOeuvre::currentUser()->get();
-		foreach ($listeoeuvres as $el)
-		{
-			if($el->id != $idListeOeuvre)
-				$el->etat = 0;
-		    else
-		    	$el->etat = $value;
-		    $el->save();
-		}
-		return Response::json(array());
-	}
+        $cj = ConfigJeu::find($id);
+        if(count(Input::get('todel')) >= 1)
+            $cj->oeuvres()->detach(Input::get('todel'));
+        
+        return redirect()->back();
+    }
+    
+    
+    public function changeParamListe($id) { 
+        $me = Auth::user();
+        $configjeu = $me->configjeu->find($id);
+        $paramsToSave = Input::all();
+        unset($paramsToSave['_token']);
+        $configjeu->parametres = json_encode($paramsToSave);
+        $configjeu->save();
+    }
+    
 }

@@ -27,7 +27,6 @@ return [
 	| directory. However, as usual, you are free to change this value.
 	|
 	*/
-	'images' => './../resources/assets/images/',
 
 	'compiled' => realpath(storage_path().'/framework/views'),
 

@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Referent;
 
 class HomeController extends Controller {
 
@@ -19,10 +19,24 @@ class HomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+    
+    public function index()
 	{
-		$res = User::referents()->get();
-		return view('home',['referents' => $res]);
+        return view('frontend/games');
+	}
+    
+	public function choisirRef()
+	{
+		return view('frontend/home',['referents' => Referent::get()]);
+	}
+
+    public function changerRef($idRef)
+	{
+        if(Referent::find($idRef)) {
+            $response = new \Illuminate\Http\RedirectResponse(url('/'));
+            $response->withCookie(cookie()->forever('referent', $idRef));
+            return $response;
+        } else return $this->choisirRef();
 	}
 
 	/**

@@ -1,11 +1,13 @@
-@extends('app')
+@extends('backend/template')
 
 @section('content')
+<link href="css/home.css" rel="stylesheet" type="text/css"/>
+
 <div style="margin-top: 70px" class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
-				<div class="panel-heading">Réinitialiser Mot de Passe</div>
+				<div class="panel-heading">Réinitialiser le mot de passe</div>
 				<div class="panel-body">
 					@if (session('status'))
 						<div class="alert alert-success">
@@ -37,7 +39,7 @@
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">
-									Envoie du lien de réinitialisation 
+									Valider
 								</button>
 							</div>
 						</div>
