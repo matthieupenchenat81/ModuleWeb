@@ -149,23 +149,33 @@
                     var texteADire = (temps <= 1) ? "Bravo, tu as mis moins d'une minute." : 
                     "Bravo, tu as mis "+temps+" minutes. ";;
                     responsiveVoice.speak(texteADire, "French Female");
-                    leftEmitter = game.add.emitter(50, 50);
-                    leftEmitter.bounce.setTo(0.5, 0.5);
-                    leftEmitter.setXSpeed(100, 200);
-                    leftEmitter.setYSpeed(-50, 50);
-                    leftEmitter.makeParticles('balls', 0, 10, 1, true);
+                    pieces.forEach(function(item){item.input.draggable = false;});
+                    if(nbToPlay == currentPlayed)
+                    {
+                        leftEmitter = game.add.emitter(50, 50);
+                        leftEmitter.bounce.setTo(0.5, 0.5);
+                        leftEmitter.setXSpeed(100, 200);
+                        leftEmitter.setYSpeed(-50, 50);
+                        leftEmitter.makeParticles('balls', 0, 10, 1, true);
 
-                    rightEmitter = game.add.emitter(game.world.width - 50, 50);
-                    rightEmitter.bounce.setTo(0.5, 0.5);
-                    rightEmitter.setXSpeed(-100, -200);
-                    rightEmitter.setYSpeed(-50, 50);
-                    rightEmitter.makeParticles('balls', 1, 10, 1, true);
+                        rightEmitter = game.add.emitter(game.world.width - 50, 50);
+                        rightEmitter.bounce.setTo(0.5, 0.5);
+                        rightEmitter.setXSpeed(-100, -200);
+                        rightEmitter.setYSpeed(-50, 50);
+                        rightEmitter.makeParticles('balls', 1, 10, 1, true);
 
-                    // explode, lifespan, frequency, quantity
-                    leftEmitter.start(false, 10000, 20);
-                    rightEmitter.start(false, 10000, 20);
-                    if(nbToPlay == currentPlayed) setTimeout(function(){ location.href = "{{URL::to('puzzle')}}"; }, 5000);
-                    else nextPuzzle();
+                        // explode, lifespan, frequency, quantity
+                        leftEmitter.start(false, 10000, 20);
+                        rightEmitter.start(false, 10000, 20);
+                        setTimeout(function(){
+                            location.href = "{{URL::to('puzzle')}}";
+                        }, 5000);
+                    }
+                    else {
+                        setTimeout(function(){
+                            nextPuzzle();
+                        }, 5000);
+                    }
                 }
             
         }

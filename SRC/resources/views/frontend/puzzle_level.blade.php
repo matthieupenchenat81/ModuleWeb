@@ -2,7 +2,6 @@
 
 @section('content')
 
-<div class="trophees"></div>
 <div class="abso referents">
 <div class="referent game"
          onclick='location.href = "{{ URL::to('puzzle') }}";'
@@ -27,16 +26,4 @@
 
 @section('page-css')
 <link href="{{ URL::to('css/fonts/style.css') }}" rel="stylesheet" type="text/css"/>
-@endsection
-
-@section('page-scripts')
-<script src="{{ URL::to('js/phaser.min.js') }}"></script>
-    <script type="text/javascript">
-        game = new Phaser.Game(222, 222, Phaser.CANVAS, '', { preload: preload, create: create }, true);
-        function preload() {
-            
-        }function create() {
-            
-        }
-    </script>
 @endsection
