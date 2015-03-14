@@ -1,7 +1,7 @@
 @extends('backend/template')
 
 @section('content')
-   <div class="container" style="padding-top:60px">
+   <div class="container">
        <div class="row"><div class="col-md-12">
   @if (session('message_add'))
     <div class="alert alert-success">

@@ -49,10 +49,10 @@ class GameController extends Controller {
         
         } else {
             $oes = Oeuvre::orderByRaw("RAND()")->take(5)->get();
-            $dimension = 2;
             $nbTab = 3;
+            $dimension = 2;
         }
-
+        
 		return view('frontend/puzzle', ['oeuvres' => $oes, 'dimension' => $dimension, 'nbTab' => $nbTab]);
     
     }    

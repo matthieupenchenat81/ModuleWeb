@@ -82,6 +82,8 @@ class ReferentController extends Controller {
 		$newConfig = new ConfigJeu();
 		$newConfig->referent_id = Auth::user()->id;
 		$newConfig->nom = Input::get('nomListe');
+        $newConfig->parametres = json_encode(['p1' => 2, 'p2' => 3, 'p3' => 4, 'pt' => '3',
+                                             'm1' => 2, 'm2' => 3, 'm3' => 4, 'mt' => '3']);
 		$newConfig->save();
 
 		return redirect('/referent');
@@ -138,8 +140,20 @@ class ReferentController extends Controller {
         $configjeu = $me->configjeu->find($id);
         $paramsToSave = Input::all();
         unset($paramsToSave['_token']);
-        $configjeu->parametres = json_encode($paramsToSave);
-        $configjeu->save();
+        $valid = true;
+        foreach($paramsToSave as $p) {
+            if(!(is_numeric($p) && $p > 0 && $p<= 10)) $valid = false;
+        }
+
+        
+        if(!$valid)
+            Session::flash('erreur', 'Les paramètres du jeu sont incorrect. Rééessayez.');
+        else { 
+            Session::flash('message', 'Vos modifications ont été prisent en compte.');
+            $configjeu->parametres = json_encode($paramsToSave);
+            $configjeu->save();
+        }
+        return redirect()->back();
     }
     
 }

@@ -1,9 +1,21 @@
 @extends('backend/template')
 @section('content')
 @include('backend/ref_navbar')
-<div class="container-fluid" style="margin-top:70px">
+
+<div class="container-fluid">
 <div class="row">
-<div class=" col-md-4">
+    @if (session('message'))
+    <div class="col-md-12"><div class="alert alert-success">
+      {{ Session::get('message') }}
+    </div></div>
+  @endif
+
+  @if (session('erreur'))
+    <div class="col-md-12"><div class="alert alert-danger">
+      {{ Session::get('erreur') }}
+    </div></div>
+  @endif
+<div class="col-md-4">
     <div class="panel panel-primary">
         <div class="panel-heading">Mes listes d'Oeuvres</div>
         <div class="panel-body">
@@ -153,17 +165,17 @@
                 <div class="col-md-10 col-md-offset-2" style="margin-top:30px">
                     <div class="row">
                         <div class="col-md-10">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" id="recherche">
                                 <div class="form-group">
                                     <label for="inputAuteur" class="col-sm-2 control-label">Auteur</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputAuteur" placeholder="Auteur">
+                                         <select name="auteur[]" class="form-control" multiple><option>1</option><option>2</option></select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputDomaine" class="col-sm-2 control-label">Domaine</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputDomaine" placeholder="Domaine">
+                                        <input type="text" name="domaine" class="form-control" id="inputDomaine" placeholder="Domaine">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -204,11 +216,28 @@ $('#imagesSearched').on('click', '.pager a', function (event) {
     event.preventDefault();
     if ( $(this).attr('href') != '#' ) {
         $("#imagesSearched").animate({ scrollTop: 0 }, "fast");
-        $('#imagesSearched').load($(this).attr('href'), function(){$("select.multiple").imagepicker();});
+        $.get($(this).attr('href'), $('#recherche').serialize(),
+        function(data){
+            $('#imagesSearched').empty();
+            $('#imagesSearched').append(data);
+            $("select.multiple").imagepicker();
+        });
     }
 
 });
+
+$("#recherche").on('submit', function(event){
+    event.preventDefault();
+    $('#imagesSearched').empty();
+    $('#imagesSearched').append("Recherche en cours...");
+    $.get("{{ URL::to('api/searchOeuvres') }}", $('#recherche').serialize(),
+    function(data){
+        $('#imagesSearched').empty();
+        $('#imagesSearched').append(data);
+        $("select.multiple").imagepicker();
+    });
     
+});
 /*
     
     

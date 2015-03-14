@@ -8,7 +8,7 @@
     @yield('page-css')
     <meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
-<body>
+<body style="padding-top:70px">
 
 	@yield('content')
     
