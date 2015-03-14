@@ -64,7 +64,7 @@ class APIController extends Controller {
 			->designationFilter($designations)
 			->domaineFilter($domaines)
 			->matiereFilter($matieres)
-			->simplePaginate(15);
+			->simplePaginate(10);
         
         return view('backend/ref_listeoeuvres',['oeuvres' => $listeoeuvres]);
 	

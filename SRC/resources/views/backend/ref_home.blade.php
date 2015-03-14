@@ -202,11 +202,13 @@
 @endsection
 @section('page-css')
 <link rel="stylesheet" href="{{ URL::to('css/image-picker.css') }}">
+<link rel="stylesheet" href="{{ URL::to('css/bootstrap-multiselect.css') }}">
 @endsection
 @section('page-scripts')
 <script src="{{ URL::to('js/image-picker.min.js') }}"></script>
+<script src="{{ URL::to('js/image-picker.min.js') }}"></script>
+<script src="{{ URL::to('js/bootstrap-multiselect.js') }}"></script>
 <script>
-
 $("select.multiple").imagepicker(); 
     
     
@@ -226,6 +228,12 @@ $('#imagesSearched').on('click', '.pager a', function (event) {
 
 });
 
+    
+$('#recherche select').multiselect({
+    enableFiltering: true,
+    buttonWidth: '100%'
+});
+    
 $("#recherche").on('submit', function(event){
     event.preventDefault();
     $('#imagesSearched').empty();
