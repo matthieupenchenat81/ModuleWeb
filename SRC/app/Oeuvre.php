@@ -28,48 +28,34 @@ class Oeuvre extends Model {
         return $this->hasMany('App\Datation');
     }
     
-    public function scopeAuthorFilter($query, $array)
+    public function scopeAuteurFilter($query, $array)
     {
         if ($array == []) return $query;
-        $query->whereHas('auteur', function($q) use ($array)
-        {
-            $q->whereIn('id', $array);
-        });
+        return $query->whereIn('auteur_id', $array);
     }
 
-    public function scopeDesignationFilter($query, $array)
+    public function scopeDesignationFilter($query, $designation)
     {
-        if ($array == []) return $query;
-        $query->whereHas('designation', function($q) use ($array)
-        {
-            $q->whereIn('id', $array);
-        });
+        if ($designation == "") return $query;
+        return $query->where('designation', 'like', '%'.$designation.'%');
     }
 
     public function scopeDomaineFilter($query, $array)
     {
         if ($array == []) return $query;
-        $query->whereHas('domaine', function($q) use ($array)
-        {
-            $q->whereIn('id', $array);
-        });
+        return $query->whereIn('domaine_id', $array);
+
     }
 
     public function scopeMatiereFilter($query, $array)
     {
         if ($array == []) return $query;
-        $query->whereHas('matiere', function($q) use ($array)
-        {
-            $q->whereIn('id', $array);
-        });
-    }
+        return $query->whereIn('matiere_id', $array);
 
+    }
     public function scopeTechniqueFilter($query, $array)
     {
         if ($array == []) return $query;
-        $query->whereHas('technique', function($q) use ($array)
-        {
-            $q->whereIn('id', $array);
-        });
+        return $query->whereIn('technique_id', $array);
     }
 }

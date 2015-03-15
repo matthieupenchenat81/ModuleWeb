@@ -54,12 +54,12 @@ class APIController extends Controller {
         //$listeoeuvres = Oeuvre::where('auteur_id', '=', Input::get('auteur'))->simplePaginate(1);
 
         $auteurs = (Input::get('auteur', array()))?Input::get('auteur', array()): [];
-		$designations = (Input::get('designation', array()))? Input::get('designation', array()): [];
+		$designations = (Input::get('designation')) ? Input::get('designation') : "";
 		$domaines = (Input::get('domaine', array()))? Input::get('domaine', array()): [];
 		$matieres = (Input::get('matiere', array()))? Input::get('matiere', array()): [];
 		$techniques = (Input::get('technique', array()))?Input::get('technique', array()): [];
 
-		$listeoeuvres = Oeuvre::authorFilter($auteurs)
+		$listeoeuvres = Oeuvre::auteurFilter($auteurs)
 			->techniqueFilter($techniques)
 			->designationFilter($designations)
 			->domaineFilter($domaines)

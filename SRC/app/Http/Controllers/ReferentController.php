@@ -2,7 +2,11 @@
 
 use App\Referent;
 use App\ConfigJeu;
+use App\Auteur;
+use App\Domaine;
 use App\Oeuvre;
+use App\Matiere;
+use App\Technique;
 use Input;
 use Request;
 use Response;
@@ -103,7 +107,9 @@ class ReferentController extends Controller {
         $meslistes = $me->configjeu;
         $mesoeuvres = $me->configjeu->find($idListe);
         
-        return view('backend/ref_home',['meslistes' => $meslistes, 'mesoeuvres' => $mesoeuvres, 'me' => $me, 'listeoeuvres' => $listeoeuvres]);
+        return view('backend/ref_home',['meslistes' => $meslistes, 'mesoeuvres' => $mesoeuvres, 'me' => $me, 'listeoeuvres' => $listeoeuvres,
+                                    'auteurs' => Auteur::all(), 'domaines' => Domaine::all(), 'matieres' => Matiere::all(), 'techniques' => Technique::all()
+                                       ]);
 	}
 
     public function changerParamListe() {

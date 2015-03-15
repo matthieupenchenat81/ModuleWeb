@@ -167,15 +167,49 @@
                         <div class="col-md-10">
                             <form class="form-horizontal" id="recherche">
                                 <div class="form-group">
-                                    <label for="inputAuteur" class="col-sm-2 control-label">Auteur</label>
+                                    <label for="designation" class="col-sm-2 control-label">Désignation</label>
                                     <div class="col-sm-10">
-                                         <select name="auteur[]" class="form-control" multiple><option>1</option><option>2</option></select>
+                                         <input id="designation" name="designation" class="form-control" placeholder="Désignation">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputDomaine" class="col-sm-2 control-label">Domaine</label>
+                                    <label for="auteur" class="col-sm-2 control-label">Auteur</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="domaine" class="form-control" id="inputDomaine" placeholder="Domaine">
+                                         <select id="auteur" name="auteur[]" class="form-control" multiple>
+                                            @foreach($auteurs as $e)
+                                             <option value="{{ $e->id }}">{{ $e->nom }}</option>
+                                             @endforeach
+                                         </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="domaine" class="col-sm-2 control-label">Domaine</label>
+                                    <div class="col-sm-10">
+                                        <select id="domaine" name="domaine[]" class="form-control" multiple>
+                                            @foreach($domaines as $e)
+                                             <option value="{{ $e->id }}">{{ $e->nom }}</option>
+                                             @endforeach
+                                         </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="matiere" class="col-sm-2 control-label">Matière</label>
+                                    <div class="col-sm-10">
+                                        <select id="matiere" name="matiere[]" class="form-control" multiple>
+                                            @foreach($matieres as $e)
+                                             <option value="{{ $e->id }}">{{ $e->nom }}</option>
+                                             @endforeach
+                                         </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="domaine" class="col-sm-2 control-label">Technique</label>
+                                    <div class="col-sm-10">
+                                        <select id="technique" name="technique[]" class="form-control" multiple>
+                                            @foreach($techniques as $e)
+                                             <option value="{{ $e->id }}">{{ $e->nom }}</option>
+                                             @endforeach
+                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -231,7 +265,8 @@ $('#imagesSearched').on('click', '.pager a', function (event) {
     
 $('#recherche select').multiselect({
     enableFiltering: true,
-    buttonWidth: '100%'
+    buttonWidth: '100%',
+    maxHeight: 200
 });
     
 $("#recherche").on('submit', function(event){

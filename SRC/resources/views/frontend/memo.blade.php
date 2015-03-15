@@ -6,21 +6,8 @@
 
 @section('content')
 
-<div class="container">
-
-<!-- <center><img src="http://i.ytimg.com/vi/xiIO1zUXNVI/maxresdefault.jpg" width="60%"></center> -->
-
-
-	<div class="wrapper">
-	<div class="content">
-			<div class="row">
-				<div class="col-xs-12 col-sm-10 col-md-12">
-					<div id="my-memory-game"></div>
-				</div>
-			</div>
-
-		</div>
-	</div><!-- /.content -->
+<div style="margin:auto;width:90%">
+    <div id="my-memory-game"></div>
 </div>
 @endsection
 

@@ -38,89 +38,6 @@
   }
 
   /**
-   * Memory options
-   *
-   * Memory default options. Available options are:
-   *
-   * wrapperID: the element in which Memory gets built
-   * cards: the array of cards
-   * onGameStart: callback for when game starts
-   * onGameEnd: callback for when game ends
-   */
-/*
-  Memory.prototype.options = {
-    wrapperID : "container",
-    cards : [
-      {
-        id : 1,
-        img: "/pictures/default/monsters-01.png"
-      },
-      {
-        id : 2,
-        img: "/pictures/default/monsters-02.png"
-      },
-      {
-        id : 3,
-        img: "/pictures/default/monsters-03.png"
-      },
-      {
-        id : 4,
-        img: "/pictures/default/monsters-04.png"
-      },
-      {
-        id : 5,
-        img: "/pictures/default/monsters-05.png"
-      },
-      {
-        id : 6,
-        img: "/pictures/default/monsters-06.png"
-      },
-      {
-        id : 7,
-        img: "/pictures/default/monsters-07.png"
-      },
-      {
-        id : 8,
-        img: "/pictures/default/monsters-08.png"
-      },
-      {
-        id : 9,
-        img: "/pictures/default/monsters-09.png"
-      },
-      {
-        id : 10,
-        img: "/pictures/default/monsters-10.png"
-      },
-      {
-        id : 11,
-        img: "/pictures/default/monsters-11.png"
-      },
-      {
-        id : 12,
-        img: "/pictures/default/monsters-12.png"
-      },
-      {
-        id : 13,
-        img: "/pictures/default/monsters-13.png"
-      },
-      {
-        id : 14,
-        img: "/pictures/default/monsters-14.png"
-      },
-      {
-        id : 15,
-        img: "/pictures/default/monsters-15.png"
-      },
-      {
-        id : 16,
-        img: "/pictures/default/monsters-16.png"
-      }
-    ],
-    onGameStart : function() { return false; },
-    onGameEnd : function() { return false; }
-  }
-*/
-  /**
    * Memory _init - initialise Memory
    *
    * Creates all the game content areas, adds the id's and classes, and gets
@@ -133,12 +50,7 @@
     this.game.className = "mg";
     document.getElementById(this.options.wrapperID).appendChild(this.game);
 
-    this.gameMeta = document.createElement("div");
-    this.gameMeta.className = "mg__meta clearfix";
 
-    this.gameStartScreen = document.createElement("div");
-    this.gameStartScreen.id = "mg__start-screen";
-    this.gameStartScreen.className = "mg__start-screen";
 
     this.gameWrapper = document.createElement("div");
     this.gameWrapper.id = "mg__wrapper";
@@ -186,76 +98,7 @@
     this.flippedTiles = 0;
     this.chosenLevel = "";
     this.numMoves = 0;
-  //  var niveauChoisi = 0;
-  //  if (this.chosenLevel) == "1" {niveauChoisi = '<i class="fa fa-star-o"></i>';} if(this.chosenLevel) == "2" {niveauChoisi = '<i class="fa fa-star-half-o"></i>';} else {niveauChoisi = '<i class="fa fa-star"></i>';}
-
-    this.gameMetaHTML = '<div class="mg__meta--left">\
-      <span class="mg__meta--level">Niveau: \
-      <span id="mg__meta--level">' + this.chosenLevel + '</span>\
-      </span>\
-      <span class="mg__meta--moves">Coups: \
-      <span id="mg__meta--moves">' + this.numMoves + '</span>\
-      </span>\
-      </div>\
-      <div class="mg__meta--right">\
-      <button id="mg__button--restart" class="mg__button btn-lg"><i class="fa fa-repeat fa-1x fa-spin"></i></button>\
-      </div>';
-    this.gameMeta.innerHTML = this.gameMetaHTML;
-    this.game.appendChild(this.gameMeta);
-
-
-
-//  <button type="button" class="btn btn-default"> <span class="glyphicon glyphicon-star-empty"></span> </button>
-
-    this.gameStartScreenHTML = '<h2 class="mg__start-screen--heading">JEU MEMORY</h2>\
-      <h3 class="mg__start-screen--sub-heading">Choisir un niveau : </h3>\
-      <ul class="mg__start-screen--level-select">\
-      <span data-level="1"><button class="btn btn-success btn-lg"><i class="fa fa-2x fa-star-o"></i></button></span>\
-      <span data-level="2"><button  class="btn btn-warning btn-lg "><i class="fa fa-2x fa-star-half-o"></i><i class="fa fa-2x fa-star-half-o"></i></button></span>\
-      <span data-level="3"><button  class="btn btn-danger btn-lg"><i class="fa fa-2x fa-star"></i> <i class="fa fa-2x fa-star"></i> <i class="fa fa-2x fa-star"></i></button></span>\
-      </ul>';
-    //Memory.prototype._setupGameWrapper(1);
-    //this._gamePlay();
-    //this._setupGame();
-    this.gameStartScreen.innerHTML = this.gameStartScreenHTML;
-    this.game.appendChild(this.gameStartScreen);
-
-    document.getElementById("mg__button--restart").addEventListener( "click", function(e) {
-      self.resetGame();
-    });
-
-    this._startScreenEvents();
-  }
-
-  /**
-   * Memory _startScreenEvents
-   *
-   * We're now listening for events on the start screen. That is, we're waiting
-   * for when a user chooses a level.
-   */
-
-  Memory.prototype._startScreenEvents = function() {
-    var levelsNodes = this.gameStartScreen.querySelectorAll("ul.mg__start-screen--level-select span");
-    for ( var i = 0, len = levelsNodes.length; i < len; i++ ) {
-      var levelNode = levelsNodes[i];
-      this._startScreenEventsHandler(levelNode);
-    }
-  };
-
-  /**
-   * Memoery _startScreenEventsHandler
-   *
-   * A helper function to handle the click of the level inside the events
-   * function.
-   */
-
-  Memory.prototype._startScreenEventsHandler = function(levelNode) {
-    var self = this;
-    levelNode.addEventListener( "click", function(e) {
-      if (self.gameState === 1) {
-        self._setupGameWrapper(this);
-      }
-    });
+    this._setupGameWrapper(1);
   }
 
   /**
@@ -266,13 +109,11 @@
    */
 
   Memory.prototype._setupGameWrapper = function(levelNode) {
-    this.level = levelNode.getAttribute("data-level");
-    this.gameStartScreen.parentNode.removeChild(this.gameStartScreen);
+    this.level = levelNode;
     this.gameContents.className = "mg__contents mg__level-"+this.level;
     this.game.appendChild(this.gameWrapper);
 
     this.chosenLevel = this.level;
-    document.getElementById("mg__meta--level").innerHTML = this.chosenLevel;
 
     this._renderTiles();
   };
@@ -481,8 +322,6 @@
    */
 
   Memory.prototype._clearGame = function() {
-    if (this.gameMeta.parentNode !== null) this.game.removeChild(this.gameMeta);
-    if (this.gameStartScreen.parentNode !== null) this.game.removeChild(this.gameStartScreen);
     if (this.gameWrapper.parentNode !== null) this.game.removeChild(this.gameWrapper);
     if (this.gameMessages.parentNode !== null) this.game.removeChild(this.gameMessages);
   }

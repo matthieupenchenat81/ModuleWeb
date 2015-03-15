@@ -321,9 +321,9 @@
             includeFilterClearBtn: true,
             preventInputChangeEvent: false,
             nonSelectedText: 'Tous',
-            nSelectedText: 'selected',
+            nSelectedText: 'sélectionnés',
             allSelectedText: 'Tous',
-            numberDisplayed: 3,
+            numberDisplayed: 4,
             disableIfEmpty: false,
             templates: {
                 button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span class="multiselect-selected-text"></span> <b class="caret"></b></button>',
