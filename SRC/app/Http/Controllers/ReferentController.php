@@ -108,7 +108,7 @@ class ReferentController extends Controller {
         $mesoeuvres = $me->configjeu->find($idListe);
         
         return view('backend/ref_home',['meslistes' => $meslistes, 'mesoeuvres' => $mesoeuvres, 'me' => $me, 'listeoeuvres' => $listeoeuvres,
-                                    'auteurs' => Auteur::all(), 'domaines' => Domaine::all(), 'matieres' => Matiere::all(), 'techniques' => Technique::all()
+                                    'auteurs' => Auteur::all(), 'domaines' => Domaine::all(), 'matieres' => Matiere::all(), 'techniques' => Technique::all(), 'paramjeu' => json_decode($mesoeuvres->parametres)
                                        ]);
 	}
 
@@ -155,7 +155,7 @@ class ReferentController extends Controller {
         if(!$valid)
             Session::flash('erreur', 'Les paramètres du jeu sont incorrect. Rééessayez.');
         else { 
-            Session::flash('message', 'Vos modifications ont été prisent en compte.');
+            Session::flash('message', 'Vos modifications ont été prise en compte.');
             $configjeu->parametres = json_encode($paramsToSave);
             $configjeu->save();
         }

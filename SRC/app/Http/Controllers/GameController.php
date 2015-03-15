@@ -27,8 +27,10 @@ class GameController extends Controller {
     }
     
     public function playMemo() {
-        
-        return view('frontend/memo');
+        $idRef = Cookie::get('referent');
+        $configjeu = Referent::find($idRef)->configjeu()->where('actifPuzzle', '=', '1')->first();
+        $oes = $configjeu->oeuvres;
+        return view('frontend/memo',  ['oeuvres' => $oes]);
     }
     
     public function chooseDifPuzzle() {

@@ -105,50 +105,50 @@
                                 <div class="form-group">
                                     <label for="p1" class="col-sm-4 control-label">Dimensions 1 étoile</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="p1" id="p1" placeholder="2">
+                                        <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->p1}}" name="p1" id="p1" placeholder="2">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="p2" class="col-sm-4 control-label">Dimensions 2 étoiles</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="p2" id="p2" placeholder="3">
+                                        <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->p2}}" name="p2" id="p2" placeholder="3">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="p3" class="col-sm-4 control-label">Dimensions 3 étoiles</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="p3" id="p3" placeholder="4">
+                                        <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->p3}}" name="p3" id="p3" placeholder="4">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="pt" class="col-sm-4 control-label">Tableaux par partie</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="pt" id="pt" placeholder="3">
+                                        <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->pt}}" name="pt" id="pt" placeholder="3">
                                     </div>
                                 </div>
                                 <legend>Mémo</legend>
                                 <div class="form-group">
                                     <label for="m1" class="col-sm-4 control-label">Nb. de tableaux 1 étoile</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="m1" id="m1" placeholder="2">
+                                        <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->m1}}" name="m1" id="m1" placeholder="2">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="m2" class="col-sm-4 control-label">Nb. de tableaux 2 étoiles</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="m2" id="m2" placeholder="3">
+                                        <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->m2}}" name="m2" id="m2" placeholder="3">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="m3" class="col-sm-4 control-label">Nb. de tableaux 3 étoiles</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="m3" id="m3" placeholder="4">
+                                        <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->m3}}" name="m3" id="m3" placeholder="4">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="mt" class="col-sm-4 control-label">Tableaux par partie</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="mt" id="mt" placeholder="3">
+                                        <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->mt}}" name="mt" id="mt" placeholder="3">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -237,9 +237,18 @@
 @section('page-css')
 <link rel="stylesheet" href="{{ URL::to('css/image-picker.css') }}">
 <link rel="stylesheet" href="{{ URL::to('css/bootstrap-multiselect.css') }}">
+<style>
+    .thumbnails .thumbnail {
+        margin-bottom: 0;   
+    }
+    .thumbnails .li {
+        margin: 0;   
+    }
+</style>
 @endsection
 @section('page-scripts')
 <script src="{{ URL::to('js/image-picker.min.js') }}"></script>
+<script src="{{ URL::to('js/masonry.min.js') }}"></script>
 <script src="{{ URL::to('js/image-picker.min.js') }}"></script>
 <script src="{{ URL::to('js/bootstrap-multiselect.js') }}"></script>
 <script>
@@ -248,6 +257,14 @@ $("select.multiple").imagepicker();
     
 $('#imagesSearched').load('{{ URL::to('api/searchOeuvres') }}', function(){$("select.multiple").imagepicker();});
 
+
+function fitGrid(){
+    /*$('.thumbnails').masonry({
+            itemSelector: 'li',
+            gutterWidth: 10
+    }).masonry('reload');*/
+};
+    
 $('#imagesSearched').on('click', '.pager a', function (event) {
     event.preventDefault();
     if ( $(this).attr('href') != '#' ) {
@@ -278,9 +295,11 @@ $("#recherche").on('submit', function(event){
         $('#imagesSearched').empty();
         $('#imagesSearched').append(data);
         $("select.multiple").imagepicker();
+        fitGrid();
     });
     
 });
+    
 /*
     
     

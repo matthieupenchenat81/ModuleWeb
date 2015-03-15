@@ -22,9 +22,9 @@ class APIController extends Controller {
     public function refByName($reg = "") {
         
         if(!empty($reg))
-            $res = User::referents()->name($reg)->get();
+            $res = Referent::where('nom', 'like', '%'.$reg.'%')->orWhere('prenom', 'like', '%'.$reg.'%')->select(['nom', 'prenom', 'image', 'id'])->get();
         else
-            $res = User::referents()->get();
+            $res = User::referents()->get(5);
 		return Response::json($res->toArray());
 	}
     
