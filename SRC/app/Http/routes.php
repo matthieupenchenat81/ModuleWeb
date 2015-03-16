@@ -24,7 +24,7 @@ Route::get('password/reset/{token}', array(
   'uses' => 'LoginController@reset',
   'as' => 'password.reset'
 ));
-Route::post('password/reset/{token}', array(
+Route::post('password/reset', array(
   'uses' => 'LoginController@update',
   'as' => 'password.update'
 ));

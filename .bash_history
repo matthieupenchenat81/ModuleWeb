@@ -1,6 +1,3 @@
-ls
-git commit -a
-git config --global user.email www@37.187.101.7 
 git config --global user.name www
 git commit -a
 git push
@@ -480,3 +477,24 @@ ls
 python loader
 python loader.py
 python loader.py
+ls
+git status
+git pull
+git pull
+nano SRC/config/mail.php 
+git commit -a
+git push
+ls
+ls
+ls
+nano SRC/config/mail.php 
+nano .env 
+nano SRC/.env 
+git pull
+rm SRC/resources/views/auth/reset.blade.php 
+git pull
+ls
+git commit -a
+git commit -a
+git push
+exit

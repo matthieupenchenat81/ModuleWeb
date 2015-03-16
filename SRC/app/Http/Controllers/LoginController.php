@@ -89,12 +89,12 @@ class LoginController extends Controller {
     	return View::make('auth.reset')->with('token', $token);
     }
 
-    public function update($token)
+    public function update()
     {
     	$credentials = Input::only('email', 'password','password_confirmation','token');
     	$response = Password::reset($credentials, function($user, $password)
         {
-            $user->password = Hash::make($password);
+            $user->motdepasse = Hash::make($password);
             $user->save();
         });
 
