@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Referent;
-
+use Cookie;
 class HomeController extends Controller {
 
 	/**
@@ -22,7 +22,9 @@ class HomeController extends Controller {
     
     public function index()
 	{
-        return view('frontend/games');
+		$idRef = Cookie::get('referent');
+        $ref = Referent::find($idRef);
+        return view('frontend/games', ['ref' => $ref]);
 	}
     
 	public function choisirRef()

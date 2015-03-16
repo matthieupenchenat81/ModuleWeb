@@ -84,7 +84,7 @@ nav input {
 .text-center img:hover
 {
 	padding-bottom : 5px;
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid dimgrey;
 }
 
 .titreIcon
@@ -97,6 +97,11 @@ nav input {
 .titreIcon img
 {
 	height: 150px;
+}
+
+#back_ref img
+{
+	height: 20px;
 }
 
 button {
@@ -127,3 +132,55 @@ button:active {
     height:100%;
     
 }
+
+/*								FIL D'ARIANE 			*/
+
+#back_ref{
+font-family:"Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
+width:500px;
+margin-left: 5px;
+}
+/*Reset sur la liste*/
+#back_ref ul, #back_ref li {
+list-style-type:none;	
+padding:0;margin:0;
+}		
+/*Styles sur la liste*/
+#back_ref ul{
+height:33px;
+margin:10px auto;
+padding:30px 0;
+}	
+/*Premier ÈlÈment de la liste*/
+#back_ref li.first {
+background:url(../imgs/ariane/first-left.png) 0 0 no-repeat;
+height:33px;
+} 
+/*Tous les ÈlÈments de la liste sauf premier et dernier*/
+#back_ref li {
+float:left;
+background:url(../imgs/ariane/general-left.png) 0 0 no-repeat;
+line-height:33px;
+margin:5px 0 0 0;
+padding-left:13px;
+}
+/*Style sur les ÈlÈments a et span*/
+#back_ref li a, 
+#back_ref li span {
+float:left;
+background:url(../imgs/ariane/bg-gradient.jpg) 0 0 repeat-x;
+height:33px;
+margin:0;
+padding:0 0 0 5px;
+font-size:11px;
+text-transform:uppercase;
+letter-spacing:0.02em;
+}	
+/*Style du dernier span de la liste*/
+#back_ref li span.end {
+float:left;
+background:url(../imgs/ariane/general-right.png) 0 0 no-repeat;
+width:20px;
+height:33px;
+} 	
+
