@@ -105,9 +105,10 @@ nav input {
 }
 
 button {
+    vertical-align:top;
     cursor: pointer;
     display: inline-block;
-    height:60px;
+    height:70px;
     line-height: 60px;
     background: #47ad4b;
     border: 1px solid green;
