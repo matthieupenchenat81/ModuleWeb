@@ -1,12 +1,17 @@
 @extends('backend/template')
 
+@section('page-css')
+<style>
+html, body {
+    background-image: url('{{URL::to('imgs/adminbg.jpg')}}');
+    background-size: cover;
+}</style>
+@endsection
 @section('content')
-<link href="css/home.css" rel="stylesheet" type="text/css"/>
-
 <div class="container-fluid">
-	<div class="row" style="margin-top:10%">
+	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 				<div class="panel-heading">Login</div>
 				<div class="panel-body">
 					@if (session('status'))

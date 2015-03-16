@@ -19,6 +19,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Mes listes d'Oeuvres</div>
         <div class="panel-body">
+            <div class="alert alert-warning">Ci-dessous, vous pouvez associer les listes d'oeuvres à un jeu. Cliquez sur le bouton "<span class="glyphicon glyphicon-ok"> </span> Associer" quand c'est terminé. Cliquez sur le bouton <span class="glyphicon glyphicon-pencil"></span> pour modifier la liste.</div>
             <form method="post" action="{{ URL::to('referent/changerparamliste') }}">
                 <table class="table">
                     <thead class="tablethead">
@@ -30,6 +31,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td>Aucune liste</td>
+                            <td><input type="radio" name="memo" value="0" type="checkbox"></td>
+                            <td><input type="radio" name="puzzle" value="0" type="checkbox"></td>
+                            <td></td>
+                        </tr>
                         @foreach ($meslistes as $index => $listeoeuvre)
                         <tr>
                             <td>{{$listeoeuvre->nom}}</td>
@@ -38,7 +45,7 @@
                             <td>
                                 <div class="btn-group" role="group" aria-label="...">
                                     <a href="{{ URL::to('referent/modifierliste', $listeoeuvre->id) }}" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
-                                    <a href="{{ URL::to('referent/supprimerliste', $listeoeuvre->id) }}" type="button" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                                    <a href="{{ URL::to('referent/supprimerliste', $listeoeuvre->id) }}" type="button" class="confirm btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
                                 </div>
                             </td>
                         </tr>
@@ -47,7 +54,7 @@
             </form>
             </tbody>
             </table>
-            <div class="text-center"><button type="submit" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-pencil"></span> Enregistrer</button></div>
+            <div class="text-center"><button type="submit" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-ok-circle"> </span> Associer</button></div>
             <form method="post" action="{{ URL::to('referent/ajouterliste') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
@@ -242,7 +249,7 @@
         margin-bottom: 0;
     }
     .thumbnail img {
-        width:100px;
+        width:100%;
         height: 100px;
     }
 </style>
@@ -252,7 +259,9 @@
 <script src="{{ URL::to('js/bootstrap-multiselect.js') }}"></script>
 <script>
 $("select.multiple").imagepicker();
-
+$('.confirm').click(function(e) {
+    if (!confirm('Voulez-vous vraiment confirmer la supression ?')) e.preventDefault();
+});
 
 $('#imagesSearched').load('{{ URL::to('api/searchOeuvres') }}', function(){$("select.multiple").imagepicker();});
 

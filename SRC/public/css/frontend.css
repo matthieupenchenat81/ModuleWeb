@@ -7,7 +7,7 @@
 html, body {
     font-family: 'Oswald', sans-serif;
     background: #ebebeb;
-    background: url('../imgs/bg.png') no-repeat bottom center fixed;
+    background: url('../imgs/adminbg.jpg') no-repeat bottom center fixed;
     background-size: cover;
 }
 
@@ -57,6 +57,7 @@ nav input {
     background:rgba(0, 0, 0, 0.7);
     color: white;
     text-align: center;
+    
 }
 
 .referents {
@@ -184,4 +185,7 @@ background:url(../imgs/ariane/general-right.png) 0 0 no-repeat;
 width:20px;
 height:33px;
 } 	
+#back_ref img {
+        vertical-align:middle;
+}
 

@@ -4,11 +4,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Espace Référent | Les Jeux du Musée</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{URL::to('css/bootstrap-sandstone.min.css')}}">
     @yield('page-css')
     <meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
-<body style="padding-top:70px">
+<body style="padding-top:90px">
 
 	@yield('content')
     
