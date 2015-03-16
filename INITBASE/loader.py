@@ -27,7 +27,7 @@ try :
 	listeAuteur = {}
 	listeDatation = {}
 
-	con = mdb.connect('127.0.0.1', 'root', '', 'moduleweb',charset='utf8')
+	con = mdb.connect('127.0.0.1', 'root', 'l3miashs2015', 'moduleweb',charset='utf8')
 	cur = con.cursor()
 	# Suppresion des données existantes dan la bd
 	cur.execute("TRUNCATE table auteurs")

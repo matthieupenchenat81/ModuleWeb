@@ -451,3 +451,32 @@ git status
 git status
 git status
 git pull
+ls
+rm
+rm --help
+rm ./*
+rmdir ./*
+rm -rf *
+ls
+ls
+cd ..
+ls
+ls
+sudo chmod -R gu+w
+chmod -R gu+w
+chmod -R gu+w ./
+php artisan migrate
+ls
+cd SRC
+ls
+php artisan migrate
+cd ;;
+CD ..
+cd ..
+ls
+cd initbase
+cd INITBASE
+ls
+python loader
+python loader.py
+python loader.py
