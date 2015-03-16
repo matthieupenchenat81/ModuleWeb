@@ -33,8 +33,8 @@
                     <tbody>
                         <tr>
                             <td>Aucune liste</td>
-                            <td><input type="radio" name="memo" value="0" type="checkbox"></td>
-                            <td><input type="radio" name="puzzle" value="0" type="checkbox"></td>
+                            <td><input type="radio" name="memo" value="0" checked type="checkbox"></td>
+                            <td><input type="radio" name="puzzle" value="0" checked type="checkbox"></td>
                             <td></td>
                         </tr>
                         @foreach ($meslistes as $index => $listeoeuvre)
