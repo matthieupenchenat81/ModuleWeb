@@ -94,7 +94,7 @@ class LoginController extends Controller {
     	$credentials = Input::only('email', 'password','password_confirmation','token');
     	$response = Password::reset($credentials, function($user, $password)
         {
-            $user->password = Hash::make($password);
+            $user->motdepasse = Hash::make($password);
             $user->save();
         });
 
