@@ -1,95 +1,3 @@
-/* =============================================================================
-  RESET, BOX SIZING, & CLEARFIX
-============================================================================= */
-/*#jeu{
-
-	height: 100%;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-
-
-	background-image:url("../pictures/setting_picture/fond.jpg");
-	  background-attachment:fixed;
-	  background-repeat:no-repeat;
-	  background-position:100% 100%;
-	  background-size:cover;
-
-}*/
-
-body
-{
-    background-image:url("../pictures/setting_picture/fond.jpg");
-  background-attachment:fixed;
-  background-repeat:no-repeat;
-  background-position:100% 100%;
-  background-size:cover;
-}
-
-
-*,
-*::before,
-*::after {
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
-}
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* =============================================================================
-  BASE
-============================================================================= */
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* =============================================================================
-  LAYOUT
-============================================================================= */
-/* wrapper */
-.wrapper {
-  margin: 0 auto;
-  width: 100%;
-  /*min-width: 432px;*/
-}
-
-/* container */
-/*
-.container {
-	padding-top: 50px;*/
-/*  margin: 0 auto;
-  width: 96%;
-  max-width: 1128px;*/
-
-}
-
-/* =============================================================================
-  MEMORY GAME (mg)
-============================================================================= */
-/**
- * Game container
- *
- * This is the overall container for the game. Different things get addead and
- * removed from this container depending on the game state.
- */
-.mg {
-  /* blank */
-}
-
-/**
- * Game meta
- *
- * The game meta is the section that displays the level and moves. It's appended
- * to the game container at the start, and shows the level the user selected
- * and the number of moves the user has played.
- */
 .mg__meta {
   margin-bottom: 10px;
   color: #28aadc;
@@ -173,12 +81,7 @@ img {
   text-align: center;
 }
 
-.mg__contents {
-  position: relative;
-  padding-bottom: 50%;
-  margin-left: 0%;
-  margin-right: 0%;
-}
+
 
 /**
  * Game tiles
@@ -482,7 +385,6 @@ img {
 }
 
 .mg__tile--outside {
-  background: url("/pictures/default/logo-bw.png") 50% 50% no-repeat;
   background-color: #dcdee1;
   box-shadow: 0 0 0 1px #787a80;
 }

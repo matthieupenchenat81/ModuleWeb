@@ -10,21 +10,11 @@
     </div>
     
     <br>
-    <button onclick="location.href='{{ URL::to('memo/jouer/1') }}'"><span style="color:gold;">
-<span class="icon-star-full"></span>
-</span><span class="icon-star-full"></span>
+    <button onclick="location.href='{{ URL::to('memo/jouer/1') }}'"><span style="color:gold;"><span class="icon-star-full"></span></span><span class="icon-star-full"></span><span class="icon-star-full"></span></button><br>
 
-<span class="icon-star-full"></span></button><br>
-    <button  onclick="location.href='{{ URL::to('memo/jouer/2') }}'"><span style="color:gold;">
-<span class="icon-star-full"></span>
-<span class="icon-star-full"></span>
-</span>
-<span class="icon-star-full"></span></button><br>
-    <button  onclick="location.href='{{ URL::to('memo/jouer/3') }}'"><span style="color:gold;">
-<span class="icon-star-full"></span>
-<span class="icon-star-full"></span><span class="icon-star-full"></span>
-</span>
-</button>
+<button  onclick="location.href='{{ URL::to('memo/jouer/2') }}'"><span style="color:gold;"><span class="icon-star-full"></span><span class="icon-star-full"></span></span><span class="icon-star-full"></span></button><br>
+
+<button  onclick="location.href='{{ URL::to('memo/jouer/3') }}'"><span style="color:gold;"><span class="icon-star-full"></span><span class="icon-star-full"></span><span class="icon-star-full"></span></span></button>
 
 
 </div>

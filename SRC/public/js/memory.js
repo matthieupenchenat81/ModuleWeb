@@ -31,10 +31,10 @@
    *
    */
 
-  function Memory( options ) {
+  function Memory( options, level ) {
     this.options = extend( {}, this.options );
     extend( this.options, options );
-    this._init();
+    this._init(level);
   }
 
   /**
@@ -44,7 +44,7 @@
    * ready for game setup.
    */
 
-  Memory.prototype._init = function() {
+  Memory.prototype._init = function(level) {
     this.game = document.createElement("div");
     this.game.id = "mg";
     this.game.className = "mg";
@@ -65,7 +65,7 @@
     this.gameMessages.id = "mg__onend";
     this.gameMessages.className = "mg__onend";
 
-    this._setupGame();
+    this._setupGame(level);
   };
 
   /**
@@ -85,7 +85,7 @@
    * 3 : game is finished
    */
 
-  Memory.prototype._setupGame = function() {
+  Memory.prototype._setupGame = function(level) {
     var self = this;
     this.gameState = 1;
     this.cards = shuffle(this.options.cards);
@@ -98,7 +98,7 @@
     this.flippedTiles = 0;
     this.chosenLevel = "";
     this.numMoves = 0;
-    this._setupGameWrapper(3);
+    this._setupGameWrapper(level);
   }
 
   /**
@@ -155,7 +155,7 @@
       this.tilesHTML += '<div class="mg__tile mg__tile-' + n + '">\
         <div class="mg__tile--inner" data-id="' + this.newCards[i]["id"] + '">\
         <span class="mg__tile--outside"></span>\
-        <span class="mg__tile--inside"><img src="' + this.newCards[i]["img"] + '"></span>';
+        <span class="mg__tile--inside" style="background-image:url(' + this.newCards[i]["img"] + ');"></span>';
         this.tilesHTML +='</div>';
 
 
@@ -279,7 +279,7 @@
       self.card1.classList.remove("flipped");
       self.card2.classList.remove("flipped");
       self._gameResetVars();
-    }, 900 );
+    }, 500 );
 
     // plus one on the move counter
     this._gameCounterPlusOne();

@@ -248,8 +248,6 @@
 @endsection
 @section('page-scripts')
 <script src="{{ URL::to('js/image-picker.min.js') }}"></script>
-<script src="{{ URL::to('js/masonry.min.js') }}"></script>
-<script src="{{ URL::to('js/image-picker.min.js') }}"></script>
 <script src="{{ URL::to('js/bootstrap-multiselect.js') }}"></script>
 <script>
 $("select.multiple").imagepicker(); 
@@ -258,14 +256,14 @@ $("select.multiple").imagepicker();
 $('#imagesSearched').load('{{ URL::to('api/searchOeuvres') }}', function(){$("select.multiple").imagepicker();});
 
 
-function fitGrid(){
-    /*$('.thumbnails').masonry({
+ /*function fitGrid(){
+   $('.thumbnails').masonry({
             itemSelector: 'li',
             gutterWidth: 10
-    }).masonry('reload');*/
-};
+    }).masonry('reload');
+};*/
     
-$('#imagesSearched').on('click', '.pager a', function (event) {
+$('#imagesSearched').on('click', '.pagination a', function (event) {
     event.preventDefault();
     if ( $(this).attr('href') != '#' ) {
         $("#imagesSearched").animate({ scrollTop: 0 }, "fast");
@@ -295,11 +293,10 @@ $("#recherche").on('submit', function(event){
         $('#imagesSearched').empty();
         $('#imagesSearched').append(data);
         $("select.multiple").imagepicker();
-        fitGrid();
     });
     
 });
-    
+
 /*
     
     

@@ -4,20 +4,14 @@
 <link rel="stylesheet" href="/css/memory.css">
 <style>
     .mg__tile--inside {
-        overflow: hidden;
-    }
-    .mg__tile--inside img {
-        max-width: 100%;   
+        background-size: cover;   
     }
     
 </style>
 @endsection
 
 @section('content')
-
-<div style="margin:auto;width:90%">
-    <div id="my-memory-game"></div>
-</div>
+<div id="my-memory-game"></div>
 @endsection
 
 @section('page-scripts')
@@ -38,7 +32,7 @@
         cards : cards2,
         onGameStart : function() { return false; },
         onGameEnd : function() { return false; }
-    });
+    }, {{$niveau}});
 		
     
 </script>

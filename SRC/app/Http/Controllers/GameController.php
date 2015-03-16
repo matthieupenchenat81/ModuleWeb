@@ -26,11 +26,15 @@ class GameController extends Controller {
         return view('frontend/memo_level');
     }
     
-    public function playMemo() {
+    public function playMemo($niveau) {
         $idRef = Cookie::get('referent');
-        $configjeu = Referent::find($idRef)->configjeu()->where('actifPuzzle', '=', '1')->first();
-        $oes = $configjeu->oeuvres;
-        return view('frontend/memo',  ['oeuvres' => $oes]);
+        $configjeu = Referent::find($idRef)->configjeu()->where('actifMemo', '=', '1')->first();
+        if($configjeu && count($configjeu->oeuvres) >= 1) {
+            $oes = $configjeu->oeuvres;
+        } else {
+            $oes = Oeuvre::orderByRaw("RAND()")->take(5)->get();       
+        }
+        return view('frontend/memo',  ['oeuvres' => $oes, 'niveau' => $niveau]);
     }
     
     public function chooseDifPuzzle() {
