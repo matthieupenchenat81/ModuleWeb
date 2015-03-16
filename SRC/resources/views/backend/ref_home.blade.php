@@ -97,7 +97,7 @@
         </div>
         <div role="tabpanel" class="tab-pane" id="tabconfig">
             <div class="col-md-8 col-md-offset-2" style="margin-top:30px">
-                
+
                 <form class="form-horizontal" method="post" action="{{URL::to('referent/changeParamListe', $mesoeuvres->id)}}">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -130,19 +130,19 @@
                                 <div class="form-group">
                                     <label for="m1" class="col-sm-4 control-label">Nb. de tableaux 1 étoile</label>
                                     <div class="col-sm-6">
-                                        <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->m1}}" name="m1" id="m1" placeholder="2">
+                                        <input type="number" min="1" max="2" class="form-control" value="{{$paramjeu->m1}}" name="m1" id="m1" placeholder="2">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="m2" class="col-sm-4 control-label">Nb. de tableaux 2 étoiles</label>
                                     <div class="col-sm-6">
-                                        <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->m2}}" name="m2" id="m2" placeholder="3">
+                                        <input type="number" min="1" max="4" class="form-control" value="{{$paramjeu->m2}}" name="m2" id="m2" placeholder="3">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="m3" class="col-sm-4 control-label">Nb. de tableaux 3 étoiles</label>
                                     <div class="col-sm-6">
-                                        <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->m3}}" name="m3" id="m3" placeholder="4">
+                                        <input type="number" min="1" max="8" class="form-control" value="{{$paramjeu->m3}}" name="m3" id="m3" placeholder="4">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -157,7 +157,7 @@
                                     </div>
                                 </div>
                             </form>
-                
+
             </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="profile">
@@ -239,7 +239,7 @@
 <link rel="stylesheet" href="{{ URL::to('css/bootstrap-multiselect.css') }}">
 <style>
     .thumbnails .thumbnail {
-        margin-bottom: 0;   
+        margin-bottom: 0;
     }
     .thumbnail img {
         width:100px;
@@ -251,9 +251,9 @@
 <script src="{{ URL::to('js/image-picker.min.js') }}"></script>
 <script src="{{ URL::to('js/bootstrap-multiselect.js') }}"></script>
 <script>
-$("select.multiple").imagepicker(); 
-    
-    
+$("select.multiple").imagepicker();
+
+
 $('#imagesSearched').load('{{ URL::to('api/searchOeuvres') }}', function(){$("select.multiple").imagepicker();});
 
 
@@ -263,7 +263,7 @@ $('#imagesSearched').load('{{ URL::to('api/searchOeuvres') }}', function(){$("se
             gutterWidth: 10
     }).masonry('reload');
 };*/
-    
+
 $('#imagesSearched').on('click', '.pagination a', function (event) {
     event.preventDefault();
     if ( $(this).attr('href') != '#' ) {
@@ -278,13 +278,13 @@ $('#imagesSearched').on('click', '.pagination a', function (event) {
 
 });
 
-    
+
 $('#recherche select').multiselect({
     enableFiltering: true,
     buttonWidth: '100%',
     maxHeight: 200
 });
-    
+
 $("#recherche").on('submit', function(event){
     event.preventDefault();
     $('#imagesSearched').empty();
@@ -295,30 +295,30 @@ $("#recherche").on('submit', function(event){
         $('#imagesSearched').append(data);
         $("select.multiple").imagepicker();
     });
-    
+
 });
 
 /*
-    
-    
-        
+
+
+
     $("#search").click(function(){
             event.preventDefault();
             $('#imagesSearched').empty();
             $('#imagesSearched').append("Recherche en cours");
-    
+
         $.get(" {{ URL::to('api/searchOeuvres') }}", { domaine : $('#domaine').val() },
         function(data){
             $('#imagesSearched').empty();
-            $('#imagesSearched').append('<select multiple="multiple" id="toadd" name="toadd[]">');                 
+            $('#imagesSearched').append('<select multiple="multiple" id="toadd" name="toadd[]">');
             $(data.data).each(function(id, elt){
                 $('#toadd').append("<option data-img-src='http://www.augustins.org/documents/10180/156407/" + elt.image +"' value=\""+ elt.id+"\"></option>");
             });
             $('#imagesSearched').append('<button type="submit" id="search" class="btn btn-default">Ajouter</button>');
-    
+
             $("#toadd").imagepicker();
         }, "json");
     });*/
-                        
+
 </script>
 @endsection

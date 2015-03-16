@@ -33,6 +33,7 @@ class GameController extends Controller {
             $oes = $configjeu->oeuvres;
         } else {
             $oes = Oeuvre::orderByRaw("RAND()")->take(5)->get();
+						$niveau = 1;
         }
 				$params = json_decode($configjeu->parametres);
 

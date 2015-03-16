@@ -98,24 +98,24 @@
 
 /* game__level-1 styles */
 .mg__level-1 .mg__tile {
-  width: 25%;
-  height: 50%;
+  width: 20%;
+  height: 40%;
 }
 
 .mg__level-1 .mg__tile-1 {
-  top: 0%;
-  left: 0%;
+  top: 20%;
+  left: 15%;
 }
 .mg__level-1 .mg__tile-2 {
-  top: 0%;
-  left: 25%;
+  top: 20%;
+  left: 35%;
 }
 .mg__level-1 .mg__tile-3 {
-  top: 0%;
-  left: 50%;
+  top: 20%;
+  left: 55%;
 }
 .mg__level-1 .mg__tile-4 {
-  top: 0%;
+  top: 20%;
   left: 75%;
 }
 .mg__level-1 .mg__tile-5 {

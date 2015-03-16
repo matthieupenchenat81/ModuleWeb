@@ -315,7 +315,7 @@
 
   Memory.prototype._gameCounterPlusOne = function() {
     this.numMoves = this.numMoves + 1;
-    this.moveCounterUpdate = document.getElementById("mg__meta--moves").innerHTML = this.numMoves;
+    //this.moveCounterUpdate = document.getElementById("mg__meta--moves").innerHTML = this.numMoves;
   };
 
   /**
