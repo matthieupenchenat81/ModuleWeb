@@ -4,9 +4,9 @@
 <link rel="stylesheet" href="/css/memory.css">
 <style>
     .mg__tile--inside {
-        background-size: cover;   
+        background-size: cover;
     }
-    
+
 </style>
 @endsection
 
@@ -17,7 +17,7 @@
 @section('page-scripts')
 <script src="/js/memory.js"></script>
 <script>
-    
+
     var cards2 = [];
     @foreach($oeuvres as $o)
     cards2.push(
@@ -32,8 +32,8 @@
         cards : cards2,
         onGameStart : function() { return false; },
         onGameEnd : function() { return false; }
-    }, {{$niveau}});
-		
-    
+    }, {{$niveau}}, {{$nbBloc}});
+
+
 </script>
 @endsection

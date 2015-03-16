@@ -31,10 +31,11 @@
    *
    */
 
-  function Memory( options, level ) {
+  function Memory( options, level, nbcase ) {
+    console.log(nbcase);
     this.options = extend( {}, this.options );
     extend( this.options, options );
-    this._init(level);
+    this._init(level, nbcase);
   }
 
   /**
@@ -44,7 +45,7 @@
    * ready for game setup.
    */
 
-  Memory.prototype._init = function(level) {
+  Memory.prototype._init = function(level,nbcase) {
     this.game = document.createElement("div");
     this.game.id = "mg";
     this.game.className = "mg";
@@ -65,7 +66,7 @@
     this.gameMessages.id = "mg__onend";
     this.gameMessages.className = "mg__onend";
 
-    this._setupGame(level);
+    this._setupGame(level,nbcase);
   };
 
   /**
@@ -85,7 +86,7 @@
    * 3 : game is finished
    */
 
-  Memory.prototype._setupGame = function(level) {
+  Memory.prototype._setupGame = function(level, nbcase) {
     var self = this;
     this.gameState = 1;
     this.cards = shuffle(this.options.cards);
@@ -98,7 +99,7 @@
     this.flippedTiles = 0;
     this.chosenLevel = "";
     this.numMoves = 0;
-    this._setupGameWrapper(level);
+    this._setupGameWrapper(level, nbcase);
   }
 
   /**
@@ -108,7 +109,8 @@
    * tiles will reside and where all the game play happens.
    */
 
-  Memory.prototype._setupGameWrapper = function(levelNode) {
+  Memory.prototype._setupGameWrapper = function(levelNode,nbcase) {
+    this.nbcase = nbcase;
     this.level = levelNode;
     this.gameContents.className = "mg__contents mg__level-"+this.level;
     this.game.appendChild(this.gameWrapper);
@@ -137,7 +139,7 @@
      else if(this.level == 2) {this.gridX = 3; this.gridY= 2; }
      else { this.gridX = 2; this.gridY=4 ;  }
   //  this.gridY = this.gridX ;
-    this.numTiles = this.gridX * this.gridY;
+    this.numTiles = this.nbcase*2;
     //this.halfNumTiles = this.gridX;
     this.halfNumTiles = this.numTiles/2;
     this.newCards = [];
@@ -234,8 +236,8 @@
    */
 
   "document"in self&&("classList"in document.createElement("_")?!function(){"use strict";var a=document.createElement("_");if(a.classList.add("c1","c2"),!a.classList.contains("c2")){var b=function(a){var b=DOMTokenList.prototype[a];DOMTokenList.prototype[a]=function(a){var c,d=arguments.length;for(c=0;d>c;c++)a=arguments[c],b.call(this,a)}};b("add"),b("remove")}if(a.classList.toggle("c3",!1),a.classList.contains("c3")){var c=DOMTokenList.prototype.toggle;DOMTokenList.prototype.toggle=function(a,b){return 1 in arguments&&!this.contains(a)==!b?b:c.call(this,a)}}a=null}():!function(a){"use strict";if("Element"in a){var b="classList",c="prototype",d=a.Element[c],e=Object,f=String[c].trim||function(){return this.replace(/^\s+|\s+$/g,"")},g=Array[c].indexOf||function(a){for(var b=0,c=this.length;c>b;b++)if(b in this&&this[b]===a)return b;return-1},h=function(a,b){this.name=a,this.code=DOMException[a],this.message=b},i=function(a,b){if(""===b)throw new h("SYNTAX_ERR","An invalid or illegal string was specified");if(/\s/.test(b))throw new h("INVALID_CHARACTER_ERR","String contains an invalid character");return g.call(a,b)},j=function(a){for(var b=f.call(a.getAttribute("class")||""),c=b?b.split(/\s+/):[],d=0,e=c.length;e>d;d++)this.push(c[d]);this._updateClassName=function(){a.setAttribute("class",this.toString())}},k=j[c]=[],l=function(){return new j(this)};if(h[c]=Error[c],k.item=function(a){return this[a]||null},k.contains=function(a){return a+="",-1!==i(this,a)},k.add=function(){var a,b=arguments,c=0,d=b.length,e=!1;do a=b[c]+"",-1===i(this,a)&&(this.push(a),e=!0);while(++c<d);e&&this._updateClassName()},k.remove=function(){var a,b,c=arguments,d=0,e=c.length,f=!1;do for(a=c[d]+"",b=i(this,a);-1!==b;)this.splice(b,1),f=!0,b=i(this,a);while(++d<e);f&&this._updateClassName()},k.toggle=function(a,b){a+="";var c=this.contains(a),d=c?b!==!0&&"remove":b!==!1&&"add";return d&&this[d](a),b===!0||b===!1?b:!c},k.toString=function(){return this.join(" ")},e.defineProperty){var m={get:l,enumerable:!0,configurable:!0};try{e.defineProperty(d,b,m)}catch(n){-2146823252===n.number&&(m.enumerable=!1,e.defineProperty(d,b,m))}}else e[c].__defineGetter__&&d.__defineGetter__(b,l)}}(self));
-    
-    
+
+
     Memory.prototype._gameCardsMatch = function() {
     // cache this
     var self = this;
