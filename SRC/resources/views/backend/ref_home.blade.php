@@ -241,8 +241,9 @@
     .thumbnails .thumbnail {
         margin-bottom: 0;   
     }
-    .thumbnails .li {
-        margin: 0;   
+    .thumbnail img {
+        width:100px;
+        height: 100px;
     }
 </style>
 @endsection
