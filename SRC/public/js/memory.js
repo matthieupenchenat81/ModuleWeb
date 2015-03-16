@@ -342,9 +342,9 @@
     var self = this;
     if (this.options.onGameEnd() === false) {
       this._clearGame();
-      document.getElementById("mg__onend--restart").addEventListener( "click", function(e) {
+    /*  document.getElementById("win").addEventListener( "click", function(e) {
         self.resetGame();
-      });
+      });*/
     } else {
       // run callback
       this.options.onGameEnd();
