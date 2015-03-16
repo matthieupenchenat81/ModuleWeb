@@ -480,3 +480,16 @@ ls
 python loader
 python loader.py
 python loader.py
+ls
+git status
+git pull
+git pull
+nano SRC/config/mail.php 
+git commit -a
+git push
+ls
+ls
+ls
+nano SRC/config/mail.php 
+nano .env 
+nano SRC/.env 

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('backend/template')
 @section('content')
 <div class="container-fluid">
 <div class="row">
