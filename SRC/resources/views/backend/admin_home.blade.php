@@ -4,14 +4,20 @@
    <div class="container">
        <div class="row"><div class="col-md-12">
   @if (session('message_add'))
-    <div class="alert alert-success">
+    <div class="alert alert-success alert-dismissible fade in">
       {{ Session::get('message_add') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
   @endif
 
   @if (session('message_delete'))
-    <div class="alert alert-danger">
+    <div class="alert alert-danger alert-dismissible fade in">
       {{ Session::get('message_delete') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
   @endif
 </div></div>
@@ -42,7 +48,7 @@
           <td>
               <div class="btn-group" role="group" aria-label="...">
                   <a href="{{ URL::to('admin/logAs', $user->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-zoom-in"></span></a>
-                  <a href="{{ URL::to('admin/deleteUser', $user->id) }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                  <a href="{{ URL::to('admin/deleteUser', $user->id) }}" class="btn btn-danger confirm"><span class="glyphicon glyphicon-trash"></span></a>
               </div>
             </td>
         </tr>
@@ -99,4 +105,13 @@
 
        </div>
 </div>
+@endsection
+
+@section('page-scripts')
+<script>
+    $('.confirm').click(function(e) {
+        if (!confirm('Voulez-vous vraiment confirmer la supression ?')) e.preventDefault();
+    });
+    
+</script>
 @endsection
