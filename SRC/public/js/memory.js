@@ -360,7 +360,7 @@ Memory.prototype._winGame = function() {
 
   if (this.options.onGameEnd() === false) {
     this._clearGame();
-    firework();
+    //firework();
     this.gameMessages.innerHTML = '<h2 class="mg__onend--heading"><span class="icon-trophy"></span></h2>\
       <p class="mg__onend--message">Vous avez gagné votre partie en ' + this.numMoves + ' coups !</p>\
       <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';
