@@ -29,7 +29,8 @@ class HomeController extends Controller {
     
 	public function choisirRef()
 	{
-		return view('frontend/home',['referents' => Referent::get()]);
+        $refs = Referent::take(5)->select(['nom', 'prenom', 'image', 'id'])->get();
+		return view('frontend/home',['referents' => $refs]);
 	}
 
     public function changerRef($idRef)
