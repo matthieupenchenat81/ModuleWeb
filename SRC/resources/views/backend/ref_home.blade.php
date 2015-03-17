@@ -235,7 +235,7 @@
                 </div>
             </form>
             @else
-            <h1>Veuillez selectionner une liste pour la modifier.</h1>
+            <div class="alert alert-warning">Veuillez selectionner une liste pour la modifier.</div>
             @endif
         </div>
     </div>
@@ -252,6 +252,10 @@
         width:100%;
         height: 100px;
     }
+html, body {
+    background: url('{{URL::to('imgs/adminbg.jpg')}}');
+    background-size: cover;
+}
 </style>
 @endsection
 @section('page-scripts')
