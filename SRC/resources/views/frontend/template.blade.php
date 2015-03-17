@@ -9,10 +9,7 @@
     @yield('page-css')
 </head>
 <body>
-
 	@yield('content')
-
-    
     @yield('page-scripts')
 </body>
 </html>
