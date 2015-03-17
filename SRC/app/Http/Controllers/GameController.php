@@ -94,7 +94,6 @@ class GameController extends Controller {
         return view('referent_games', ['games' => $games]);
     }
 
-
 	/**
      * Show one referent game
      *
