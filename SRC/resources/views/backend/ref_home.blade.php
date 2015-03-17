@@ -93,7 +93,7 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <select multiple="multiple" class="multiple" name="todel[]">
                         @foreach($mesoeuvres->oeuvres as $index => $oeuvre)
-                        <option data-img-src='http://www.augustins.org/documents/10180/156407/{{ $oeuvre->image }}' value="{{ $oeuvre->id}}"></option>
+                        <option data-img-src='/image/200/{{ $oeuvre->image }}' value="{{ $oeuvre->id}}"></option>
                         @endforeach
                     </select>
                     <button type="submit" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span> Supprimer</button>
