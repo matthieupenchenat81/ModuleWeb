@@ -1,12 +1,5 @@
 @extends('backend/template')
 
-@section('page-css')
-<style>
-html, body {
-    background-image: url('{{URL::to('imgs/adminbg.jpg')}}');
-    background-size: cover;
-}</style>
-@endsection
 @section('content')
 <div class="container-fluid">
 	<div class="row">

@@ -2,16 +2,13 @@
 @extends('frontend/template')
 
 @section('content')
-    <div class="titreIcon">
-    	<img src="imgs/games.png" />
+    <div style="text-align:center">
+        
+        <div><img style="border-radius:50%; height:100px;width:100px;margin:40px;" src="{{ $ref -> image }}"></div>
+        
+        
+        <div class="game"><img src="imgs/memo/memo2.png"></div>
+       <div class="game"><img src="imgs/puzzle/puzzle.png"></div> 
+        
     </div>
-
-    	<ul id="breadcrumb">
-    		<li>
-    			<a href=""><img src="imgs/puzzle/iconPuzzle.png" alt="puzzle"/></a>
-    		</li>
-    		<li>
-                <a href="#">Test</a>
-    		</li>
-    	</ul>
 @endsection

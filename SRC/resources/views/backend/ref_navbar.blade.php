@@ -35,32 +35,32 @@
         <input type="hidden" name="idUser" value="{{ $me->id }}" />
       <div class="modal-body">
             <div class="form-group">
-              <label for="firstname" class="col-sm-2 control-label">Prénom</label>
-              <div class="col-sm-10">
+              <label for="firstname" class="col-sm-3 control-label">Prénom :</label>
+              <div class="col-sm-9">
                 <input type="text" class="form-control" id="firstname" name="prenom" required placeholder="Prénom" value="{{$me->prenom}}">
               </div>
             </div>
             <div class="form-group">
-              <label for="lastname" class="col-sm-2 control-label">Nom</label>
-              <div class="col-sm-10">
+              <label for="lastname" class="col-sm-3 control-label">Nom :</label>
+              <div class="col-sm-9">
                 <input type="text" class="form-control" id="lastname" name="nom" required placeholder="Nom" value="{{$me->nom}}">
               </div>
             </div>
             <div class="form-group">
-              <label for="email" class="col-sm-2 control-label">Email</label>
-              <div class="col-sm-10">
+              <label for="email" class="col-sm-3 control-label">Email :</label>
+              <div class="col-sm-9">
                 <input type="email" class="form-control" id="email" name="email" required placeholder="Email" value="{{$me->email}}">
               </div>
             </div>
             <div class="form-group">
-              <label for="city" class="col-sm-2 control-label">Etablissement</label>
-              <div class="col-sm-10">
+              <label for="city" class="col-sm-3 control-label">Etablissement :</label>
+              <div class="col-sm-9">
                 <input type="text" class="form-control" id="city" name="etablissement" required placeholder="Ecole" value="{{$me->etablissement}}">
               </div>
             </div>
             <div class="form-group">
-    			    <label class="col-sm-2 control-label" for="exampleInputFile">Image</label>
-    			    <div class="col-sm-10">
+    			    <label class="col-sm-3 control-label" for="exampleInputFile">Image :</label>
+    			    <div class="col-sm-9">
                         <input type="file" class="form-control" name="file" id="file">
     			    </div>
             </div>

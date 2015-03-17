@@ -2,7 +2,14 @@
 
 @section('content')
 @if ($referents != [])
-	<h1 class="homeTitle"> Jeux Educatifs du musée Augustin  </h1>
+<div style="text-align:center;background-color: #fcfc6b; padding:10px; margin:auto;font-size:18px;">
+    	<h1 class="homeTitle">Les jeux du Musée des Augustins</h1>
+
+    L'objectif de ce site est de permettre aux enfants de jouer à des jeux tout en leur apportant de l'intérêt pour les différentes oeuvres d'art exposés dans le fameux musée toulousain.<br>
+    <span style="color:red;">Lorsque vous aurez choisit un référent, il faudra appuyer pendant 5 secondes sur l'icone de votre référent afin de revenir sur cette page.</span><br>
+    Si ce site ne vous a pas été donné par un professeur, vous pouvez toujours <span style="color:#37378e;">cliquer ici pour jouer aux jeux</span>.
+    
+</div>
     <nav>
             <input name="searchterm" class="icon-search" id="searchterm" placeholder="&#xe986; Rechercher un référent" type="text"> 
     </nav>
@@ -19,9 +26,6 @@
 @else
     <h1>Aucun référent trouvé</h1>
 @endif
-<div class="about">
-	<a href="#"><span class="icon-info" style="font-size: 55px; color:black;"></span></a>
-</div>
 @endsection
 
 @section('page-css')

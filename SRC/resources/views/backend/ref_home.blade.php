@@ -19,7 +19,19 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Mes listes d'Oeuvres</div>
         <div class="panel-body">
-            <div class="alert alert-warning">Ci-dessous, vous pouvez associer les listes d'oeuvres à un jeu. Cliquez sur le bouton "<span class="glyphicon glyphicon-ok"> </span> Associer" quand c'est terminé. Cliquez sur le bouton <span class="glyphicon glyphicon-pencil"></span> pour modifier la liste.</div>
+            <form method="post" action="{{ URL::to('referent/ajouterliste') }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="form-group">
+                    <label for="nomListe">Nouvelle liste</label>
+                    <div class="input-group">
+                        <input type="text" id="nomListe" name="nomListe" class="form-control" placeholder="Nom de la liste">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-plus"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+            <div class="alert alert-grey">Ci-dessous, vous pouvez associer les listes d'oeuvres à un jeu. Cliquez sur le bouton "<span class="glyphicon glyphicon-ok"> </span> Associer" quand c'est terminé.</div>
             <form method="post" action="{{ URL::to('referent/changerparamliste') }}">
                 <table class="table">
                     <thead class="tablethead">
@@ -55,18 +67,7 @@
             </tbody>
             </table>
             <div class="text-center"><button type="submit" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-ok-circle"> </span> Associer</button></div>
-            <form method="post" action="{{ URL::to('referent/ajouterliste') }}">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="form-group">
-                    <label for="nomListe">Nouvelle liste</label>
-                    <div class="input-group">
-                        <input type="text" id="nomListe" name="nomListe" class="form-control" placeholder="Nom de la liste">
-                        <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-plus"></span></button>
-                        </span>
-                    </div>
-                </div>
-            </form>
+            
         </div>
     </div>
 </div>
@@ -235,7 +236,7 @@
                 </div>
             </form>
             @else
-            <div class="alert alert-warning">Veuillez selectionner une liste pour la modifier.</div>
+            <div class="alert alert-grey">Cliquez sur le bouton <span class="glyphicon glyphicon-pencil"></span> pour modifier une liste.</div>
             @endif
         </div>
     </div>
@@ -252,10 +253,7 @@
         width:100%;
         height: 100px;
     }
-html, body {
-    background: url('{{URL::to('imgs/adminbg.jpg')}}');
-    background-size: cover;
-}
+
 </style>
 @endsection
 @section('page-scripts')
