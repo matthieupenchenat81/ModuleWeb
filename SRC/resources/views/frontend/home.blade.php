@@ -2,10 +2,10 @@
 
 @section('content')
 @if ($referents != [])
-
+	<h1 class="homeTitle"> Jeux Educatifs du musée Augustin  </h1>
     <nav>
-            <input name="searchterm" id="searchterm" placeholder="Rechercher un référent" type="text"> 
-        </nav>
+            <input name="searchterm" class="icon-search" id="searchterm" placeholder="&#xe986; Rechercher un référent" type="text"> 
+    </nav>
         <div id="referents" class="referents">
 
     @foreach ($referents as $referent)
@@ -21,6 +21,9 @@
 @endif
 @endsection
 
+@section('page-css')
+	<link href="css/fonts/style.css" rel="stylesheet" type="text/css">
+@endsection
 
 @section('page-scripts')
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
