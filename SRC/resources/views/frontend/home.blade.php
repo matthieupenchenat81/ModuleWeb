@@ -20,7 +20,7 @@
     <h1>Aucun référent trouvé</h1>
 @endif
 <div class="about">
-	<a href="#"><span class="icon-info"></span></a>
+	<a href="#"><span class="icon-info" style="font-size: 55px; color:black;"></span></a>
 </div>
 @endsection
 
