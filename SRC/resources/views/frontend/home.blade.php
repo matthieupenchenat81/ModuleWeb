@@ -19,6 +19,9 @@
 @else
     <h1>Aucun référent trouvé</h1>
 @endif
+<div class="about">
+	<a href="#"><span class="icon-info"></span></a>
+</div>
 @endsection
 
 @section('page-css')
