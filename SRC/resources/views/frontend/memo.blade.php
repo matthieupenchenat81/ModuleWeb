@@ -2,6 +2,7 @@
 
 @section('page-css')
 <link rel="stylesheet" href="/css/memory.css">
+<link rel="stylesheet" href="/css/fonts/style.css" type="text/css">
 <style>
     .mg__tile--inside {
         background-size: cover;
