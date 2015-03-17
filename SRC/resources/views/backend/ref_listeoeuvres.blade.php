@@ -1,7 +1,7 @@
 <legend>Résultat de ma recherche</legend>
     <select multiple="multiple" class="multiple" id="toadd" name="toadd[]">
         @foreach($oeuvres as $oeuvre)
-            <option data-img-src='http://www.augustins.org/documents/10180/156407/{{$oeuvre->image}}' value='{{$oeuvre->id}}'></option>
+            <option data-img-src='/image/200/{{$oeuvre->image}}' value='{{$oeuvre->id}}'></option>
         @endforeach
     </select>
 <div class="text-center">

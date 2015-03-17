@@ -145,6 +145,7 @@ button:active {
   list-style: none;
   display: inline-block;
 }
+<<<<<<< HEAD
 #breadcrumb li {
   float: left;
   line-height: 40px;
@@ -228,3 +229,5 @@ button:active {
 #breadcrumb li a:active:after {
   border-left-color: #16a085;
 }
+=======
+>>>>>>> origin/master

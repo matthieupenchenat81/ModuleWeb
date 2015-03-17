@@ -18,6 +18,9 @@ Route::get('changerref/{id}', 'HomeController@changerRef');
 Route::get('api/searchRef/{reg?}', 'APIController@refByName');
 Route::get('api/searchOeuvres', 'APIController@searchOeuvres');
 
+//API FOR IMAGE RESIZE
+Route::get('/image/{size}/{url}', 'ImageController@getImage');
+
 
 // LOGIN RESET
 Route::get('password/reset/{token}', array(
