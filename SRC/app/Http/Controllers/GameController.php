@@ -23,7 +23,8 @@ class GameController extends Controller {
 	 * @return Response
 	 */
     public function chooseDifMemo() {
-        return view('frontend/memo_level');
+        $nbOr = Cookie::get('referent');
+        return view('frontend/memo_level', ['nbOr' => $nbOr]);
     }
 
     public function playMemo($niveau) {

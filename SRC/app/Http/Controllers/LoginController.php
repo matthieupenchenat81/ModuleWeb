@@ -65,7 +65,7 @@ class LoginController extends Controller {
     {
         Session::forget('admin');
     	Auth::logout();
-    	return redirect('login');
+        return redirect()->guest('login');
     }
 
     public function forgottenPassword()

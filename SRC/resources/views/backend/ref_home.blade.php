@@ -44,7 +44,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Aucune liste</td>
+                            <td>Liste aléatoire</td>
                             <td><input type="radio" name="memo" value="0" checked type="checkbox"></td>
                             <td><input type="radio" name="puzzle" value="0" checked type="checkbox"></td>
                             <td></td>

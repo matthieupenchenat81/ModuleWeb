@@ -1,26 +1,27 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Espace Référent</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Mes Listes</a></li>
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Espace Référent</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Mes Listes</a></li>
         <li><a data-toggle="modal" data-target="#myModal1" href="#">Mon Compte</a></li>
-        <li><a href="{{ URL::to('logout') }}">Se Déconnecter</a></li>
-      </ul>
-      <p class="navbar-text navbar-right">Connecté en tant que {{ $me->prenom }} {{ $me->nom }}</p>
-    <!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="{{ URL::to('logout') }}">Déconnexion</a></li>
+            </ul>
+                          <p class="navbar-text navbar-right">Connecté en tant que {{ $me->prenom }} {{ $me->nom }}</p>
+
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
