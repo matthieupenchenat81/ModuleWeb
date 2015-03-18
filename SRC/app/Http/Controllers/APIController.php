@@ -24,7 +24,7 @@ class APIController extends Controller {
         if(!empty($reg))
             $res = Referent::where('nom', 'like', '%'.$reg.'%')->orWhere('prenom', 'like', '%'.$reg.'%')->select(['nom', 'prenom', 'image', 'id'])->get();
         else
-            $res = Referent::get(5);
+            $res = Referent::take(5)->select(['nom', 'prenom', 'image', 'id'])->get();
 		return Response::json($res->toArray());
 	}
     

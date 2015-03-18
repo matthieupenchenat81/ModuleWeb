@@ -1,11 +1,12 @@
 ;(function( window ) {
 
-  'use strict';
+  //'use strict';
 
   /**
    * Extend object function
    *
    */
+
 
   function extend( a, b ) {
     for( var key in b ) {
@@ -32,7 +33,8 @@
    */
 
   function Memory( options, level, nbcase ) {
-    console.log(nbcase);
+    //console.log(nbcase);
+    console.log("bob");
     this.options = extend( {}, this.options );
     extend( this.options, options );
     this._init(level, nbcase);
@@ -337,19 +339,45 @@
    * You won the game! This function runs the "onGameEnd" callback, which by
    * default clears the game div entirely and shows a "play again" button.
    */
-
+/*
   Memory.prototype._winGame = function() {
     var self = this;
     if (this.options.onGameEnd() === false) {
       this._clearGame();
-    /*  document.getElementById("win").addEventListener( "click", function(e) {
+
+      alert("zoro 2");
+      document.location.href="/memo";
         self.resetGame();
-      });*/
+
     } else {
       // run callback
       this.options.onGameEnd();
+      //alert("coucou");
     }
   }
+*/
+Memory.prototype._winGame = function() {
+  var self = this;
+
+  if (this.options.onGameEnd() === false) {
+    this._clearGame();
+    firework();
+
+    this.gameMessages.innerHTML = '<h2 class="mg__onend--heading"><span class="icon-trophy"></span></h2>\
+      <p class="mg__onend--message">Vous avez gagné votre partie en ' + this.numMoves + ' coups !</p>\
+      <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';
+
+      var texteADire =  "Bravo, tu as gagné en "+this.numMoves+" coups ! ";
+      responsiveVoice.speak(texteADire, "French Female");
+    this.game.appendChild(this.gameMessages);
+    document.getElementById("mg__onend--restart").addEventListener( "click", function(e) {
+      document.location.href="/memo";
+    });
+  } else {
+    // run callback
+    this.options.onGameEnd();
+  }
+}
 
   /**
    * Memory resetGame

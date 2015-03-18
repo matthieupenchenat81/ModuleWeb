@@ -117,8 +117,12 @@ class ReferentController extends Controller {
         Auth::user()->configjeu()->update(array('actifMemo' => 0));
         Auth::user()->configjeu()->update(array('actifPuzzle' => 0));
         
+        if(Input::get('memo') != 0)
         ConfigJeu::where('referent_id', '=', Auth::user()->id)->find(Input::get('memo'))->update(array('actifMemo' => 1));
+        if(Input::get('puzzle') != 0)
         ConfigJeu::where('referent_id', '=', Auth::user()->id)->find(Input::get('puzzle'))->update(array('actifPuzzle' => 1));
+        
+        Session::flash('message', 'Vous avez modifié les listes associées aux jeux avec succès.');
         return redirect()->back();
     }
     
@@ -126,7 +130,8 @@ class ReferentController extends Controller {
         //todo verifier user
         $cj = ConfigJeu::find($id);
         $cj->oeuvres()->attach(Input::get('toadd'));
-        
+            
+        Session::flash('message', 'Vous avez ajouter des oeuvres dans votre liste.');
         return redirect()->back();
     }
     
@@ -137,6 +142,7 @@ class ReferentController extends Controller {
         if(count(Input::get('todel')) >= 1)
             $cj->oeuvres()->detach(Input::get('todel'));
         
+        Session::flash('erreur', 'Vous avez supprimer des oeuvres de votre liste.');
         return redirect()->back();
     }
     

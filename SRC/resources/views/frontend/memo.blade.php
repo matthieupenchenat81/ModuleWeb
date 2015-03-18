@@ -2,6 +2,7 @@
 
 @section('page-css')
 <link rel="stylesheet" href="/css/memory.css">
+<link rel="stylesheet" href="/css/fonts/style.css" type="text/css">
 <style>
     .mg__tile--inside {
         background-size: cover;
@@ -15,7 +16,10 @@
 @endsection
 
 @section('page-scripts')
+<script src="/js/firework.js"></script>
+<script src="{{ URL::to('js/responsivevoice.js') }}"></script>
 <script src="/js/memory.js"></script>
+
 <script>
 
     var cards2 = [];
@@ -36,4 +40,5 @@
 
 
 </script>
+
 @endsection

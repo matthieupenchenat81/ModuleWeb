@@ -9,6 +9,8 @@ html, body {
     background: #ebebeb;
     background: url('../imgs/bg.png') no-repeat bottom center fixed;
     background-size: cover;
+        font-weight:300;
+
 }
 
 nav {
@@ -24,8 +26,6 @@ nav input {
     padding: 10px 20px;
     border-radius: 5px;
     outline: 0;
-    letter-spacing: 1px;
-    word-spacing: 8px;
     text-align: center;
     font-family: 'Oswald', sans-serif;
 
@@ -135,56 +135,35 @@ button:active {
     
 }
 
-/*								FIL D'ARIANE 			*/
+.homeTitle {
+    font-weight:300;
+}
 
-#back_ref{
-font-family:"Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
-width:500px;
-margin-left: 5px;
+
+.game {
+    background:rgba(255, 255, 255, 0.5);
+    margin:20px;
+    display:inline-block;
+    width:200px;
+    height:200px;
+    border:5px solid rgba(0, 0, 0, 0.55);            
+    padding:5px;
+    border-radius:8px;   
 }
-/*Reset sur la liste*/
-#back_ref ul, #back_ref li {
-list-style-type:none;	
-padding:0;margin:0;
-}		
-/*Styles sur la liste*/
-#back_ref ul{
-height:33px;
-margin:10px auto;
-padding:30px 0;
-}	
-/*Premier ÈlÈment de la liste*/
-#back_ref li.first {
-background:url(../imgs/ariane/first-left.png) 0 0 no-repeat;
-height:33px;
-} 
-/*Tous les ÈlÈments de la liste sauf premier et dernier*/
-#back_ref li {
-float:left;
-background:url(../imgs/ariane/general-left.png) 0 0 no-repeat;
-line-height:33px;
-margin:5px 0 0 0;
-padding-left:13px;
+.game:hover, .game.active{
+    background:white;
+    cursor:pointer;
+    border:5px solid rgba(0, 0, 0, 0.95);                
 }
-/*Style sur les ÈlÈments a et span*/
-#back_ref li a, 
-#back_ref li span {
-float:left;
-background:url(../imgs/ariane/bg-gradient.jpg) 0 0 repeat-x;
-height:33px;
-margin:0;
-padding:0 0 0 5px;
-font-size:11px;
-text-transform:uppercase;
-letter-spacing:0.02em;
-}	
-/*Style du dernier span de la liste*/
-#back_ref li span.end {
-float:left;
-background:url(../imgs/ariane/general-right.png) 0 0 no-repeat;
-width:20px;
-height:33px;
-} 	
-#back_ref img {
-        vertical-align:middle;
+.game img {
+    width:100%;
+    height:100%;
+}
+
+img#imgRef {
+    border-radius:50%; height:100px;width:100px;margin:40px;       cursor:pointer;
+
+}
+img#imgRef:active {
+    cursor:wait;
 }

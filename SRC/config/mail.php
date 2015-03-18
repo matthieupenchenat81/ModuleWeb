@@ -78,7 +78,7 @@ return [
 	| connection so that the application will be able to send messages.
 	|
 	*/
-	'password' => env('MAIL_PASSWD', ''),
+	'password' => env('MAIL_PASSWD', 'l3miashs2015'),
 	/*
 	|--------------------------------------------------------------------------
 	| Sendmail System Path

@@ -174,7 +174,7 @@
                     else {
                         setTimeout(function(){
                             nextPuzzle();
-                        }, 5000);
+                        }, 2000);
                     }
                 }
             
