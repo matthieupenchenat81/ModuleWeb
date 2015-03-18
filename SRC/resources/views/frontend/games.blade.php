@@ -18,6 +18,7 @@
     var redirect;
     document.getElementById('imgRef').addEventListener("mousedown", function() {
         redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
+        return false;
         
     });
     
