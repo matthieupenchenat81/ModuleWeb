@@ -4,12 +4,6 @@ var bangs=5; // how many can be launched simultaneously (note that using too man
 var colours=new Array("#03f", "#f03", "#0e0", "#93f", "#0cf", "#f93", "#f0c");
 //                     blue    red     green   purple  cyan    orange  pink
 
-/****************************
-*      Fireworks Effect     *
-*(c)2004-14 mf2fm web-design*
-*  http://www.mf2fm.com/rv  *
-* DON'T EDIT BELOW THIS BOX *
-****************************/
 var bangheight=new Array();
 var intensity=new Array();
 var colour=new Array();
@@ -23,16 +17,19 @@ var swide=800;
 var shigh=600;
 var boddie;
 
+function firework(){
 if (typeof('addRVLoadEvent')!='function') function addRVLoadEvent(funky) {
-  var oldonload=window.onload;
+  /*var oldonload=window.onload;
   if (typeof(oldonload)!='function') window.onload=funky;
   else window.onload=function() {
-    if (oldonload) oldonload();
+    if (oldonload) oldonload();*/
     funky();
-  }
+//  }
 }
 
 addRVLoadEvent(light_blue_touchpaper);
+
+}
 
 function light_blue_touchpaper() { if (document.getElementById) {
   var i;
