@@ -370,7 +370,8 @@ Memory.prototype._winGame = function() {
       //var texteADire =  "Bravo, tu as gagné en "+this.numMoves+" coups ! ";
       //responsiveVoice.speak(texteADire, "French Female");
             var audio = new Audio();
-            var texte = "http://translate.google.com/translate_tts?ie=utf-8&tl=fr&q=Bravo%20tu%20as%20gagn%C3%A9%20en%20"+this.numMoves+"%20coups%20";
+
+            var texte = "https://translate.google.com/translate_tts?ie=UTF-8&q=bravo%20tu%20as%20gagn%C3%A9%20en%20"+this.numMoves+"%20coups&tl=fr";
       audio.src =texte;
       audio.play();
     this.game.appendChild(this.gameMessages);
