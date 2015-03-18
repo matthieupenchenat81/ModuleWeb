@@ -16,8 +16,10 @@
 @section('page-scripts')
 <script>
     var redirect;
-    document.getElementById('imgRef').addEventListener("mousedown", function(event) {
-        event.preventDefault();
+    document.getElementById('imgRef').addEventListener("click", function() {
+        return false;
+    });
+    document.getElementById('imgRef').addEventListener("mousedown", function() {
         redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
         return false;
         
