@@ -16,10 +16,22 @@
 @section('page-scripts')
 <script>
     var redirect;
-    document.getElementById('imgRef').addEventListener("click", function() {
+    
+    function absorbEvent_(event) {
+        var e = event || window.event;
+        e.preventDefault && e.preventDefault();
+        e.stopPropagation && e.stopPropagation();
+        e.cancelBubble = true;
+        e.returnValue = false;
+        return false;
+    }
+    
+    document.getElementById('imgRef').addEventListener("click", function(event) {
+        absorbEvent_(event);
         return false;
     });
-    document.getElementById('imgRef').addEventListener("mousedown", function() {
+    document.getElementById('imgRef').addEventListener("mousedown", function(event) {
+        absorbEvent_(event);
         redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
         return false;
         
@@ -30,7 +42,8 @@
     });
     
     
-    document.getElementById('imgRef').addEventListener("touchstart", function() {
+    document.getElementById('imgRef').addEventListener("touchstart", function(event) {
+        absorbEvent_(event);
         redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
         return false;
     });    
