@@ -52,7 +52,7 @@ class LoginController extends Controller {
                 {
                         return redirect()->intended('referent');
                 }
-                return redirect('login')->withErrors(['erreur' => 'Mail ou mot de passe incorrect!',]);
+                return redirect('login')->withErrors(['erreur' => 'Vos identifiants sont incorrects.',]);
             }
             else
             {
@@ -78,9 +78,9 @@ class LoginController extends Controller {
     	switch ($response = Password:: sendResetLink(Input::only('email')))
     	{
     		case Password::INVALID_USER:
-    			return redirect('forgotten')->withErrors("Mail Invalide !")->withInput();
+    			return redirect('forgotten')->withErrors("L'adresse email saisie est incorrecte.")->withInput();
     		default :
-    			return redirect('forgotten')->withStatus("Mail de réinitialisation envoyée !")->withInput();
+    			return redirect('forgotten')->withStatus("Un email vous a été envoyé à votre adresse mail. Il peut se retrouver dans la boite Spam.")->withInput();
     	}
     }
 
@@ -107,7 +107,7 @@ class LoginController extends Controller {
 		  case Password::INVALID_USER:
 		    return Redirect::back()->withErrors("Utilsateur invalide")->withInput();
 		  default :
-		    return Redirect::to('/login')->withStatus("Mot de passe réinitialisaté avec succès !");
+		    return Redirect::to('/login')->withStatus("Votre mot de passe réinitialisé avec succès !");
 		}
     }
 

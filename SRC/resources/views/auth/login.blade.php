@@ -13,28 +13,26 @@
 						</div>
 					@endif
 					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Oouups!</strong> Il y a un problème avec votre saisie.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger">
+                                    {{ $error }}
+                            </div>
+                        @endforeach
+
 					@endif
 					
 					<form class="form-horizontal" role="form" method="POST" action="login">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Adresse mail</label>
+							<label class="col-md-4 control-label">Adresse email :</label>
 							<div class="col-md-6">
 								<input type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Mot de passe</label>
+							<label class="col-md-4 control-label">Mot de passe :</label>
 							<div class="col-md-6">
 								<input type="password" class="form-control" name="password" required>
 							</div>

@@ -404,6 +404,8 @@ left: 56.3333%%;
 .mg__tile--outside {
   background-color: #dcdee1;
   box-shadow: 0 0 0 1px #787a80;
+    background-size: cover;
+    background-position: center center;
 }
 
 .mg__tile--inside {
@@ -457,6 +459,9 @@ left: 56.3333%%;
  *
  * A simple helper class for game buttons. Edit at your will.
  */
+.mg__button span {
+    vertical-align:middle;   
+}
 .mg__button {
   margin: 0;
   display: inline-block;
@@ -464,6 +469,8 @@ left: 56.3333%%;
   color: #fff;
   font-family: "Roboto Slab", serif;
   font-size: 14px;
+       line-height:18px;
+
   appearance: none;
   background: #ff3c50;
   border: none;

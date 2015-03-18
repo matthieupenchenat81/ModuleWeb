@@ -1,6 +1,7 @@
 @extends('frontend/template')
 
 @section('content')
+    <script src="/js/firework.js"></script>
 	<script src="{{ URL::to('js/phaser.min.js') }}"></script>
 	<script src="{{ URL::to('js/responsivevoice.js') }}"></script>
     <script type="text/javascript">
@@ -152,6 +153,7 @@
                     pieces.forEach(function(item){item.input.draggable = false;});
                     if(nbToPlay == currentPlayed)
                     {
+                        firework();
                         leftEmitter = game.add.emitter(50, 50);
                         leftEmitter.bounce.setTo(0.5, 0.5);
                         leftEmitter.setXSpeed(100, 200);
