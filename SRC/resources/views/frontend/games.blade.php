@@ -23,15 +23,21 @@
         redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
         return false;
         
-    });
-    
+    });   
     document.getElementById('imgRef').addEventListener("mouseup", function() {
         clearTimeout(redirect);
         return false;
     });
     
     
-    
-    
+    document.getElementById('imgRef').addEventListener("touchstart", function() {
+        redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
+        return false;
+    });    
+
+    document.getElementById('imgRef').addEventListener("touchend", function() {
+        clearTimeout(redirect);
+        return false;
+    });   
 </script>
 @endsection
