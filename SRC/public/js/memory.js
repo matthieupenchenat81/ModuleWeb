@@ -34,7 +34,7 @@
 
   function Memory( options, level, nbcase ) {
     //console.log(nbcase);
-    console.log("bob");
+    //console.log("bob");
     this.options = extend( {}, this.options );
     extend( this.options, options );
     this._init(level, nbcase);
