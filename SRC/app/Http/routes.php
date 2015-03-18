@@ -60,7 +60,7 @@ Route::group(['middleware' => 'ifReferent'], function ()
     Route::post('referent/changerparamliste', 'ReferentController@changerParamListe');
     Route::post('referent/changeParamListe/{id}', 'ReferentController@changeParamListe');
     Route::post('referent/update', 'ReferentController@update');
-    Route::get('logout', 'LoginController@logout');
+
 });
 
 // ADMIN PART
@@ -71,5 +71,6 @@ Route::group(['middleware' => 'ifAdmin'], function ()
 	Route::get('admin/deleteUser/{id}', 'AdminController@deleteUser');
 	Route::get('admin/updateUser/{id}', 'AdminController@updateUser');
 	Route::get('admin/logAs/{id}', 'AdminController@logAs');
-    Route::get('logout', 'LoginController@logout');
 });
+
+Route::get('logout', 'LoginController@logout');
