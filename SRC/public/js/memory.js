@@ -370,7 +370,7 @@ Memory.prototype._winGame = function() {
       //var texteADire =  "Bravo, tu as gagné en "+this.numMoves+" coups ! ";
       //responsiveVoice.speak(texteADire, "French Female");
             var audio = new Audio();
-      audio.src ='http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Hello%20World.';
+      audio.src ='http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=Hello%20World';
       audio.play();
     this.game.appendChild(this.gameMessages);
     document.getElementById("mg__onend--restart").addEventListener( "click", function(e) {
