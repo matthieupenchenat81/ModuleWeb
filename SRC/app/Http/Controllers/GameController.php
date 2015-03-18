@@ -32,13 +32,15 @@ class GameController extends Controller {
         $configjeu = Referent::find($idRef)->configjeu()->where('actifMemo', '=', '1')->first();
         if($configjeu && count($configjeu->oeuvres) >= 1) {
             $oes = $configjeu->oeuvres;
+						$params = json_decode($configjeu->parametres);
+						$bloc = $params->{"m".$niveau};
         } else {
             $oes = Oeuvre::orderByRaw("RAND()")->take(8)->get();
-						$niveau = 1;
+						if($niveau == 1) {$bloc = 2;} elseif($niveau == 2){$bloc = 3;} else {$bloc = 4;}
         }
-				$params = json_decode($configjeu->parametres);
 
-        return view('frontend/memo',  ['oeuvres' => $oes, 'niveau' => $niveau, 'nbBloc'=>$params->{"m".$niveau}]);
+
+        return view('frontend/memo',  ['oeuvres' => $oes, 'niveau' => $niveau, 'nbBloc'=>$bloc]);
     }
 
     public function chooseDifPuzzle() {
