@@ -79,7 +79,7 @@ class LoginController extends Controller {
     	{
     		case Password::INVALID_USER:
     			return redirect('forgotten')->withErrors("Mail Invalide !")->withInput();
-    		case Password::REMINDER_SENT:
+    		default :
     			return redirect('forgotten')->withStatus("Mail de réinitialisation envoyée !")->withInput();
     	}
     }

@@ -47,8 +47,8 @@ class ImageController extends Controller {
 
 			$r = $img->response('jpg');
 
-		    //Met en cache l'image avec son header pendant 2 semaine sur le serveur
-			Cache::add($key, $r, 10080*2	);
+		    //Met en cache l'image avec son header pendant 6 mois sur le serveur
+			Cache::add($key, $r, 241920);
 		}
 		return $r;
 	}
