@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Espace Référent | Les Jeux du Musée</title>
     <link rel="stylesheet" href="{{URL::to('css/bootstrap-sandstone.min.css')}}">
+    <link rel="icon" type="image/ico" href="{{ URL::to('imgs/favicon.ico') }}">
     @yield('page-css')
     <meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
