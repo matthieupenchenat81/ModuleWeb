@@ -259,7 +259,7 @@
       if (self.flippedTiles == self.numTiles) {
         self._winGame();
       }
-    }, 1500 );
+    }, 500 );
 
     // plus one on the move counter
     this._gameCounterPlusOne();
@@ -364,7 +364,6 @@ Memory.prototype._winGame = function() {
     firework();
 
     this.gameMessages.innerHTML = '<h2 class="mg__onend--heading"><span class="icon-trophy"></span></h2>\
-      <p class="mg__onend--message">Vous avez gagné votre partie en ' + this.numMoves + ' coups !</p>\
       <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';
 
       var audio = new Audio();

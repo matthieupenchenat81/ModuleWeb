@@ -1,7 +1,6 @@
 @extends('frontend/template')
 
 @section('content')
-    <script src="/js/firework.js"></script>
 	<script src="{{ URL::to('js/phaser.min.js') }}"></script>
 	<script src="{{ URL::to('js/responsivevoice.js') }}"></script>
     <script type="text/javascript">
@@ -19,6 +18,7 @@
         }
         function preload () {
             game.load.spritesheet('balls', '{{ URL::to('imgs/puzzle/balls.png') }}', 17, 17);
+            game.load.image('trophee', '{{ URL::to('imgs/trophees/or.png') }}');
 
             for(i=1; i<=selection.length; i++) {
                 game.load.spritesheet("tableau"+i, selection[i-1].src, selection[i-1].width/dimensions[0], selection[i-1].height/dimensions[1]);
@@ -153,15 +153,14 @@
                     pieces.forEach(function(item){item.input.draggable = false;});
                     if(nbToPlay == currentPlayed)
                     {
-                        firework();
                         leftEmitter = game.add.emitter(50, 50);
-                        leftEmitter.bounce.setTo(0.5, 0.5);
+                        leftEmitter.bounce.setTo(0.8, 0.8);
                         leftEmitter.setXSpeed(100, 200);
                         leftEmitter.setYSpeed(-50, 50);
                         leftEmitter.makeParticles('balls', 0, 10, 1, true);
 
                         rightEmitter = game.add.emitter(game.world.width - 50, 50);
-                        rightEmitter.bounce.setTo(0.5, 0.5);
+                        rightEmitter.bounce.setTo(0.8, 0.8);
                         rightEmitter.setXSpeed(-100, -200);
                         rightEmitter.setYSpeed(-50, 50);
                         rightEmitter.makeParticles('balls', 1, 10, 1, true);
@@ -169,14 +168,27 @@
                         // explode, lifespan, frequency, quantity
                         leftEmitter.start(false, 10000, 20);
                         rightEmitter.start(false, 10000, 20);
+                        
+                        pieces.forEach(function(item){game.add.tween(item).to( { alpha: 0 }, 1000).start();});
+
+                        var trophee = game.world.create(game.world.centerX,game.world.centerY, "trophee");
+                        trophee.anchor.setTo(0.5,0.5);
+                        trophee.width = 270;
+                        trophee.height = 270;
+                        trophee.alpha = 0;
+                        tween = game.add.tween(trophee).to( { alpha: 1 }, 1000).start();
                         setTimeout(function(){
-                            location.href = "{{URL::to('puzzle')}}";
-                        }, 5000);
+                            location.href = "{{URL::to('/')}}";
+                        }, 4000);
+                        
+                        //var t1 = game.world.create(game.world.centerX,game.world.centerY, "tableau1");
+                        //t1.anchor.setTo(0.5,0.5);
+                      
                     }
                     else {
                         setTimeout(function(){
                             nextPuzzle();
-                        }, 2000);
+                        }, 1000);
                     }
                 }
             

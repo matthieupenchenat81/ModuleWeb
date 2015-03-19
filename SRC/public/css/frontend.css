@@ -105,7 +105,7 @@ nav input {
 	height: 20px;
 }
 
-button {
+button.level {
     vertical-align:top;
     cursor: pointer;
     display: inline-block;
@@ -121,10 +121,10 @@ button {
     outline: 0;
     transition: all 0.2s;
 }
-button:hover {
+button.level:hover {
     border-bottom-width: 4px;
 }
-button:active {
+button.level:active {
     border-bottom-width: 2px;
 }
 
