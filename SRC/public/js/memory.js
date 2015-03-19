@@ -367,11 +367,8 @@ Memory.prototype._winGame = function() {
       <p class="mg__onend--message">Vous avez gagné votre partie en ' + this.numMoves + ' coups !</p>\
       <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';
 
-      //var texteADire =  "Bravo, tu as gagné en "+this.numMoves+" coups ! ";
-      //responsiveVoice.speak(texteADire, "French Female");
-            var audio = new Audio();
-
-            var texte = "https://translate.google.com/translate_tts?ie=UTF-8&q=bravo%20tu%20as%20gagn%C3%A9%20en%20"+this.numMoves+"%20coups&tl=fr";
+      var audio = new Audio();
+      var texte = "http://translate.google.com/translate_tts?ie=UTF-8&q=bravo%20tu%20as%20gagn%C3%A9%20en%20"+this.numMoves+"%20coups&tl=fr";
       audio.src =texte;
       audio.play();
     this.game.appendChild(this.gameMessages);

@@ -17,7 +17,6 @@
 
 @section('page-scripts')
 <script src="/js/firework.js"></script>
-<!-- <script src="{{ URL::to('js/responsivevoice.js') }}"></script> -->
 <script src="/js/memory.js"></script>
 
 <script>
