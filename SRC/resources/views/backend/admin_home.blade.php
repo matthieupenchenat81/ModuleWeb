@@ -22,42 +22,40 @@
   @endif
 </div></div>
 
-       <div class="panel panel-primary">
-                <div class="panel-heading">Panel Administrateur<a class="btn btn-danger btn-xs pull-right" href="{{ URL::to('logout') }}">Se déconnecter</a></div>
-
-                <div class="panel-body">
-    <button type="button" class="btn btn-primary addRef" data-toggle="modal" data-target="#myModal">Ajouter un référent</button>
-    <!--  class="table table-hover table-bordered" -->
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Nom</th>
-          <th>Prénom</th>
-          <th>Email</th>
-          <th>Etablissement</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-      @foreach ($users as $user)
-        <tr>
-          <td>{{$user->nom}}</td>
-          <td>{{$user->prenom}}</td>
-          <td>{{$user->email}}</td>
-          <td>{{$user->etablissement}}</td>
-          <td>
-              <div class="btn-group" role="group" aria-label="...">
-                  <a href="{{ URL::to('admin/logAs', $user->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-zoom-in"></span></a>
-                  <a href="{{ URL::to('admin/deleteUser', $user->id) }}" class="btn btn-danger confirm"><span class="glyphicon glyphicon-trash"></span></a>
-              </div>
-            </td>
-        </tr>
-      @endforeach
-      </tbody>
-    </table>
-  </div>
-
-
+    <div class="panel panel-primary">
+    	<div class="panel-heading">Panneau Administrateur<a class="btn btn-danger btn-xs pull-right" href="{{ URL::to('logout') }}">Se déconnecter</a></div>
+            <div class="panel-body">
+    			<button type="button" class="btn btn-primary addRef" data-toggle="modal" data-target="#myModal"> + Ajouter un référent</button>
+    			<!--  class="table table-hover table-bordered" -->
+    			<table class="table ">
+      				<thead>
+        				<tr>
+          					<th>Nom</th>
+          					<th>Prénom</th>
+          					<th>Email</th>
+          					<th>Etablissement</th>
+          					<th></th>
+        				</tr>
+      				</thead>
+     				 <tbody>
+      					@foreach ($users as $user)
+        					<tr>
+          						<td>{{$user->nom}}</td>
+          						<td>{{$user->prenom}}</td>
+          						<td>{{$user->email}}</td>
+          						<td>{{$user->etablissement}}</td>
+          						<td>
+              						<div class="btn-group" role="group" aria-label="...">
+                 						<a href="{{ URL::to('admin/logAs', $user->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-zoom-in"></span></a>
+                  						<a href="{{ URL::to('admin/deleteUser', $user->id) }}" class="btn btn-danger confirm"><span class="glyphicon glyphicon-trash"></span></a>
+             						</div>
+            					</td>
+        					</tr>
+      					@endforeach
+      				</tbody>
+    			</table>
+  			</div>
+  			
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -110,7 +108,7 @@
 @section('page-scripts')
 <script>
     $('.confirm').click(function(e) {
-        if (!confirm('Voulez-vous vraiment confirmer la supression ?')) e.preventDefault();
+        if (!confirm('Supprimer définitivement ce référent ?')) e.preventDefault();
     });
     
 </script>
