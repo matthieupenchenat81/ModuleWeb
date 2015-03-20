@@ -33,10 +33,10 @@
 <script>
     var redirect;
     var i = 3;
-    
+    var timer = null;
     function decompte() {	
     	//on affiche i secondes
-     	document.getElementById("decompte").innerHTML = i.toString()+" secondes"; 
+     	document.getElementById("decompte").innerHTML ="Redirection dans : "+i.toString()+" secondes"; 
      	if (i == 0) 
      	{
      		document.getElementById("decompte").innerHTML = "Redirection..."; // quand i atteint 0 on affiche redirection 
@@ -64,7 +64,7 @@
    
     document.getElementById('imgRef').addEventListener("mousedown", function(event) {
         absorbEvent_(event);
-        var timer = setInterval(function(){ decompte() } , 1000); //intervalle, decompte de 1 secondes
+        timer = setInterval(function(){ decompte() } , 1000); //intervalle, decompte de 1 secondes
         //redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
         return false;
         
@@ -72,6 +72,8 @@
     
     document.getElementById('imgRef').addEventListener("mouseup", function() {
         clearTimeout(redirect);
+        document.getElementById("decompte").innerHTML =""; //on efface le contenu
+        i = 3; //on reset le compteur
         clearInterval(timer); // on stop le decompte si on relache la souris
         return false;
     });
