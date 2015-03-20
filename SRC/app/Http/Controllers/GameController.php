@@ -97,8 +97,8 @@ class GameController extends Controller {
             default:
                 break;
         }
-       
-        Response::make('records')->withCookie(Cookie::forever('trophee', $values));
+
+        return Response::make('all good!')->withCookie(Cookie::forever('trophee', $values));
     }
 
 }
