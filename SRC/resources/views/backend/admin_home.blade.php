@@ -24,7 +24,7 @@
 
     <div class="panel panel-primary">
     	<div class="panel-heading">Panneau Administrateur<a class="btn btn-danger btn-xs pull-right" href="{{ URL::to('logout') }}">Se déconnecter</a></div>
-            <div class="panel-body">
+            <div class="panel-body table-responsive">
     			<button type="button" class="btn btn-primary addRef" data-toggle="modal" data-target="#myModal"> + Ajouter un référent</button>
     			<!--  class="table table-hover table-bordered" -->
     			<table class="table ">
