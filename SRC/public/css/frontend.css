@@ -69,6 +69,9 @@ nav input {
     border: 3px solid black;
 }
 
+.game.no-click {
+    cursor: default !important;
+}
 .text-center
 {
 	margin-top: 6%;

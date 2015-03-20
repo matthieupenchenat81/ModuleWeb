@@ -36,7 +36,7 @@
     var timer = null;
     function decompte() {	
     	//on affiche i secondes
-     	document.getElementById("decompte").innerHTML ="Redirection dans : "+i.toString()+" secondes"; 
+     	document.getElementById("decompte").innerHTML =+i.toString()+" secondes";
      	if (i == 0) 
      	{
      		document.getElementById("decompte").innerHTML = "Redirection..."; // quand i atteint 0 on affiche redirection 
