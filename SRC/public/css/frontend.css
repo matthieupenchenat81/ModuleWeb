@@ -4,13 +4,13 @@
     box-sizing: border-box;   
 }
 
-html, body {
+
+body {
     font-family: 'Oswald', sans-serif;
     background: #ebebeb;
     background: url('../imgs/bg.png') no-repeat bottom center fixed;
     background-size: cover;
-        font-weight:300;
-
+    font-weight:300;
 }
 
 nav {

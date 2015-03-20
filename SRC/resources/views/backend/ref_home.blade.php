@@ -22,7 +22,7 @@
             <form method="post" action="{{ URL::to('referent/ajouterliste') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
-                    <label for="nomListe">Nouvelle liste</label>
+                    <label for="nomListe">Nouvelle liste :</label>
                     <div class="input-group">
                         <input type="text" id="nomListe" name="nomListe" class="form-control" placeholder="Nom de la liste">
                         <span class="input-group-btn">
@@ -88,7 +88,7 @@
                     @if(count($mesoeuvres->oeuvres) == 0)
 
 
-                        <h3>Aucune oeuvre dans la liste.</h3>
+                        <h5>Aucune oeuvre dans la liste.</h5>
                     @else
                                         <form method="post" action="{{ URL::to('referent/modifierliste/supprimer', $mesoeuvres->id) }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -293,7 +293,8 @@ $('#imagesSearched').on('click', '.pagination a', function (event) {
 $('#recherche select').multiselect({
     enableFiltering: true,
     buttonWidth: '100%',
-    maxHeight: 200
+    maxHeight: 200,
+    enableCaseInsensitiveFiltering: true
 });
 
 $("#recherche").on('submit', function(event){
