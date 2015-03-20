@@ -6,10 +6,10 @@ import re
 import httplib
 
 def exists(site, path):
-	conn = httplib.HTTPConnection(site)
-	conn.request('HEAD', path)
+	c = httplib.HTTPConnection(site)
+	c.request('HEAD', path)
 	response = conn.getresponse()
-	conn.close()
+	c.close()
 	return response.status == 200
 
 def insert (cur, table, dict) :
@@ -108,7 +108,7 @@ try :
 				image = child.text.encode('utf-8')
 		
 		# On s'interesee qu'aux oeuvres ayant une image
-		if image != "NULL" and exists('http://www.augustins.org','/documents/10180/156407/'): 
+		if image != "NULL" and exists('http://www.augustins.org:80','/documents/10180/156407/'+image): 
 			if str(datation)+str(datation2) in listeDatation :
 				iddatation = listeDatation[str(datation)+str(datation2)]
 			else :
