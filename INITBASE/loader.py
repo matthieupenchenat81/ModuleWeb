@@ -4,6 +4,7 @@ import MySQLdb as mdb
 import sys
 import re
 import httplib
+import sys
 
 def exists(site, path):
 	c = httplib.HTTPConnection(site)
@@ -50,7 +51,7 @@ try :
 
 	# Pour chaque oeuvre
 	for o in root.iter('oeuvre'):
-		print(".",end=" ")
+		sys.stdout.write('.')
 		idtechnique = "NULL"
 		idmatiere = "NULL"
 		iddomaine= "NULL"
