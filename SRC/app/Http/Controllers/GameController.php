@@ -75,23 +75,24 @@ class GameController extends Controller {
 
     public function setRecords($idTrophee) {
 
-        $values = Cookie::get('trophee');
+        $cookie = Cookie::get('trophee');
+        $values = json_decode($cookie);
         
-        if ($values === false)
+        if (!is_array($values))
             $values = [0, 0, 0];
 
         switch ($idTrophee) {
             
             case '1':
-                $values[0] = intval($values[0]) + 1;
+                $values[0] += 1;
                 break;
                         
             case '2':
-                $values[1] = intval($values[1]) + 1;
+                $values[1] += 1;
                 break;
 
             case '3':
-                $values[2] = intval($values[2]) + 1;;
+                $values[2] += 1;
                 break;
             
             default:
