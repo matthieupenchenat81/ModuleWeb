@@ -44,6 +44,7 @@ try :
 	cur.execute("TRUNCATE table domaines")
 	cur.execute("TRUNCATE table datations")
 	cur.execute("TRUNCATE table oeuvres")
+	cur.execute("TRUNCATE table referents")
 
 	# On parcourt le fichier xml
 	tree = ET.parse('inventaire.xml')
@@ -199,6 +200,10 @@ try :
 
 			idoeuvre = insert(cur,"oeuvres",datas)
 			i+=1
+	
+	#On Cree utilisateur decouvrir le muse
+	datas = { "id" : "1", "nom": "Découverte" }
+	insert(cur,"referents",datas)
 	con.commit()
 
 except mdb.Error, e:
