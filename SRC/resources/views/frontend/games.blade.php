@@ -4,7 +4,10 @@
 @section('content')
     <div style="text-align:center">
         
-        <div id="imgRef" style="background-image:url('{{ $ref -> image }}');"><span id="decompte"></span></div><br>
+        <div id="imgRef" style="background-image:url('{{ $ref -> image }}');">
+        	<span id="decompte"></span>
+        </div>
+        <br>
         
         
         <div class="game" onclick="location.href='{{ URL::to('memo') }}'"><img src="imgs/memo/memo2.png"></div>
@@ -45,6 +48,10 @@
     });
     document.getElementById('imgRef').addEventListener("mousedown", function(event) {
         absorbEvent_(event);
+         setTimeout(function(){ document.getElementById("decompte").innerHTML = "3 secondes" }, 0000);
+        setTimeout(function(){ document.getElementById("decompte").innerHTML = "2 secondes" }, 1000);
+        setTimeout(function(){ document.getElementById("decompte").innerHTML = "1 secondes" }, 2000);
+        setTimeout(function(){ document.getElementById("decompte").innerHTML = "Redirection..." }, 3000);
         redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
         return false;
         
@@ -59,16 +66,7 @@
         absorbEvent_(event);
         redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
         return false;
-    });
-    
-    document.getElementById("decompte").addEventListener("touchstart", function(event) {
-        absorbEvent_(event);
-        setTimeout(function(){ self.value="3 seconds" }, 3000);
-        setTimeout(function(){ value="2 seconds" }, 2000);
-        setTimeout(function(){ value="1 seconds" }, 1000);
-        setTimeout(function(){ value="Redirection..." }, 0000);
-        return false;
-    });    
+    });   
 
     document.getElementById('imgRef').addEventListener("touchend", function() {
         clearTimeout(redirect);
