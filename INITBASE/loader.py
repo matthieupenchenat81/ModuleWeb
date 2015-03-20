@@ -198,7 +198,7 @@ try :
 					del datas[key]
 
 			idoeuvre = insert(cur,"oeuvres",datas)
-			i++
+			i+=1
 	con.commit()
 
 except mdb.Error, e:
