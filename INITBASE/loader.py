@@ -3,7 +3,14 @@ import xml.etree.ElementTree as ET
 import MySQLdb as mdb
 import sys
 import re
-import os
+import httplib
+
+def exists(site, path):
+	conn = httplib.HTTPConnection(site)
+	conn.request('HEAD', path)
+	response = conn.getresponse()
+	conn.close()
+	return response.status == 200
 
 def insert (cur, table, dict) :
 	keys = ""
@@ -101,8 +108,7 @@ try :
 				image = child.text.encode('utf-8')
 		
 		# On s'interesee qu'aux oeuvres ayant une image
-		response = os.system("ping -c 1 " + "http://www.augustins.org/documents/10180/156407/"+image) 
-		if image != "NULL" and response == 0 : 
+		if image != "NULL" and exists('http://www.augustins.org','/documents/10180/156407/'): 
 			if str(datation)+str(datation2) in listeDatation :
 				iddatation = listeDatation[str(datation)+str(datation2)]
 			else :
