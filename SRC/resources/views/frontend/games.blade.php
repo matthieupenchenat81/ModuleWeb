@@ -81,12 +81,16 @@
     
     document.getElementById('imgRef').addEventListener("touchstart", function(event) {
         absorbEvent_(event);
+        timer = setInterval(function(){ decompte() } , 1000); //intervalle, decompte de 1 secondes
         //redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
         return false;
     });   
 
     document.getElementById('imgRef').addEventListener("touchend", function() {
         clearTimeout(redirect);
+        document.getElementById("decompte").innerHTML =""; //on efface le contenu
+        i = 3; //on reset le compteur
+        clearInterval(timer); // on stop le decompte si on relache la souris
         return false;
     });   
 </script>

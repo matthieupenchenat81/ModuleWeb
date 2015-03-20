@@ -1,7 +1,6 @@
 @extends('frontend/template')
 
 @section('content')
-
 <div class="abso referents">
 	<div class="game active"
          onclick='location.href = "{{ URL::to('puzzle') }}";'
