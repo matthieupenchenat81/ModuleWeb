@@ -204,8 +204,8 @@ try :
 			idoeuvre = insert(cur,"oeuvres",datas)
 			i+=1
 	
-	#On Cree utilisateur decouvrir le muse
-	datas = { "id" : "1", "nom": "Découverte", "image" : "1.png" }
+	#On Cree utilisateur decouvrir le musee
+	datas = { "id" : "1", "nom": "Découverte", "image" : "imgs/avatar/1.png" }
 	insert(cur,"referents",datas)
 	con.commit()
 
