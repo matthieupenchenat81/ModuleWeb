@@ -5,7 +5,7 @@
 <div class="abso referents">
 <div class="game active"
          onclick='location.href = "{{ URL::to('puzzle') }}";'
-         style="background:url('{{ URL::to('imgs/puzzle/puzzle.png') }}'); background-repeat:no-repeat; background-size: contain; border: none;">
+         style="background:url('{{ URL::to('imgs/puzzle/puzzle.png') }}'); background-repeat:no-repeat; background-size: contain; border: none; margin-top: 10%;">
     </div>
 <br>
     <button class="level" onclick="location.href='{{ URL::to('puzzle/jouer/1') }}'">
