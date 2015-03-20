@@ -180,10 +180,9 @@
                         setTimeout(function(){
                             location.href = "{{URL::to('/')}}";
                         }, 4000);
-                        
+                        // TODO appel ajax
                         //var t1 = game.world.create(game.world.centerX,game.world.centerY, "tableau1");
                         //t1.anchor.setTo(0.5,0.5);
-                      
                     }
                     else {
                         setTimeout(function(){

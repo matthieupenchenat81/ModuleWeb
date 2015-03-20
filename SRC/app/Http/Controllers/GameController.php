@@ -51,6 +51,7 @@ class GameController extends Controller {
 
         $idRef = Cookie::get('referent');
         $ref = Referent::find($idRef);
+
         $configjeu = $ref->configjeu()->where('actifPuzzle', '=', '1')->first();
 
         if($configjeu && count($configjeu->oeuvres) >= 1) {

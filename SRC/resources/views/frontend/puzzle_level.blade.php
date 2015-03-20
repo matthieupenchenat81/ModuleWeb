@@ -17,7 +17,7 @@
 <button class="level" onclick="location.href='{{ URL::to('puzzle/jouer/3') }}'"><span style="color:gold;"><span class="icon-star-full"></span><span class="icon-star-full"></span><span class="icon-star-full"></span></span></button>
 </div>
 
-<div style="position: relative; left: 0; bottom:-10%; padding-left:1%; ">
+<div style="position: absolute; left: 10px; top: 10px;">
     <a href="/"><img style="height: 80px;" src="{{ URL::to('imgs/previouspage.png') }}"></a>
 </div>
 
