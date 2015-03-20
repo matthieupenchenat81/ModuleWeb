@@ -32,14 +32,15 @@
 @section('page-scripts')
 <script>
     var redirect;
+    var i = 3;
     
-    function decompte(i) {
+    function decompte() {	
     	//on affiche i secondes
-     	document.getElementById("decompte").innerHTML = i+" secondes"; 
+     	document.getElementById("decompte").innerHTML = i.toString()+" secondes"; 
      	if (i == 0) {
      	 document.getElementById("decompte").innerHTML = "Redirection...";
      	 } // quand i atteint 0 on affiche redirection 
-     	i -= 1; //on decremente  
+     	i = i - 1; //on decremente  
    	}
     
     function absorbEvent_(event) {
@@ -60,7 +61,7 @@
    
     document.getElementById('imgRef').addEventListener("mousedown", function(event) {
         absorbEvent_(event);
-        var timer = setInterval("decompte()", 1000, 3); //intervalle, decompte de 1 secondes et indices 3 passé en parametres pour decompte
+        var timer = setInterval(function(){ decompte() } , 1000); //intervalle, decompte de 1 secondes
         redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
         return false;
         
@@ -68,7 +69,7 @@
     
     document.getElementById('imgRef').addEventListener("mouseup", function() {
         clearTimeout(redirect);
-        //clearInterval(timer); // on stop le decompte si on relache la souris
+        clearInterval(timer); // on stop le decompte si on relache la souris
         return false;
     });
     
