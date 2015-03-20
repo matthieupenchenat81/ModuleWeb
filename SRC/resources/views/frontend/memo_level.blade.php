@@ -5,8 +5,7 @@
 <div class="referents">
 <div class="referent game"
          onclick='location.href = "{{ URL::to('memo') }}";'
-         style="background:url('{{ URL::to('imgs/memo.jpg') }}'); width: 50%;">
-        <div class="infos">Mémo</div>
+         style="background:url('{{ URL::to('imgs/memo/memo2.png') }}');  background-repeat:no-repeat; background-size: contain; border: none; margin-top: 10%;">
     </div>
 
     <br>
