@@ -22,7 +22,7 @@ class HomeController extends Controller {
     
     public function index()
 	{
-        $values = Cookie::get('trophee');
+        $values = json_decode(Cookie::get('trophee'));
         print_r($values);
         if ($values === false)
             $values = [0, 0, 0];
