@@ -83,15 +83,15 @@ class GameController extends Controller {
         switch ($idTrophee) {
             
             case '1':
-                $values[0]++;
+                $values[0] = intval($values[0]) + 1;
                 break;
                         
             case '2':
-                $values[1]++;
+                $values[1] = intval($values[1]) + 1;
                 break;
 
             case '3':
-                $values[2]++;
+                $values[2] = intval($values[2]) + 1;;
                 break;
             
             default:
