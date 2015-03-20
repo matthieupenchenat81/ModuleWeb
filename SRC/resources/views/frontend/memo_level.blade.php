@@ -3,9 +3,7 @@
 @section('content')
 
 <div class="referents">
-	<div class="referent game"
-         onclick='location.href = "{{ URL::to('memo') }}";'
-         style="background:url('{{ URL::to('imgs/memo/memo2.png') }}');  background-repeat:no-repeat; background-size: contain; border: none; margin-top: 10%;">
+	<div class="game no-click" style="background:url('{{ URL::to('imgs/memo/memo2.png') }}');  background-repeat:no-repeat; background-size: contain; border: none; margin-top: 10%;">
     </div>
     <br>
     <button class="level" onclick="location.href='{{ URL::to('memo/jouer/1') }}'"><span style="color:gold;"><span class="icon-star-full"></span></span><span class="icon-star-full"></span><span class="icon-star-full"></span></button>

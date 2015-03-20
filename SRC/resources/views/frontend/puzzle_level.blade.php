@@ -1,9 +1,8 @@
 @extends('frontend/template')
 
 @section('content')
-<div class="abso referents">
-	<div class="game active"
-         onclick='location.href = "{{ URL::to('puzzle') }}";'
+<div class="referents">
+	<div class="game no-click"
          style="background:url('{{ URL::to('imgs/puzzle/puzzle.png') }}'); background-repeat:no-repeat; background-size: contain; border: none; margin-top: 10%;">
     </div>
 	<br>

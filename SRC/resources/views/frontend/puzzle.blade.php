@@ -1,16 +1,10 @@
 @extends('frontend/template')
 
 @section('content')
-
-<div style="position: relative; left: 0; bottom:40%; padding-left:1%; ">
-    <a href="/"><img style="height: 80px;" src="{{ URL::to('imgs/previouspage.png') }}"></a>
-</div>
 	<script src="{{ URL::to('js/phaser.min.js') }}"></script>
 	<script src="{{ URL::to('js/responsivevoice.js') }}"></script>
     <script type="text/javascript">
-		
-        document.body.innerHTML = "<h1 id='Chargement'> Chargement... </h1>" + document.body.innerHTML; //on affiche le chargement 
-        
+
         function getPieceWidth(w,h) {
             //if(h>w) {
                 return w * (y * ratioImage)/h;
@@ -22,12 +16,11 @@
             //} else return h * (x * ratioImage)/w;
         }
         function preload () {
-        	document.getElementById("Chargement").innerHTML = ""; //on efface 
             game.load.spritesheet('balls', '{{ URL::to('imgs/puzzle/balls.png') }}', 17, 17);
             game.load.image('trophy3', '{{ URL::to('imgs/trophees/or.png') }}');
             game.load.image('trophy2', '{{ URL::to('imgs/trophees/argent.png') }}');
             game.load.image('trophy1', '{{ URL::to('imgs/trophees/bronze.png') }}');
-
+            game.load.image('previous', '{{ URL::to('imgs/previouspage.png') }}');
             for(i=1; i<=selection.length; i++) {
                 game.load.spritesheet("tableau"+i, selection[i-1].src, selection[i-1].width/dimensions[0], selection[i-1].height/dimensions[1]);
             }
@@ -71,10 +64,15 @@
             dateDebut = new Date();
         }
         function create () {
+            var button = game.make.button(5, 5, 'previous', changePage, this, 2, 1, 0);
             game.physics.startSystem(Phaser.Physics.ARCADE);
             createPiecesFor(1);
         }
-        
+        function changePage() {
+
+            alert("Confirmer ?");
+
+        }
         function startDrag(elt) {
             elt.placed = false;
             elt.body.moves = false;
