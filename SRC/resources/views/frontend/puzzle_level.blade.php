@@ -5,10 +5,16 @@
 <div class="abso referents">
 <div class="game active"
          onclick='location.href = "{{ URL::to('puzzle') }}";'
-         style="background:url('{{ URL::to('imgs/puzzle/puzzle.png') }}'); width: 50%;">
+         style="background:url('{{ URL::to('imgs/puzzle/puzzle.png') }}'); background-repeat:no-repeat; background-size: contain; border: none;">
     </div>
 <br>
-    <button class="level" onclick="location.href='{{ URL::to('puzzle/jouer/1') }}'"><span style="color:gold;"><span class="icon-star-full"></span></span><span class="icon-star-full"></span><span class="icon-star-full"></span></button>
+    <button class="level" onclick="location.href='{{ URL::to('puzzle/jouer/1') }}'">
+    	<span style="color:gold;">
+    		<span class="icon-star-full"></span>
+    	</span>
+    	<span class="icon-star-full"></span>
+    	<span class="icon-star-full"></span>
+    </button>
     
 
     

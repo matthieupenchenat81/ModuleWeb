@@ -23,8 +23,6 @@
             <img style="height:100px; vertical-align:middle;width:100px" src="{{ URL::to('imgs/trophees/or.png') }}"><br>
             {{$nbOr}}
         </div>
-
-
     </div>
 @endsection
 
