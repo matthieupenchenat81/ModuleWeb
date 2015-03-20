@@ -1,6 +1,10 @@
 @extends('frontend/template')
 
 @section('content')
+
+<div style="position: relative; left: 0; bottom:40%; padding-left:1%; ">
+    <a href="/"><img style="height: 80px;" src="{{ URL::to('imgs/previouspage.png') }}"></a>
+</div>
 	<script src="{{ URL::to('js/phaser.min.js') }}"></script>
 	<script src="{{ URL::to('js/responsivevoice.js') }}"></script>
     <script type="text/javascript">
