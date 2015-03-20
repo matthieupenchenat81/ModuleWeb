@@ -179,10 +179,16 @@
                         trophee.height = 270;
                         trophee.alpha = 0;
                         tween = game.add.tween(trophee).to( { alpha: 1 }, 1000).start();
-                        setTimeout(function(){
-                            location.href ="{{URL::to('setRecords')}}" + "/" + trophy;
-                            location.href = "{{URL::to('puzzle/jouer')}}" + "/" + trophy;
-                        }, 5000);
+                        var r = new XMLHttpRequest();
+                        r.open("GET", "{{URL::to('setRecords')}}", true);
+                        r.onreadystatechange = function () {
+                          if (r.readyState != 4 || r.status != 200) return;
+                          setTimeout(function(){
+                              location.href = "{{URL::to('puzzle/jouer')}}" + "/" + trophy;
+                          }, 3000);
+                        };
+                        r.send();
+
                         // TODO appel ajax
                         //var t1 = game.world.create(game.world.centerX,game.world.centerY, "tableau1");
                         //t1.anchor.setTo(0.5,0.5);

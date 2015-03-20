@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-
+use Illuminate\Database\Eloquent\ModelNotFoundException as ModelNotFoundException;
 use Response;
 use App\Referent;
 use App\ConfigJeu;
