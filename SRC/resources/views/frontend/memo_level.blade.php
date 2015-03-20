@@ -20,7 +20,7 @@
 
 </div>
 
-<div style="position: absolute; left: 10px; top: 10px;">
+<div style="position: relative; left: 0; bottom:40%; padding-left:1%; ">
     <a href="/"><img style="height: 80px;" src="{{ URL::to('imgs/previouspage.png') }}"></a>
 </div>
 
