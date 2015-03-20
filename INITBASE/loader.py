@@ -50,7 +50,7 @@ try :
 
 	# Pour chaque oeuvre
 	for o in root.iter('oeuvre'):
-		print ".",
+		print(".",end=" ")
 		idtechnique = "NULL"
 		idmatiere = "NULL"
 		iddomaine= "NULL"
