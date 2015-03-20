@@ -18,7 +18,7 @@
             //} else return h * (x * ratioImage)/w;
         }
         function preload () {
-        	document.getElementById("Chargement").innerHTML = "";
+        	document.getElementById("Chargement").innerHTML = ""; //on efface 
             game.load.spritesheet('balls', '{{ URL::to('imgs/puzzle/balls.png') }}', 17, 17);
             game.load.image('trophy3', '{{ URL::to('imgs/trophees/or.png') }}');
             game.load.image('trophy2', '{{ URL::to('imgs/trophees/argent.png') }}');
@@ -30,7 +30,6 @@
         }
 
         function nextPuzzle() {
-        	
             currentPlayed++;
             pieces.destroy(true);
             createPiecesFor(currentPlayed);
