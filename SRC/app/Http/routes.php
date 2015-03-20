@@ -21,7 +21,7 @@ Route::get('api/searchOeuvres', 'APIController@searchOeuvres');
 //API FOR IMAGE RESIZE
 Route::get('/image/{size}/{url}', 'ImageController@getImage');
 
-Route::get('/setRecords/{idTrophee}','GameController@setRecords')
+Route::get('/setRecords/{idTrophee}','GameController@setRecords');
 
 
 // LOGIN RESET
