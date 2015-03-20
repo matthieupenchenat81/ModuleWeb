@@ -5,6 +5,7 @@
 	<script src="{{ URL::to('js/responsivevoice.js') }}"></script>
     <script type="text/javascript">
 		
+        document.body.innerHTML = "<h1 id='Chargement'> Chargement... </h1>" + document.body.innerHTML; //on affiche le chargement 
         
         function getPieceWidth(w,h) {
             //if(h>w) {
@@ -17,6 +18,7 @@
             //} else return h * (x * ratioImage)/w;
         }
         function preload () {
+        	document.getElementById("Chargement").innerHTML = "";
             game.load.spritesheet('balls', '{{ URL::to('imgs/puzzle/balls.png') }}', 17, 17);
             game.load.image('trophy3', '{{ URL::to('imgs/trophees/or.png') }}');
             game.load.image('trophy2', '{{ URL::to('imgs/trophees/argent.png') }}');
@@ -28,6 +30,7 @@
         }
 
         function nextPuzzle() {
+        	
             currentPlayed++;
             pieces.destroy(true);
             createPiecesFor(currentPlayed);
@@ -68,6 +71,7 @@
             game.physics.startSystem(Phaser.Physics.ARCADE);
             createPiecesFor(1);
         }
+        
         function startDrag(elt) {
             elt.placed = false;
             elt.body.moves = false;
