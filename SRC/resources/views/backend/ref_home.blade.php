@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="nomListe">Nouvelle liste :</label>
                     <div class="input-group">
-                        <input type="text" id="nomListe" name="nomListe" class="form-control" placeholder="Nom de la liste">
+                        <input type="text" id="nomListe" name="nomListe" required="required" class="form-control" placeholder="Nom de la liste">
                         <span class="input-group-btn">
                         <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-plus"></span></button>
                         </span>
