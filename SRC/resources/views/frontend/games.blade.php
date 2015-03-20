@@ -46,18 +46,26 @@
         absorbEvent_(event);
         return false;
     });
+    
+    function decompte(i) 
+    {
+     	document.getElementById("decompte").innerHTML = i+" secondes"; //on affiche i secondes
+     	if i == 0 
+     	{ document.getElementById("decompte").innerHTML = "Redirection...";} // quand i atteint 0 on affiche redirection 
+     	i -= 1; //on decremente  
+   	}
+   
     document.getElementById('imgRef').addEventListener("mousedown", function(event) {
         absorbEvent_(event);
-         setTimeout(function(){ document.getElementById("decompte").innerHTML = "3 secondes" }, 0000);
-        setTimeout(function(){ document.getElementById("decompte").innerHTML = "2 secondes" }, 1000);
-        setTimeout(function(){ document.getElementById("decompte").innerHTML = "1 secondes" }, 2000);
-        setTimeout(function(){ document.getElementById("decompte").innerHTML = "Redirection..." }, 3000);
+        
+        var timer = setInterval("decompte()", 1000, 3); //intervalle, decompte de 1 secondes et indices 3 passé en parametres pour decompte
         redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
         return false;
         
     });   
     document.getElementById('imgRef').addEventListener("mouseup", function() {
         clearTimeout(redirect);
+        //clearInterval(timer); // on stop le decompte si on relache la souris
         return false;
     });
     
