@@ -18,9 +18,9 @@
         }
         function preload () {
             game.load.spritesheet('balls', '{{ URL::to('imgs/puzzle/balls.png') }}', 17, 17);
-            game.load.image('trophee3', '{{ URL::to('imgs/trophees/or.png') }}');
-            game.load.image('trophee2', '{{ URL::to('imgs/trophees/argent.png') }}');
-            game.load.image('trophee1', '{{ URL::to('imgs/trophees/bronze.png') }}');
+            game.load.image('trophy3', '{{ URL::to('imgs/trophees/or.png') }}');
+            game.load.image('trophy2', '{{ URL::to('imgs/trophees/argent.png') }}');
+            game.load.image('trophy1', '{{ URL::to('imgs/trophees/bronze.png') }}');
 
             for(i=1; i<=selection.length; i++) {
                 game.load.spritesheet("tableau"+i, selection[i-1].src, selection[i-1].width/dimensions[0], selection[i-1].height/dimensions[1]);
@@ -173,15 +173,15 @@
                         
                         pieces.forEach(function(item){game.add.tween(item).to( { alpha: 0 }, 1000).start();});
 
-                        var trophee = game.world.create(game.world.centerX,game.world.centerY, "trophee");
+                        var trophee = game.world.create(game.world.centerX,game.world.centerY, ("trophy"+trophy));
                         trophee.anchor.setTo(0.5,0.5);
                         trophee.width = 270;
                         trophee.height = 270;
                         trophee.alpha = 0;
                         tween = game.add.tween(trophee).to( { alpha: 1 }, 1000).start();
                         setTimeout(function(){
-                            location.href = "{{URL::to('/')}}";
-                        }, 4000);
+                            location.href = "{{URL::to('puzzle/jouer')}}" + "/" + trophy;
+                        }, 5000);
                         // TODO appel ajax
                         //var t1 = game.world.create(game.world.centerX,game.world.centerY, "tableau1");
                         //t1.anchor.setTo(0.5,0.5);

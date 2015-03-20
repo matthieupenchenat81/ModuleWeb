@@ -10,13 +10,21 @@
         <div class="game" onclick="location.href='{{ URL::to('memo') }}'"><img src="imgs/memo/memo2.png"></div>
         <div class="game" onclick="location.href='{{ URL::to('puzzle') }}'"><img src="imgs/puzzle/puzzle.png"></div> 
             
-        
-        <div style="line-height:50px;"><img style="height:50px; vertical-align:middle;width:50px" src="{{ URL::to('imgs/trophees/or.png') }}"><span style="vertical-align:middle;font-size:20px">1</span>
+        <br>
+        <div style="display:inline-block;">
+            <img style="height:100px; vertical-align:middle;width:100px" src="{{ URL::to('imgs/trophees/bronze.png') }}"><br>
+            {{$nbBronze}}
+        </div>
+        <div style="display:inline-block;">
+            <img style="height:100px; vertical-align:middle;width:100px" src="{{ URL::to('imgs/trophees/argent.png') }}"><br>
+            {{$nbArgent}}
+        </div>
+        <div style="display:inline-block;">
+            <img style="height:100px; vertical-align:middle;width:100px" src="{{ URL::to('imgs/trophees/or.png') }}"><br>
+            {{$nbOr}}
+        </div>
 
-    <img style="height:50px; vertical-align:middle;width:50px" src="{{ URL::to('imgs/trophees/or.png') }}"><span style="vertical-align:middle;font-size:20px">2</span>
 
-    <img style="height:50px; vertical-align:middle;width:50px" src="{{ URL::to('imgs/trophees/or.png') }}"><span style="vertical-align:middle;font-size:20px">4</span>
-    </div>
     </div>
 @endsection
 
