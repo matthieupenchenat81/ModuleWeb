@@ -109,21 +109,21 @@
                 <form class="form-horizontal" method="post" action="{{URL::to('referent/changeParamListe', $mesoeuvres->id)}}">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                    <legend>Puzzle</legend>
+                    <legend>Puzzle</legend><p>2 images = 2 lignes / 2 colones</p>
                                 <div class="form-group">
-                                    <label for="p1" class="col-sm-4 control-label">Dimensions 1 étoile</label>
+                                    <label for="p1" class="col-sm-4 control-label">Images pour 1 étoile </label>
                                     <div class="col-sm-6">
                                         <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->p1}}" name="p1" id="p1" placeholder="2">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="p2" class="col-sm-4 control-label">Dimensions 2 étoiles</label>
+                                    <label for="p2" class="col-sm-4 control-label">Images pour 2 étoiles</label>
                                     <div class="col-sm-6">
                                         <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->p2}}" name="p2" id="p2" placeholder="3">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="p3" class="col-sm-4 control-label">Dimensions 3 étoiles</label>
+                                    <label for="p3" class="col-sm-4 control-label">Images pour 3 étoiles</label>
                                     <div class="col-sm-6">
                                         <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->p3}}" name="p3" id="p3" placeholder="4">
                                     </div>
