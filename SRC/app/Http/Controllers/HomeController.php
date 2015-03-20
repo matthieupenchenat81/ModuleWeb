@@ -32,7 +32,7 @@ class HomeController extends Controller {
 
 		$idRef = Cookie::get('referent');
         $ref = Referent::find($idRef);
-        return view('frontend/games', ['ref' => $ref], 'nbOr' => $nbOr, 'nbArgent' => $nbArgent, 'nbBronze' => $nbBronze);
+        return view('frontend/games', ['ref' => $ref, 'nbOr' => $nbOr, 'nbArgent' => $nbArgent, 'nbBronze' => $nbBronze]);
 	}
     
 	public function choisirRef()
