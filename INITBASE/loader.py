@@ -4,7 +4,7 @@ import MySQLdb as mdb
 import sys
 import re
 import httplib
-import sys
+
 
 def exists(site, path):
 	c = httplib.HTTPConnection(site)
@@ -48,10 +48,10 @@ try :
 	# On parcourt le fichier xml
 	tree = ET.parse('inventaire.xml')
 	root = tree.getroot()
-
+	i=0
 	# Pour chaque oeuvre
 	for o in root.iter('oeuvre'):
-		sys.stdout.write('.')
+		print(i)
 		idtechnique = "NULL"
 		idmatiere = "NULL"
 		iddomaine= "NULL"
@@ -198,6 +198,7 @@ try :
 					del datas[key]
 
 			idoeuvre = insert(cur,"oeuvres",datas)
+			i++
 	con.commit()
 
 except mdb.Error, e:
