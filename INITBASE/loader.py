@@ -45,6 +45,9 @@ try :
 	cur.execute("TRUNCATE table datations")
 	cur.execute("TRUNCATE table oeuvres")
 	cur.execute("TRUNCATE table referents")
+	cur.execute("TRUNCATE table config_jeus")
+	cur.execute("TRUNCATE table config_jeu_oeuvre")
+	cur.execute("TRUNCATE table password_resets")
 
 	# On parcourt le fichier xml
 	tree = ET.parse('inventaire.xml')
@@ -202,7 +205,7 @@ try :
 			i+=1
 	
 	#On Cree utilisateur decouvrir le muse
-	datas = { "id" : "1", "nom": "Découverte" }
+	datas = { "id" : "1", "nom": "Découverte", "image" : "1.png" }
 	insert(cur,"referents",datas)
 	con.commit()
 
