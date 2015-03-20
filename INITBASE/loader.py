@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 import MySQLdb as mdb
 import sys
 import re
-
+import os
 
 def insert (cur, table, dict) :
 	keys = ""
@@ -99,9 +99,10 @@ try :
 
 			elif child.tag == 'image' :
 				image = child.text.encode('utf-8')
-
+		
 		# On s'interesee qu'aux oeuvres ayant une image
-		if image != "NULL" : 
+		response = os.system("ping -c 1 " + "http://www.augustins.org/documents/10180/156407/"+image) 
+		if image != "NULL" and response == 0 : 
 			if str(datation)+str(datation2) in listeDatation :
 				iddatation = listeDatation[str(datation)+str(datation2)]
 			else :
