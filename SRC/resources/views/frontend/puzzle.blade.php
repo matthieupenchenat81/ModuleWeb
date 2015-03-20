@@ -180,7 +180,7 @@
                         trophee.alpha = 0;
                         tween = game.add.tween(trophee).to( { alpha: 1 }, 1000).start();
                         var r = new XMLHttpRequest();
-                        r.open("GET", "{{URL::to('setRecords')}}", true);
+                        r.open("GET", "{{URL::to('setRecords')}}" + "/" + trophy, true);
                         r.onreadystatechange = function () {
                           if (r.readyState != 4 || r.status != 200) return;
                           setTimeout(function(){
