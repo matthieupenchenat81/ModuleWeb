@@ -4,7 +4,7 @@
 @section('content')
     <div style="text-align:center">
         
-        <div id="imgRef" style="background-image:url('{{ $ref -> image }}');"></div><br>
+        <div id="imgRef" style="background-image:url('{{ $ref -> image }}');"><span id="decompte"></span></div><br>
         
         
         <div class="game" onclick="location.href='{{ URL::to('memo') }}'"><img src="imgs/memo/memo2.png"></div>
@@ -58,6 +58,15 @@
     document.getElementById('imgRef').addEventListener("touchstart", function(event) {
         absorbEvent_(event);
         redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
+        return false;
+    });
+    
+    document.getElementById("decompte").addEventListener("touchstart", function(event) {
+        absorbEvent_(event);
+        setTimeout(function(){ self.value="3 seconds" }, 3000);
+        setTimeout(function(){ value="2 seconds" }, 2000);
+        setTimeout(function(){ value="1 seconds" }, 1000);
+        setTimeout(function(){ value="Redirection..." }, 0000);
         return false;
     });    
 
