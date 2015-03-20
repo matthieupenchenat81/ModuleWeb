@@ -110,4 +110,31 @@ class GameController extends Controller {
         return view('one_referent_game', ['referent' => $id, 'game' => $idGame]);
     }
 
+    public function setRecords($idTrophee) {
+
+        $values = Cookie::get('trophee');
+        
+        if ($values === false)
+            $values = [0, 0, 0];
+
+        switch ($idTrophee) {
+            
+            case '1':
+                $values[0]++;
+                break;
+                        
+            case '2':
+                $values[1]++;
+                break;
+
+            case '3':
+                $values[2]++;
+                break;
+            
+            default:
+                break;
+        }
+        $response->withCookie(Cookie::forever('trophee', $values));
+    }
+
 }
