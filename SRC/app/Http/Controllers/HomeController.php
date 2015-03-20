@@ -23,7 +23,7 @@ class HomeController extends Controller {
     public function index()
 	{
         $values = json_decode(Cookie::get('trophee'));
-        if ($values === false)
+        if (!is_array($values))
             $values = [0, 0, 0];
 
         $nbOr = $values[2];
