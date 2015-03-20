@@ -180,6 +180,7 @@
                         trophee.alpha = 0;
                         tween = game.add.tween(trophee).to( { alpha: 1 }, 1000).start();
                         setTimeout(function(){
+                            location.href ="{{URL::to('setRecords')}}" + "/" + trophy;
                             location.href = "{{URL::to('puzzle/jouer')}}" + "/" + trophy;
                         }, 5000);
                         // TODO appel ajax
