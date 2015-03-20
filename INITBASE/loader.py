@@ -50,6 +50,7 @@ try :
 
 	# Pour chaque oeuvre
 	for o in root.iter('oeuvre'):
+		print "."
 		idtechnique = "NULL"
 		idmatiere = "NULL"
 		iddomaine= "NULL"
@@ -208,3 +209,4 @@ except mdb.Error, e:
 finally:       
     if con:    
         con.close()
+print "end"
