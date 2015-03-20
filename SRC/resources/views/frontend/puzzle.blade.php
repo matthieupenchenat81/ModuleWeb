@@ -18,7 +18,9 @@
         }
         function preload () {
             game.load.spritesheet('balls', '{{ URL::to('imgs/puzzle/balls.png') }}', 17, 17);
-            game.load.image('trophee', '{{ URL::to('imgs/trophees/or.png') }}');
+            game.load.image('trophee3', '{{ URL::to('imgs/trophees/or.png') }}');
+            game.load.image('trophee2', '{{ URL::to('imgs/trophees/argent.png') }}');
+            game.load.image('trophee1', '{{ URL::to('imgs/trophees/bronze.png') }}');
 
             for(i=1; i<=selection.length; i++) {
                 game.load.spritesheet("tableau"+i, selection[i-1].src, selection[i-1].width/dimensions[0], selection[i-1].height/dimensions[1]);
@@ -213,7 +215,7 @@
             var ratioImage = 0.8;       
             var dimensions = [{{$dimension}}, {{$dimension}}];
             var nbToPlay = {{$nbTab}};
-
+            var trophy = {{ $niveau }};
             var images = [];
             @foreach ($oeuvres as $i => $oeuvre)
                 images.push("http://www.augustins.org/documents/10180/156407/{{ $oeuvre -> image}}");

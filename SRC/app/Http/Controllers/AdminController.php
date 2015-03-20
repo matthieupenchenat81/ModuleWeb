@@ -39,7 +39,6 @@ class AdminController extends Controller {
 	public function addUser()
 	{
 		$user = new Referent;
-
 		$user->nom = Input::get('nom');
 		$user->email = Input::get('email');
 		$user->etablissement = Input::get('etablissement');

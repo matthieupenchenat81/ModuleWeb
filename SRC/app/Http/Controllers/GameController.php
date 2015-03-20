@@ -5,6 +5,7 @@ use App\Referent;
 use App\ConfigJeu;
 use App\Oeuvre;
 use Cookie;
+
 class GameController extends Controller {
 
 	/**
@@ -23,8 +24,10 @@ class GameController extends Controller {
 	 * @return Response
 	 */
     public function chooseDifMemo() {
-        $nbOr = Cookie::get('referent');
-        return view('frontend/memo_level', ['nbOr' => $nbOr]);
+        return view('frontend/memo_level');
+    }
+    public function chooseDifPuzzle() {
+        return view('frontend/puzzle_level');
     }
 
     public function playMemo($niveau) {
@@ -43,71 +46,30 @@ class GameController extends Controller {
         return view('frontend/memo',  ['oeuvres' => $oes, 'niveau' => $niveau, 'nbBloc'=>$bloc]);
     }
 
-    public function chooseDifPuzzle() {
-        return view('frontend/puzzle_level');
-    }
 
     public function playPuzzle($niveau) {
+        try {
+            $idRef = Cookie::get('referent');
+            $ref = Referent::findOrFail($idRef);
+            $configjeu = $ref->configjeu()->where('actifPuzzle', '=', '1')->firstOrFail();
 
-        $idRef = Cookie::get('referent');
-        $ref = Referent::find($idRef);
-
-        $configjeu = $ref->configjeu()->where('actifPuzzle', '=', '1')->first();
-
-        if($configjeu && count($configjeu->oeuvres) >= 1) {
-            $oes = $configjeu->oeuvres;
-            $params = json_decode($configjeu->parametres);
-            $nbTab = $params->pt;
-            $dimension = $params->{ "p".$niveau};
-
-        } else {
-            $oes = Oeuvre::orderByRaw("RAND()")->take(5)->get();
+            if(count($configjeu->oeuvres->count()) >= 1) {
+                $oes = $configjeu->oeuvres()->select('image')->get();
+                $params = json_decode($configjeu->parametres);
+                $nbTab = $params->pt;
+                $dimension = $params->{"p" . $niveau};
+                if(!(isset($dimension) && is_numeric($dimension))) throw new ModelNotFoundException();
+            } else throw new ModelNotFoundException();
+        } catch(ModelNotFoundException $e) {
+            $oes = Oeuvre::orderByRaw("RAND()")->take(5)->select('image')->get();
             $nbTab = 3;
             $dimension = 2;
         }
-
-		return view('frontend/puzzle', ['oeuvres' => $oes, 'dimension' => $dimension, 'nbTab' => $nbTab]);
-
-    }
-	public function index()
-	{
-		$res = User::referents()->get();
-		return view('home',['referent' => $res]);
-	}
-
-	public function findReferents($reg) {
-
-		$res = User::referents()->name($reg)->get();
-		return Response::json($res->toArray());
-	}
-
-	/**
-     * Show referent games
-     *
-     * @param  String  $id
-     * @return Response
-     */
-    public function showReferentGames($id)
-    {
-    	$listeOeuvre = $ListeOeuvre = ListeOeuvre::ofUser($id)->activeListOeuvre()->first();
-    	if($listeOeuvre == '')
-    		$games = [];
-    	else
-    		$games = $listeOeuvre->jeux()->get();
-
-        return view('referent_games', ['games' => $games]);
+		return view('frontend/puzzle', ['oeuvres' => $oes, 'dimension' => $dimension, 'nbTab' => $nbTab, 'niveau' => $niveau]);
     }
 
-	/**
-     * Show one referent game
-     *
-     * @param  String  $id
-	 * @param  String  $idGame
-     * @return Response
-     */
-    public function showOneReferentGame($id, $idGame)
-    {
-        return view('one_referent_game', ['referent' => $id, 'game' => $idGame]);
+	public function index() {
+        $res = User::referents()->get();
+        return view('home', ['referent' => $res]);
     }
-
 }
