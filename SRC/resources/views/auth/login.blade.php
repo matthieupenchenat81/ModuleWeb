@@ -1,11 +1,12 @@
 @extends('backend/template')
 
 @section('content')
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-primary">
-				<div class="panel-heading">Login</div>
+				<div class="panel-heading">Login <a class="btn btn-warning btn-xs pull-right" href="{{ URL::to('choisirref') }}">Retour Acceuil</a> </div>
 				<div class="panel-body">
 					@if (session('status'))
 						<div class="alert alert-success">
