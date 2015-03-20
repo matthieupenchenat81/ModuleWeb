@@ -37,9 +37,12 @@
     function decompte() {	
     	//on affiche i secondes
      	document.getElementById("decompte").innerHTML = i.toString()+" secondes"; 
-     	if (i == 0) {
-     	 document.getElementById("decompte").innerHTML = "Redirection...";
-     	 } // quand i atteint 0 on affiche redirection 
+     	if (i == 0) 
+     	{
+     		document.getElementById("decompte").innerHTML = "Redirection..."; // quand i atteint 0 on affiche redirection 
+     		location.href="{{URL::to('choisirref')}}"; // on redirige
+     	 	clearInterval(timer); // on stop le timer 
+     	 } 
      	i = i - 1; //on decremente  
    	}
     
@@ -62,7 +65,7 @@
     document.getElementById('imgRef').addEventListener("mousedown", function(event) {
         absorbEvent_(event);
         var timer = setInterval(function(){ decompte() } , 1000); //intervalle, decompte de 1 secondes
-        redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
+        //redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
         return false;
         
     });   
@@ -76,7 +79,7 @@
     
     document.getElementById('imgRef').addEventListener("touchstart", function(event) {
         absorbEvent_(event);
-        redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
+        //redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
         return false;
     });   
 
