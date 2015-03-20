@@ -8,7 +8,7 @@ import httplib
 def exists(site, path):
 	c = httplib.HTTPConnection(site)
 	c.request('HEAD', path)
-	response = conn.getresponse()
+	response = c.getresponse()
 	c.close()
 	return response.status == 200
 
@@ -108,7 +108,7 @@ try :
 				image = child.text.encode('utf-8')
 		
 		# On s'interesee qu'aux oeuvres ayant une image
-		if image != "NULL" and exists('http://www.augustins.org:80','/documents/10180/156407/'+image): 
+		if image != "NULL" and exists('www.augustins.org','/documents/10180/156407/'+image): 
 			if str(datation)+str(datation2) in listeDatation :
 				iddatation = listeDatation[str(datation)+str(datation2)]
 			else :
