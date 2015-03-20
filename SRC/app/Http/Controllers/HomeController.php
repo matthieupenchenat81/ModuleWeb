@@ -22,9 +22,17 @@ class HomeController extends Controller {
     
     public function index()
 	{
+        $values = Cookie::get('trophee');
+        if ($values === false)
+            $values = [0, 0, 0];
+
+        $nbOr = $values[2];
+        $nbArgent = $values[1];
+        $nbBronze = $values[0];
+
 		$idRef = Cookie::get('referent');
         $ref = Referent::find($idRef);
-        return view('frontend/games', ['ref' => $ref]);
+        return view('frontend/games', ['ref' => $ref], 'nbOr' => $nbOr, 'nbArgent' => $nbArgent, 'nbBronze' => $nbBronze);
 	}
     
 	public function choisirRef()
