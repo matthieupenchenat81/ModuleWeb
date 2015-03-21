@@ -14,8 +14,8 @@
 
 </div>
 
-<div style="position:relative; left: 0; bottom: 400px; padding-left:1%;">
-    <a href="/"><img style="height: 80px;" src="{{ URL::to('imgs/previouspage.png') }}" /></a>
+<div style="position: fixed; left: 0;top:0;">
+    <a href="/"><img style="height: 50px; width:50px;" src="{{ URL::to('imgs/previouspage.png') }}"></a>
 </div>
 @endsection
 
