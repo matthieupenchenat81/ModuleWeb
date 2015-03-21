@@ -63,15 +63,32 @@
             }  
             dateDebut = new Date();
         }
+        function drawGrid() {
+            pieces.forEach(function(item){
+
+
+
+
+            });
+                var graphics = game.add.graphics(0, 0);
+                graphics.lineStyle(1, 0xff0000, 1);
+                graphics.moveTo(800, 0);
+                graphics.lineTo(100, 0);
+        }
         function create () {
-            var button = game.make.button(5, 5, 'previous', changePage, this, 2, 1, 0);
-            game.physics.startSystem(Phaser.Physics.ARCADE);
+            this.button3 = this.add.button(0, 0, 'previous', changePage);
+            this.button3.width = 50;
+            this.button3.height = 50;
+
+            this.physics.startSystem(Phaser.Physics.ARCADE);
             createPiecesFor(1);
         }
         function changePage() {
-
-            alert("Confirmer ?");
-
+            if (confirm('Quitter le jeu ?')) {
+                location.href = "{{URL::to('/')}}";
+            } else {
+                // Do nothing!
+            }
         }
         function startDrag(elt) {
             elt.placed = false;

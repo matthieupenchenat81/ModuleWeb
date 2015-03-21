@@ -4,8 +4,7 @@
 @section('content')
     <div style="text-align:center">
         
-        <div id="imgRef" style="background-image:url('{{ $ref -> image }}');">
-        	<span id="decompte"></span>
+        <div id="imgRef" style="background-image:url('{{ $ref -> image }}'); line-height:100px;font-weight:bold;">
         </div>
         <br>
         
@@ -31,21 +30,13 @@
 
 @section('page-scripts')
 <script>
-    var redirect;
-    var i = 3;
-    var timer = null;
-    function decompte() {	
-    	//on affiche i secondes
-     	document.getElementById("decompte").innerHTML =+i.toString()+" secondes";
-     	if (i == 0) 
-     	{
-     		document.getElementById("decompte").innerHTML = "Redirection..."; // quand i atteint 0 on affiche redirection 
-     		location.href="{{URL::to('choisirref')}}"; // on redirige
-     	 	clearInterval(timer); // on stop le timer 
-     	 } 
-     	i = i - 1; //on decremente  
-   	}
-    
+
+    var redirectTimer;
+
+
+    imgRef.innerHTML = '&nbsp;';
+
+
     function absorbEvent_(event) {
         var e = event || window.event;
         e.preventDefault && e.preventDefault();
@@ -54,46 +45,27 @@
         e.returnValue = false;
         return false;
     }
-    
-    document.getElementById('imgRef').addEventListener("click", function(event) {
-        absorbEvent_(event);
-        return false;
-    });
-    
-    
-   
-    document.getElementById('imgRef').addEventListener("mousedown", function(event) {
-        absorbEvent_(event);
-        timer = setInterval(function(){ decompte() } , 1000); //intervalle, decompte de 1 secondes
-        //redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
-        return false;
-        
-    });   
-    
-    document.getElementById('imgRef').addEventListener("mouseup", function() {
-        clearTimeout(redirect);
-        document.getElementById("decompte").innerHTML =""; //on efface le contenu
-        i = 3; //on reset le compteur
-        clearInterval(timer); // on stop le decompte si on relache la souris
-        return false;
-    });
-    
-    // Gestion du tactile, debut du toucher
-    document.getElementById('imgRef').addEventListener("touchstart", function(event) {
-        absorbEvent_(event);
-        timer = setInterval(function(){ decompte() } , 1000); //intervalle, decompte de 1 secondes
-        //redirect = setTimeout(function(){location.href="{{URL::to('choisirref')}}"}, 3000);
-        return false;
-    });   
 
-	// Gestion du tactile, fin du toucher
-    document.getElementById('imgRef').addEventListener("touchend", function() {
-        clearTimeout(redirect);
-        document.getElementById("decompte").innerHTML =""; //on efface le contenu
-        i = 3; //on reset le compteur
-        clearInterval(timer); // on stop le decompte si on relache la souris
-        return false;
-    });
+    function startCounter(event) {
+        absorbEvent_(event);
+        imgRef.innerHTML = 3;
+        redirectTimer = setInterval(counter, 1000);
+    }
+
+    function counter() {
+            imgRef.innerHTML--;
+            if(imgRef.innerHTML == 0) location.href="{{URL::to('choisirref')}}";
+    }
+
+    function endCounter(event) {
+        imgRef.innerHTML = '&nbsp;';
+        clearInterval(redirectTimer);
+    }
+
+    document.getElementById('imgRef').addEventListener("mousedown", startCounter);
+    document.getElementById('imgRef').addEventListener("touchstart", startCounter);
+    window.addEventListener("mouseup", endCounter);
+    window.addEventListener("touchend", endCounter);
        
 </script>
 @endsection
