@@ -172,7 +172,7 @@
     this.gameContents.innerHTML = this.tilesHTML;
     this.gameState = 2;
     this.options.onGameStart();
-    this._gamePlay();
+    this._gamePlay(this.level);
   }
 
   /**
@@ -183,11 +183,11 @@
    * class, and for each tile, we run the _gamePlayEvents function.
    */
 
-  Memory.prototype._gamePlay = function() {
+  Memory.prototype._gamePlay = function(levelNode) {
     var tiles = document.querySelectorAll(".mg__tile--inner");
     for (var i = 0, len = tiles.length; i < len; i++) {
       var tile = tiles[i];
-      this._gamePlayEvents(tile);
+      this._gamePlayEvents(tile,levelNode);
     };
   };
 
@@ -202,7 +202,7 @@
    * thus separated below.
    */
 
-  Memory.prototype._gamePlayEvents = function(tile) {
+  Memory.prototype._gamePlayEvents = function(tile,levelNode) {
     var self = this;
     tile.addEventListener( "click", function(e) {
       if (!this.classList.contains("flipped")) {
@@ -217,7 +217,7 @@
           self.card2id = this.getAttribute("data-id");
           self.card2flipped = true;
           if ( self.card1id == self.card2id ) {
-            self._gameCardsMatch();
+            self._gameCardsMatch(levelNode);
           } else {
             self._gameCardsMismatch();
           }
@@ -240,7 +240,7 @@
   "document"in self&&("classList"in document.createElement("_")?!function(){"use strict";var a=document.createElement("_");if(a.classList.add("c1","c2"),!a.classList.contains("c2")){var b=function(a){var b=DOMTokenList.prototype[a];DOMTokenList.prototype[a]=function(a){var c,d=arguments.length;for(c=0;d>c;c++)a=arguments[c],b.call(this,a)}};b("add"),b("remove")}if(a.classList.toggle("c3",!1),a.classList.contains("c3")){var c=DOMTokenList.prototype.toggle;DOMTokenList.prototype.toggle=function(a,b){return 1 in arguments&&!this.contains(a)==!b?b:c.call(this,a)}}a=null}():!function(a){"use strict";if("Element"in a){var b="classList",c="prototype",d=a.Element[c],e=Object,f=String[c].trim||function(){return this.replace(/^\s+|\s+$/g,"")},g=Array[c].indexOf||function(a){for(var b=0,c=this.length;c>b;b++)if(b in this&&this[b]===a)return b;return-1},h=function(a,b){this.name=a,this.code=DOMException[a],this.message=b},i=function(a,b){if(""===b)throw new h("SYNTAX_ERR","An invalid or illegal string was specified");if(/\s/.test(b))throw new h("INVALID_CHARACTER_ERR","String contains an invalid character");return g.call(a,b)},j=function(a){for(var b=f.call(a.getAttribute("class")||""),c=b?b.split(/\s+/):[],d=0,e=c.length;e>d;d++)this.push(c[d]);this._updateClassName=function(){a.setAttribute("class",this.toString())}},k=j[c]=[],l=function(){return new j(this)};if(h[c]=Error[c],k.item=function(a){return this[a]||null},k.contains=function(a){return a+="",-1!==i(this,a)},k.add=function(){var a,b=arguments,c=0,d=b.length,e=!1;do a=b[c]+"",-1===i(this,a)&&(this.push(a),e=!0);while(++c<d);e&&this._updateClassName()},k.remove=function(){var a,b,c=arguments,d=0,e=c.length,f=!1;do for(a=c[d]+"",b=i(this,a);-1!==b;)this.splice(b,1),f=!0,b=i(this,a);while(++d<e);f&&this._updateClassName()},k.toggle=function(a,b){a+="";var c=this.contains(a),d=c?b!==!0&&"remove":b!==!1&&"add";return d&&this[d](a),b===!0||b===!1?b:!c},k.toString=function(){return this.join(" ")},e.defineProperty){var m={get:l,enumerable:!0,configurable:!0};try{e.defineProperty(d,b,m)}catch(n){-2146823252===n.number&&(m.enumerable=!1,e.defineProperty(d,b,m))}}else e[c].__defineGetter__&&d.__defineGetter__(b,l)}}(self));
 
 
-    Memory.prototype._gameCardsMatch = function() {
+    Memory.prototype._gameCardsMatch = function(levelNode) {
     // cache this
     var self = this;
 
@@ -257,7 +257,7 @@
       self._gameResetVars();
       self.flippedTiles = self.flippedTiles + 2;
       if (self.flippedTiles == self.numTiles) {
-        self._winGame();
+        self._winGame(levelNode);
       }
     }, 500 );
 
@@ -356,15 +356,35 @@
     }
   }
 */
-Memory.prototype._winGame = function() {
+Memory.prototype._winGame = function(levelNode) {
   var self = this;
+  this.level = levelNode;
 
   if (this.options.onGameEnd() === false) {
     this._clearGame();
     firework();
 
-    this.gameMessages.innerHTML = '<h2 class="mg__onend--heading"><span class="icon-trophy"></span></h2>\
-      <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';
+/*console.log("niveau5 : ");*/
+console.log(levelNode);
+    if(levelNode == 1){this.gameMessages.innerHTML = '<img style="height: 270px;" src="/imgs/trophees/bronze.png"><br>\
+      <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';}
+
+      else if(levelNode  == 2){this.gameMessages.innerHTML = '<img style="height: 270px;" src="/imgs/trophees/argent.png"><br>\
+        <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';}
+
+        else if(levelNode == 3){this.gameMessages.innerHTML = '<img style="height: 270px;" src="/imgs/trophees/or.png"><br>\
+          <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';}
+
+else
+  {  this.gameMessages.innerHTML = '<h2 class="mg__onend--heading"><span class="icon-trophy"></span></h2>\
+      <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';}
+
+      console.log("trophé 4!");
+      var r = new XMLHttpRequest();
+      r.open("GET", "/setRecords" + "/" + levelNode, true);
+      r.send();
+
+
 
       var audio = new Audio();
       var texte = 'http://translate.google.com/translate_tts?ie=UTF-8&q=bravo%2C%20tu%20as%20gagn%C3%A9%20en%20%22'+this.numMoves+'%22%20coups&tl=fr'
