@@ -4,7 +4,7 @@
 @section('content')
     <div style="text-align:center">
         
-        <div id="imgRef" style="background-image:url('{{ $ref -> image }}'); line-height:100px;font-weight:bold;">
+        <div id="imgRef" style="background-image:url('{{ $ref -> image }}');">
         </div>
         <br>
         
@@ -15,15 +15,18 @@
         <br>
         <div style="display:inline-block;">
             <img style="height:100px; vertical-align:middle;width:100px" src="{{ URL::to('imgs/trophees/bronze.png') }}"><br>
-            {{$nbBronze}}
+            <div class="trophy-text" style="color:chocolate;">{{$nbBronze}}</div>
+
         </div>
         <div style="display:inline-block;">
             <img style="height:100px; vertical-align:middle;width:100px" src="{{ URL::to('imgs/trophees/argent.png') }}"><br>
-            {{$nbArgent}}
+            <div class="trophy-text" style="color:#c0c0c0;">{{$nbArgent}}</div>
+
         </div>
         <div style="display:inline-block;">
             <img style="height:100px; vertical-align:middle;width:100px" src="{{ URL::to('imgs/trophees/or.png') }}"><br>
-            {{$nbOr}}
+            <div class="trophy-text" style="color:gold;">{{$nbOr}}</div>
+
         </div>
     </div>
 @endsection

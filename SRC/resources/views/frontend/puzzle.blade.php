@@ -6,15 +6,49 @@
     <script type="text/javascript">
 
         function getPieceWidth(w,h) {
+
+            //cas où l'image rentre dans l'écran, on ne fais rien
+            if(h<y && w<x) {
+                return w * ratioImage;
+            }
+
+            //cas où l'image est plus large et haute, on prend le meilleur ratio pour pas redimensionner 2 fois
+
+            if(h/y > w/x) { //il faut redimensionner en hauteur
+                console.log("il faut redimensionner en hauteur")
+                return w * y/h * ratioImage;
+            } else { //on redimensionne en largeur
+                return x * ratioImage;
+            }
+        }
+
+        function getPieceHeight(w,h) {
+            if(h<y && w<x) {
+                return h * ratioImage;
+            }
+
+            if(h/y > w/x) { //il faut redimensionner en hauteur
+                return y * ratioImage;
+            } else {
+                return h * x/w * ratioImage;
+            }
+        }
+
+
+
+
+
+
+        /*function getPieceWidthOld(w,h) {
             //if(h>w) {
                 return w * (y * ratioImage)/h;
             //} else return x * ratioImage;
         }
-        function getPieceHeight(w,h) {
+        function getPieceHeightOld(w,h) {
             //if(h>w) {
                 return y * ratioImage;
             //} else return h * (x * ratioImage)/w;
-        }
+        }*/
         function preload () {
             game.load.spritesheet('balls', '{{ URL::to('imgs/puzzle/balls.png') }}', 17, 17);
             game.load.image('trophy3', '{{ URL::to('imgs/trophees/or.png') }}');
@@ -61,19 +95,20 @@
 
                 }
             }  
-            dateDebut = new Date();
         }
-        function drawGrid() {
-            pieces.forEach(function(item){
+        function drawGrid(idTab) {
 
+                var graphics = game.add.graphics();
+                graphics.lineStyle(2, 0xff0000, 1);
 
+                graphics.moveTo(10, 10);
+                graphics.lineTo(Math.floor(getPieceWidth(selection[idTab-1].width, selection[idTab-1].height)) + 10,
+                 10);
 
+                 graphics.lineTo(Math.floor(getPieceWidth(selection[idTab-1].width, selection[idTab-1].height)) + 10,
+                 Math.floor(getPieceHeight(selection[idTab-1].width, selection[idTab-1].height)) + 10);
 
-            });
-                var graphics = game.add.graphics(0, 0);
-                graphics.lineStyle(1, 0xff0000, 1);
-                graphics.moveTo(800, 0);
-                graphics.lineTo(100, 0);
+                 graphics.lineTo(10,10);
         }
         function create () {
             this.button3 = this.add.button(0, 0, 'previous', changePage);
@@ -82,6 +117,8 @@
 
             this.physics.startSystem(Phaser.Physics.ARCADE);
             createPiecesFor(1);
+            drawGrid(1);
+            dateDebut = new Date();
         }
         function changePage() {
             if (confirm('Quitter le jeu ?')) {
@@ -170,13 +207,13 @@
                     if(piece.placed == true) cpt++
                 });
                 if(cpt==pieces.length) {
-                    var temps = Math.ceil(((new Date()) - dateDebut)/60000);
-                    var texteADire = (temps <= 1) ? "Bravo, tu as mis moins d'une minute." : 
-                    "Bravo, tu as mis "+temps+" minutes. ";;
-                    responsiveVoice.speak(texteADire, "French Female");
                     pieces.forEach(function(item){item.input.draggable = false;});
                     if(nbToPlay == currentPlayed)
                     {
+                        var temps = Math.ceil(((new Date()) - dateDebut)/60000);
+                        var texteADire = (temps <= 1) ? "Bravo, tu as mis moins d'une minute." :
+                        "Bravo, tu as mis "+temps+" minutes. ";;
+                        responsiveVoice.speak(texteADire, "French Female");
                         leftEmitter = game.add.emitter(50, 50);
                         leftEmitter.bounce.setTo(0.8, 0.8);
                         leftEmitter.setXSpeed(100, 200);
@@ -236,7 +273,8 @@
         }
             
         var leftEmitter, rightEmitter;
-            var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],x=w.innerWidth||e.clientWidth||g.clientWidth,y=w.innerHeight||e.clientHeight||g.clientHeight;
+            var x = window.innerWidth;
+            var y = window.innerHeight;
             var pieces = null;
             var dateDebut = null;
         
