@@ -142,8 +142,14 @@
      else { this.gridX = 2; this.gridY=4 ;  }
   //  this.gridY = this.gridX ;
     this.numTiles = this.nbcase*2;
-    //this.halfNumTiles = this.gridX;
+    console.log("nombre de carte enregistré7 : ");
+    console.log(this.cards.length);
     this.halfNumTiles = this.numTiles/2;
+    if (this.cards.length < this.halfNumTiles) { console.log("pas assez de carte"); document.getElementById("mg__contents").innerHTML="<img height='80px' src='/imgs/sad.png'><h1>Pas assez de cartes enregistrées par le référent </h1>";}
+    else {
+
+    //this.halfNumTiles = this.gridX;
+
     this.newCards = [];
     for ( var i = 0; i < this.halfNumTiles; i++ ) {
       this.newCards.push(this.cards[i], this.cards[i]);
@@ -173,6 +179,7 @@
     this.gameState = 2;
     this.options.onGameStart();
     this._gamePlay(this.level);
+  }
   }
 
   /**
@@ -364,8 +371,6 @@ Memory.prototype._winGame = function(levelNode) {
     this._clearGame();
     firework();
 
-/*console.log("niveau5 : ");*/
-console.log(levelNode);
     if(levelNode == 1){this.gameMessages.innerHTML = '<img style="height: 270px;" src="/imgs/trophees/bronze.png"><br>\
       <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';}
 
@@ -379,7 +384,6 @@ else
   {  this.gameMessages.innerHTML = '<h2 class="mg__onend--heading"><span class="icon-trophy"></span></h2>\
       <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';}
 
-      console.log("trophé 4!");
       var r = new XMLHttpRequest();
       r.open("GET", "/setRecords" + "/" + levelNode, true);
       r.send();
