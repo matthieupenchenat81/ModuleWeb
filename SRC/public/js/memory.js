@@ -142,8 +142,6 @@
      else { this.gridX = 2; this.gridY=4 ;  }
   //  this.gridY = this.gridX ;
     this.numTiles = this.nbcase*2;
-    console.log("nombre de carte enregistré7 : ");
-    console.log(this.cards.length);
     this.halfNumTiles = this.numTiles/2;
     if (this.cards.length < this.halfNumTiles) { console.log("pas assez de carte"); document.getElementById("mg__contents").innerHTML="<img height='80px' src='/imgs/sad.png'><h1>Pas assez de cartes enregistrées par le référent </h1>";}
     else {
