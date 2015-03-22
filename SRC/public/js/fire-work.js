@@ -247,8 +247,10 @@ Rocket.prototype.render = function(c) {
 };
 
 
-document.body.appendChild(canvas);
-canvas.width = SCREEN_WIDTH;
-canvas.height = SCREEN_HEIGHT;
-setInterval(launch, 800);
-setInterval(loop, 1000 / 50);
+// init
+    document.body.appendChild(canvas);
+    canvas.width = SCREEN_WIDTH;
+    canvas.height = SCREEN_HEIGHT;
+    setInterval(launch, 800);
+    setInterval(loop, 1000 / 50);
+});

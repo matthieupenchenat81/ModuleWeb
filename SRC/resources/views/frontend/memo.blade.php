@@ -30,8 +30,9 @@
     cards2.push(
         {
             id : '{{$o->id}}',
-            img : 'http://www.augustins.org/documents/10180/156407/{{ $o->image}}'}
-        );
+            img : 'http://www.augustins.org/documents/10180/156407/{{ $o->image}}'
+        }
+    );
     @endforeach
 
     var myMem = new Memory({

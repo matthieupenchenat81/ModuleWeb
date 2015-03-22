@@ -117,7 +117,6 @@
 
             this.physics.startSystem(Phaser.Physics.ARCADE);
             createPiecesFor(1);
-            drawGrid(1);
             dateDebut = new Date();
         }
         function changePage() {
@@ -244,7 +243,7 @@
                           if (r.readyState != 4 || r.status != 200) return;
                           setTimeout(function(){
                               location.href = "{{URL::to('puzzle/jouer')}}" + "/" + trophy;
-                          }, 3000);
+                          }, 6000);
                         };
                         r.send();
 
