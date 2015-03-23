@@ -23,7 +23,7 @@
     @foreach ($referents as $referent)
             <div class="referent" 
                  onclick='location.href = "{{ URL::to('changerref', $referent->id) }}";'
-                 style="background-image:url('{{ $referent -> image }}')"> 
+                 style="background-image:url('{{ URL::to('/') }}/{{ $referent -> image }}')">
                 <div class="infos">{{ $referent -> prenom }} {{ $referent -> nom }}</div>
             </div>
     @endforeach
@@ -34,7 +34,7 @@
 @endsection
 
 @section('page-css')
-	<link href="css/fonts/style.css" rel="stylesheet" type="text/css">
+	<link href="{{URL::to('css/fonts/style.css')}}" rel="stylesheet" type="text/css">
 @endsection
 
 @section('page-scripts')
@@ -45,11 +45,11 @@
      
           $("#searchterm").on('input', function(e){
             var q = $("#searchterm").val();
-            var url = (q == "") ? 'api/searchRef' : 'api/searchRef/' + q;
+            var url = (q == "") ? '{{URL::to('api/searchRef')}}' : '{{URL::to('api/searchRef')}}/' + q;
             $.getJSON(url, function(data) {
               $("#referents").empty();
               $.each(data, function(i,item){
-                $("#referents").append('<div class="referent" onclick=\'location.href = "{{ URL::to('changerref') }}/'+ item.id + '"\' style="background-image:url(\''+item.image+'\')"><div class="infos">'+ item.prenom + " " + item.nom + '</div></div>');
+                $("#referents").append('<div class="referent" onclick=\'location.href = "{{ URL::to('changerref') }}/'+ item.id + '"\' style="background-image:url(\'{{ URL::to('/') }}/'+item.image+'\')"><div class="infos">'+ item.prenom + " " + item.nom + '</div></div>');
               });
             });
           });
