@@ -373,6 +373,7 @@ Memory.prototype._winGame = function(levelNode, nbPartie, nbcase) {
   else if (this.options.onGameEnd() === false) {
     this._clearGame();
     firework();
+    //firework2();
 
     if(levelNode == 1){this.gameMessages.innerHTML = '<img style="height: 270px;" src="/imgs/trophees/bronze.png"><br>\
       <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';}

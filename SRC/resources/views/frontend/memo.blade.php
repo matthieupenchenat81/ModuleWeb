@@ -21,6 +21,9 @@
 
 @section('page-scripts')
 <script src="/js/firework.js"></script>
+
+<!--<script src="/js/fire-work.js"></script>-->
+
 <script src="/js/memory.js"></script>
 
 <script>
