@@ -101,11 +101,11 @@ class LoginController extends Controller {
         switch ($response)
 		{
 		  case Password::INVALID_PASSWORD:
-		  	return Redirect::back()->withErrors("Votre mot de passe est invalide. Essayez-en un autre.")->withInput();
+		  	return Redirect::back()->withErrors("Votre mot de passe doit contenir au minimum 6 caractères.")->withInput();
 		  case Password::INVALID_TOKEN:
 		  	return Redirect::back()->withErrors("Erreur de token, contactez l'administrateur, merci.")->withInput();
 		  case Password::INVALID_USER:
-		    return Redirect::back()->withErrors("Utilsateur invalide")->withInput();
+		    return Redirect::back()->withErrors("L'adresse email saisie est incorrecte.")->withInput();
 		  default :
 		    return Redirect::to('/login')->withStatus("Votre mot de passe a été changé avc succès !");
 		}

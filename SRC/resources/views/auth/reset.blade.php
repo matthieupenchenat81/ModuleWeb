@@ -1,24 +1,19 @@
 @extends('backend/template')
 
 @section('content')
-<div style="margin-top: 70px"  class="container-fluid">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
 				<div class="panel-heading">Changer votre mot de passe</div>
 				<div class="panel-body">
 					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Oouups!</strong> Il y a un problème.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger">{{ $error }}</div>
+                        @endforeach
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="/password/reset">
+					<form class="form-horizontal" role="form" method="POST" action="{{URL::to('password/reset')}}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="hidden" name="token" value="{{ $token }}">
 						
