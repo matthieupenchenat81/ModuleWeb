@@ -2,14 +2,16 @@
 
 @section('content')
 @if ($referents != [])
-<div style="text-align:center;background-color: #fcfc6b; padding:10px; margin:auto;font-size:18px;">
+<div id="infoHome" style="text-align:center;background-color: #fcfc6b; padding:10px; margin:auto;font-size:18px; display:block;">
+		<a href="#" onClick="cache();"><span class="icon-cross"></span></a>
     	<h1 class="homeTitle">Les jeux du Musée des Augustins</h1>
 
     L'objectif de ce site est de permettre aux enfants de jouer à des jeux tout en leur apportant de l'intérêt pour les différentes oeuvres d'art exposées dans le fameux musée toulousain.<br>
     <span style="color:red;">Lorsque vous aurez choisit un référent, il faudra appuyer pendant 3 secondes sur l'icone de votre référent afin de revenir sur cette page.</span><br>
-    Si vous n'avez pas de référent, vous pouvez toujours <span style="color:#37378e;">cliquer ici pour jouer aux jeux</span>, sinon cliquez sur leur image.
+    Si vous n'avez pas de référent, vous pouvez toujours <span style="color:#37378e;"><a href="/">cliquer ici pour jouer aux jeux</a></span>, sinon cliquez sur leur image.
     
 </div>
+<a href="#" onClick="cache();"><span id="txt_show" style="display:none;">Afficher</span></a>
     <nav>
             <input name="searchterm" class="icon-search" id="searchterm" placeholder="&#xe986; Rechercher un référent" type="text"> 
     </nav>
@@ -49,5 +51,25 @@
             });
           });
 
+</script>
+
+<script>
+	function cache() {
+		var txt = document.getElementById('infoHome');
+		var span = document.getElementById('txt_show');
+		
+		if (txt.style.display  ==  "block")
+		{
+			//si le texte est afficher on cache le txt et on affiche le span cache
+			span.style.display = "block";
+			txt.style.display = "none";
+		}	
+		else 
+		{
+			//sinon on affiche le texte et on cache le span
+			span.style.display = "none";
+			txt.style.display = "block";
+		}
+	}
 </script>
 @endsection

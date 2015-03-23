@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('icomoon.eot?-68zv75');
-	src:url('icomoon.eot?#iefix-68zv75') format('embedded-opentype'),
-		url('icomoon.woff?-68zv75') format('woff'),
-		url('icomoon.ttf?-68zv75') format('truetype'),
-		url('icomoon.svg?-68zv75#icomoon') format('svg');
+	src:url('icomoon.eot?-72yuc9');
+	src:url('icomoon.eot?#iefix-72yuc9') format('embedded-opentype'),
+		url('icomoon.woff?-72yuc9') format('woff'),
+		url('icomoon.ttf?-72yuc9') format('truetype'),
+		url('icomoon.svg?-72yuc9#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -49,5 +49,9 @@
 
 .icon-spinner11:before {
 	content: "\e984";
+}
+
+.icon-cross:before {
+	content: "\ea0f";
 }
 
