@@ -3,7 +3,7 @@
 @section('content')
 @if ($referents != [])
 <div id="infoHome" style="text-align:center;background-color: #fcfc6b; padding:10px; margin:auto;font-size:18px; display:block;">
-		<a href="#" onClick="cache();"><span class="icon-cross"></span></a>
+		<a href="#" onClick="cache();" style="position:relative; float:right; text-decoration:none;"><span class="icon-cross"></span></a>
     	<h1 class="homeTitle">Les jeux du Musée des Augustins</h1>
 
     L'objectif de ce site est de permettre aux enfants de jouer à des jeux tout en leur apportant de l'intérêt pour les différentes oeuvres d'art exposées dans le fameux musée toulousain.<br>
@@ -11,7 +11,10 @@
     Si vous n'avez pas de référent, vous pouvez toujours <span style="color:#37378e;"><a href="/">cliquer ici pour jouer aux jeux</a></span>, sinon cliquez sur leur image.
     
 </div>
-<a href="#" onClick="cache();"><span id="txt_show" style="display:none;">Afficher</span></a>
+<a href="#" onClick="cache();">
+<span id="txt_show" style="text-align:center;background-color: #fcfc6b; padding:10px; margin:auto;font-size:18px; display:none;">
+À Propos</span>
+</a>
     <nav>
             <input name="searchterm" class="icon-search" id="searchterm" placeholder="&#xe986; Rechercher un référent" type="text"> 
     </nav>
