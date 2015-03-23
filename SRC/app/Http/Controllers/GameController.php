@@ -37,13 +37,15 @@ class GameController extends Controller {
             $oes = $configjeu->oeuvres;
 						$params = json_decode($configjeu->parametres);
 						$bloc = $params->{"m".$niveau};
+						$nbParie = $params->{"mt"};
         } else {
+					$nbParie = 1;
             $oes = Oeuvre::orderByRaw("RAND()")->take(8)->get();
 						if($niveau == 1) {$bloc = 2;} elseif($niveau == 2){$bloc = 3;} else {$bloc = 4;}
         }
 
 
-        return view('frontend/memo',  ['oeuvres' => $oes, 'niveau' => $niveau, 'nbBloc'=>$bloc]);
+        return view('frontend/memo',  ['oeuvres' => $oes, 'niveau' => $niveau, 'nbBloc'=>$bloc, 'nbPartie'=> $nbParie]);
     }
 
 
@@ -77,16 +79,16 @@ class GameController extends Controller {
 
         $cookie = Cookie::get('trophee');
         $values = json_decode($cookie);
-        
+
         if (!is_array($values))
             $values = [0, 0, 0];
 
         switch ($idTrophee) {
-            
+
             case '1':
                 $values[0] += 1;
                 break;
-                        
+
             case '2':
                 $values[1] += 1;
                 break;
@@ -94,7 +96,7 @@ class GameController extends Controller {
             case '3':
                 $values[2] += 1;
                 break;
-            
+
             default:
                 break;
         }

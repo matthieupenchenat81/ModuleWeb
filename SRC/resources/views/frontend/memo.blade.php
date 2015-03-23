@@ -40,7 +40,7 @@
         cards : cards2,
         onGameStart : function() { return false; },
         onGameEnd : function() { return false; }
-    }, {{$niveau}}, {{$nbBloc}});
+    }, {{$niveau}}, {{$nbBloc}},{{$nbPartie}} );
 
 
 </script>

@@ -7,7 +7,7 @@
    *
    */
 
-
+   var partieRealise = 0;
   function extend( a, b ) {
     for( var key in b ) {
       if( b.hasOwnProperty( key ) ) {
@@ -32,12 +32,10 @@
    *
    */
 
-  function Memory( options, level, nbcase ) {
-    //console.log(nbcase);
-    //console.log("bob");
+  function Memory( options, level, nbcase, nbPartie ) {
     this.options = extend( {}, this.options );
     extend( this.options, options );
-    this._init(level, nbcase);
+    this._init(level, nbcase, nbPartie);
   }
 
   /**
@@ -47,7 +45,8 @@
    * ready for game setup.
    */
 
-  Memory.prototype._init = function(level,nbcase) {
+  Memory.prototype._init = function(level,nbcase, nbPartie) {
+
     this.game = document.createElement("div");
     this.game.id = "mg";
     this.game.className = "mg";
@@ -68,7 +67,7 @@
     this.gameMessages.id = "mg__onend";
     this.gameMessages.className = "mg__onend";
 
-    this._setupGame(level,nbcase);
+    this._setupGame(level,nbcase, nbPartie);
   };
 
   /**
@@ -88,7 +87,7 @@
    * 3 : game is finished
    */
 
-  Memory.prototype._setupGame = function(level, nbcase) {
+  Memory.prototype._setupGame = function(level, nbcase, nbPartie) {
     var self = this;
     this.gameState = 1;
     this.cards = shuffle(this.options.cards);
@@ -101,7 +100,7 @@
     this.flippedTiles = 0;
     this.chosenLevel = "";
     this.numMoves = 0;
-    this._setupGameWrapper(level, nbcase);
+    this._setupGameWrapper(level, nbcase, nbPartie);
   }
 
   /**
@@ -111,7 +110,7 @@
    * tiles will reside and where all the game play happens.
    */
 
-  Memory.prototype._setupGameWrapper = function(levelNode,nbcase) {
+  Memory.prototype._setupGameWrapper = function(levelNode,nbcase,nbPartie) {
     this.nbcase = nbcase;
     this.level = levelNode;
     this.gameContents.className = "mg__contents mg__level-"+this.level;
@@ -119,7 +118,7 @@
 
     this.chosenLevel = this.level;
 
-    this._renderTiles();
+    this._renderTiles(nbPartie,nbcase);
   };
 
 
@@ -136,7 +135,7 @@
    * 6. gamePlay function gets triggered, taking care of all the game play action.
    */
 
-  Memory.prototype._renderTiles = function() {
+  Memory.prototype._renderTiles = function(nbPartie,nbcase) {
      if(this.level == 1) {this.gridX = 2; this.gridY= 2; }
      else if(this.level == 2) {this.gridX = 3; this.gridY= 2; }
      else { this.gridX = 2; this.gridY=4 ;  }
@@ -176,7 +175,7 @@
     this.gameContents.innerHTML = this.tilesHTML;
     this.gameState = 2;
     this.options.onGameStart();
-    this._gamePlay(this.level);
+    this._gamePlay(this.level, nbPartie, nbcase);
   }
   }
 
@@ -188,11 +187,11 @@
    * class, and for each tile, we run the _gamePlayEvents function.
    */
 
-  Memory.prototype._gamePlay = function(levelNode) {
+  Memory.prototype._gamePlay = function(levelNode,nbPartie,nbcase) {
     var tiles = document.querySelectorAll(".mg__tile--inner");
     for (var i = 0, len = tiles.length; i < len; i++) {
       var tile = tiles[i];
-      this._gamePlayEvents(tile,levelNode);
+      this._gamePlayEvents(tile,levelNode,nbPartie,nbcase);
     };
   };
 
@@ -207,7 +206,7 @@
    * thus separated below.
    */
 
-  Memory.prototype._gamePlayEvents = function(tile,levelNode) {
+  Memory.prototype._gamePlayEvents = function(tile,levelNode,nbPartie,nbcase) {
     var self = this;
     tile.addEventListener( "click", function(e) {
       if (!this.classList.contains("flipped")) {
@@ -222,7 +221,7 @@
           self.card2id = this.getAttribute("data-id");
           self.card2flipped = true;
           if ( self.card1id == self.card2id ) {
-            self._gameCardsMatch(levelNode);
+            self._gameCardsMatch(levelNode,nbPartie,nbcase);
           } else {
             self._gameCardsMismatch();
           }
@@ -245,7 +244,7 @@
   "document"in self&&("classList"in document.createElement("_")?!function(){"use strict";var a=document.createElement("_");if(a.classList.add("c1","c2"),!a.classList.contains("c2")){var b=function(a){var b=DOMTokenList.prototype[a];DOMTokenList.prototype[a]=function(a){var c,d=arguments.length;for(c=0;d>c;c++)a=arguments[c],b.call(this,a)}};b("add"),b("remove")}if(a.classList.toggle("c3",!1),a.classList.contains("c3")){var c=DOMTokenList.prototype.toggle;DOMTokenList.prototype.toggle=function(a,b){return 1 in arguments&&!this.contains(a)==!b?b:c.call(this,a)}}a=null}():!function(a){"use strict";if("Element"in a){var b="classList",c="prototype",d=a.Element[c],e=Object,f=String[c].trim||function(){return this.replace(/^\s+|\s+$/g,"")},g=Array[c].indexOf||function(a){for(var b=0,c=this.length;c>b;b++)if(b in this&&this[b]===a)return b;return-1},h=function(a,b){this.name=a,this.code=DOMException[a],this.message=b},i=function(a,b){if(""===b)throw new h("SYNTAX_ERR","An invalid or illegal string was specified");if(/\s/.test(b))throw new h("INVALID_CHARACTER_ERR","String contains an invalid character");return g.call(a,b)},j=function(a){for(var b=f.call(a.getAttribute("class")||""),c=b?b.split(/\s+/):[],d=0,e=c.length;e>d;d++)this.push(c[d]);this._updateClassName=function(){a.setAttribute("class",this.toString())}},k=j[c]=[],l=function(){return new j(this)};if(h[c]=Error[c],k.item=function(a){return this[a]||null},k.contains=function(a){return a+="",-1!==i(this,a)},k.add=function(){var a,b=arguments,c=0,d=b.length,e=!1;do a=b[c]+"",-1===i(this,a)&&(this.push(a),e=!0);while(++c<d);e&&this._updateClassName()},k.remove=function(){var a,b,c=arguments,d=0,e=c.length,f=!1;do for(a=c[d]+"",b=i(this,a);-1!==b;)this.splice(b,1),f=!0,b=i(this,a);while(++d<e);f&&this._updateClassName()},k.toggle=function(a,b){a+="";var c=this.contains(a),d=c?b!==!0&&"remove":b!==!1&&"add";return d&&this[d](a),b===!0||b===!1?b:!c},k.toString=function(){return this.join(" ")},e.defineProperty){var m={get:l,enumerable:!0,configurable:!0};try{e.defineProperty(d,b,m)}catch(n){-2146823252===n.number&&(m.enumerable=!1,e.defineProperty(d,b,m))}}else e[c].__defineGetter__&&d.__defineGetter__(b,l)}}(self));
 
 
-    Memory.prototype._gameCardsMatch = function(levelNode) {
+    Memory.prototype._gameCardsMatch = function(levelNode, nbPartie,nbcase) {
     // cache this
     var self = this;
 
@@ -262,7 +261,7 @@
       self._gameResetVars();
       self.flippedTiles = self.flippedTiles + 2;
       if (self.flippedTiles == self.numTiles) {
-        self._winGame(levelNode);
+        self._winGame(levelNode,nbPartie,nbcase);
       }
     }, 500 );
 
@@ -361,11 +360,17 @@
     }
   }
 */
-Memory.prototype._winGame = function(levelNode) {
+Memory.prototype._winGame = function(levelNode, nbPartie, nbcase) {
   var self = this;
   this.level = levelNode;
+  partieRealise = partieRealise + 1 ;
 
-  if (this.options.onGameEnd() === false) {
+  if (partieRealise != nbPartie){
+    this._clearGame();
+    this._init(this.level, nbcase, nbPartie);
+  }
+
+  else if (this.options.onGameEnd() === false) {
     this._clearGame();
     firework();
 
@@ -386,10 +391,11 @@ else
       r.open("GET", "/setRecords" + "/" + levelNode, true);
       r.send();
 
-
+      //http://translate.google.com/translate_tts?ie=UTF-8&q=bravo%2C%20tu%20as%20gagn%C3%A9&tl=fr
+      //http://translate.google.com/translate_tts?ie=UTF-8&q=bravo%2C%20tu%20as%20gagn%C3%A9&tl=fr&total=1&idx=0&textlen=18&client=t&prev=input
 
       var audio = new Audio();
-      var texte = 'http://translate.google.com/translate_tts?ie=UTF-8&q=bravo%2C%20tu%20as%20gagn%C3%A9%20en%20%22'+this.numMoves+'%22%20coups&tl=fr'
+      var texte = 'http://translate.google.com/translate_tts?ie=UTF-8&q=bravo%2C%20tu%20as%20gagn%C3%A9&tl=fr';
       audio.src =texte;
       audio.play();
     this.game.appendChild(this.gameMessages);
