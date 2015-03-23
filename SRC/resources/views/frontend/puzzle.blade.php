@@ -1,6 +1,35 @@
 @extends('frontend/template')
+@section('page-css')
+<style>
+@-webkit-keyframes whirly {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+#loader img {
+ -webkit-animation: whirly 3s infinite linear;
+}
+</style>
+
+
+@endsection
 @section('content')
+    <div id="loader" style="width:100%;text-align:center;padding-top:100px;">
+        <img src="{{ URL::to('imgs/spinner.png') }}" alt="chargement">
+    </div>
 	<script src="{{ URL::to('js/phaser.min.js') }}"></script>
 	<script src="{{ URL::to('js/responsivevoice.js') }}"></script>
     <script type="text/javascript">
@@ -15,7 +44,6 @@
             //cas où l'image est plus large et haute, on prend le meilleur ratio pour pas redimensionner 2 fois
 
             if(h/y > w/x) { //il faut redimensionner en hauteur
-                console.log("il faut redimensionner en hauteur")
                 return w * y/h * ratioImage;
             } else { //on redimensionne en largeur
                 return x * ratioImage;
@@ -59,7 +87,16 @@
                 game.load.spritesheet("tableau"+i, selection[i-1].src, selection[i-1].width/dimensions[0], selection[i-1].height/dimensions[1]);
             }
         }
+        function create () {
 
+            this.button3 = this.add.button(0, 0, 'previous', changePage);
+            this.button3.width = 50;
+            this.button3.height = 50;
+
+            this.physics.startSystem(Phaser.Physics.ARCADE);
+            createPiecesFor(1);
+            dateDebut = new Date();
+        }
         function nextPuzzle() {
             currentPlayed++;
             pieces.destroy(true);
@@ -110,15 +147,7 @@
 
                  graphics.lineTo(10,10);
         }
-        function create () {
-            this.button3 = this.add.button(0, 0, 'previous', changePage);
-            this.button3.width = 50;
-            this.button3.height = 50;
 
-            this.physics.startSystem(Phaser.Physics.ARCADE);
-            createPiecesFor(1);
-            dateDebut = new Date();
-        }
         function changePage() {
             if (confirm('Quitter le jeu ?')) {
                 location.href = "{{URL::to('/')}}";
@@ -299,8 +328,11 @@
                 
                 tmpImg.onload = function () {
                     loadedImg++;
-                    if(loadedImg == nbToPlay)
+                    if(loadedImg == nbToPlay) {
+                        var element = document.getElementById("loader");
+                        element.parentNode.removeChild(element);
                         game = new Phaser.Game(x, y, Phaser.CANVAS, '', { preload: preload, update: update, create: create }, true);
+                    }
                 }
             }
             
