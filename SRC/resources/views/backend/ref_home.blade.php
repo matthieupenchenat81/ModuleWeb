@@ -109,21 +109,23 @@
                 <form class="form-horizontal" method="post" action="{{URL::to('referent/changeParamListe', $mesoeuvres->id)}}">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                    <legend>Puzzle</legend><p>2 images = 2 lignes / 2 colones</p>
+                    <legend>Puzzle</legend>
+                    <div class="alert alert-grey">Les dimensions correspondent au nombre de lignes et de colonnes du puzzle. Par exemple pour 2, il y aura 4 pièces. (2x2 lignes).<br>
+                        Le nombre de tableaux par partie correspond au nombre de puzzle à finir avant de gagner un trophée.</div>
                                 <div class="form-group">
-                                    <label for="p1" class="col-sm-4 control-label">Images pour 1 étoile </label>
+                                    <label for="p1" class="col-sm-4 control-label">Dimensions en 1 étoile </label>
                                     <div class="col-sm-6">
                                         <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->p1}}" name="p1" id="p1" placeholder="2">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="p2" class="col-sm-4 control-label">Images pour 2 étoiles</label>
+                                    <label for="p2" class="col-sm-4 control-label">Dimensions en 2 étoiles</label>
                                     <div class="col-sm-6">
                                         <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->p2}}" name="p2" id="p2" placeholder="3">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="p3" class="col-sm-4 control-label">Images pour 3 étoiles</label>
+                                    <label for="p3" class="col-sm-4 control-label">Dimensions en 3 étoiles</label>
                                     <div class="col-sm-6">
                                         <input type="number" min="1" max="10" class="form-control" value="{{$paramjeu->p3}}" name="p3" id="p3" placeholder="4">
                                     </div>
@@ -135,6 +137,9 @@
                                     </div>
                                 </div>
                                 <legend>Mémo</legend>
+                                <div class="alert alert-grey">Si le nombre de tableaux est de 2, alors il y aura 4 pièces sur le jeu. (2 fois chaque tableau).
+                                <br>Pensez à avoir au moins 2 tableaux dans votre liste si vous mettez cette valeur à 2. Sinon, le jeu sera complété avec des oeuvres au hasard.<br>
+                                                        Le nombre de tableaux par partie correspond au nombre de puzzle à finir avant de gagner un trophée.</div>
                                 <div class="form-group">
                                     <label for="m1" class="col-sm-4 control-label">Nb. de tableaux 1 étoile</label>
                                     <div class="col-sm-6">
