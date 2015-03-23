@@ -66,13 +66,13 @@ class ReferentController extends Controller {
                 $user->image = "imgs/avatar/" . $idUser . "." . $extension;
                 $user->save();
 
-                return redirect('/referent')->with('message_update', 'Referent mis à jour avec succès');
+                return redirect('/referent')->with('message', 'Votre compte a été mit à jour avec succès.');
             } else
                 $user->save();
-                return redirect('/referent')->with('message_update', 'Votre image n\'est pas valide.');
+                return redirect('/referent')->with('erreur', 'Votre image n\'est pas valide.');
         } else {
                 $user->save();
-                return redirect('/referent')->with('message_update', 'Referent mis à jour avec succès');   
+                return redirect('/referent')->with('message', 'Votre compte a été mit à jour avec succès.');
             
         }
         

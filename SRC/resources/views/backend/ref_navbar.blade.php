@@ -31,6 +31,8 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Informations personnelles</h4>
       </div>
+      <div style="margin:auto;width:120px; height: 120px; border-radius:50%;background-size:cover;background-position: center center;
+      background-image:url('{{$me->image}}')"></div>
       <form class="form-horizontal" role="form" action="{{ URL::to('referent/update') }}" method="post" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="idUser" value="{{ $me->id }}" />
