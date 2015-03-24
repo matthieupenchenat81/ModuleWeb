@@ -315,7 +315,6 @@ $("#recherche").on('submit', function(event){
 });
 
 $(".radioAsso").change(function() {
-	console.log('lol');
 	$.get('{{ URL::to('referent/changerparamliste') }}' + $('#assoListeJeu').serialize());
 });
 
