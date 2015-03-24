@@ -52,14 +52,18 @@
     function startCounter(event) {
         absorbEvent_(event);
         chiffre = 3;
-        imgRef.innerHTML = "Redirection "+chiffre;
+        imgRef.innerHTML = "Redirection <br>"+chiffre;
         redirectTimer = setInterval(counter, 1000);
     }
 
     function counter() {
             chiffre--;
-            imgRef.innerHTML  = "Redirection "+chiffre;
-            if(chiffre == 0) location.href="{{URL::to('choisirref')}}";
+            imgRef.innerHTML  = "Redirection <br>"+chiffre;
+            if(chiffre == 0) 
+            {
+            	endCounter(null);
+            	location.href="{{URL::to('choisirref')}}";
+            }
     }
 
     function endCounter(event) {
