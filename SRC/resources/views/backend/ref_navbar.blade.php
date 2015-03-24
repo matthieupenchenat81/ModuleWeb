@@ -30,10 +30,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Informations personnelles</h4>
+        <h4 class="modal-title" id="myModalLabel">Mon Compte</h4>
       </div>
       <div style="margin:auto;width:120px; height: 120px; border-radius:50%;background-size:cover;background-position: center center;
-      background-image:url('{{$me->image}}')"></div>
+      background-image:url('{{ URL::to('/')}}/{{ $me->image }}')"></div>
       <form class="form-horizontal" role="form" action="{{ URL::to('referent/update') }}" method="post" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="idUser" value="{{ $me->id }}" />
@@ -57,7 +57,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="password_confirm" class="col-sm-4 control-label">Nouveau mot de passe (min. 6 caractères):</label>
+              <label for="password_confirm" class="col-sm-4 control-label">Nouveau mot de passe :</label>
               <div class="col-sm-8">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
               </div>
