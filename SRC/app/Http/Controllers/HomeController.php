@@ -2,6 +2,8 @@
 
 use App\Referent;
 use Cookie;
+use Request;
+
 class HomeController extends Controller {
 
 	/**
@@ -37,8 +39,12 @@ class HomeController extends Controller {
     
 	public function choisirRef()
 	{
+        $value = Request::cookie('infoBar');
+        if (!isset($value))
+            $value = 'open';
+
         $refs = Referent::take(5)->select(['nom', 'prenom', 'image', 'id'])->get();
-		return view('frontend/home',['referents' => $refs]);
+		return view('frontend/home',['referents' => $refs, 'cookie' => $value]);
 	}
 
     public function changerRef($idRef)
@@ -72,6 +78,30 @@ class HomeController extends Controller {
     public function showOneReferentGame($id, $idGame)
     {
         return view('one_referent_game', ['referent' => $id, 'game' => $idGame]);
+    }
+
+    public function updateStatusBar() {
+
+        $value = Request::cookie('infoBar');
+        if (!isset($value))
+            $value = 'open';
+
+        switch ($value) {
+             case 'open':
+                 $value = 'close';
+                 break;
+             
+             case 'close':
+                 $value = 'open';
+                 break;
+
+             default:
+                 break;
+         }
+
+        $response = new \Illuminate\Http\RedirectResponse(url('/'));
+        $response->withCookie(cookie()->forever('infoBar', $value));
+        return $response;
     }
 
 }

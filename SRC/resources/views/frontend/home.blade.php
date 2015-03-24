@@ -2,18 +2,18 @@
 
 @section('content')
 @if ($referents != [])
-<div id="infoHome" style="text-align:center;background-color: #fcfc6b; padding:10px; margin:auto;font-size:18px; display:block;">
+<div id="infoHome" style="@if($cookie == 'open')display: none @endif;text-align:center;background-color: #fcfc6b; padding:10px; margin:auto;font-size:18px;">
 		<a href="#" onClick="cache();" style="float:right; text-decoration:none; color:red;"><span class="icon-cross"></span></a>
     	<h1 class="homeTitle">Les jeux du Musée des Augustins</h1>
 
     L'objectif de ce site est de permettre aux enfants de jouer à des jeux tout en leur apportant de l'intérêt pour les différentes oeuvres d'art exposées dans le fameux musée toulousain.<br>
     <span style="color:red;">Lorsque vous aurez choisit un référent, il faudra appuyer pendant 3 secondes sur l'icone de votre référent afin de revenir sur cette page.</span><br>
-    Si vous n'avez pas de référent, vous pouvez toujours <span style="color:#37378e;"><a href="/">cliquer ici pour jouer aux jeux</a></span>, sinon cliquez sur leur image.
-    
+    Si vous n'avez pas de référent, vous pouvez toujours <span style="color:#37378e;"><a href="/">cliquer ici pour jouer aux jeux</a></span>, sinon cliquez sur leur image.   
 </div>
-<a href="#" id="txt_show"
-style="text-align:center;background-color: #fcfc6b; padding:10px; margin:auto;font-size:18px; display:none;" onClick="cache();">
-À Propos</a>
+
+<div id="txt_show" style="@if($cookie == 'close')display: none; @endif text-align:center;background-color: #fcfc6b; padding:10px; margin:auto;font-size:18px;">
+  <a href="#" style="text-align:center;background-color: #fcfc6b; padding:10px; margin:auto;font-size:18px;" onClick="cache();">À Propos</a>
+</div>
     <nav>
             <input name="searchterm" class="icon-search" id="searchterm" placeholder="&#xe986; Rechercher un référent" type="text"> 
     </nav>
@@ -56,22 +56,14 @@ style="text-align:center;background-color: #fcfc6b; padding:10px; margin:auto;fo
 </script>
 
 <script>
+
 	function cache() {
-		var txt = document.getElementById('infoHome');
-		var span = document.getElementById('txt_show');
 		
-		if (txt.style.display  ==  "block")
-		{
-			//si le texte est afficher on cache le txt et on affiche le span cache
-			span.style.display = "block";
-			txt.style.display = "none";
-		}	
-		else 
-		{
-			//sinon on affiche le texte et on cache le span
-			span.style.display = "none";
-			txt.style.display = "block";
-		}
+    $.get("toogleInfoBar", function() {});
+
+    // Toogle
+    $('#infoHome').toggle('display');
+    $('#txt_show').toggle('display');
 	}
 </script>
 @endsection

@@ -13,6 +13,7 @@
 // FRONT END PART
 Route::get('choisirref', 'HomeController@choisirRef');
 Route::get('changerref/{id}', 'HomeController@changerRef');
+Route::get('toogleInfoBar', 'HomeController@updateStatusBar'); 
 
 // API FOR AJAX REQUESTS
 Route::get('api/searchRef/{reg?}', 'APIController@refByName');
