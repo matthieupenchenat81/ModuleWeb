@@ -122,8 +122,7 @@ class ReferentController extends Controller {
         if(Input::get('puzzle') != 0)
         ConfigJeu::where('referent_id', '=', Auth::user()->id)->find(Input::get('puzzle'))->update(array('actifPuzzle' => 1));
         
-        Session::flash('message', 'Vous avez modifié les listes associées aux jeux avec succès.');
-        return redirect()->back();
+        return ;
     }
     
     public function ajouterOeuvresDansListe($id) {
