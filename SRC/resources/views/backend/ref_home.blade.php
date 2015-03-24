@@ -278,8 +278,13 @@ $('#imagesSearched').load('{{ URL::to('api/searchOeuvres') }}', function(){$("se
             gutterWidth: 10
     }).masonry('reload');
 };*/
+var toAdd = [];
 
 $('#imagesSearched').on('click', '.pagination a', function (event) {
+    for (i=0; i < document.getElementById('toadd').length; i++) {
+        if(document.getElementById('toadd')[i].selected)
+        toAdd.push(document.getElementById('toadd')[i].value);
+    }
     event.preventDefault();
     if ( $(this).attr('href') != '#' ) {
         $("#imagesSearched").animate({ scrollTop: 0 }, "fast");
@@ -301,6 +306,8 @@ $('#recherche select').multiselect({
     enableCaseInsensitiveFiltering: true
 });
 
+
+
 $("#recherche").on('submit', function(event){
     event.preventDefault();
     $('#imagesSearched').empty();
@@ -315,7 +322,7 @@ $("#recherche").on('submit', function(event){
 });
 
 $(".radioAsso").change(function() {
-	$.get('{{ URL::to('referent/changerparamliste') }}' + $('#assoListeJeu').serialize());
+	$.post('{{ URL::to('referent/changerparamliste') }}', $('#assoListeJeu').serialize());
 });
 
 /*

@@ -13,7 +13,7 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Mes Listes</a></li>
         <li><a data-toggle="modal" data-target="#myModal1" href="#">Mon Compte</a></li>
-        <li><a href="{{ URL::to('changerref', $me->id) }}" >Voir mes jeux</a></li>
+        <li><a href="{{ URL::to('changerref', $me->id) }}" >Essayer mes jeux</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="{{ URL::to('logout') }}">Déconnexion</a></li>
@@ -59,13 +59,13 @@
             <div class="form-group">
               <label for="password_confirm" class="col-sm-4 control-label">Nouveau mot de passe (min. 6 caractères):</label>
               <div class="col-sm-8">
-                <input type="password" class="form-control" id="password" name="password" required placeholder="Mot de passe">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
               </div>
             </div>
             <div class="form-group">
               <label for="password_confirm" class="col-sm-4 control-label">Confirmer le mot de passe :</label>
               <div class="col-sm-8">
-                <input type="password" class="form-control" id="password_confirm" name="password_confirm" required placeholder="Mot de passe">
+                <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Mot de passe">
               </div>
             </div>
             <div class="form-group">
