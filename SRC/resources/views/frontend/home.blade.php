@@ -8,7 +8,7 @@
 
     L'objectif de ce site est de permettre aux enfants de jouer à des jeux tout en leur apportant de l'intérêt pour les différentes oeuvres d'art exposées dans le fameux musée toulousain.<br>
     <span style="color:red;">Lorsque vous aurez choisit un référent, il faudra appuyer pendant 3 secondes sur l'icone de votre référent afin de revenir sur cette page.</span><br>
-    Si vous n'avez pas de référent, vous pouvez toujours <span style="color:#37378e;"><a href="/">cliquer ici pour jouer aux jeux</a></span>, sinon cliquez sur leur image.
+    Si vous n'avez pas de référent, vous pouvez toujours <span style="color:#37378e;"><a href="/changerref/1">cliquer ici pour jouer aux jeux</a></span>, sinon cliquez sur leur image.
     
 </div>
 <a href="#" id="txt_show"
