@@ -13,7 +13,7 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Mes Listes</a></li>
         <li><a data-toggle="modal" data-target="#myModal1" href="#">Mon Compte</a></li>
-        <li><a href="{{ URL::to('changerref', $me->id) }}" >Voir mes jeux</a></li>
+        <li><a href="{{ URL::to('changerref', $me->id) }}" >Essayer mes jeux</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="{{ URL::to('logout') }}">Déconnexion</a></li>
