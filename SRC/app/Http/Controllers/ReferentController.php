@@ -57,21 +57,29 @@ class ReferentController extends Controller {
         $passwd = Input::get('password');
         $passwd_conf = Input::get('password_confirm');
         
-        
-        if($passwd == $passwd_conf) //verifie les donnees pareils
+        if ($passwd == "" && $passwd_conf == "")
         {
-        	if (strlen($passwd) >= 6) //verifie la longueur de chaine
+        	//le mot de passe ne change pas, on peut sauvegarder avec l'ancien
+        	$user->save();
+        }
+        else //le mot de passe n'est pas vide
+        {
+        	if($passwd == $passwd_conf) //verifie les donnees pareils
         	{
-        		$user->motdepasse = Hash::make('secret'); // encrypt le mot de passe
-        		$user->save(); //sauvegarde le mot de passe
-        	}
+        		if (strlen($passwd) >= 6) //verifie la longueur de chaine
+        		{
+        			$user->motdepasse = Hash::make($passwd); // encrypt le mot de passe
+        			$user->save(); //sauvegarde le mot de passe
+        		}
+        		else
+        			return redirect('/referent')->with('erreur', 'Mot de passe inferieure à 6 caractères.');
+				}        
         	else
-        		return redirect('/referent')->with('erreur', 'Mot de passe inferieur à 6 caractères.');
-		}        
-        else
-        {
-        	return redirect('/referent')->with('erreur', 'Mot de passe incorrect.');
-		}
+        	{
+        		return redirect('/referent')->with('erreur', 'Mot de passe incorrect.');
+			}
+        }	
+        
 		
 		if (Request::hasFile('file'))
 		{
