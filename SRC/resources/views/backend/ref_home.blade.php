@@ -31,8 +31,8 @@
                     </div>
                 </div>
             </form>
-            <div class="alert alert-grey">Ci-dessous, vous pouvez associer les listes d'oeuvres à un jeu. Cliquez sur le bouton "<span class="glyphicon glyphicon-ok"> </span> Associer" quand c'est terminé.</div>
-            <form method="post" action="{{ URL::to('referent/changerparamliste') }}">
+            <div class="alert alert-grey">Ci-dessous, vous pouvez associer les listes d'oeuvres à un jeu. </div>
+            <form id ="assoListeJeu" method="post" action="{{ URL::to('referent/changerparamliste') }}">
                 <table class="table">
                     <thead class="tablethead">
                         <tr>
@@ -45,15 +45,15 @@
                     <tbody>
                         <tr>
                             <td>Liste aléatoire</td>
-                            <td><input type="radio" name="memo" value="0" checked type="checkbox"></td>
-                            <td><input type="radio" name="puzzle" value="0" checked type="checkbox"></td>
+                            <td><input class="radioAsso" type="radio" name="memo" value="0" checked type="checkbox"></td>
+                            <td><input class="radioAsso" type="radio" name="puzzle" value="0" checked type="checkbox"></td>
                             <td></td>
                         </tr>
                         @foreach ($meslistes as $index => $listeoeuvre)
                         <tr>
                             <td>{{$listeoeuvre->nom}}</td>
-                            <td><input type="radio" name="memo" value="{{$listeoeuvre->id}}" {{ ($listeoeuvre->actifMemo == 1) ? 'checked' : '' }} type="checkbox"></td>
-                            <td><input type="radio" name="puzzle" value="{{$listeoeuvre->id}}" {{ ($listeoeuvre->actifPuzzle == 1) ? 'checked' : '' }} type="checkbox"></td>
+                            <td><input class="radioAsso" type="radio" name="memo" value="{{$listeoeuvre->id}}" {{ ($listeoeuvre->actifMemo == 1) ? 'checked' : '' }} type="checkbox"></td>
+                            <td><input class="radioAsso" type="radio" name="puzzle" value="{{$listeoeuvre->id}}" {{ ($listeoeuvre->actifPuzzle == 1) ? 'checked' : '' }} type="checkbox"></td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="...">
                                     <a href="{{ URL::to('referent/modifierliste', $listeoeuvre->id) }}" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -66,7 +66,6 @@
             </form>
             </tbody>
             </table>
-            <div class="text-center"><button type="submit" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-ok-circle"> </span> Associer</button></div>
             
         </div>
     </div>
@@ -313,6 +312,11 @@ $("#recherche").on('submit', function(event){
         $("select.multiple").imagepicker();
     });
 
+});
+
+$(".radioAsso").change(function() {
+	console.log('lol');
+	$.get('{{ URL::to('referent/changerparamliste') }}' + $('#assoListeJeu').serialize());
 });
 
 /*
