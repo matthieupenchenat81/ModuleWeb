@@ -14,6 +14,7 @@ use Session;
 use Config;
 use File;
 use Auth;
+use Hash;
 
 class ReferentController extends Controller {
 
@@ -52,10 +53,26 @@ class ReferentController extends Controller {
 		$user = Referent::find($idUser);
         $user->prenom = Input::get('prenom');
         $user->email = Input::get('email');
-        $user->etablissement = Input::get('etablissement');
         $user->nom = Input::get('nom');
+        $passwd = Input::get('password');
+        $passwd_conf = Input::get('password_confirm');
         
-
+        
+        if($passwd == $passwd_conf) //verifie les donnees pareils
+        {
+        	if (strlen($passwd) >= 6) //verifie la longueur de chaine
+        	{
+        		$user->motdepasse = Hash::make('secret'); // encrypt le mot de passe
+        		$user->save(); //sauvegarde le mot de passe
+        	}
+        	else
+        		return redirect('/referent')->with('erreur', 'Mot de passe inferieur à 6 caractères.');
+		}        
+        else
+        {
+        	return redirect('/referent')->with('erreur', 'Mot de passe incorrect.');
+		}
+		
 		if (Request::hasFile('file'))
 		{
             $extension = Input::file('file')->getClientOriginalExtension();
@@ -122,8 +139,7 @@ class ReferentController extends Controller {
         if(Input::get('puzzle') != 0)
         ConfigJeu::where('referent_id', '=', Auth::user()->id)->find(Input::get('puzzle'))->update(array('actifPuzzle' => 1));
         
-        Session::flash('message', 'Vous avez modifié les listes associées aux jeux avec succès.');
-        return redirect()->back();
+        return ;
     }
     
     public function ajouterOeuvresDansListe($id) {

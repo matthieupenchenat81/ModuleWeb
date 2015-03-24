@@ -13,6 +13,7 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Mes Listes</a></li>
         <li><a data-toggle="modal" data-target="#myModal1" href="#">Mon Compte</a></li>
+        <li><a href="{{ URL::to('changerref', $me->id) }}" >Voir mes jeux</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="{{ URL::to('logout') }}">Déconnexion</a></li>
@@ -38,32 +39,38 @@
         <input type="hidden" name="idUser" value="{{ $me->id }}" />
       <div class="modal-body">
             <div class="form-group">
-              <label for="firstname" class="col-sm-3 control-label">Prénom :</label>
-              <div class="col-sm-9">
+              <label for="firstname" class="col-sm-4 control-label">Prénom :</label>
+              <div class="col-sm-8">
                 <input type="text" class="form-control" id="firstname" name="prenom" required placeholder="Prénom" value="{{$me->prenom}}">
               </div>
             </div>
             <div class="form-group">
-              <label for="lastname" class="col-sm-3 control-label">Nom :</label>
-              <div class="col-sm-9">
+              <label for="lastname" class="col-sm-4 control-label">Nom :</label>
+              <div class="col-sm-8">
                 <input type="text" class="form-control" id="lastname" name="nom" required placeholder="Nom" value="{{$me->nom}}">
               </div>
             </div>
             <div class="form-group">
-              <label for="email" class="col-sm-3 control-label">Email :</label>
-              <div class="col-sm-9">
+              <label for="email" class="col-sm-4 control-label">Email :</label>
+              <div class="col-sm-8">
                 <input type="email" class="form-control" id="email" name="email" required placeholder="Email" value="{{$me->email}}">
               </div>
             </div>
             <div class="form-group">
-              <label for="city" class="col-sm-3 control-label">Etablissement :</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="city" name="etablissement" required placeholder="Ecole" value="{{$me->etablissement}}">
+              <label for="password_confirm" class="col-sm-4 control-label">Nouveau mot de passe (min. 6 caractères):</label>
+              <div class="col-sm-8">
+                <input type="password" class="form-control" id="password" name="password" required placeholder="Mot de passe">
               </div>
             </div>
             <div class="form-group">
-    			    <label class="col-sm-3 control-label" for="exampleInputFile">Image :</label>
-    			    <div class="col-sm-9">
+              <label for="password_confirm" class="col-sm-4 control-label">Confirmer le mot de passe :</label>
+              <div class="col-sm-8">
+                <input type="password" class="form-control" id="password_confirm" name="password_confirm" required placeholder="Mot de passe">
+              </div>
+            </div>
+            <div class="form-group">
+    			    <label class="col-sm-4 control-label" for="exampleInputFile">Image :</label>
+    			    <div class="col-sm-8">
                         <input type="file" class="form-control" name="file" id="file">
     			    </div>
             </div>

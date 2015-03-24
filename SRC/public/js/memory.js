@@ -1,13 +1,12 @@
 ;(function( window ) {
 
-  //'use strict';
-
+  // code inspiré de https://github.com/callmenick/Memory
   /**
-   * Extend object function
-   *
-   */
+  * Extend object function
+  *
+  */
 
-   var partieRealise = 0;
+  var partieRealise = 0;
   function extend( a, b ) {
     for( var key in b ) {
       if( b.hasOwnProperty( key ) ) {
@@ -18,9 +17,8 @@
   }
 
   /**
-   * Shuffle array function
-   *
-   */
+  * fonction qui va permettre de mélanger les cartes dans une array
+  */
 
   function shuffle(o) {
     for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -28,9 +26,8 @@
   };
 
   /**
-   * Memory constructor
-   *
-   */
+  * Constructeur du Memory
+  */
 
   function Memory( options, level, nbcase, nbPartie ) {
     this.options = extend( {}, this.options );
@@ -39,11 +36,10 @@
   }
 
   /**
-   * Memory _init - initialise Memory
-   *
-   * Creates all the game content areas, adds the id's and classes, and gets
-   * ready for game setup.
-   */
+  * Memory _init - initialise Memory
+  *
+  *Crée toutes les zones de contenu de jeu, ajoute les id et les classes, et se prépare pour la configuration de jeu.
+  */
 
   Memory.prototype._init = function(level,nbcase, nbPartie) {
 
@@ -71,21 +67,14 @@
   };
 
   /**
-   * Memory _setupGame - Sets up the game
-   *
-   * We're caching all game related variables, and by default, displaying the
-   * meta info bar and start screen HTML.
-   *
-   * A NOTE ABOUT GAME STATES:
-   *
-   * There are 4 game states in total, governed by the variable this.gameState.
-   * Each game state allows for a certain series of functions to be performed.
-   * The gameStates are as follows:
-   *
-   * 1 : default, allows user to choose level
-   * 2 : set when user chooses level, and game is in play
-   * 3 : game is finished
-   */
+  * Memory _setupGame - on définit les paramètres du jeu
+  *
+  * Etats de la variable gameStates:
+  *
+  * 1 : par défaut,ça permet à l'utilisateur de choisir un niveau
+  * 2 : changer le niveau pendant que le joueur joue
+  * 3 : le jeu est fini
+  */
 
   Memory.prototype._setupGame = function(level, nbcase, nbPartie) {
     var self = this;
@@ -104,11 +93,10 @@
   }
 
   /**
-   * Memory _setupGameWrapper
-   *
-   * This function sets up the game wrapper, which is where the actual memory
-   * tiles will reside and where all the game play happens.
-   */
+  * Memory _setupGameWrapper
+  *
+  *Cette fonction définit l'espace du jeu.
+  */
 
   Memory.prototype._setupGameWrapper = function(levelNode,nbcase,nbPartie) {
     this.nbcase = nbcase;
@@ -123,69 +111,54 @@
 
 
   /**
-   * Memory _renderTiles
-   *
-   * This renders the actual tiles with content. A few thing happen here:
-   *
-   * 1. Calculate grid X and Y based on user level selection
-   * 2. Calculate num tiles
-   * 3. Create new cards array based on level, and draw cards from original array
-   * 4. Shuffle the new cards array
-   * 5. Cards get distributed into tiles
-   * 6. gamePlay function gets triggered, taking care of all the game play action.
-   */
+  * Memory _renderTiles
+  *
+  * Dans cette fonction nous définissons le niveau et le nombre de carte enregistré dans la base.
+  * On y créer une array ou on y met les carte. Puis on utilise la fonction shuffle pour mélaner et donc ne pas avoir toutes les cartes à la suite.
+  * Ensuite on affiche les cartes
+  * Puis on déclenche le jeu.
+  */
 
   Memory.prototype._renderTiles = function(nbPartie,nbcase) {
-     if(this.level == 1) {this.gridX = 2; this.gridY= 2; }
-     else if(this.level == 2) {this.gridX = 3; this.gridY= 2; }
-     else { this.gridX = 2; this.gridY=4 ;  }
-  //  this.gridY = this.gridX ;
+    if(this.level == 1) {this.gridX = 2; this.gridY= 2; }
+    else if(this.level == 2) {this.gridX = 3; this.gridY= 2; }
+    else { this.gridX = 2; this.gridY=4 ;  }
     this.numTiles = this.nbcase*2;
     this.halfNumTiles = this.numTiles/2;
     if (this.cards.length < this.halfNumTiles) { console.log("pas assez de carte"); document.getElementById("mg__contents").innerHTML="<img height='80px' src='/imgs/sad.png'><h1>Pas assez de cartes enregistrées par le référent </h1>";}
     else {
 
-    //this.halfNumTiles = this.gridX;
+      this.newCards = [];
+      for ( var i = 0; i < this.halfNumTiles; i++ ) {
+        this.newCards.push(this.cards[i], this.cards[i]);
+      }
+      this.newCards = shuffle(this.newCards);
 
-    this.newCards = [];
-    for ( var i = 0; i < this.halfNumTiles; i++ ) {
-      this.newCards.push(this.cards[i], this.cards[i]);
-    }
-    this.newCards = shuffle(this.newCards);
-
-    this.tilesHTML = '';
-    var n = 0;
-    for ( var i = 0; i < this.numTiles; i++  ) {
-      n = n + 1;
-      if(this.level == 3 && n == 5 ){n = 9}
-      if(this.level == 2 && n == 4 ){n = 7}
-      this.tilesHTML += '<div class="mg__tile mg__tile-' + n + '">\
+      this.tilesHTML = '';
+      var n = 0;
+      for ( var i = 0; i < this.numTiles; i++  ) {
+        n = n + 1;
+        if(this.level == 3 && n == 5 ){n = 9}
+        if(this.level == 2 && n == 4 ){n = 7}
+        this.tilesHTML += '<div class="mg__tile mg__tile-' + n + '">\
         <div class="mg__tile--inner" data-id="' + this.newCards[i]["id"] + '">\
         <span class="mg__tile--outside"></span>\
         <span class="mg__tile--inside" style="background-image:url(' + this.newCards[i]["img"] + ');"></span>';
-        this.tilesHTML +='</div>';
+        this.tilesHTML +='</div></div>';
+      }
 
-
-      /*  if(this.level == 1 && n == 2){
-          this.tilesHTML +="</tr><tr>";
-        }*/
-        this.tilesHTML +="</div>";
+      this.gameContents.innerHTML = this.tilesHTML;
+      this.gameState = 2;
+      this.options.onGameStart();
+      this._gamePlay(this.level, nbPartie, nbcase);
     }
-
-    this.gameContents.innerHTML = this.tilesHTML;
-    this.gameState = 2;
-    this.options.onGameStart();
-    this._gamePlay(this.level, nbPartie, nbcase);
-  }
   }
 
   /**
-   * Memory _gamePlay
-   *
-   * Now that all the HTML is set up, the game is ready to be played. In this
-   * function, we loop through all the tiles (goverend by the .mg__tile--inner)
-   * class, and for each tile, we run the _gamePlayEvents function.
-   */
+  * Memory _gamePlay
+  *Maintenant que tout le HTML est mis en place, le jeu est prêt à être joué.
+  *Dans cette fonction, avec une boucle on ajoute les "tiles" avec la fonction gamePlayEvents.
+  */
 
   Memory.prototype._gamePlay = function(levelNode,nbPartie,nbcase) {
     var tiles = document.querySelectorAll(".mg__tile--inner");
@@ -196,15 +169,10 @@
   };
 
   /**
-   * Memory _gamePlayEvents
-   *
-   * This function takes care of the "events", which is basically the clicking
-   * of tiles. Tiles need to be checked if flipped or not, flipped if possible,
-   * and if zero, one, or two cards are flipped. When two cards are flipped, we
-   * have to check for matches and mismatches. The _gameCardsMatch and
-   * _gameCardsMismatch functions perform two separate sets of functions, and are
-   * thus separated below.
-   */
+  * Memory _gamePlayEvents
+  *Cette fonction prend en charge les «événements», qui est essentiellement le clic sur les "tiles".
+  *Les "titles" sont verifié, savoir si ils sont retourné ou non et vérifier si les deux cartes retourné sont identiques.
+  */
 
   Memory.prototype._gamePlayEvents = function(tile,levelNode,nbPartie,nbcase) {
     var self = this;
@@ -231,30 +199,30 @@
   }
 
   /**
-   * Memory _gameCardsMatch
-   *
-   * This function runs if the cards match. The "correct" class is added briefly
-   * which fades in a background green colour. The times set on the two timeout
-   * functions are chosen based on transition values in the CSS. The "flip" has
-   * a 0.3s transition, so the "correct" class is added 0.3s later, shown for
-   * 1.2s, then removed. The cards remain flipped due to the activated "flip"
-   * class from the gamePlayEvents function.
-   */
+  * Memory _gameCardsMatch
+  *
+  * This function runs if the cards match. The "correct" class is added briefly
+  * which fades in a background green colour. The times set on the two timeout
+  * functions are chosen based on transition values in the CSS. The "flip" has
+  * a 0.3s transition, so the "correct" class is added 0.3s later, shown for
+  * 1.2s, then removed. The cards remain flipped due to the activated "flip"
+  * class from the gamePlayEvents function.
+  */
 
   "document"in self&&("classList"in document.createElement("_")?!function(){"use strict";var a=document.createElement("_");if(a.classList.add("c1","c2"),!a.classList.contains("c2")){var b=function(a){var b=DOMTokenList.prototype[a];DOMTokenList.prototype[a]=function(a){var c,d=arguments.length;for(c=0;d>c;c++)a=arguments[c],b.call(this,a)}};b("add"),b("remove")}if(a.classList.toggle("c3",!1),a.classList.contains("c3")){var c=DOMTokenList.prototype.toggle;DOMTokenList.prototype.toggle=function(a,b){return 1 in arguments&&!this.contains(a)==!b?b:c.call(this,a)}}a=null}():!function(a){"use strict";if("Element"in a){var b="classList",c="prototype",d=a.Element[c],e=Object,f=String[c].trim||function(){return this.replace(/^\s+|\s+$/g,"")},g=Array[c].indexOf||function(a){for(var b=0,c=this.length;c>b;b++)if(b in this&&this[b]===a)return b;return-1},h=function(a,b){this.name=a,this.code=DOMException[a],this.message=b},i=function(a,b){if(""===b)throw new h("SYNTAX_ERR","An invalid or illegal string was specified");if(/\s/.test(b))throw new h("INVALID_CHARACTER_ERR","String contains an invalid character");return g.call(a,b)},j=function(a){for(var b=f.call(a.getAttribute("class")||""),c=b?b.split(/\s+/):[],d=0,e=c.length;e>d;d++)this.push(c[d]);this._updateClassName=function(){a.setAttribute("class",this.toString())}},k=j[c]=[],l=function(){return new j(this)};if(h[c]=Error[c],k.item=function(a){return this[a]||null},k.contains=function(a){return a+="",-1!==i(this,a)},k.add=function(){var a,b=arguments,c=0,d=b.length,e=!1;do a=b[c]+"",-1===i(this,a)&&(this.push(a),e=!0);while(++c<d);e&&this._updateClassName()},k.remove=function(){var a,b,c=arguments,d=0,e=c.length,f=!1;do for(a=c[d]+"",b=i(this,a);-1!==b;)this.splice(b,1),f=!0,b=i(this,a);while(++d<e);f&&this._updateClassName()},k.toggle=function(a,b){a+="";var c=this.contains(a),d=c?b!==!0&&"remove":b!==!1&&"add";return d&&this[d](a),b===!0||b===!1?b:!c},k.toString=function(){return this.join(" ")},e.defineProperty){var m={get:l,enumerable:!0,configurable:!0};try{e.defineProperty(d,b,m)}catch(n){-2146823252===n.number&&(m.enumerable=!1,e.defineProperty(d,b,m))}}else e[c].__defineGetter__&&d.__defineGetter__(b,l)}}(self));
 
 
-    Memory.prototype._gameCardsMatch = function(levelNode, nbPartie,nbcase) {
+  Memory.prototype._gameCardsMatch = function(levelNode, nbPartie,nbcase) {
     // cache this
     var self = this;
 
-    // add correct class
+    // on ajoute la classe correct
     window.setTimeout( function(){
       self.card1.classList.add("correct");
       self.card2.classList.add("correct");
     }, 300 );
 
-    // remove correct class and reset vars
+    // On supprime la classe correct et on réinitialiser les vars
     window.setTimeout( function(){
       self.card1.classList.remove("correct");
       self.card2.classList.remove("correct");
@@ -265,18 +233,18 @@
       }
     }, 500 );
 
-    // plus one on the move counter
+    // on incrémente les compteurs
     this._gameCounterPlusOne();
   };
 
   /**
-   * Memory _gameCardsMismatch
-   *
-   * This function runs if the cards mismatch. If the cards mismatch, we leave
-   * them flipped for a little while so the user can see and remember what cards
-   * they actually are. Then after that slight delay, we removed the flipped
-   * class so they flip back over, and reset the vars.
-   */
+  * Memory _gameCardsMismatch
+  *
+  * This function runs if the cards mismatch. If the cards mismatch, we leave
+  * them flipped for a little while so the user can see and remember what cards
+  * they actually are. Then after that slight delay, we removed the flipped
+  * class so they flip back over, and reset the vars.
+  */
 
   Memory.prototype._gameCardsMismatch = function() {
     // cache this
@@ -294,12 +262,12 @@
   };
 
   /**
-   * Memory _gameResetVars
-   *
-   * For each turn, some variables are updated for reference. After the turn is
-   * over, we need to reset these variables and get ready for the next turn.
-   * This function handles all of that.
-   */
+  * Memory _gameResetVars
+  *
+  * For each turn, some variables are updated for reference. After the turn is
+  * over, we need to reset these variables and get ready for the next turn.
+  * This function handles all of that.
+  */
 
   Memory.prototype._gameResetVars = function() {
     this.card1 = "";
@@ -311,13 +279,13 @@
   }
 
   /**
-   * Memory _gameCounterPlusOne
-   *
-   * Each turn, the user completes 1 "move". The obective of memory is to
-   * complete the game in as few moves as possible. Users need to know how many
-   * moves they've had so far, so this function updates that number and updates
-   * the HTML also.
-   */
+  * Memory _gameCounterPlusOne
+  *
+  * Each turn, the user completes 1 "move". The obective of memory is to
+  * complete the game in as few moves as possible. Users need to know how many
+  * moves they've had so far, so this function updates that number and updates
+  * the HTML also.
+  */
 
   Memory.prototype._gameCounterPlusOne = function() {
     this.numMoves = this.numMoves + 1;
@@ -325,12 +293,12 @@
   };
 
   /**
-   * Memory _clearGame
-   *
-   * This function clears the game wrapper, by removing it from the game div. It
-   * allows us to rerun setupGame, and clears the air for other info like
-   * victory messages etc.
-   */
+  * Memory _clearGame
+  *
+  * This function clears the game wrapper, by removing it from the game div. It
+  * allows us to rerun setupGame, and clears the air for other info like
+  * victory messages etc.
+  */
 
   Memory.prototype._clearGame = function() {
     if (this.gameWrapper.parentNode !== null) this.game.removeChild(this.gameWrapper);
@@ -338,85 +306,69 @@
   }
 
   /**
-   * Memoray _winGame
-   *
-   * You won the game! This function runs the "onGameEnd" callback, which by
-   * default clears the game div entirely and shows a "play again" button.
-   */
-/*
-  Memory.prototype._winGame = function() {
+  * Memoray _winGame
+  * fonction lorsque l'utilisateur à gagné.
+  */
+
+  Memory.prototype._winGame = function(levelNode, nbPartie, nbcase) {
     var self = this;
-    if (this.options.onGameEnd() === false) {
+    this.level = levelNode;
+    partieRealise = partieRealise + 1 ;
+
+    if (partieRealise != nbPartie){
+      // Pour gagner une coupe il y a un certain nombre de partie à faire
       this._clearGame();
-
-      alert("zoro 2");
-      document.location.href="/memo";
-        self.resetGame();
-
-    } else {
-      // run callback
-      this.options.onGameEnd();
-      //alert("coucou");
+      this._init(this.level, nbcase, nbPartie);
     }
-  }
-*/
-Memory.prototype._winGame = function(levelNode, nbPartie, nbcase) {
-  var self = this;
-  this.level = levelNode;
-  partieRealise = partieRealise + 1 ;
 
-  if (partieRealise != nbPartie){
-    this._clearGame();
-    this._init(this.level, nbcase, nbPartie);
-  }
-
-  else if (this.options.onGameEnd() === false) {
-    this._clearGame();
-    firework();
-    //firework2();
-
-    if(levelNode == 1){this.gameMessages.innerHTML = '<img style="height: 270px;" src="/imgs/trophees/bronze.png"><br>\
+    else if (this.options.onGameEnd() === false) {
+      // si il a fini le jeu on le félicite et on lui rajoute aussi des feu d'artifice.
+      this._clearGame();
+      firework();
+      //firework2();
+      // on affiche la bonne coupe en fonction du niveau choisi
+      if(levelNode == 1){this.gameMessages.innerHTML = '<img style="height: 270px;" src="/imgs/trophees/bronze.png"><br>\
       <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';}
 
       else if(levelNode  == 2){this.gameMessages.innerHTML = '<img style="height: 270px;" src="/imgs/trophees/argent.png"><br>\
-        <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';}
-
-        else if(levelNode == 3){this.gameMessages.innerHTML = '<img style="height: 270px;" src="/imgs/trophees/or.png"><br>\
-          <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';}
-
-else
-  {  this.gameMessages.innerHTML = '<h2 class="mg__onend--heading"><span class="icon-trophy"></span></h2>\
       <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';}
 
+      else if(levelNode == 3){this.gameMessages.innerHTML = '<img style="height: 270px;" src="/imgs/trophees/or.png"><br>\
+      <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';}
+
+      else
+      {  this.gameMessages.innerHTML = '<h2 class="mg__onend--heading"><span class="icon-trophy"></span></h2>\
+      <button id="mg__onend--restart" class="mg__button"><span class="icon-spinner11"></span></button>';}
+      // en ajax on incrémente les coupes de l'utilisateur
       var r = new XMLHttpRequest();
       r.open("GET", "/setRecords" + "/" + levelNode, true);
       r.send();
 
       //http://translate.google.com/translate_tts?ie=UTF-8&q=bravo%2C%20tu%20as%20gagn%C3%A9&tl=fr
       //http://translate.google.com/translate_tts?ie=UTF-8&q=bravo%2C%20tu%20as%20gagn%C3%A9&tl=fr&total=1&idx=0&textlen=18&client=t&prev=input
-
+      //une petite voix dit à l'utilisateur qu'il a gagné
       var audio = new Audio();
       var texte = 'http://translate.google.com/translate_tts?ie=UTF-8&q=bravo%2C%20tu%20as%20gagn%C3%A9&tl=fr';
       audio.src =texte;
       audio.play();
-    this.game.appendChild(this.gameMessages);
-    document.getElementById("mg__onend--restart").addEventListener( "click", function(e) {
-      document.location.href="/memo";
-    });
-  } else {
-    // run callback
-    this.options.onGameEnd();
+      this.game.appendChild(this.gameMessages);
+      document.getElementById("mg__onend--restart").addEventListener( "click", function(e) {
+        document.location.href="/memo";
+      });
+    } else {
+      // run callback
+      this.options.onGameEnd();
+    }
   }
-}
 
   /**
-   * Memory resetGame
-   *
-   * This function resets the game. It can run at the end of the game when the
-   * user is presented the option to play again, or at any time like a reset
-   * button. It is a public function, and can be used in whatever custom calls
-   * in your markup.
-   */
+  * Memory resetGame
+  *
+  * This function resets the game. It can run at the end of the game when the
+  * user is presented the option to play again, or at any time like a reset
+  * button. It is a public function, and can be used in whatever custom calls
+  * in your markup.
+  */
 
   Memory.prototype.resetGame = function() {
     this._clearGame();
@@ -424,8 +376,8 @@ else
   };
 
   /**
-   * Add Memory to global namespace
-   */
+  * Add Memory to global namespace
+  */
 
   window.Memory = Memory;
 

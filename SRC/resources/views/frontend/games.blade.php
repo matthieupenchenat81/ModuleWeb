@@ -35,8 +35,8 @@
 <script>
 
     var redirectTimer;
-
-
+	var chiffre;
+	
     imgRef.innerHTML = '&nbsp;';
 
 
@@ -51,13 +51,19 @@
 
     function startCounter(event) {
         absorbEvent_(event);
-        imgRef.innerHTML = 3;
+        chiffre = 3;
+        imgRef.innerHTML = "Redirection <br>"+chiffre;
         redirectTimer = setInterval(counter, 1000);
     }
 
     function counter() {
-            imgRef.innerHTML--;
-            if(imgRef.innerHTML == 0) location.href="{{URL::to('choisirref')}}";
+            chiffre--;
+            imgRef.innerHTML  = "Redirection <br>"+chiffre;
+            if(chiffre == 0) 
+            {
+            	endCounter(null);
+            	location.href="{{URL::to('choisirref')}}";
+            }
     }
 
     function endCounter(event) {
