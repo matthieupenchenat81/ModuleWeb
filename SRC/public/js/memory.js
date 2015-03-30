@@ -89,7 +89,7 @@
     this.flippedTiles = 0;
     this.chosenLevel = "";
     this.numMoves = 0;
-    var dateDebut = new Date();
+    this.dateDebut = new Date();
     this._setupGameWrapper(level, nbcase, nbPartie);
   }
 
