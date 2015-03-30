@@ -20,6 +20,8 @@
 @endsection
 
 @section('page-scripts')
+
+<script src="/js/responsivevoice.js"></script>
 <script src="/js/firework.js"></script>
 
 <!--<script src="/js/fire-work.js"></script>-->

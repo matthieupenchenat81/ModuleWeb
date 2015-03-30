@@ -89,6 +89,7 @@
     this.flippedTiles = 0;
     this.chosenLevel = "";
     this.numMoves = 0;
+    var dateDebut = new Date();
     this._setupGameWrapper(level, nbcase, nbPartie);
   }
 
@@ -347,10 +348,10 @@
       //http://translate.google.com/translate_tts?ie=UTF-8&q=bravo%2C%20tu%20as%20gagn%C3%A9&tl=fr
       //http://translate.google.com/translate_tts?ie=UTF-8&q=bravo%2C%20tu%20as%20gagn%C3%A9&tl=fr&total=1&idx=0&textlen=18&client=t&prev=input
       //une petite voix dit à l'utilisateur qu'il a gagné
-      var audio = new Audio();
-      var texte = 'http://translate.google.com/translate_tts?ie=UTF-8&q=bravo%2C%20tu%20as%20gagn%C3%A9&tl=fr';
-      audio.src =texte;
-      audio.play();
+       var temps = Math.ceil(((new Date()) - dateDebut)/60000);
+                        var texteADire = (temps <= 1) ? "Bravo, tu as mis moins d'une minute." :
+                        "Bravo, tu as mis "+temps+" minutes. ";;
+                        responsiveVoice.speak(texteADire, "French Female");
       this.game.appendChild(this.gameMessages);
       document.getElementById("mg__onend--restart").addEventListener( "click", function(e) {
         document.location.href="/memo";
