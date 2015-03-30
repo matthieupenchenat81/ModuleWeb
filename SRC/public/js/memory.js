@@ -352,11 +352,11 @@
       this.game.appendChild(this.gameMessages);
       document.getElementById("mg__onend--restart").addEventListener( "click", function(e) {
         document.location.href="/memo";
+      });
                var temps = Math.ceil(((new Date()) - dateDebut)/60000);
                         var texteADire = (temps <= 1) ? "Bravo, tu as mis moins d'une minute." :
                         "Bravo, tu as mis "+temps+" minutes. ";;
                         responsiveVoice.speak(texteADire, "French Female");
-      });
     } else {
       // run callback
       this.options.onGameEnd();
