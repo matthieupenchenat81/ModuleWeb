@@ -187,11 +187,10 @@ button.level:active {
 
 .referent:hover
 {
-	-moz-box-shadow: 0px 0px 10px 2px white;
--webkit-box-shadow: 0px 0px 10px 2px white;
--o-box-shadow: 0px 0px 10px 2px white;
-box-shadow: 0px 0px 10px 2px white;
-filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=10);
+-moz-box-shadow: 0px 0px 3px 2px #ffffff;
+-webkit-box-shadow: 0px 0px 3px 2px #ffffff;
+-o-box-shadow: 0px 0px 3px 2px #ffffff;
+box-shadow: 0px 0px 3px 2px #ffffff;
 }
 
 .trophy-text {
