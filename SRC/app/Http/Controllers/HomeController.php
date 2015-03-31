@@ -96,6 +96,7 @@ class HomeController extends Controller {
                  break;
 
              default:
+                 $value = 'open';
                  break;
          }
 
