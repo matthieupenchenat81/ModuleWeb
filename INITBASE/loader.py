@@ -5,6 +5,10 @@ import sys
 import re
 import httplib
 
+if len(sys.argv) < 3:
+    print("Usage : python loader.py <host> <user> <password> <database>")
+    sys.exit(1)
+
 
 def exists(site, path):
 	c = httplib.HTTPConnection(site)
@@ -35,7 +39,7 @@ try :
 	listeAuteur = {}
 	listeDatation = {}
 
-	con = mdb.connect('127.0.0.1', 'root', 'l3miashs2015', 'moduleweb',charset='utf8')
+	con = mdb.connect(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4],charset='utf8')
 	cur = con.cursor()
 	# Suppresion des données existantes dan la bd
 	cur.execute("TRUNCATE table auteurs")
