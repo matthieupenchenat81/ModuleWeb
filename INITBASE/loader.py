@@ -209,7 +209,7 @@ try :
 			i+=1
 	
 	#On Cree utilisateur decouvrir le musee
-	datas = { "id" : "1", "nom": "Découverte", "image" : "imgs/avatar/1.png" }
+	datas = { "id" : "1", "nom": "Découverte", "image" : "imgs/avatar/default.jpg" }
 	insert(cur,"referents",datas)
 	con.commit()
 
